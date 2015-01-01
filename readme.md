@@ -11,3 +11,11 @@ This theme uses SASS. Pre-process any changes to the .scss files using `compass 
 
 ## Compass HB Plugin
 This site-specific plugin contains additional features that are not related to the presentation of content.
+
+## Contributing
+* [Fork](https://help.github.com/articles/fork-a-repo/) the repository on github
+* Commit and push until you are happy with your contribution
+* Make a [pull request](https://help.github.com/articles/using-pull-requests/)
+* Thanks!
+
+[![Build Status](https://travis-ci.org/CompassHB/compasshb.com.svg)](https://travis-ci.org/CompassHB/compasshb.com)
