@@ -1,0 +1,36 @@
+// Colors
+// 
+//Colors should match below
+// 
+//Markup: <div class="{$modifiers}">Reach, teaching, and training.</div>
+// 
+//.red  			- Red text box.
+//.navy-primary   - Navy text box. 
+//.grey-primary   - Grey text box. 
+//.blue		    - Blue text box. 
+// 
+//Styleguide 1.0
+
+$red: #D03B2B;
+$navy-primary: #33778F;
+$navy-secondary: #479E9F;
+$grey-primary: #3C3D41;
+$grey-secondary: #F7F7F7;
+$blue: #88D5EE;
+$dark: #393939;
+
+.red {
+	color: $red;
+}
+
+.navy-primary {
+	color: $navy-primary;
+}
+
+.grey-primary {
+	color: $navy-secondary;
+}
+
+.blue {
+	color: $blue;
+}

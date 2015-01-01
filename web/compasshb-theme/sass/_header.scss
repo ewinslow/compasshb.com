@@ -1,0 +1,27 @@
+/*
+ * Header Styles
+ *
+ */
+
+#site-logo img { 
+	height: 40px; 
+} 
+
+#site-header { 
+	border-bottom: 1px solid #E4E4E4; 
+	background-image: none;
+	background-color: #FFF;
+}
+
+.top-bar-right { 
+	float: right; height: 30px; line-height: 30px; 
+} /* Make height smaller */
+
+@media only screen and (max-width: 767px) { /* For mobile topbar height */	
+	#top-bar { 
+		padding-top: 0px !important; padding-bottom: 0px !important;
+	} 
+	.top-bar-right { 
+		margin-top: 0px !important; 
+	}
+}
