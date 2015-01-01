@@ -3,8 +3,8 @@ lock '3.3.5'
 
 set :application, "compasshb.com"
 set :repo_url, "git@github.com:compasshb/compasshb.com"
-set :tmp_dir, "~/tmp/"
-set :deploy_to, "~/www/#{fetch(:application)}"
+set :tmp_dir, "/home/wp_9xx2cb/tmp/"
+set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
 
 namespace :deploy do
 
