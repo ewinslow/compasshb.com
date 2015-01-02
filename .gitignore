@@ -1,4 +1,11 @@
+# cache
 .sass-cache
 .DS_Store
 .capistrano
+
+# config
 .env
+
+# composer
+wp
+composer.lock
