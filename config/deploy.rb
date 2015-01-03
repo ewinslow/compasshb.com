@@ -12,8 +12,20 @@ SSHKit.config.command_map[:composer] = "/usr/local/php53/bin/php /home/wp_9xx2cb
 
 namespace :deploy do
   
+  desc "Creating shared symlinks"
+  task :create_shared_symlinks do
+    on roles (:web) do
+      execute 'ln -s #{shared_path}/public/.env #{release_path}/public/.env'
+      execute 'ln -s #{shared_path}/public/wp-config.php #{release_path}/public/wp-config.php'
+      execute 'ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads'
+      execute 'ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/plugins/wpseo-video'
+      execute 'ln -s #{shared_path}/public/wp-content/plugins/js_composer #{release_path}/public/plugins/js_composer'
+      execute 'ln -s #{shared_path}/public/wp-contene/themes/Total #{release_path}/public/themes/Total'
+    end
+  end
+  
   after :publishing, :clear_cache do 
-    invoke 'deploy:symlink:shared'
+    invoke 'deploy:create_shared_symlinks'
   end
   
   after :restart, :clear_cache do
