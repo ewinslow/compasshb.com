@@ -41,7 +41,7 @@
 	        "cp -r app/compasshb-plugin public/wp-content/plugins/",
 	        "cp -r app/compasshb-theme public/wp-content/themes/",
 	        "cp -r vendor public/wp-content/",
-			"mkdir public/wp-content/uploads/"
+			"mkdir -p public/wp-content/uploads/"
 		]
 	}
 }
