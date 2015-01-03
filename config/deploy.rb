@@ -9,8 +9,7 @@ set :linked_files, %w{public/.env public/wp-config.php}
 set :linked_dirs, %w{public/wp-content/uploads public/wp-content/plugins/wpseo-video public/wp-content/themes/Total public/wp-content/plugins/js_composer}
 
 SSHKit.config.command_map[:composer] = "/home/wp_9xx2cb/.composer/vendor/bin/composer"
-set :default_environment, { 'PATH' => "/usr/local/php53/bin/:$PATH" }
-
+SSHKit.config.command_map[:php] = "/usr/local/php53/bin/php"
 
 namespace :deploy do
 
