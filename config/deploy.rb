@@ -11,12 +11,13 @@ set :linked_dirs, %w{public/wp-content/uploads public/wp-content/plugins/wpseo-v
 SSHKit.config.command_map[:composer] = "/usr/local/php53/bin/php /home/wp_9xx2cb/.composer/vendor/bin/composer"
 
 namespace :deploy do
-
+  
+  after :publishing, :clear_cache do 
+    invoke 'deploy:symlink:shared'
+  end
+  
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      
-      invoke 'deploy:symlink:shared'
-
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
