@@ -5,7 +5,7 @@ set :application, "compasshb.com"
 set :repo_url, "git@github.com:compasshb/compasshb.com.git"
 set :tmp_dir, "/home/wp_9xx2cb/tmp/"
 set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
-set :linked_files, %w{.env wp/wp-config.php wp/wp-content/uploads wp/wp-content/plugins/wpseo-video wp/wp-content/themes/Total}
+set :linked_files, %w{public/.env public/wp-config.php public/wp-content/uploads public/wp-content/plugins/wpseo-video public/wp-content/themes/Total public/wp-content/plugins/js_composer}
 
 namespace :deploy do
 

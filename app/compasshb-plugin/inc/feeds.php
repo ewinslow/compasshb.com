@@ -42,8 +42,6 @@ add_action( 'template_redirect', 'compasshb_rewrite_catch_form' );
 
 // Handle the endpoint
 
-require_once (plugin_dir_path( __FILE__ ) . '../lib/vimeo.php/autoload.php');
-
 function compasshb_rewrite_catch_form() {
 	if( is_singular() && get_query_var( 'podcast' ) && get_post_type() == 'sermon' ) {
 		$post = get_queried_object();

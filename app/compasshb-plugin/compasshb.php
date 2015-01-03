@@ -9,11 +9,11 @@
  *
  */
 
-include_once 'lib/phpdotenv/dotenv.php';
-Dotenv::load(__DIR__ . '/../../');
+/* Load composer dependency */
+require (dirname(__FILE__) . '/../../vendor/autoload.php');
 
 define( 'ACF_LITE', true );
-include_once 'lib/advanced-custom-fields/acf.php';
+Dotenv::load(__DIR__ . '/../../../');
 
 /* Custom Data Models */ 
 include_once 'custom-types.php';

@@ -5,8 +5,6 @@
  *
  */
 
-require_once (plugin_dir_path( __FILE__ ) . '../../lib/vimeo.php/autoload.php');
-
 function get_vimeo_thumb($video_field) {
 	
 	$video_field = substr($video_field, strrpos($video_field, '/') + 1);

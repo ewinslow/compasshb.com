@@ -7,5 +7,6 @@
 .env
 
 # composer
-wp
+vendor
+public
 composer.lock
