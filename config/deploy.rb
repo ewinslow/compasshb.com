@@ -14,13 +14,13 @@ namespace :deploy do
   
   desc "Creating shared symlinks"
   task :create_shared_symlinks do
-    on roles (:web) do
-      execute 'ln -s #{shared_path}/public/.env #{release_path}/public/.env'
-      execute 'ln -s #{shared_path}/public/wp-config.php #{release_path}/public/wp-config.php'
-      execute 'ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads'
-      execute 'ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/plugins/wpseo-video'
-      execute 'ln -s #{shared_path}/public/wp-content/plugins/js_composer #{release_path}/public/plugins/js_composer'
-      execute 'ln -s #{shared_path}/public/wp-contene/themes/Total #{release_path}/public/themes/Total'
+    on roles(:web) do
+      execute "ln -s #{shared_path}/public/.env', release_path.join('/public/.env')"
+      execute "ln -s #{shared_path}/public/wp-config.php #{release_path}/public/wp-config.php"
+      execute "ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads"
+      execute "ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/plugins/wpseo-video"
+      execute "ln -s #{shared_path}/public/wp-content/plugins/js_composer #{release_path}/public/plugins/js_composer"
+      execute "ln -s #{shared_path}/public/wp-contene/themes/Total #{release_path}/public/themes/Total"
     end
   end
   
