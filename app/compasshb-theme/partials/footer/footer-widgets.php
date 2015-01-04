@@ -84,11 +84,10 @@ $grid_class	= wpex_grid_class( $columns ); ?>
 			<div class="footer-widget widget_text clr">
 				<div class="widget-title">Contact Us</div>
 				<div class="textwidget">
-					<strong>Office</strong><br/>
 					Compass Bible Church<br/>
-					16168 Beach Blvd<br/>
-					Huntington Beach, CA 92647<br/>
-					(714) 375-5817<br/><br/>
+					5082 Argosy<br/>
+					Huntington Beach, CA 92649<br/>
+					(714) 895-0034<br/><br/>
 					<a href="mailto:info@compasshb.com">info@compasshb.com</a>
 				</div>
 			</div>
