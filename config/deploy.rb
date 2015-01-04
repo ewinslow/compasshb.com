@@ -3,7 +3,7 @@ lock '3.3.5'
 
 set :application, "compasshb.com"
 set :repo_url, "git@github.com:compasshb/compasshb.com.git"
-set :tmp_dir, "/home/wp_9xx2cb/tmp/"
+set :tmp_dir, "/home/wp_9xx2cb/tmp"
 set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
 
 SSHKit.config.command_map[:composer] = "/usr/local/php53/bin/php /home/wp_9xx2cb/.composer/vendor/bin/composer"
@@ -16,7 +16,8 @@ namespace :deploy do
       execute "ln -s #{shared_path}/public/.env #{release_path}/public/.env"
       execute "ln -s #{shared_path}/public/.htaccess #{release_path}/public/.htaccess"
       execute "ln -s #{shared_path}/public/wp-config.php #{release_path}/public/wp-config.php"
-      execute "rm -rf #{release_path}/public/wp-content/uploads && ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads"
+      execute "rm -rf #{release_path}/public/wp-content/uploads"
+      execute "ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads"
       execute "ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/wp-content/plugins/wpseo-video"
       execute "ln -s #{shared_path}/public/wp-content/plugins/js_composer #{release_path}/public/wp-content/plugins/js_composer"
       execute "ln -s #{shared_path}/public/wp-content/themes/Total #{release_path}/public/wp-content/themes/Total"
