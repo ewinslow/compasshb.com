@@ -1,16 +1,17 @@
 {
-	"name": "compasshb/compasshb.com",
-	"description": "compasshb.com",
-	"repositories" : [
-		{
-            "type":"composer",
-            "url":"http://wpackagist.org"
+    "name": "compasshb/compasshb.com",
+    "description": "compasshb.com",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org"
         }
     ],
-	"require" : {
-		"johnpbloch/wordpress": "4.1",
+    "require": {
+        "php": "~5.4",
+        "johnpbloch/wordpress": "4.1",
         "wpackagist-plugin/404-notifier": "1.3",
-		"wpackagist-plugin/advanced-custom-fields": "4.3.9",
+        "wpackagist-plugin/advanced-custom-fields": "4.3.9",
         "wpackagist-plugin/alpine-photo-tile-for-instagram": "1.2.7.3",
         "wpackagist-plugin/alpine-photo-tile-for-smugmug": "1.2.3.2",
         "wpackagist-plugin/broken-link-checker": "1.10.4",
@@ -23,24 +24,31 @@
         "wpackagist-plugin/vaultpress": "1.6.9",
         "wpackagist-plugin/w3-total-cache": "0.9.4.1",
         "wpackagist-plugin/wordpress-seo": "1.7.1",
-		"wp-cli/wp-cli": "0.17.1",
+        "wp-cli/wp-cli": "0.17.1",
         "bugsnag/bugsnag": "2.*",
         "vimeo/vimeo-api": "1.*",
         "vlucas/phpdotenv": "1.*"
-	},
-	"extra" : {
-	    "wordpress-install-dir": "public",
-	    "installer-paths" : {
-	      "public/wp-content/plugins/{$name}/" 	: ["type:wordpress-plugin"],
-	      "public/wp-content/themes/{$name}/"	: ["type:wordpress-theme"]
-	    }
-	},
-	"scripts" : {
-		"post-install-cmd" : [
-	        "cp -r app/compasshb-plugin public/wp-content/plugins/",
-	        "cp -r app/compasshb-theme public/wp-content/themes/",
-	        "cp -r vendor public/wp-content/",
-			"mkdir -p public/wp-content/uploads/"
-		]
-	}
+    },
+    "extra": {
+        "wordpress-install-dir": "public",
+        "installer-paths": {
+            "public/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "public/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp -r app/compasshb-plugin public/wp-content/plugins/",
+            "cp -r app/compasshb-theme public/wp-content/themes/",
+            "cp -r vendor public/wp-content/",
+            "mkdir -p public/wp-content/uploads/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    }
 }
