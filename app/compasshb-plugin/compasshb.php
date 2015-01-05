@@ -21,10 +21,6 @@ include_once 'custom-fields.php';
 include_once 'custom-columns.php';
 include_once 'custom-taxonomies.php';
 
-/* Visual Composer Extensions */
-include_once 'inc/visual-composer-extension/compasshb-grid.php';
-include_once 'inc/visual-composer-extension/compasshb-hero-video.php';
-
 /* Wordpress Admin/Dashboard Specific */
 include_once 'inc/admin.php';
 

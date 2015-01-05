@@ -19,7 +19,6 @@ namespace :deploy do
       execute "rm -rf #{release_path}/public/wp-content/uploads"
       execute "ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads"
       execute "ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/wp-content/plugins/wpseo-video"
-      execute "ln -s #{shared_path}/public/wp-content/plugins/js_composer #{release_path}/public/wp-content/plugins/js_composer"
       execute "ln -s #{shared_path}/public/wp-content/themes/Total #{release_path}/public/wp-content/themes/Total"
     end
   end
