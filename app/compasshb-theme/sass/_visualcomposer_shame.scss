@@ -3,6 +3,16 @@
  * Copyright 2011-2014 Michael M - WPBakery.com
  */
 
+#gform_wrapper_2 form {
+    text-align: center;
+}
+
+/* Scripture of the Day row, left column */
+.column-no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 /** Front end editor */
 .thumbnail > img,
 .thumbnail a > img,
