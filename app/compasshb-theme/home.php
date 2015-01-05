@@ -125,10 +125,10 @@ get_header(); ?>
               <div class="center-row-inner clr">
                 <div class="vc_col-sm-6 wpb_column clr column_container">
                   <div class="wpb_single_image clr wpb_content_element vc_align_none">
-                    <div class="wpb_wrapper"><img width="330" height="150" src=
-                    "http://www.compasshb.com/wp-content/uploads/2014/10/marina-high-school-ampitheater.png"
-                    class=" vc_box_border_grey attachment-full" alt=
-                    "marina-high-school-ampitheater" /></div><!-- .wpb_wrapper -->
+                    <div class="wpb_wrapper">
+						<h2>Directions</h2>
+                    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26542.154928917666!2d-118.04023219999998!3d33.7407795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1420493991035" width="400" height="300" frameborder="0" style="border:0"></iframe>
+					</div><!-- .wpb_wrapper -->
                   </div><!-- .wpb_single_image -->
                 </div>
 
