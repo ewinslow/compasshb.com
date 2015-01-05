@@ -10,15 +10,6 @@ date_default_timezone_set('America/Los_Angeles');
 /* Disable W3TC footer comment */
 add_filter( 'w3tc_can_print_comment', function( $w3tc_setting ) { return false; }, 10, 1 );
 
-/* Disable Visual Composer Comment */
-add_action('init', 'myoverride', 100);
-
-function myoverride() { 
-	
-	remove_action('wp_head', array(visual_composer(), 'addMetaData'));
-
-}
-
 add_action('wp_head','hook_javascript');
 
 function hook_javascript() {
