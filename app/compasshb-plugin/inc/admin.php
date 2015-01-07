@@ -73,7 +73,7 @@ function compass_video_og() {
 		
 	global $post;
 	
-	if($post->post_type == 'page' && $post->ID == '485') {
+	if($post && $post->post_type == 'page' && $post->ID == '485') {
 		
 		// Find most recent sermon video
 		$args = array (
