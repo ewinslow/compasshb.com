@@ -23,10 +23,19 @@ namespace :deploy do
     end
   end
   
+  desc "Generating stylesheets"
+  task :generate_styles do
+    on roles(:web) do
+      execute "bower install #{release_path}"
+      execute "compass compile #{release_path}"
+    end
+  end
+    
   after :publishing, :clear_cache do 
     invoke 'deploy:create_shared_symlinks'
+    invoke 'deploy:generate_styles'
   end
-  
+    
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:

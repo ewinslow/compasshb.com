@@ -7,3 +7,7 @@
 vendor
 public
 composer.lock
+
+#bower
+app/compasshb-theme/sass/bootstrap-sass
+app/compasshb-theme/sass/jquery
