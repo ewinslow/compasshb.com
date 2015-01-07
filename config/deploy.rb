@@ -8,7 +8,7 @@ set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
 
 SSHKit.config.command_map[:composer]  = "/usr/local/php53/bin/php /home/wp_9xx2cb/.composer/vendor/bin/composer"
 SSHKit.config.command_map[:bower]     = "/home/wp_9xx2cb/.local/usr/bin/bower"
-SSHKIT.config.command_map[:compass]   = "/home/wp_9xx2cb/.gems/bin/compass"
+SSHKit.config.command_map[:compass]   = "/home/wp_9xx2cb/.gems/bin/compass"
 
 namespace :deploy do
   
