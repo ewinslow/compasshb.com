@@ -41,3 +41,21 @@ function robots_mod( $output, $public ) {
 	$output = $comment1 . $output . $comment2;
 	return $output;
 }
+
+/* 404 Monitor */
+function chb_404_monitor() {
+	global $wp_query;
+	
+	$status_not_found = $wp_query->is_404;
+	
+	if ($status_not_found) {
+		
+		$to = get_option('admin_email');
+		$subject = '404: ' . $_SERVER['REQUEST_URI'];
+		$content = '404 URL: ' . $_SERVER['REQUEST_URI'] . '\n\n' . 'Referred by: ' . isset($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'] . '\n\n' . 'User Agent: ' . $_SERVER['HTTP_USER_AGENT'];
+		@mail($to, $subject, $content);
+		
+	}
+}
+
+add_action('get_header', 'chb_404_monitor');
