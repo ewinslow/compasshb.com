@@ -7,8 +7,6 @@ set :tmp_dir, "/home/wp_9xx2cb/tmp"
 set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
 
 SSHKit.config.command_map[:composer]  = "/usr/local/php53/bin/php /home/wp_9xx2cb/.composer/vendor/bin/composer"
-SSHKit.config.command_map[:bower]     = "/home/wp_9xx2cb/.local/usr/bin/bower"
-SSHKit.config.command_map[:compass]   = "/home/wp_9xx2cb/.gems/bin/compass"
 
 namespace :deploy do
   
@@ -28,9 +26,9 @@ namespace :deploy do
   desc "Generating stylesheets"
   task :generate_styles do
     on roles(:web) do
-      execute "bower install #{release_path}"
-      execute "compass compile #{release_path}"
-    end
+      execute "cd #{release_path} && /home/wp_9xx2cb/.local/usr/bin/node /home/wp_9xx2cb/.local/usr/bin/bower install"
+      execute "export GEM_PATH=/home/wp_9xx2cb/.gems/ && echo $GEM_PATH && cd #{release_path} && /home/wp_9xx2cb/.gems/bin/compass compile --trace"
+      end
   end
     
   after :publishing, :clear_cache do 

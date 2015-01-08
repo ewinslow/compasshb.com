@@ -2,6 +2,7 @@
 !.travis.yml
 !.gitignore
 !.env.example
+!.bowerrc
 
 # composer
 vendor
