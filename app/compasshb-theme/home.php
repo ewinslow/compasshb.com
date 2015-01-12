@@ -52,7 +52,7 @@ get_header(); ?>
 		<div class="col-md-8" style="background-image: url(http://www.compasshb.com/wp-content/uploads/2014/07/TabletPad-1Thessalonians5-r1.jpg); padding-top: 400px; background-position: left top; background-size: contain; background-repeat: no-repeat"></div>	
 		<div class="col-md-4" style="padding-top: 40px;min-height: 380px">
 	      <h1 style="text-align: center;"><span style="font-size: 36px;">Scripture of the Day</span></h1>
-		  <p style="text-align: center;"><span style="font-size: medium;">Get energized by reading a passage of scripture each day with our church! Be encouraged by what other people have to say about the passage and share your thoughts!</span><br/><br/><a class="btn btn-default" href="red" role="button">Read Now</a></p>
+		  <p style="text-align: center;"><span style="font-size: medium;">Get energized by reading a passage of scripture each day with our church! Be encouraged by what other people have to say about the passage and share your thoughts!</span><br/><br/><a class="btn btn-default" href="read" role="button">Read Now</a></p>
 	    </div>
 	</div>
 
