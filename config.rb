@@ -7,6 +7,7 @@ css_dir = "app/compasshb-theme"
 sass_dir = "app/compasshb-theme/sass"
 images_dir = "app/compashb-theme/images"
 javascripts_dir = "app/compasshb-theme/scripts"
+fonts_dir = "app/compasshb-theme/fonts"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
