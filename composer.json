@@ -10,7 +10,6 @@
     "require": {
         "johnpbloch/wordpress": "4.1",
         "wpackagist-plugin/advanced-custom-fields": "4.3.9",
-        "wpackagist-plugin/alpine-photo-tile-for-instagram": "1.2.7.3",
         "wpackagist-plugin/alpine-photo-tile-for-smugmug": "1.2.3.2",
         "wpackagist-plugin/broken-link-checker": "1.10.4",
         "wpackagist-plugin/disqus-comment-system": "2.84",

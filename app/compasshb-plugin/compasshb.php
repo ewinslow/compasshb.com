@@ -27,6 +27,7 @@ include_once 'inc/admin.php';
 /* APIs */
 include_once 'inc/api/vimeo.php';
 include_once 'inc/api/esv.php';
+include_once 'inc/api/smugmug.php';
 include_once 'inc/feeds.php';
 include_once 'inc/random-sermon.php';
 
