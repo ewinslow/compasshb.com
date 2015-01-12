@@ -155,3 +155,34 @@ function my_admin_taxonomy_select_meta_box($post, $box) {
     </div>
     <?php
 }
+
+function chb_the_sermon() {
+
+	$results = array();
+
+	rewind_posts();
+	query_posts( 'post_type=sermon&posts_per_page=5' );
+
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+		if (get_field('video_oembed')) {
+	
+			$worksheet = get_field("sermon_worksheet");
+		
+			if (wp_is_mobile()) {
+				$results['oembed'] = wp_oembed_get(get_field('video_oembed'), array('height' => '205'));
+			} else {
+				$results['oembed'] = wp_oembed_get(get_field('video_oembed'), array('height' => '500'));
+			}
+		
+			$results['permalink'] = get_the_permalink();
+			$results['title'] = get_the_title();
+			$results['worksheet'] = $worksheet;
+		
+			break;
+		}
+
+	endwhile; endif; 
+	
+	return $results;
+}
