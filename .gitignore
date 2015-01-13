@@ -4,11 +4,21 @@
 !.env.example
 !.bowerrc
 
-# composer
-vendor
-public
-composer.lock
+public/*
+!public/wp-content/
 
-#bower
-app/compasshb-theme/sass/styleguide
-app/compasshb-theme/sass/jquery
+public/wp-content/*
+!public/wp-content/plugins
+!public/wp-content/themes
+
+public/wp-content/plugins/*
+!public/wp-content/plugins/compasshb-plugin/
+
+public/wp-content/themes/*
+!public/wp-content/themes/compasshb-theme/
+
+public/wp-content/themes/compasshb-theme/sass/styleguide
+public/wp-content/themes/compasshb-theme/sass/jquery
+
+vendor
+composer.lock
