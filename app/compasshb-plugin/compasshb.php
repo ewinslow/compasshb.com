@@ -53,7 +53,9 @@ function chb_404_monitor() {
 		
 		$to = get_option('admin_email');
 		$subject = '404: ' . $_SERVER['REQUEST_URI'];
-		$content = '404 URL: ' . $_SERVER['REQUEST_URI'] . '\n\n' . 'Referred by: ' . isset($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'] . '\n\n' . 'User Agent: ' . $_SERVER['HTTP_USER_AGENT'];
+		$content = '404 URL: ' . $_SERVER['REQUEST_URI'] . '\n\n';
+		$content .= 'Referred by: ' . isset($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'];
+		$content .= '\n\n' . 'User Agent: ' . $_SERVER['HTTP_USER_AGENT'];
 		@mail($to, $subject, $content);
 		
 	}

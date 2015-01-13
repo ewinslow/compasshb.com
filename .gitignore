@@ -10,5 +10,5 @@ public
 composer.lock
 
 #bower
-app/compasshb-theme/sass/bootstrap-sass
+app/compasshb-theme/sass/styleguide
 app/compasshb-theme/sass/jquery
