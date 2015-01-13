@@ -16,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "git://github.com/compasshb/bootstrap-sass#~3.3.1"
+    "styleguide": "git://github.com/compasshb/styleguide#~3.3.1"
   }
 }
