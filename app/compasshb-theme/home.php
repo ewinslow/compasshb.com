@@ -4,9 +4,10 @@ get_header(); ?>
 
 <div class="container-fluid">
 
- 	<div class="row">
-		<img width="2458" height="1260" src="/wp-content/uploads/2014/07/ournewhome.jpg" alt="Our New Home" />
-		<img width="2448" height="1268" src="/wp-content/uploads/2015/01/week-of-welcome-e1421165621251.png" alt="Week of Welcome" />
+ 	<div class="row" style="text-align: center">
+		<p><a href="http://www.evangelismeveryday.com/jesus-move/" target="_top">Special Announcement</a></p>
+		<p>Please join us for three nights of Open House at our new building 5082 Argosy Avenue here in Huntington Beach.<Br/>Tonight, Wednesday and Thursday at 6:30 the doors are open! Kids Ministry Provided.</p>
+		<p><a href="http://www.evangelismeveryday.com/jesus-move/" target="_top">Read more...</a></p>
   	</div>
 
   	<div class="row" style="background-image: url(http://www.compasshb.com/wp-content/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
