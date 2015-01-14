@@ -6,7 +6,7 @@ get_header(); ?>
 
  	<div class="row" style="text-align: center">
 		<p><a href="http://www.evangelismeveryday.com/jesus-move/" target="_top">Special Announcement</a></p>
-		<p>Please join us for three nights of Open House at our new building 5082 Argosy Avenue here in Huntington Beach.<Br/>Tonight, Wednesday and Thursday at 6:30 the doors are open! Kids Ministry Provided.</p>
+		<p>Please join us for three nights of Open House at our new building 5082 Argosy Avenue here in Huntington Beach.<Br/>Tonight and Thursday at 6:30 the doors are open! Kids Ministry Provided.</p>
 		<p><a href="http://www.evangelismeveryday.com/jesus-move/" target="_top">Read more...</a></p>
   	</div>
 
