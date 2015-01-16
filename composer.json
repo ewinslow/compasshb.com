@@ -13,6 +13,7 @@
         }
     },
     "require": {
+        "php": "~5.4",
         "johnpbloch/wordpress": "4.1",
         "wpackagist-plugin/advanced-custom-fields": "4.3.9",
         "wpackagist-plugin/broken-link-checker": "1.10.4",
