@@ -17,3 +17,5 @@ output_style = :compressed
 # To enable relative paths to assets via compass helper functions.
 # note: this is important in wordpress themes for sprites
 relative_assets = true
+
+add_import_path "vendor/twbs/bootstrap-sass/assets/stylesheets"

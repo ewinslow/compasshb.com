@@ -5,7 +5,11 @@
         {
             "type": "composer",
             "url": "http://wpackagist.org"
-        }
+        },
+		{
+			"type": "vcs",
+			"url": "https://github.com/compasshb/bootstrap-sass.git"
+		}
     ],
     "autoload": {
         "psr-4": {
@@ -30,7 +34,8 @@
         "bugsnag/bugsnag": "2.*",
         "vimeo/vimeo-api": "1.*",
         "vlucas/phpdotenv": "1.*",
-        "guzzlehttp/guzzle": "~5.1"
+        "guzzlehttp/guzzle": "~5.1",
+		"twbs/bootstrap-sass": "dev-master"
     },
     "extra": {
         "wordpress-install-dir": "public",
@@ -45,7 +50,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "cp -r app/compasshb-plugin public/wp-content/plugins/",
+	        "cp -r app/compasshb-plugin public/wp-content/plugins/",
             "cp -r app/compasshb-theme public/wp-content/themes/",
             "cp -r vendor public/wp-content/",
             "mkdir -p public/wp-content/uploads/"
