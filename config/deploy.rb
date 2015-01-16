@@ -6,7 +6,8 @@ set :repo_url, "git@github.com:compasshb/compasshb.com.git"
 set :tmp_dir, "/home/wp_9xx2cb/tmp"
 set :deploy_to, "/home/wp_9xx2cb/www/#{fetch(:application)}"
 
-SSHKit.config.command_map[:composer]  = "/usr/local/php53/bin/php /home/wp_9xx2cb/.composer/vendor/bin/composer"
+SSHKit.config.command_map[:composer]  = "/usr/local/php54/bin/php -d extension=phar.so /home/wp_9xx2cb/.composer/vendor/bin/composer"
+# set :composer_install_flags, '--no-dev --no-interaction --optimize-autoloader -vvv'
 
 namespace :deploy do
   
