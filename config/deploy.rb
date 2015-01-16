@@ -27,7 +27,6 @@ namespace :deploy do
   desc "Generating stylesheets"
   task :generate_styles do
     on roles(:web) do
-      execute "cd #{release_path} && /home/wp_9xx2cb/.local/usr/bin/node /home/wp_9xx2cb/.local/usr/bin/bower install"
       execute "export GEM_PATH=/home/wp_9xx2cb/.gems/ && echo $GEM_PATH && cd #{release_path} && /home/wp_9xx2cb/.gems/bin/compass compile --trace"
       end
   end
