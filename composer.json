@@ -7,6 +7,11 @@
             "url": "http://wpackagist.org"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "CompassHB\\": "src/"
+        }
+    },
     "require": {
         "johnpbloch/wordpress": "4.1",
         "wpackagist-plugin/advanced-custom-fields": "4.3.9",
@@ -23,7 +28,8 @@
         "wp-cli/wp-cli": "0.17.1",
         "bugsnag/bugsnag": "2.*",
         "vimeo/vimeo-api": "1.*",
-        "vlucas/phpdotenv": "1.*"
+        "vlucas/phpdotenv": "1.*",
+        "guzzlehttp/guzzle": "~5.1"
     },
     "extra": {
         "wordpress-install-dir": "public",
