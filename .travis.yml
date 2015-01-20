@@ -2,3 +2,5 @@ language: php
 php: "5.4"
 install: composer install
 sudo: false
+script:
+    - php php-cs-fixer --diff --dry-run -v fix
