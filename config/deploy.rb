@@ -14,20 +14,19 @@ namespace :deploy do
   desc "Creating shared symlinks"
   task :create_shared_symlinks do
     on roles(:web) do
-      execute "ln -s #{shared_path}/public/.env #{release_path}/public/.env"
-      execute "ln -s #{shared_path}/public/.htaccess #{release_path}/public/.htaccess"
-      execute "ln -s #{shared_path}/public/wp-config.php #{release_path}/public/wp-config.php"
-      execute "rm -rf #{release_path}/public/wp-content/uploads"
-      execute "ln -s #{shared_path}/public/wp-content/uploads #{release_path}/public/wp-content/uploads"
-      execute "ln -s #{shared_path}/public/wp-content/plugins/wpseo-video #{release_path}/public/wp-content/plugins/wpseo-video"
-      execute "ln -s #{shared_path}/public/wp-content/themes/Total #{release_path}/public/wp-content/themes/Total"
+      execute "ln -s #{shared_path}/config/.env #{release_path}/config/.env"
+      execute "ln -s #{shared_path}/web/.htaccess #{release_path}/web/.htaccess"
+      execute "ln -s #{shared_path}/config/wp-config.php #{release_path}/config/wp-config.php"
+      execute "rm -rf #{release_path}/web/app/uploads"
+      execute "ln -s #{shared_path}/web/app/uploads #{release_path}/web/app/uploads"
+      execute "ln -s #{shared_path}/web/app/plugins/wpseo-video #{release_path}/web/app/plugins/wpseo-video"
     end
   end
   
   desc "Generating stylesheets"
   task :generate_styles do
     on roles(:web) do
-      execute "export GEM_PATH=/home/wp_9xx2cb/.gems/ && echo $GEM_PATH && cd #{release_path} && /home/wp_9xx2cb/.gems/bin/compass compile --trace"
+      execute "export GEM_PATH=/home/wp_9xx2cb/.gems/ && echo $GEM_PATH && cd #{release_path} && /home/wp_9xx2cb/.gems/bin/compass compile config --trace"
       end
   end
     

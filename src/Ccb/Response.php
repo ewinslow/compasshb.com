@@ -1,4 +1,6 @@
 <?php
 namespace CompassHB\Ccb;
 
-interface Response {}
+interface Response
+{
+}

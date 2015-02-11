@@ -1,5 +1,4 @@
-<?php
-namespace CompassHB\Ccb;
+<?php namespace CompassHB\Ccb;
 
 use GuzzleHttp\Client;
 use SimpleXMLElement;
