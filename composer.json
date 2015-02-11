@@ -5,59 +5,42 @@
         {
             "type": "composer",
             "url": "http://wpackagist.org"
-        },
-		{
-			"type": "vcs",
-			"url": "https://github.com/compasshb/bootstrap-sass.git"
-		}
+        }
     ],
+    "require": {
+        "php": "~5.4",
+        "johnpbloch/wordpress": "4.1",
+        "bugsnag/bugsnag": "2.*",
+        "vimeo/vimeo-api": "1.*",
+        "vlucas/phpdotenv": "1.*",
+        "guzzlehttp/guzzle": "~5.1",
+        "wpackagist-plugin/disqus-comment-system": "2.84",
+        "wpackagist-plugin/feedpress": "1.6.1",
+        "wpackagist-plugin/jetpack": "3.*",
+        "wpackagist-plugin/varnish-http-purge": "3.6",
+        "wpackagist-plugin/vaultpress": "1.7.0",
+        "wpackagist-plugin/w3-total-cache": "0.9.4.1",
+        "wpackagist-plugin/wordpress-seo": "1.7.1",
+        "wpackagist-plugin/simple-history": "2.0.19",
+        "wpackagist-plugin/restrict-categories": "2.6.3",
+        "wpackagist-plugin/remove-category-url": "0.1.0",
+        "wpackagist-plugin/jetpack": "3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4",
+        "wp-cli/wp-cli": "0.17.1"
+    },
     "autoload": {
         "psr-4": {
             "CompassHB\\": "src/"
         }
     },
-    "require": {
-        "php": "~5.4",
-        "johnpbloch/wordpress": "4.1",
-        "wpackagist-plugin/advanced-custom-fields": "4.3.9",
-        "wpackagist-plugin/broken-link-checker": "1.10.4",
-        "wpackagist-plugin/disqus-comment-system": "2.84",
-        "wpackagist-plugin/feedpress": "1.6.1",
-        "wpackagist-plugin/jetpack": "3.3",
-        "wpackagist-plugin/redirection": "2.3.11",
-        "wpackagist-plugin/user-role-editor": "4.18.1",
-        "wpackagist-plugin/varnish-http-purge": "3.5.1",
-        "wpackagist-plugin/vaultpress": "1.6.9",
-        "wpackagist-plugin/w3-total-cache": "0.9.4.1",
-        "wpackagist-plugin/wordpress-seo": "1.7.1",
-        "wp-cli/wp-cli": "0.17.1",
-        "bugsnag/bugsnag": "2.*",
-        "vimeo/vimeo-api": "1.*",
-        "vlucas/phpdotenv": "1.*",
-        "guzzlehttp/guzzle": "~5.1",
-		"twbs/bootstrap-sass": "dev-master"
-    },
     "extra": {
-        "wordpress-install-dir": "public",
+        "wordpress-install-dir": "web/wp",
         "installer-paths": {
-            "public/wp-content/plugins/{$name}/": [
+            "web/app/plugins/{$name}/": [
                 "type:wordpress-plugin"
-            ],
-            "public/wp-content/themes/{$name}/": [
-                "type:wordpress-theme"
             ]
         }
-    },
-    "scripts": {
-        "post-install-cmd": [
-	        "cp -r app/compasshb-plugin public/wp-content/plugins/",
-            "cp -r app/compasshb-theme public/wp-content/themes/",
-            "cp -r vendor public/wp-content/",
-            "mkdir -p public/wp-content/uploads/"
-        ]
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.4",
-        "fabpot/php-cs-fixer": "dev-master"
     }
 }

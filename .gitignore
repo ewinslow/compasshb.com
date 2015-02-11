@@ -2,13 +2,7 @@
 !.travis.yml
 !.gitignore
 !.env.example
-!.bowerrc
-
-# composer
-vendor
-public
 composer.lock
-
-#bower
-app/compasshb-theme/sass/styleguide
-app/compasshb-theme/sass/jquery
+vendor
+web/wp
+web/app/plugins

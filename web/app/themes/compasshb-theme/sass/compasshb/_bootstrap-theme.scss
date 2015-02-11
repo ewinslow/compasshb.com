@@ -1,0 +1,41 @@
+$bootstrap-sass-asset-helper: false !default;
+
+//
+// Includes
+// --------------------------------------------------
+@import "sotd";
+@import "single";
+
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+//
+//## CompassHB colors for use across Bootstrap.
+
+$compasshb-blue-dark: #477e9f;
+$compasshb-blue-light: #88d5ee;
+$compasshb-red: #d03b2b;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg: #f2f5f8 !default;
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$navbar-border-radius: 0;
+
+//== Components
+//
+//## Remove corners from buttons.
+
+$border-radius-base: 0px !default;
+$border-radius-large: 0px !default;
+$border-radius-small: 0px !default;

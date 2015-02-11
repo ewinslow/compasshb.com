@@ -1,6 +1,7 @@
 language: php
-php: "5.4"
+php: '5.4'
 install: composer install
 sudo: false
-script:
-    - php vendor/bin/php-cs-fixer --diff --dry-run -v fix .
+notifications:
+  slack:
+    secure: Dws5+spWCvfCMCflZywFq09MYld8gv4xccJG0pLhw08oerCJHsiAqWNJBr+GlCwCVXqkls7AdmDYye+B27dPQBv/akx2f4StLJ7vQmSWVgnYn0reDa16+VUkRfQ32Csbj7Y0OR7/2Z3uePaS8vX/g1QbII0Y7GNIhIVce3TVeck=
