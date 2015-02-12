@@ -26,7 +26,7 @@ get_header(); ?>
         		</div>
         		<div class="col-md-5">
         			<center>
-        				<img src="https://www.compasshb.com/wp-content/uploads/2015/02/UNITED-LOGO.jpg" width="300"/>
+        				<img src="https://www.compasshb.com/app/uploads/2015/02/UNITED-LOGO.jpg" width="300"/>
         			</center>
         		</div>
         	</div>
@@ -37,7 +37,7 @@ get_header(); ?>
 
 
                     <div class="col-md-4 col-md-offset-1">
-                        <img width="554" height="554" src="https://www.compasshb.com/wp-content/uploads/2015/02/awakening.png"
+                        <img width="554" height="554" src="https://www.compasshb.com/app/uploads/2015/02/awakening.png"
                              alt="AWAKENING"/><br/>
                         <h4 style="color: #fff">AWAKENING</h4>
 
