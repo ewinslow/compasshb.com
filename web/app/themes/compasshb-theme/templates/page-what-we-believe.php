@@ -1,6 +1,11 @@
 <?php
 get_header(); ?>
 
+<style>
+    h2 {
+        font-size: 1.75em;
+    }
+</style>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <h1>What We Believe</h1>
@@ -93,7 +98,6 @@ get_header(); ?>
                     return for his church (Ac.1:11; 1Th.4:16-17). There will be a terrible time of Tribulation
                     (Rev.chaps.4-19). Christ will establish his kingdom (Rev.20:1-9). God will ultimately provide a new
                     heaven and a new earth where the redeemed of God will dwell forever (Rev.21:1-22:5).</p>
-                <hr/>
             </div>
         </div>
 

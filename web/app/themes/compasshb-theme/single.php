@@ -41,7 +41,13 @@ get_header(); ?>
                         if (date('D') == "Sun" || date('D') == "Sat") {
                             echo "<em>Scripture of the Day is posted Monday - Friday. Come back on Monday for the next post!</em>";
                         }?>
-                    <p class="lead"><?php the_excerpt(); ?></p>
+                    <p class="lead">
+                        <?php
+                        //if (get_the_excerpt() != '') {
+                        //    the_excerpt();
+                        //}
+                        ?>
+                    </p>
                     <?php
                     the_content();
 
@@ -52,19 +58,9 @@ get_header(); ?>
                             do_action('chb_feed_esv', get_the_title(), 'flash');
                         }
                         ?>
-                        <p style="color: #888;"><em>Scripture taken from The Holy Bible, English Standard Version.
-                                Copyright &copy;2001
-                                by <a href="http://www.crosswaybibles.org" target="_blank">Crossway Bibles</a>, a
-                                publishing
-                                ministry of Good News Publishers. Used by permission. All rights reserved. Text provided
-                                by the <a
-                                    href="http://www.gnpcb.org/esv/share/services/" target="_blank">Crossway Bibles Web
-                                    Service</a>.</em>
-                        </p><br/>
                         <div style="max-width: 600px; margin: 0 auto;">
-                            <br/><input type="submit" style="width: 100%"
-                                        value="View Comments (<?= get_comments_number();
-                        ?>)"
+                            <br/><br/><input type="submit" style="width: 100%; padding: 10px;"
+                                        value="View Comments"
                                         onclick='jQuery( "#disqus_thread" ).show();'/><br/><br/>
                         </div>
                         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -73,7 +69,24 @@ get_header(); ?>
                     }
                         // Get the post comments & comment_form
                         comments_template();
-                    ?><br/><br/><?php
+                    if ($format == 'Scripture of the Day') {
+                        ?>
+                        <br/><br/>
+                        <p style="color: #888;"><em>Scripture taken from The Holy Bible, English Standard Version.
+                                Copyright &copy;2001
+                                by <a href="http://www.crosswaybibles.org" target="_blank">Crossway Bibles</a>, a
+                                publishing
+                                ministry of Good News Publishers. Used by permission. All rights reserved. Text provided
+                                by the <a
+                                    href="http://www.gnpcb.org/esv/share/services/" target="_blank">Crossway Bibles Web
+                                    Service</a>.</em>
+                        </p>
+
+                    <?php
+
+                    } ?>
+                    <br/><br/>
+                    <?php
                         // Pagination
                         $previous_post = get_adjacent_post(true, [], true, 'format');
                         $next_post = get_adjacent_post(true, [], false, 'format');

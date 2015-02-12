@@ -2,8 +2,8 @@
 get_header(); ?>
 
         <style>
-            span.glyphicon {
-                float: left;
+            .glyphicon {
+                font-size: 3em;
             }
         </style>
         <div class="row">
@@ -12,18 +12,18 @@ get_header(); ?>
             </div>
 
                 <div class="col-md-4 col-md-offset-1 well">
-                    <span class="fa fa-retweet"></span>
+                    <span class="glyphicon glyphicon-retweet"></span>
                     <h4>Recurring Giving</h4>
 
                     <p>Access our online system below to schedule a recurring gift or to make a one-time gift using your
                         checking account or credit card.</p>
 
-                    <span class="fa fa-gift"></span>
+                    <span class="glyphicon glyphicon-gift"></span>
                     <h4>One Time Gift</h4>
 
                     <p>You can make a one-time gift using a credit card without registering in the system.</p>
 
-                    <span class="fa fa-edit"></span>
+                    <span class="glyphicon glyphicon-edit"></span>
                     <h4>Other Ways to Support</h4>
 
                     <p>For more information on other creative tax-wise charitable gift and estate planning strategies,
@@ -53,14 +53,14 @@ get_header(); ?>
             <div class="row" style="margin: 50px 0">
                 <div class="col-md-3 col-md-offset-1 well">
                     <a href="https://compassbiblechurch.ccbchurch.com" title="Login Here">
-                        <span class="fa fa-home"></span>
+                        <span class="glyphicon glyphicon-home"></span>
                         <h2>Login Here</h2>
                         <p>Compass HB Online Giving</p>
                     </a>
                 </div>
                 <div class="col-md-3 col-md-offset-1 well">
                     <a href="https://compassbiblechurch.ccbchurch.com/w_sign_up.php" title="Register Here">
-                        <span class="fa fa-user"></span>
+                        <span class="glyphicon glyphicon-user"></span>
                         <h2>Register Here</h2>
                         <p>First-time Users &#8211; Select &#8220;Compass HB&#8221;</p>
                     </a>
@@ -68,7 +68,7 @@ get_header(); ?>
                 <div class="col-md-3 col-md-offset-1 well">
                     <a href="https://compassbiblechurch.ccbchurch.com/trx_submit.php?type=public_gift&#038;campus_id=3"
                        title="One-time Gift">
-                        <span class="fa fa-gift"></span>
+                        <span class="glyphicon glyphicon-gift"></span>
                         <h2>One-Time Gift</h2>
                         <p>Give Now Without Registering</p>
                     </a>

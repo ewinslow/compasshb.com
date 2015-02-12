@@ -50,7 +50,6 @@ get_header(); ?>
             </h4>
         </div>
         <div class="col-md-2 col-md-offset-1">
-            <h4 style="color: #fff; text-align: left">
                 <?php
                 query_posts('&post_type=post&format=blog&showposts=1&offset=1');
                 while (have_posts()) : the_post();
@@ -60,10 +59,11 @@ get_header(); ?>
                     <div style="text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $image[0]; ?>); background-size: cover;">
                         <h4 class="tk-seravek-web"><?= $alt_text; ?></h4>
                     </div>
+                     <h4 style="color: #fff; text-align: left">
                     <?php
                     echo '<a style="color: #fff" href="'.get_the_permalink().'">'.get_the_title().'</a>';
                 endwhile; ?>
-            </h4>
+                    </h4>
         </div>
         <div class="col-md-2 col-md-offset-1">
             <div style="text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://photos.compasshb.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg)">
@@ -189,7 +189,7 @@ wp_reset_query(); ?>
   </div>
 
 <!-- Recent Photography / SmugMug -->
-  <div class="row" style="background: none">
+  <div class="row" style="background: none; padding-bottom: 40px;">
       <div class="col-xs-10 col-xs-offset-1">
     <h2>Recent Photography</h2>
 	<?php
@@ -209,44 +209,8 @@ wp_reset_query(); ?>
 
     } ?><br/><br/>&nbsp;<br/><br/>
   </div>
-    </div>
-
-<!-- Instagram -->
- <div class="row" style="background:none; background-color: #f7f7f7;padding-top: 20px;padding-bottom: 20px;">
-     <div class="col-xs-10 col-xs-offset-1">
-	 <h2>Instagram Photos</h2>
-  <script src="//raw.githubusercontent.com/stevenschobert/instafeed.js/master/instafeed.min.js"></script>
-  <script>
-	$(function() {
-
-	    //Set up instafeed
-	    var feed = new Instafeed({
-	        clientId: '33473128faab4f4a82212917e24bb13a',
-			accessToken: '1363574956.3347312.f1121cc764834e57be8a04bf17cc8aea',
-	        target: 'instafeed',
-	        get: 'user',
-	        userId: 1363574956,
-	        links: true,
-	        limit: 4,
-	        sortBy: 'most-recent',
-	        resolution: 'standard_resolution',
-	        template: '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><div class="photo-box"><div class="image-wrap"><a href="{{link}}"><img src="{{image}}"></a><div class="likes">{{likes}} Likes</div></div><div class="description">{{caption}}<div class="date">{{model.date}}</div></div></div></div>',
-		});
-		feed.run();
-	});
-  </script>
-  <style>
-	.image-wrap {background-color: #FFF;}
-	.description {background-color: #FFF; padding: 5px; height: 75px; overflow: hidden; text-overflow: ellipsis; }
-  </style>
- 	  <div class="col-xs-12">
-         <div class="instagram-content">
-             <div class="row photos-wrap">
-             <!-- Instafeed target div -->
-             <div id="instafeed"></div>
-         </div>
-     </div>
   </div>
- </div>
-     </div>
+
+<?php // @todo: add instragram photos ?>
+
 <?php get_footer();
