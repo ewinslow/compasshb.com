@@ -7,3 +7,4 @@ vendor
 web/wp
 web/app/plugins
 web/app/uploads
+web/app/themes/compasshb-theme/style.css
