@@ -6,3 +6,4 @@ composer.lock
 vendor
 web/wp
 web/app/plugins
+web/app/uploads
