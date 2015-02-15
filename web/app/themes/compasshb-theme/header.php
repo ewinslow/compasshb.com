@@ -48,7 +48,7 @@
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
+                            data-target="#navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -59,7 +59,7 @@
                              alt="Compass Bible Church" style="height: 40px; margin-top: -10px"/>
                     </a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/who-we-are/">Who We Are</a></li>
                         <li><a href="/kids-ministry/">Kids Ministry</a></li>
