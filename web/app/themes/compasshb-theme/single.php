@@ -6,7 +6,8 @@
  */
 get_header(); ?>
 </div>
-    <?php while (have_posts()) : the_post();
+    <?php
+    while (have_posts()) : the_post();
         $format = wp_get_post_terms(get_the_ID(), 'format');
         $format = $format[0]->name; ?>
         <article class="container-fluid" style="margin-bottom: 30px">
@@ -35,10 +36,10 @@ get_header(); ?>
                     </p>
                     <?php $video_oembed = get_post_meta(get_the_ID(), 'video_oembed', true);
                     if ($video_oembed) {
-                        echo wp_oembed_get($video_oembed, array('height' => '800'));
+                        echo wp_oembed_get($video_oembed, array('height' => '800', 'autoplay' => '1'));
                     }
                         // Message for weekend
-                        if (date('D') == "Sun" || date('D') == "Sat") {
+                        if (date('D') == "Sun" || date('D') == "Sat" && $format == 'Scripture of the Day') {
                             echo "<em>Scripture of the Day is posted Monday - Friday. Come back on Monday for the next post!</em>";
                         }?>
                     <p class="lead">

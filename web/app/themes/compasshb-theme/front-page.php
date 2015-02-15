@@ -1,6 +1,14 @@
 <?php
 get_header(); ?>
 
+    <style>
+    .clickable:hover {
+        text-decoration: none;
+    }
+    .glyphicon {
+        font-size: 5rem;
+    }
+    </style>
   	<div class="row" style="text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
         <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
 		    <?php
@@ -12,22 +20,19 @@ get_header(); ?>
                 while (have_posts()) {
                     the_post();
                     $video_oembed = get_post_meta(get_the_ID(), 'video_oembed', true);
-                    if ($video_oembed) {
-                        $results['oembed'] = wp_oembed_get($video_oembed, array('height' => '800'));
-                    }
                     $results['permalink'] = get_the_permalink();
                     $results['title'] = get_the_title();
                     break;
                 }
             }
             $video_thumb = implode(apply_filters('chb_feed_vimeo', get_post_meta(get_the_ID(), 'video_oembed', true))); ?>
-            <div style="border: 4px solid #ddd; margin: 0 auto; min-height: 375px; padding-top: 80px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $video_thumb; ?>); width: 100%; background-size: cover;">
-                <p style="color: #fff; text-transform: uppercase;">Latest Sermon</p>
-		        <h1><a class="tk-seravek-web" style="color: #fff; text-transform: uppercase" href="<?= $results['permalink']; ?>"><?= $results['title']; ?></a></h1>
-		        <p style="color: #fff; text-transform: uppercase;"><br/>
-		        <i class="glyphicon glyphicon-play-circle" style="font-size: 2.5em;"></i></p>
-            </div>
-        </div>
+           <a class="clickable" href="<?= $results['permalink']; ?>" style="color: #fff; text-transform: uppercase; display: block; border: 4px solid #ddd; margin: 0 auto; min-height: 375px; padding-top: 80px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $video_thumb; ?>); width: 100%; background-size: cover;">
+               <br/><p style="color: #fff; text-transform: uppercase;">Watch Latest Sermon</p>
+               <h1 class="tk-seravek-web" style="text-transform: uppercase"><?= $results['title']; ?></h1>
+               <p style="color: #fff; text-transform: uppercase;"><br/>
+                   <i class="glyphicon glyphicon-play-circle"></i></p>
+           </a>
+         </div>
     </div>
 
     <div class="row" style="padding-bottom: 20px; text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg); background-size: cover;">
@@ -39,15 +44,14 @@ get_header(); ?>
                     $image = wp_get_attachment_image_src($img_id); // Get URL of the image
                      $alt_text = get_post_meta($img_id, '_wp_attachment_image_alt', true);
                     ?>
-            <div style="text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $image[0]; ?>); background-size: cover;">
+            <a class="clickable" href="<?= get_the_permalink(); ?>" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $image[0]; ?>); background-size: cover;">
                 <h4 class="tk-seravek-web"><?= $alt_text; ?></h4>
-            </div>
+            </a>
+
             <h4 style="color: #fff; text-align: left">
-                    <?php
-                    echo '<a style="color: #fff" href="'.get_the_permalink().'">'.get_the_title().'</a>';
-                endwhile;
-            ?>
+                <a class="clickable" style="color: #fff" href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
             </h4>
+            <?php  endwhile; ?>
         </div>
         <div class="col-md-2 col-md-offset-1">
                 <?php
@@ -56,28 +60,25 @@ get_header(); ?>
                     $img_id = get_post_thumbnail_id($post->ID); //  ID of the img
                     $image = wp_get_attachment_image_src($img_id); // Get URL of the image
                     $alt_text = get_post_meta($img_id, '_wp_attachment_image_alt', true); ?>
-                    <div style="text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $image[0]; ?>); background-size: cover;">
-                        <h4 class="tk-seravek-web"><?= $alt_text; ?></h4>
-                    </div>
-                     <h4 style="color: #fff; text-align: left">
-                    <?php
-                    echo '<a style="color: #fff" href="'.get_the_permalink().'">'.get_the_title().'</a>';
-                endwhile; ?>
-                    </h4>
+                     <a class="clickable" href="<?= get_the_permalink(); ?>" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?= $image[0]; ?>); background-size: cover;">
+                <h4 class="tk-seravek-web"><?= $alt_text; ?></h4>
+            </a>
+
+            <h4 style="color: #fff; text-align: left">
+                <a class="clickable" style="color: #fff" href="<?= get_the_permalink(); ?>"><?= get_the_title(); ?></a>
+            </h4>
+            <?php  endwhile; ?>
         </div>
         <div class="col-md-2 col-md-offset-1">
-            <div style="text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://photos.compasshb.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg)">
-                <h4 class="tk-seravek-web">Scripture of the Day</h4>
-            </div>
-            <h4 style="color: #fff; text-align: left">
                 <?php
                     query_posts('&post_type=post&format=scripture-of-the-day&showposts=1');
-                    while (have_posts()) : the_post();
-                        echo '<a style="color: #fff" href="'.get_the_permalink().'">'.get_the_title().'</a>';
-                    endwhile;
-                ?>
-                <a href=""></a>
-            </h4>
+                    while (have_posts()) : the_post();?>
+                        <a class="clickable" href="/read/" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://photos.compasshb.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
+                            <h4 class="tk-seravek-web">Scripture of the Day</h4>
+                        </a>
+                        <h4><a class="clickable" style="color: #fff" href="/read/"><?= get_the_title(); ?></a></h4>
+                    <?php
+                    endwhile;?>
         </div>
     </div>
 
