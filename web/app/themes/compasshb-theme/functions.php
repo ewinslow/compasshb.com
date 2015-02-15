@@ -42,3 +42,31 @@ function compasshb_admin_scripts($hook)
     wp_enqueue_script('post_validation', WP_CONTENT_URL.'/themes/compasshb-theme/admin.js');
 }
 add_action('admin_enqueue_scripts', 'compasshb_admin_scripts');
+
+    /** add extra parameters to vimeo request api (oEmbed) */
+    function add_param_oembed_fetch_url($provider, $url, $args)
+    {
+        // unset args that WP is already taking care
+        $newargs = $args;
+        unset($newargs['discover']);
+        unset($newargs['width']);
+        unset($newargs['height']);
+
+        // build the query url
+        $parameters = urlencode(http_build_query($newargs));
+
+        return $provider.'&'.$parameters;
+    }
+
+    /** add player id to iframe id on vimeo */
+    function add_player_id_to_iframe($html, $url, $args)
+    {
+        if (isset($args['autoplay'])) {
+            $html = str_replace('<iframe', '<iframe id="'.$args['autoplay'].'"', $html);
+        }
+
+        return $html;
+    }
+
+        add_filter('oembed_fetch_url', 'add_param_oembed_fetch_url', 10, 3);
+    add_filter('oembed_result', 'add_player_id_to_iframe', 10, 3);
