@@ -21,6 +21,9 @@ get_header(); ?>
                 while (have_posts()) {
                     the_post();
                     $video_oembed = get_post_meta(get_the_ID(), 'video_oembed', true);
+                    if (empty($video_oembed)) {
+                        continue;
+                    }
                     $results['permalink'] = get_the_permalink();
                     $results['title'] = get_the_title();
                     break;
@@ -107,15 +110,19 @@ get_header(); ?>
                     <p><?= the_title(); ?> (<?= get_post_meta(get_the_ID(), 'sermon_text', true); ?>)</p>
                     <p>Pastor <?= get_post_meta(get_the_ID(), 'byline', true); ?></p>
                     <?php
-                    if ($sermon_worksheet) 
-                    { ?>
-                        <a href="<?= $sermon_worksheet; ?>" class="btn btn-default">Worksheet</a>
-                    <?php }
+                    if ($sermon_worksheet) {
+                        ?>
+                        <a href="<?= $sermon_worksheet;
+                        ?>" class="btn btn-default">Worksheet</a>
+                    <?php 
+                    }
 
-                    if ($sermon_announcements)
-                    { ?>
-                        <a href="<?= $sermon_announcements; ?>" class="btn btn-default">Announcements</a>
-                    <?php } 
+                    if ($sermon_announcements) {
+                        ?>
+                        <a href="<?= $sermon_announcements;
+                        ?>" class="btn btn-default">Announcements</a>
+                    <?php 
+                    }
                     endwhile; ?>
         </div>
     </div>
@@ -219,11 +226,14 @@ wp_reset_query(); ?>
             <?php
             $results = apply_filters('chb_feed_smugmug', $results);
             foreach ($results as $result) {
-            ?>
+                ?>
             <div class="col-md-6" style="padding-bottom: 10px">
-                <a href="<?= $result[0];?>"><img src="<?= $result[1];?>" style="height: 175px;"></a>
+                <a href="<?= $result[0];
+                ?>"><img src="<?= $result[1];
+                ?>" style="height: 175px;"></a>
             </div>
-            <?php } ?>
+            <?php 
+            } ?>
         </div>
         <div class="col-md-4">
              <h2>Recent Tweets</h2>
