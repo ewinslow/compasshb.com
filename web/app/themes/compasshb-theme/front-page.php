@@ -214,25 +214,25 @@ wp_reset_query(); ?>
 <!-- Recent Photography / SmugMug -->
   <div class="row" style="background: none; padding-bottom: 40px;">
       <div class="col-xs-10 col-xs-offset-1">
-    <h2>Recent Photography</h2>
-    <?php
-    $results = apply_filters('chb_feed_smugmug', $results);
-    foreach ($results as $result) {
-        ?>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="photo-box">
-            <div class="image-wrap">
-                <a href="<?= $result[0];
-        ?>"><img src="<?= $result[1];
-        ?>"></a>
+        <div class="col-md-8">
+            <h2>Recent Photography</h2>
+            <?php
+            $results = apply_filters('chb_feed_smugmug', $results);
+            foreach ($results as $result) {
+            ?>
+            <div class="col-md-6" style="padding-bottom: 10px">
+                <a href="<?= $result[0];?>"><img src="<?= $result[1];?>" style="height: 175px;"></a>
             </div>
+            <?php } ?>
+        </div>
+        <div class="col-md-4">
+             <h2>Recent Tweets</h2>
+             <a class="twitter-timeline" height="300" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
     </div>
-<?php
-
-    } ?><br/><br/>&nbsp;<br/><br/>
-  </div>
-  </div>
+    <br/><br/>&nbsp;<br/><br/>
+</div>
+</div>
 
 <?php // @todo: add instragram photos ?>
 
