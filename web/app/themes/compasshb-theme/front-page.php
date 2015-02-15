@@ -5,13 +5,14 @@ get_header(); ?>
     .clickable:hover {
         text-decoration: none;
     }
-    .glyphicon {
+    a p .glyphicon {
         font-size: 5rem;
     }
     </style>
-  	<div class="row" style="text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
+    <div class="row" style="text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
         <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
-		    <?php
+
+            <?php
             $results = array();
             rewind_posts();
             query_posts('post_type=post&format=sermon&posts_per_page=3');
@@ -83,41 +84,62 @@ get_header(); ?>
     </div>
 
 <!-- Directions -->
-	<div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px;padding-bottom: 30px;">
-		<div class="col-md-6" style="">
-			<h2 style="text-align: center">Directions</h2><center>
-    		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26542.154928917666!2d-118.04023219999998!3d33.7407795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1420493991035" width="400" height="300" frameborder="0" style="border:0"></iframe></center>
-		</div>
-		<div class="col-md-6" >
-			<h2 style="text-align: center;">Services</h2><br/>
-        	<p style="text-align: center;">Sundays 11am</p>
-        	<p style="text-align: center;">5082 Argosy Avenue</p>
-        	<p style="text-align: center;">Huntington Beach, CA 92649</p><br/>
-        	<p style="text-align: center;">
-				<a class="btn btn-default" href="https://www.google.com/maps/place/5082+Argosy+Ave,+Huntington+Beach,+CA+92649/@33.7407795,-118.0402322,17z/data=!3m1!4b1!4m2!3m1!1s0x80dd25f2e1f15bbd:0x2b2a43000587dfc0" role="button">View Map</a>
-			</p>
-		</div>
-	</div>
+    <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px;padding-bottom: 30px;">
+        <div class="col-md-4" style="">
+            <h2 style="text-align: center">Directions</h2><center>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26542.154928917666!2d-118.04023219999998!3d33.7407795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1420493991035" width="400" height="300" frameborder="0" style="border:0"></iframe></center>
+        </div>
+        <div class="col-md-4 text-center" >
+            <h2>Time &amp; Location</h2><br/>
+            <p>Sundays 11am</p>
+            <p>5082 Argosy Avenue</p>
+            <p>Huntington Beach, CA 92649</p><br/>
+            <p><a class="btn btn-default" href="https://www.google.com/maps/place/5082+Argosy+Ave,+Huntington+Beach,+CA+92649/@33.7407795,-118.0402322,17z/data=!3m1!4b1!4m2!3m1!1s0x80dd25f2e1f15bbd:0x2b2a43000587dfc0" role="button">View Map</a></p>
+        </div>
+        <div class="col-md-4 text-center">
+            <h2>Upcoming Service</h2><br/>
+            <?php
+                query_posts('&post_type=post&format=sermon&post_status=future&showposts=1');
+                while (have_posts()) : the_post();
+                    $sermon_worksheet = get_post_meta(get_the_ID(), 'sermon_worksheet', true);
+                    $sermon_announcements = get_post_meta(get_the_ID(), 'sermon_announcements', true);
+                ?>
+                    <p><?= the_title(); ?> (<?= get_post_meta(get_the_ID(), 'sermon_text', true); ?>)</p>
+                    <p>Pastor <?= get_post_meta(get_the_ID(), 'byline', true); ?></p>
+                    <?php
+                    if ($sermon_worksheet) 
+                    { ?>
+                        <a href="<?= $sermon_worksheet; ?>" class="btn btn-default">Worksheet</a>
+                    <?php }
+
+                    if ($sermon_announcements)
+                    { ?>
+                        <a href="<?= $sermon_announcements; ?>" class="btn btn-default">Announcements</a>
+                    <?php } 
+                    endwhile; ?>
+        </div>
+    </div>
+</div>
 
 <!-- Parallax -->
-	<div class="row">
-	  	<div style="background-image: url(http://photos.compasshb.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/X2/150111_Wor_SS-093-X2.jpg);padding-top: 250px; background-attachment: fixed; background-position: 50% 0px; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-repeat: no-repeat;"></div>
-	</div>
+    <div class="row">
+        <div style="background-image: url(http://photos.compasshb.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/X2/150111_Wor_SS-093-X2.jpg);padding-top: 250px; background-attachment: fixed; background-position: 50% 0px; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-repeat: no-repeat;"></div>
+    </div>
 
 <!-- Scripture of the Day -->
-	<div class="row" style="background-color: #FFF">
-		<div class="col-md-8" style="background-image: url(http://www.compasshb.com/app/uploads/2014/07/TabletPad-1Thessalonians5-r1.jpg); padding-top: 400px; background-position: left top; background-size: contain; background-repeat: no-repeat"></div>
-		<div class="col-md-4" style="padding-top: 40px;min-height: 380px">
-	      <h1 style="text-align: center;"><span style="font-size: 36px;">Scripture of the Day</span></h1>
-		  <p style="text-align: center;"><span style="font-size: medium;">Get energized by reading a passage of scripture each day with our church! Be encouraged by what other people have to say about the passage and share your thoughts!</span><br/><br/><a class="btn btn-default" href="read" role="button">Read Now <i class=" glyphicon glyphicon-arrow-right"></i></a></p>
-	    </div>
-	</div>
+    <div class="row" style="background-color: #FFF">
+        <div class="col-md-8" style="background-image: url(http://www.compasshb.com/app/uploads/2014/07/TabletPad-1Thessalonians5-r1.jpg); padding-top: 400px; background-position: left top; background-size: contain; background-repeat: no-repeat"></div>
+        <div class="col-md-4" style="padding-top: 40px;min-height: 380px">
+          <h1 style="text-align: center;"><span style="font-size: 36px;">Scripture of the Day</span></h1>
+          <p style="text-align: center;"><span style="font-size: medium;">Get energized by reading a passage of scripture each day with our church! Be encouraged by what other people have to say about the passage and share your thoughts!</span><br/><br/><a class="btn btn-default" href="read" role="button">Read Now <i class=" glyphicon glyphicon-arrow-right"></i></a></p>
+        </div>
+    </div>
 
 <!-- Recent Sermons -->
   <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
-	<div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1">
         <h2>Recent Sermons</h2>
-	    <?php
+        <?php
         rewind_posts();
         query_posts('post_type=post&format=sermon&posts_per_page=4&post_status=publish');
         $count = 1;
@@ -147,14 +169,14 @@ get_header(); ?>
              </div>
     <?php $count++; endwhile;
 wp_reset_query(); ?>
-	</div>
+    </div>
   </div>
 
 
 <!-- Recent Videos -->
   <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
-	<div class="col-xs-10 col-xs-offset-1">
-	 <h2>Recent Videos</h2>
+    <div class="col-xs-10 col-xs-offset-1">
+     <h2>Recent Videos</h2>
     <?php
     rewind_posts();
     query_posts('post_type=post&format=blog&post_status=publish');
@@ -186,14 +208,14 @@ wp_reset_query(); ?>
     }
     endwhile;
     wp_reset_query(); ?>
-	</div>
+    </div>
   </div>
 
 <!-- Recent Photography / SmugMug -->
   <div class="row" style="background: none; padding-bottom: 40px;">
       <div class="col-xs-10 col-xs-offset-1">
     <h2>Recent Photography</h2>
-	<?php
+    <?php
     $results = apply_filters('chb_feed_smugmug', $results);
     foreach ($results as $result) {
         ?>
