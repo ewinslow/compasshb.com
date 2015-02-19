@@ -133,15 +133,6 @@ get_header(); ?>
         <div style="background-image: url(http://photos.compasshb.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/X2/150111_Wor_SS-093-X2.jpg);padding-top: 250px; background-attachment: fixed; background-position: 50% 0px; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-repeat: no-repeat;"></div>
     </div>
 
-<!-- Scripture of the Day -->
-    <div class="row" style="background-color: #FFF">
-        <div class="col-md-8" style="background-image: url(http://www.compasshb.com/app/uploads/2014/07/TabletPad-1Thessalonians5-r1.jpg); padding-top: 400px; background-position: left top; background-size: contain; background-repeat: no-repeat"></div>
-        <div class="col-md-4" style="padding-top: 40px;min-height: 380px">
-          <h1 style="text-align: center;"><span style="font-size: 36px;">Scripture of the Day</span></h1>
-          <p style="text-align: center;"><span style="font-size: medium;">Get energized by reading a passage of scripture each day with our church! Be encouraged by what other people have to say about the passage and share your thoughts!</span><br/><br/><a class="btn btn-default" href="read" role="button">Read Now <i class=" glyphicon glyphicon-arrow-right"></i></a></p>
-        </div>
-    </div>
-
 <!-- Recent Sermons -->
   <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">

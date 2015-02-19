@@ -16,7 +16,6 @@ namespace :deploy do
     on roles(:web) do
       execute "ln -s #{shared_path}/config/.env #{release_path}/config/.env"
       execute "ln -s #{shared_path}/web/.htaccess #{release_path}/web/.htaccess"
-      execute "ln -s #{shared_path}/config/wp-config.php #{release_path}/config/wp-config.php"
       execute "rm -rf #{release_path}/web/app/uploads"
       execute "ln -s #{shared_path}/web/app/uploads #{release_path}/web/app/uploads"
       execute "ln -s #{shared_path}/web/app/plugins/wpseo-video #{release_path}/web/app/plugins/wpseo-video"
