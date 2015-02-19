@@ -1,6 +1,7 @@
 {
     "name": "compasshb/compasshb.com",
-    "description": "compasshb.com",
+    "description": "...and the gospel rings out!",
+    "license": "MIT",
     "repositories": [
         {
             "type": "composer",
