@@ -4,6 +4,7 @@
 !.env.example
 composer.lock
 vendor
+node_modules
 web/wp
 web/app/plugins
 web/app/uploads
