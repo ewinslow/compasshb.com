@@ -9,7 +9,8 @@ require 'MetaBox.php';
         protected static $instance;
 
         /**
-         * Args for the Sermon post type
+         * Args for the Sermon post type.
+         *
          * @var array
          */
         protected $postSermonTypeArgs = array(
@@ -29,7 +30,8 @@ require 'MetaBox.php';
         );
 
         /**
-         * Args for the Video post type
+         * Args for the Video post type.
+         *
          * @var array
          */
         protected $postVideoTypeArgs = array(
@@ -51,7 +53,8 @@ require 'MetaBox.php';
         );
 
         /**
-         * Static Singleton Factory Method
+         * Static Singleton Factory Method.
+         *
          * @return Admin
          */
         public static function instance()
@@ -78,7 +81,7 @@ require 'MetaBox.php';
         }
 
         /**
-         * Add filters and actions
+         * Add filters and actions.
          */
         protected function addHooks()
         {
@@ -92,7 +95,7 @@ require 'MetaBox.php';
             add_filter('template_include', array('CompassHB\Www\Routes', 'route'));
 
             // Feeds
-            add_action('chb_feed_esv', array('CompassHB\Www\Helper', 'esv'));
+            add_filter('chb_feed_esv', array('CompassHB\Www\Helper', 'esv'));
             add_filter('chb_feed_vimeo', array('CompassHB\Www\Helper', 'vimeo'));
             add_filter('chb_feed_smugmug', array('CompassHB\Www\Helper', 'smugmug'));
 
@@ -177,7 +180,7 @@ require 'MetaBox.php';
         }
 
         /**
-         * Run on applied action init
+         * Run on applied action init.
          */
         public function init()
         {
@@ -186,8 +189,6 @@ require 'MetaBox.php';
 
         /**
          * Register the post types.
-         *
-         * @return void
          */
         public function registerPostType()
         {
@@ -236,7 +237,7 @@ require 'MetaBox.php';
         }
 
         /**
-         * Generate custom post type labels
+         * Generate custom post type labels.
          */
         protected function generatePostTypeLabels()
         {

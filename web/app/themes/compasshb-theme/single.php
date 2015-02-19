@@ -1,8 +1,6 @@
 <?php
 /**
  * The template for displaying all single posts.
- *
- * @package CompassHB
  */
 get_header(); ?>
 </div>
@@ -54,9 +52,9 @@ get_header(); ?>
 
                     if ($format == 'Scripture of the Day') {
                         if (wp_is_mobile()) {
-                            do_action('chb_feed_esv', get_the_title(), 'mp3');
+                            echo apply_filters('chb_feed_esv', get_the_title(), 'mp3');
                         } else {
-                            do_action('chb_feed_esv', get_the_title(), 'flash');
+                            echo apply_filters('chb_feed_esv', get_the_title(), 'flash');
                         }
                         ?>
                         <div style="max-width: 600px; margin: 0 auto;">

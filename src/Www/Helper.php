@@ -40,7 +40,7 @@ class Helper
     }
 
         // ESV
-        public static function esv($p, $f = 'flash')
+        public static function esv($p, $f = 'mp3')
         {
             $key = getenv('ESV_API');
             $options = "include-footnotes=false&audio-format=".$f;
@@ -53,7 +53,7 @@ class Helper
             $response = curl_exec($ch);
             curl_close($ch);
 
-            echo $response;
+            return $response;
         }
 
         // SmugMug
