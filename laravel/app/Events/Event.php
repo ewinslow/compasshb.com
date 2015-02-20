@@ -1,4 +1,4 @@
-<?php namespace App\Events;
+<?php namespace CompassHB\Www\Events;
 
 abstract class Event {
 

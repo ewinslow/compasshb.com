@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace CompassHB\Www\Http\Controllers;
 
 class WelcomeController extends Controller {
 

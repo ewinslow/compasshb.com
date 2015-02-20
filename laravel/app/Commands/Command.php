@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace CompassHB\Www\Commands;
 
 abstract class Command {
 

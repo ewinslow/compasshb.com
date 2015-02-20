@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace CompassHB\Www\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

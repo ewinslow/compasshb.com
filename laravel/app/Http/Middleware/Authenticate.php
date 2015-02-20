@@ -1,4 +1,4 @@
-<?php namespace App\Http\Middleware;
+<?php namespace CompassHB\Www\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

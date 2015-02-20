@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace CompassHB\Www\Services;
 
-use App\User;
+use CompassHB\Www\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
