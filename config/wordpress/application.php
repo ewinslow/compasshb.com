@@ -1,25 +1,25 @@
 <?php
 $root_dir = dirname(__DIR__);
-$webroot_dir = $root_dir . '/web';
+$webroot_dir = $root_dir . '/../public/wordpress';
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
-if (file_exists($root_dir . '/config/.env')) {
-  Dotenv::load($root_dir . '/config/');
+if (file_exists($root_dir . '/../.env')) {
+  Dotenv::load($root_dir . '/../');
 }
 
-Dotenv::required(array('WP_DB_NAME', 'WP_DB_USER', 'WP_DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
+Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
 
 /**
  * Set up our global environment constant and load its config first
  * Default: development
  */
 /* Production */
-define('WP_DB_NAME', getenv('WP_DB_NAME'));
-define('WP_DB_USER', getenv('WP_DB_USER'));
-define('WP_DB_PASSWORD', getenv('WP_DB_PASSWORD'));
-define('WP_DB_HOST', getenv('WP_DB_HOST') ? getenv('WP_DB_HOST') : 'localhost');
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_HOST', getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost');
 
 define('WP_HOME', getenv('WP_HOME'));
 define('WP_SITEURL', getenv('WP_SITEURL'));
