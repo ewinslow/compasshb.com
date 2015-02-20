@@ -1,4 +1,4 @@
-<?php namespace CompassHB\Www;
+<?php namespace CompassHB\WwwAdmin;
 
 interface Post {
     /**

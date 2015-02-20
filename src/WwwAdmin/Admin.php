@@ -1,4 +1,4 @@
-<?php namespace CompassHB\Www;
+<?php namespace CompassHB\WwwAdmin;
 
 require 'MetaBox.php';
 
@@ -87,22 +87,22 @@ require 'MetaBox.php';
         {
             add_action('init', array($this, 'init'), 10);
 
-            add_filter('robots_txt', array('CompassHB\Www\Helper', 'robots_mod'));
+            add_filter('robots_txt', array('CompassHB\WwwAdmin\Helper', 'robots_mod'));
 
-            add_action('compass_video_og', array('CompassHB\Www\Helper', 'compass_video_og'));
+            add_action('compass_video_og', array('CompassHB\WwwAdmin\Helper', 'compass_video_og'));
 
             // Routing
-            add_filter('template_include', array('CompassHB\Www\Routes', 'route'));
+            add_filter('template_include', array('CompassHB\WwwAdmin\Routes', 'route'));
 
             // Feeds
-            add_filter('chb_feed_esv', array('CompassHB\Www\Helper', 'esv'));
-            add_filter('chb_feed_vimeo', array('CompassHB\Www\Helper', 'vimeo'));
-            add_filter('chb_feed_smugmug', array('CompassHB\Www\Helper', 'smugmug'));
+            add_filter('chb_feed_esv', array('CompassHB\WwwAdmin\Helper', 'esv'));
+            add_filter('chb_feed_vimeo', array('CompassHB\WwwAdmin\Helper', 'vimeo'));
+            add_filter('chb_feed_smugmug', array('CompassHB\WwwAdmin\Helper', 'smugmug'));
 
             // Scripture Index Taxonomy
-            add_action('scripture_library_output_table', array('CompassHB\Www\Helper', 'scripture_library_output_table'));
+            add_action('scripture_library_output_table', array('CompassHB\WwwAdmin\Helper', 'scripture_library_output_table'));
             add_action('save_post', array(
-                'CompassHB\Www\Helper',
+                'CompassHB\WwwAdmin\Helper',
                 'update_custom_terms',
             )); // update when a post is created or edited for scripture index
 

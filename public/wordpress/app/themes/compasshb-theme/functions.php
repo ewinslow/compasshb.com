@@ -1,5 +1,5 @@
 <?php
-use CompassHB\Www\Admin;
+use CompassHB\WwwAdmin\Admin;
 
 if (!function_exists('compasshb_setup')) {
     /**
