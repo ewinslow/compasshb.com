@@ -9,19 +9,24 @@ if (file_exists($root_dir . '/config/.env')) {
   Dotenv::load($root_dir . '/config/');
 }
 
-Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
+Dotenv::required(array('WP_DB_NAME', 'WP_DB_USER', 'WP_DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
 
 /**
  * Set up our global environment constant and load its config first
  * Default: development
  */
-define('WP_ENV', getenv('WP_ENV') ? getenv('WP_ENV') : 'development');
+/* Production */
+define('WP_DB_NAME', getenv('WP_DB_NAME'));
+define('WP_DB_USER', getenv('WP_DB_USER'));
+define('WP_DB_PASSWORD', getenv('WP_DB_PASSWORD'));
+define('WP_DB_HOST', getenv('WP_DB_HOST') ? getenv('WP_DB_HOST') : 'localhost');
 
-$env_config = dirname(__FILE__) . '/environments/' . WP_ENV . '.php';
+define('WP_HOME', getenv('WP_HOME'));
+define('WP_SITEURL', getenv('WP_SITEURL'));
 
-if (file_exists($env_config)) {
-  require_once $env_config;
-}
+ini_set('display_errors', 0);
+define('DEBUG_DISPLAY', false);
+define('SCRIPT_DEBUG', false);
 
 /**
  * Custom Content Directory
