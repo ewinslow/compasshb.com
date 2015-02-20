@@ -5,7 +5,7 @@
 composer.lock
 vendor
 node_modules
-web/wp
-web/app/plugins
-web/app/uploads
-web/app/themes/compasshb-theme/style.css
+public/wordpress/wp
+public/wordpress/app/plugins
+public/wordpress/app/uploads
+public/wordpress/app/themes/compasshb-theme/style.css
