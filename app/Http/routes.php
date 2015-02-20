@@ -11,11 +11,61 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function()
+{
+	return View::make('app');
+});
 
-Route::get('home', 'HomeController@index');
+Route::get('who-we-are', function()
+{
+	return View::make('pages.who-we-are');
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::get('eight-distinctives', function()
+{
+	return View::make('pages.eight-distinctives');
+});
+
+Route::get('give', function()
+{
+	return View::make('pages.give');
+});
+
+Route::get('ice-cream-evangelism', function()
+{
+	return View::make('pages.ice-cream-evangelism');
+});
+
+Route::get('kids-ministry', function()
+{
+	return View::make('pages.kids-ministry');
+});
+
+Route::get('what-we-believe', function()
+{
+	return View::make('pages.what-we-believe');
+});
+
+Route::get('calendar', function()
+{
+	return View::make('pages.calendar');
+});
+
+Route::get('youth', function()
+{
+	return View::make('pages.youth');
+});
+
+Route::get('college', function()
+{
+	return View::make('pages.college');
+});
+
+// Route::get('/', 'WelcomeController@index');
+
+// Route::get('home', 'HomeController@index');
+
+// Route::controllers([
+// 	'auth' => 'Auth\AuthController',
+//	'password' => 'Auth\PasswordController',
+//]);
