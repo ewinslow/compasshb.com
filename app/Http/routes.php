@@ -16,54 +16,29 @@ Route::get('/', function()
 	return View::make('app');
 });
 
-Route::get('who-we-are', function()
-{
-	return View::make('pages.who-we-are');
-});
 
-Route::get('eight-distinctives', function()
-{
-	return View::make('pages.eight-distinctives');
-});
+// Static Pages
+Route::get('who-we-are', 'PagesController@whoweare');
 
-Route::get('give', function()
-{
-	return View::make('pages.give');
-});
+Route::get('eight-distinctives', 'PagesController@eightdistinctives');
 
-Route::get('ice-cream-evangelism', function()
-{
-	return View::make('pages.ice-cream-evangelism');
-});
+Route::get('give', 'PagesController@give');
 
-Route::get('kids-ministry', function()
-{
-	return View::make('pages.kids-ministry');
-});
+Route::get('ice-cream-evangelism', 'PagesController@icecreamevangelism');
 
-Route::get('what-we-believe', function()
-{
-	return View::make('pages.what-we-believe');
-});
+Route::get('kids-ministry', 'PagesController@kidsministry');
 
-Route::get('calendar', function()
-{
-	return View::make('pages.calendar');
-});
+Route::get('what-we-believe', 'PagesController@whatwebelieve');
 
-Route::get('youth', function()
-{
-	return View::make('pages.youth');
-});
+Route::get('calendar', 'PagesController@calendar');
 
-Route::get('college', function()
-{
-	return View::make('pages.college');
-});
+Route::get('youth', 'PagesController@youth');
 
-// Route::get('/', 'WelcomeController@index');
+Route::get('college', 'PagesController@college');
 
-// Route::get('home', 'HomeController@index');
+
+// Dynamic Pages
+Route::get('{year}/{month}/{slug}', 'PostsController@content')->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 // Route::controllers([
 // 	'auth' => 'Auth\AuthController',
