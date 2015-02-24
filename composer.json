@@ -18,9 +18,8 @@
         "vimeo/vimeo-api": "1.*",
         "vlucas/phpdotenv": "1.*",
         "guzzlehttp/guzzle": "~5.1",
-        "wpackagist-plugin/disqus-comment-system": "~2.84",
+        "bradmsmith/theme-compasshb": "dev-master",
         "wpackagist-plugin/feedpress": "~1.6",
-        "wpackagist-plugin/jetpack": "3.*",
         "wpackagist-plugin/varnish-http-purge": "~3.6",
         "wpackagist-plugin/vaultpress": "~1.7",
         "wpackagist-plugin/w3-total-cache": "0.9.4.1",
@@ -32,17 +31,14 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
-		"phpspec/phpspec": "~2.1",
-        "wp-cli/wp-cli": "0.17.1"
+		"phpspec/phpspec": "~2.1"
 	},
 	"autoload": {
 		"classmap": [
 			"database"
 		],
 		"psr-4": {
-			"CompassHB\\Www\\": "app/",
-			"CompassHB\\WwwAdmin\\": "src/",
-			"CompassHB\\Ccb\\": "src/"
+			"CompassHB\\Www\\": "app/"
 		}
 	},
 	"autoload-dev": {
@@ -68,10 +64,13 @@
 		"preferred-install": "dist"
 	},
 	    "extra": {
-        "wordpress-install-dir": "public/wordpress/wp",
+        "wordpress-install-dir": "public/wp",
         "installer-paths": {
-            "public/wordpress/app/plugins/{$name}/": [
-                "type:wordpress-plugin"
+            "public/wp/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "public/wp/wp-content/plugins/{$name}/": [
+            	"type:wordpress-plugin"
             ]
         }
     }

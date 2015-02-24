@@ -1,12 +1,17 @@
 <?php
+/**
+ * Configuration settings for Wordpress are below.
+ */
+require_once(dirname(__DIR__) . '/vendor/autoload.php');
+
 $root_dir = dirname(__DIR__);
-$webroot_dir = $root_dir . '/../public/wordpress';
+$webroot_dir = $root_dir . '/../wp';
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
-if (file_exists($root_dir . '/../.env')) {
-  Dotenv::load($root_dir . '/../');
+if (file_exists($root_dir . '/.env')) {
+  Dotenv::load($root_dir);
 }
 
 Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
@@ -27,13 +32,6 @@ define('WP_SITEURL', getenv('WP_SITEURL'));
 ini_set('display_errors', 0);
 define('DEBUG_DISPLAY', false);
 define('SCRIPT_DEBUG', false);
-
-/**
- * Custom Content Directory
- */
-define('CONTENT_DIR', '/app');
-define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
-define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 
 /**
  * DB settings
@@ -60,10 +58,11 @@ define('NONCE_SALT',       getenv('NONCE_SALT'));
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', true);
 define('DISALLOW_FILE_EDIT', true);
+define('WP_USE_THEMES', false);
 
 /**
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {
-  define('ABSPATH', $webroot_dir . '/wp/');
+  define('ABSPATH', $webroot_dir);
 }
