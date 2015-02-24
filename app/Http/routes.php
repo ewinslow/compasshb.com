@@ -11,13 +11,38 @@
 |
 */
 
-Route::get('/', function()
+/*
+ * Temporary Redirects
+ */
+Route::get('/wp-admin', function()
 {
-	return View::make('app');
+	return redirect('/wp/wp-admin');
 });
 
+/*
+ * Home Page
+ */
+Route::get('/', 'PagesController@home');
 
-// Static Pages
+/*
+ * Dynamic Pages
+ * /2015/02/page-title-here
+ *
+ */
+Route::get('{year}/{month}/{slug}', 'PagesController@content')->where(['year' => '\d{4}', 'month' => '\d{2}']);
+
+Route::get('read', 'PagesController@read');
+
+Route::get('pray', 'PagesController@pray');
+
+Route::get('fellowship', 'PagesController@fellowship');
+
+Route::get('learn', 'PagesController@learn');
+
+
+/*
+ * Otherwise, Static Page
+ */
 Route::get('who-we-are', 'PagesController@whoweare');
 
 Route::get('eight-distinctives', 'PagesController@eightdistinctives');
@@ -37,8 +62,6 @@ Route::get('youth', 'PagesController@youth');
 Route::get('college', 'PagesController@college');
 
 
-// Dynamic Pages
-Route::get('{year}/{month}/{slug}', 'PostsController@content')->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 // Route::controllers([
 // 	'auth' => 'Auth\AuthController',
