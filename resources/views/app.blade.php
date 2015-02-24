@@ -1,20 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
-***** HEADER *****
-
-<style>
-.clickable:hover 
-{
-    text-decoration: none;
-}
-a p .glyphicon 
-{
-    font-size: 5rem;
-}
-</style>
-
 <div class="row" style="text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
     <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
 
@@ -137,78 +123,46 @@ a p .glyphicon
 </div>
 
 <!-- Recent Sermons -->
-<div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
-<div class="col-xs-10 col-xs-offset-1">
-    <h2>Recent Sermons</h2>
-    <?php /*
-    rewind_posts();
-    query_posts('post_type=post&format=sermon&posts_per_page=4&post_status=publish');
-    $count = 1;
-    while (have_posts()) : the_post(); */ ?>
-        <div class="col-md-3">
-        <?php /*
-        // Get video cover art
-        $json = file_get_contents('http://vimeo.com/api/oembed.json?url='.get_post_meta(get_the_ID(), 'video_oembed',
-            true));
-        $obj = json_decode($json);
-        $thumbnail = $obj->thumbnail_url;
-        */ ?>
-            <div style="background-image: url('***URL'); background-size: cover; width: 100%; height: 150px">
+<div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
+    <div class="col-xs-10 col-xs-offset-1">
+        <h2>Recent Sermons</h2>
+
+        @foreach($sermons as $sermon)
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="...feature_image..." alt="..."/>
+                <div class="caption">
+                    <h3>{{ $sermon->post_title }}</h3>
+                    <p>{{ $sermon->attachment }} Preacher, ID, Date, Summary</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
             </div>
-            <div style="background-color: #FFF; padding: 10px; height: 135px; max-height: 135px; text-overflow: ellipsis">
-                <h6><a href="***PERMALINK" title="***TITLE">
-                <?php //$sermon_number = get_post_meta(get_the_ID(), 'sermon_number', true);
-               /* if ($sermon_number) {
-                    echo '#'.$sermon_number.'. ';
-                }
-                the_title(); */?></a></h6>
-                <small><?php //the_time('l, F j, Y', '<p>', '</p>'); ?></small>
-                <br/><br/>
-                <a class="btn btn-default" href="***permalink" role="button">Watch</a>
-            </div>
-         </div>
-<?php /*$count++; endwhile;
-wp_reset_query(); */?>
-</div>
+        </div>
+        @endforeach
+
+    </div>
 </div>
 
 
 <!-- Recent Videos -->
 <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
-<div class="col-xs-10 col-xs-offset-1">
- <h2>Recent Videos</h2>
-<?php /*
-rewind_posts();
-query_posts('post_type=post&format=blog&post_status=publish');
-$count = 0;
-while (have_posts()) : the_post();
-    if (get_post_meta(get_the_ID(), 'video_oembed', true) == '') {
-        continue;
-    } */?>
-    <div class="col-md-6">
-        <?php
-        /*// Get video cover art
-        $json = file_get_contents('http://vimeo.com/api/oembed.json?url='.get_post_meta(get_the_ID(), 'video_oembed',
-            true));
-        $obj = json_decode($json);
-        $thumbnail = $obj->thumbnail_url; */?>
-        <div style="background-image: url('***URL'); background-size: cover; width: 100%; height: 200px">
+    <div class="col-xs-10 col-xs-offset-1">
+        <h2>Recent Videos</h2>
+
+        @foreach($sermons as $sermon)
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="...feature_image..." alt="..."/>
+                <div class="caption">
+                    <h3>{{ $sermon->post_title }}</h3>
+                    <p>{{ $sermon->attachment }} Preacher, ID, Date, Summary</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
         </div>
-        <div style="background-color: #FFF; padding: 10px; height: 135px; max-height: 135px; text-overflow: ellipsis">
-            <h6><a href="***PERMA" title="***title">***title</a></h6>
-            <small><?php // the_time('l, F j, Y', '<p>', '</p>'); ?></small>
-            <br/><br/>
-            <a class="btn btn-default" href="***perma" role="button">Watch</a>
-        </div>
+        @endforeach
+    
     </div>
-<?php /*
-    $count++;
-if ($count == 2) {
-    break;
-}
-endwhile;
-wp_reset_query(); */?>
-</div>
 </div>
 
 <!-- Recent Photography / SmugMug -->
@@ -234,6 +188,20 @@ wp_reset_query(); */?>
 </div>
 </div>
 
-*****@todo: add instragram photos
+<!-- Instagram -->
+<div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
+    <div class="col-xs-10 col-xs-offset-1">
+        <h2>Instagram</h2>
+
+        @foreach($sermons as $sermon)
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="...feature_image..." alt="..."/>
+            </div>
+        </div>
+        @endforeach
+    
+    </div>
+</div>
 
 @stop

@@ -1,3 +1,9 @@
 body, label, .checkbox label {
   font-weight: 300;
   font-family: "Roboto", Helvetica, Arial, sans-serif; }
+
+.clickable:hover {
+  text-decoration: none; }
+
+a p .glyphicon {
+  font-size: 5rem; }
