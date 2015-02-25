@@ -1,3 +1,177 @@
+h3 {
+  text-align: left; }
+
+span.verse-num {
+  font-size: 80%;
+  font-weight: bold;
+  padding-right: .15em;
+  padding-left: .25em;
+  vertical-align: text-top; }
+
+span.woc {
+  /* Words of Christ (for red-letter editions) */
+  color: #900; }
+
+span.chapter-num {
+  font-weight: bold;
+  padding-right: .5em; }
+
+div.esv-text p {
+  text-indent: 2em; }
+
+div.esv-text p.same-paragraph {
+  text-indent: 0; }
+
+div.block-indent p {
+  text-indent: 0;
+  padding-left: 2.5em;
+  margin-left: 0; }
+
+span.indent {
+  padding-left: 2em; }
+
+span.indent-2, span.psalm-doxology-line {
+  padding-left: 4em; }
+
+span.declares-line {
+  padding-left: 6em; }
+
+span.small-caps {
+  font-variant: small-caps; }
+
+span.selah {
+  font-style: italic;
+  margin-left: 1em; }
+
+p.extra-space {
+  margin-top: 2em; }
+
+div.block-indent span.verse-num, div.block-indent span.woc {
+  padding-left: 0; }
+
+h4 {
+  font-weight: normal; }
+
+h4.speaker {
+  padding-left: 10em;
+  font-variant: small-caps;
+  margin-bottom: -1em; }
+
+h4.textual-note {
+  font-variant: small-caps; }
+
+h4.psalm-acrostic-title {
+  font-variant: small-caps; }
+
+span.footnote {
+  font-size: 80%;
+  padding-right: .5em;
+  padding-left: 0em;
+  vertical-align: text-top; }
+
+div.footnotes h3 {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+div.footnotes p {
+  text-indent: 0; }
+
+span.footnote-ref {
+  font-weight: bold; }
+
+p.copyright {
+  text-indent: 0; }
+
+object.audio {
+  margin: 0 0 0 10px;
+  padding: 0; }
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px; }
+
+.navbar {
+  background-color: #fff;
+  margin: 0;
+  padding: 5px;
+  border-bottom: 1px solid #e7e7e7;
+  border-top: 4px solid #497f9e; }
+
+/*
+ * Global add-ons
+ */
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; }
+
+/*
+ * Sidebar
+ */
+/* Hide for mobile, show later */
+.sidebar {
+  display: none; }
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee; } }
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px;
+  /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px; }
+
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px; }
+
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca; }
+
+/*
+ * Main content
+ */
+.main {
+  padding: 20px; }
+
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px; } }
+
+.main .page-header {
+  margin-top: 0; }
+
+/*
+ * Placeholder dashboard ideas
+ */
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center; }
+
+.placeholders h4 {
+  margin-bottom: 0; }
+
+.placeholder {
+  margin-bottom: 20px; }
+
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%; }
+
 body, label, .checkbox label {
   font-weight: 300;
   font-family: "Roboto", Helvetica, Arial, sans-serif; }
