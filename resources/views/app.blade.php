@@ -4,32 +4,16 @@
 <div class="row" style="text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);padding-top: 10px;padding-bottom: 30px;">
     <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
 
-        <?php /*
-        $results = array();
-        rewind_posts();
-        query_posts('post_type=post&format=sermon&posts_per_page=3');
-
-        if (have_posts()) {
-            while (have_posts()) {
-                the_post();
-                $video_oembed = get_post_meta(get_the_ID(), 'video_oembed', true);
-                if (empty($video_oembed)) {
-                    continue;
-                }
-                $results['permalink'] = get_the_permalink();
-                $results['title'] = get_the_title();
-                break;
-            }
-        }
-        $video_thumb = implode(apply_filters('chb_feed_vimeo', get_post_meta(get_the_ID(), 'video_oembed', true)));  */ ?>
-       <a class="clickable" href="***** PERMALINK *****" style="color: #fff; text-transform: uppercase; display: block; border: 4px solid #ddd; margin: 0 auto; min-height: 375px; padding-top: 80px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(***** VIDEOTHUMB *****); width: 100%; background-size: cover;">
-           <br/><p style="color: #fff; text-transform: uppercase;">Watch Latest Sermon</p>
-           <h1 class="tk-seravek-web" style="text-transform: uppercase">***** TITLE *****</h1>
-           <p style="color: #fff; text-transform: uppercase;"><br/>
-               <i class="glyphicon glyphicon-play-circle"></i></p>
+       <a class="clickable" href="{{ $sermons[0]->meta->video_oembed }}" style="color: #fff; text-transform: uppercase; display: block; border: 4px solid #ddd; margin: 0 auto; min-height: 375px; padding-top: 80px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(***** VIDEOTHUMB *****); width: 100%; background-size: cover;">
+            <br/><p style="color: #fff; text-transform: uppercase;">Watch Latest Sermon</p>
+            <h1 class="tk-seravek-web" style="text-transform: uppercase">{{ $sermons[0]->post_title }}</h1>
+            <p style="color: #fff; text-transform: uppercase;"><br/>
+                <i class="glyphicon glyphicon-play-circle"></i>
+            </p>
        </a>
      </div>
 </div>
+
 
 <div class="row" style="padding-bottom: 20px; text-align: center; background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg); background-size: cover;">
     <div class="col-md-2 col-md-offset-2">
@@ -133,7 +117,7 @@
                 <img src="...feature_image..." alt="..."/>
                 <div class="caption">
                     <h3>{{ $sermon->post_title }}</h3>
-                    <p>{{ $sermon->attachment }} Preacher, ID, Date, Summary</p>
+                    <p>{{ $sermon->attachment }} {{ $sermon->meta->byline }}, ID, Date, Summary, {{ $sermon->meta->sermon_text }}</p>
                     <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                 </div>
             </div>
@@ -149,13 +133,13 @@
     <div class="col-xs-10 col-xs-offset-1">
         <h2>Recent Videos</h2>
 
-        @foreach($sermons as $sermon)
-        <div class="col-sm-6 col-md-4">
+        @foreach($blogs as $blog)
+        <div class="col-sm-6 col-md-6">
             <div class="thumbnail">
-                <img src="...feature_image..." alt="..."/>
+                <img src="{{ $blog->attachment[0]->guid }}" alt="..."/>
                 <div class="caption">
-                    <h3>{{ $sermon->post_title }}</h3>
-                    <p>{{ $sermon->attachment }} Preacher, ID, Date, Summary</p>
+                    <h3>{{ $blog->post_title }}</h3>
+                    <p>Preacher, ID, {{ $blog->post_date }}, Summary</p>
                     <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                 </div>
             </div>

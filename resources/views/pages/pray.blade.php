@@ -1,30 +1,58 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<h1 class="page-heading">Prayer Topic</h1>
+<ul class="list-group">
+  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
+  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
+  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
+  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
+  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
+</ul>
+@endsection
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="/read">Read <span class="badge">10</span><span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="/pray">Pray</a></li>
-            <li><a href="/fellowship">Fellowship</a></li>
-            <li><a href="/learn">Learn</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Prayer</h1>
+@section('sidebar')
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About Prayer</h3>
+  </div>
+  <div class="panel-body">
+    <p>Distinctive #2 is we rely on prayer.</p>
+  </div>
+</div>
 
-        <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Teaching On Prayer</h3>
-                </div>
-                <div class="panel-body">
-                    If God's People Pray & When God's People Pray
-                </div>
-            </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Learn to Pray</h3>
+  </div>
+  <div class="panel-body">
 
-        </div>
-      </div>
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="..." alt="...">
+      </a>
     </div>
+    <div class="media-body">
+      <h4 class="media-heading">If God's People Pray</h4>
+      <p>Why we should pray</p>
+    </div>
+  </div>
+
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="..." alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">When God's People Pray</h4>
+      <p>How we should pray</p>
+    </div>
+  </div>  
+
+  </div>
+</div>
+
+<p><a href="#" onClick="window.external.AddFavorite(location.href, 'pray'); return false" class="btn btn-default" >Bookmark this page</a></p>
 @endsection

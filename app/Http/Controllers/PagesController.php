@@ -7,19 +7,6 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
-	public function __construct()
-	{
-
-		$params = array(
-    		'database'  => getenv('DB_NAME'),
-    		'username'  => getenv('DB_USER'),
-    		'password'  => getenv('DB_PASSWORD'),
-    		'prefix'    => 'wp_');
-		
-		\Corcel\Database::connect($params);
-
-	}
-
 	public function content($year, $date, $slug)
 	{
 		// All published posts
@@ -30,13 +17,16 @@ class PagesController extends Controller {
 
     public function read()
     {
-    	$post = \Post::published()->take(1)->get();
+
+    	$posts = new \CompassHB\Www\WPost;
+
+    	$read = $posts->get('scripture-of-the-day', 1);
 
     	$esv = new \CompassHB\Www\Esv\Esv;
 
-    	$content = $esv->retrieveScripture($post[0]->post_title);
+    	$content = $esv->retrieveScripture($read[0]->post_title);
 
-        return view('pages.read')->with('post', $post)->with('content', $content);
+        return view('pages.read')->with('post', $read)->with('content', $content);
     }
 
     public function pray()
@@ -100,10 +90,21 @@ class PagesController extends Controller {
 	}
 
 	public function home()
-	{
-		$sermons = \Post::published()->take(3)->get();
+	{		
+		$posts = new \CompassHB\Www\WPost;
 
-		return view('app')->with('sermons', $sermons);
+		$sermons = $posts->get('sermon', 3);
+//		$sermons_text = $posts->getMeta($sermons[0], 'sermon_text');
+
+		$blogs = $posts->get('blog', 2);
+		$reading = $posts->get('scripture-of-the-day', 1);
+
+		//      dd($posts->getMeta($sermons[0], 'sermon_text'));
+
+
+		return view('app')->with('sermons', $sermons)
+						  ->with('blogs', $blogs)
+						  ->with('reading', $reading);
 
 	}
 

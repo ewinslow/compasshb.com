@@ -39,7 +39,8 @@
 		],
 		"psr-4": {
 			"CompassHB\\Www\\": "app/"
-		}
+		},
+		"files": ["app/Helpers.php"]
 	},
 	"autoload-dev": {
 		"classmap": [
