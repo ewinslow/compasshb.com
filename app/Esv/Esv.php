@@ -7,7 +7,7 @@ interface ScriptureProvider {
 class Esv implements ScriptureProvider {
 
 	private $apikey;
-	private $options = "include-footnotes=false&audio-format=mp3";
+	private $options = "include-footnotes=false&audio-format=flash";
 	private $url = "http://www.esvapi.org/v2/rest/passageQuery";
 
 	public function __construct()
