@@ -48,7 +48,7 @@
     </div>
 
     <div class="row" style="padding: 15px; background-image: url('/app/themes/compasshb-theme/images/bar_multicolors.png'); background-repeat: repeat-x; background-size: 850px; background-position: center bottom; min-height: 50px; background: #222; color: #999; font-size: 0.923em; background-repeat: repeat-x; background-size: 850px; background-position: center bottom;">
-            <span>© 2014-<!-- date("Y"); --> Compass Bible Church Huntington Beach. All Rights Reserved.</span>
+            <span>© 2014-{{ date('Y') }} Compass Bible Church Huntington Beach. All Rights Reserved.</span>
             <span style="float: right"><a href="mailto:info@compasshb.com" style="color: #989898">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
                     href="http://github.com/compasshb"><img src="/app/themes/compasshb-theme/images/GitHub-Mark-Light-32px.png" width="16" title="Source Code on GitHub" alt="Source Code on GitHub"/></a></span>
     </div>
