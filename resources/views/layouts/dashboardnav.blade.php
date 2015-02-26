@@ -13,8 +13,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right display-inline">
-        <li style="padding-right: 300px;"><a href="/">{{ date('l, F d') }} </a></li>
-        <li><a href="#"><span class="badge">25</span> Comments</a></li>
+        <li><a href="/">{{ date('l, F d') }}</a></li>
       </ul>
     </div>
   </div>

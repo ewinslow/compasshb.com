@@ -29,7 +29,7 @@ Route::get('/', 'PagesController@home');
  * /2015/02/page-title-here
  *
  */
-Route::get('{year}/{month}/{slug}', 'PagesController@content')->where(['year' => '\d{4}', 'month' => '\d{2}']);
+Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 Route::get('read', 'PagesController@read');
 
@@ -39,6 +39,7 @@ Route::get('fellowship', 'PagesController@fellowship');
 
 Route::get('learn', 'PagesController@learn');
 
+Route::get('serve', 'PagesController@serve');
 
 /*
  * Otherwise, Static Page
@@ -60,10 +61,3 @@ Route::get('calendar', 'PagesController@calendar');
 Route::get('youth', 'PagesController@youth');
 
 Route::get('college', 'PagesController@college');
-
-
-
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);

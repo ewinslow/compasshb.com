@@ -54,5 +54,5 @@
   </div>
 </div>
 
-<p><a href="#" onClick="window.external.AddFavorite(location.href, 'pray'); return false" class="btn btn-default" >Bookmark this page</a></p>
+<p><a href="#" onClick="window.external.AddFavorite(location.href, 'pray'); return false" class="btn btn-default" ><span class="glyphicon glyphicon-home"></span>  Bookmark this page</a></p>
 @endsection

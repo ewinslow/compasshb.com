@@ -2,21 +2,23 @@ h3 {
 	text-align: left;
 	}
 span.verse-num {
-	font-size: 80%;
-	font-weight: bold;
+	font-size: 70%;
 	padding-right: .15em;
 	padding-left: .25em;
 	vertical-align: text-top;
+	color: #ccc
 	}
 span.woc { /* Words of Christ (for red-letter editions) */
 	color: #900;
 	}
 span.chapter-num {
-	font-weight: bold;
 	padding-right: .5em;
+	color: #ccc;
 	}
 div.esv-text p {
 	text-indent: 2em;
+	font-size: 1.1875em;
+	line-height: 1.5789;
 	}
 div.esv-text p.same-paragraph {
 	text-indent: 0;

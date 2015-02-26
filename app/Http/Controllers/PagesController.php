@@ -7,28 +7,54 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
-	public function content($year, $date, $slug)
-	{
-		// All published posts
-		$posts = \Post::slug($slug)->get();
+	public $posts;
 
-		return view('college')->with('posts', $posts);
+	public function __construct()
+	{
+		$this->posts = new \CompassHB\Www\WPost;
+	}
+
+	/**
+	 * Dynamic single post requests
+	 */
+	public function singlepost($year, $date, $slug)
+	{
+		$single = $this->posts->getSingle($year, $date, $slug);
+		$category = $single->first()->taxonomies;
+		$category = $category[1]->term->name;
+
+		if (in_tax($single, 'Format', 'Scripture of the Day'))
+		{
+			$esv = new \CompassHB\Www\Esv\Esv;
+			$content = $esv->getScripture($single[0]->post_title);
+
+			$postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
+
+			return view('pages.read')->with('content', $content)
+									 ->with('postflash', $postflash);
+		}
+
+		return view('pages.blog')->with('single', $single);
+
 	}
 
     public function read()
     {
 
-    	$posts = new \CompassHB\Www\WPost;
-
-    	$read = $posts->get('scripture-of-the-day', 1);
+    	$read = $this->posts->get('scripture-of-the-day', 1);
 
     	$esv = new \CompassHB\Www\Esv\Esv;
 
-    	$content = $esv->retrieveScripture($read[0]->post_title);
+    	$content = $esv->getScripture($read[0]->post_title);
 
-        return view('pages.read')->with('post', $read)->with('content', $content);
+        return view('pages.read')->with('post', $read)
+        						 ->with('content', $content)
+        						 ->with('postflash', '');
     }
 
+    /**
+     * Static page requests
+     */
     public function pray()
     {
         return view('pages.pray');
@@ -37,6 +63,11 @@ class PagesController extends Controller {
     public function fellowship()
     {
         return view('pages.fellowship');
+    }
+
+    public function serve()
+    {
+        return view('pages.serve');
     }
 
     public function learn()
@@ -89,15 +120,17 @@ class PagesController extends Controller {
 		return view('pages.college');
 	}
 
+	/**
+	 * Homepage
+	 */
 	public function home()
 	{		
-		$posts = new \CompassHB\Www\WPost;
 
-		$sermons = $posts->get('sermon', 3);
+		$sermons = $this->posts->get('sermon', 3);
 //		$sermons_text = $posts->getMeta($sermons[0], 'sermon_text');
 
-		$blogs = $posts->get('blog', 2);
-		$reading = $posts->get('scripture-of-the-day', 1);
+		$blogs = $this->posts->get('blog', 2);
+		$reading = $this->posts->get('scripture-of-the-day', 1);
 
 		//      dd($posts->getMeta($sermons[0], 'sermon_text'));
 

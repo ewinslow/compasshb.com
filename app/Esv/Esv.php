@@ -1,7 +1,7 @@
 <?php namespace CompassHB\Www\Esv;
 
 interface ScriptureProvider {
-	public function retrieveScripture($passage);
+	public function getScripture($passage);
 }
 
 class Esv implements ScriptureProvider {
@@ -15,7 +15,7 @@ class Esv implements ScriptureProvider {
 		$this->apikey = getenv('ESV_API');
 	}
 
-	public function retrieveScripture($passage)
+	public function getScripture($passage)
 	{
 		$request = $this->url . "?key=" . $this->apikey . "&passage=" . urlencode($passage) . "&" . $this->options;
 

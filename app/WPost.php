@@ -34,4 +34,9 @@ class WPost {
 
 	}
 
+	public function getSingle($year, $date, $slug)
+	{
+		return \Post::slug($slug)->get();
+	}
+
 }
