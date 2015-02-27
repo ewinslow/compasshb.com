@@ -1,33 +1,35 @@
 {
-    "name": "compasshb/compasshb.com",
-    "description": "...and the gospel rings out!",
-	"license": "MIT",
+	"name": "compasshb/compasshb.com",
+	"description": "...and the gospel rings out!",
+	"support": {
+		"issues": "https://github.com/CompassHB/compasshb.com/issues"
+	},
 	"type": "project",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://wpackagist.org"
-        }
-    ],	
+	"license": "MIT",
+	"repositories": [ {
+		"type": "composer",
+		"url": "http://wpackagist.org"
+	} ],
 	"require": {
 		"laravel/framework": "5.0.*",
-        "php": "~5.4",
-        "johnpbloch/wordpress": "~4.1",
-        "jgrossi/corcel": "dev-master",		
-        "bugsnag/bugsnag": "2.*",
-        "vimeo/vimeo-api": "1.*",
-        "vlucas/phpdotenv": "1.*",
-        "guzzlehttp/guzzle": "~5.1",
-        "bradmsmith/theme-compasshb": "dev-master",
-        "wpackagist-plugin/feedpress": "~1.6",
-        "wpackagist-plugin/varnish-http-purge": "~3.6",
-        "wpackagist-plugin/vaultpress": "~1.7",
-        "wpackagist-plugin/w3-total-cache": "0.9.4.1",
-        "wpackagist-plugin/wordpress-seo": "~1.7",
-        "wpackagist-plugin/simple-history": "~2.0",
-        "wpackagist-plugin/restrict-categories": "~2.6",
-        "wpackagist-plugin/remove-category-url": "~0.1",
-        "wpackagist-plugin/jetpack": "~3.3"
+		"php": "~5.4",
+		"johnpbloch/wordpress": "~4.1",
+		"jgrossi/corcel": "dev-master",
+		"bugsnag/bugsnag": "2.*",
+		"vimeo/vimeo-api": "1.*",
+		"vlucas/phpdotenv": "1.*",
+		"guzzlehttp/guzzle": "~5.1",
+		"twbs/bootstrap-sass": "~3.2",
+		"bradmsmith/theme-compasshb": "dev-master",
+		"wpackagist-plugin/feedpress": "~1.6",
+		"wpackagist-plugin/varnish-http-purge": "~3.6",
+		"wpackagist-plugin/vaultpress": "~1.7",
+		"wpackagist-plugin/w3-total-cache": "0.9.4.1",
+		"wpackagist-plugin/wordpress-seo": "~1.7",
+		"wpackagist-plugin/simple-history": "~2.0",
+		"wpackagist-plugin/restrict-categories": "~2.6",
+		"wpackagist-plugin/remove-category-url": "~0.1",
+		"wpackagist-plugin/jetpack": "~3.3"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
@@ -64,15 +66,15 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	    "extra": {
-        "wordpress-install-dir": "public/wp",
-        "installer-paths": {
-            "public/wp/wp-content/themes/{$name}/": [
-                "type:wordpress-theme"
-            ],
-            "public/wp/wp-content/plugins/{$name}/": [
-            	"type:wordpress-plugin"
-            ]
-        }
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+    	"public/wp/wp-content/themes/{$name}/": [
+      	"type:wordpress-theme"
+      ],
+      "public/wp/wp-content/plugins/{$name}/": [
+      	"type:wordpress-plugin"
+      ]
     }
+	}
 }

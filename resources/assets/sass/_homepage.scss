@@ -1,0 +1,48 @@
+// Homepage video container
+
+.drawer
+{
+	text-align: center; 
+	background-image: url(http://www.compasshb.com/app/uploads/2014/10/hbwebsitetileGRAY.jpg);
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+// Latest sermon on homepage
+.latestsermon
+{
+	color: #fff; 
+	text-transform: uppercase; 
+	display: block; 
+	border: 4px solid #ddd; 
+	margin: 0 auto; 
+	min-height: 375px; 
+	padding-top: 80px; 
+	width: 100%; 
+	background-size: cover;
+}
+
+.latestsermon p
+{
+	margin-top: 20px;
+	color: #fff; 
+	text-transform: uppercase;
+}
+
+.latestsermon h1
+{
+	text-transform: uppercase;
+
+}
+
+.featuredblog
+{
+	display: block; 
+	text-transform: uppercase; 
+	color: #fff; 
+	padding: 10px; 
+	border: 4px #ddd solid; 
+	width: 100%; 
+	height: 105px; 
+	background-size: cover;
+}

@@ -11,12 +11,27 @@ var elixir = require('laravel-elixir');
  |
  */
 
+var paths = {
+    'bootstrap': './vendor/twbs/bootstrap-sass/assets/stylesheets/',
+    'fa': './node_modules/font-awesome/scss/'
+}
+
 elixir(function(mix) {
 
-    mix.sass('app.sass');
+	// Stylesheets
+
+    mix.sass('app.sass', 'public/css/', {includePaths: [paths.bootstrap, paths.fa]});
+
+	// Scripts
+
+	mix.scripts(['../../node_modules/jquery/dist/jquery.min.js', '../../vendor/twbs/bootstrap-sass/assets/javascripts/bootstrap.min.js']);
+
+	// Tests
 
     mix.phpUnit();
 
-    mix.version('public/css/app.css');
+    mix.phpSpec();
+
+    mix.version(['public/css/app.css', 'public/js/all.js']);
     
 });
