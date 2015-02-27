@@ -15,9 +15,9 @@ class WPost {
 		\Corcel\Database::connect($params);
 	}
 
-	public function get($format = 'blog', $number = 1)
+	public function get($format = 'blog', $number = 1, $status = 'publish')
 	{
-		return \Post::taxonomy('format', $format)->published()->with('attachment')->take($number)->get();
+			return \Post::taxonomy('format', $format)->status($status)->with('attachment')->take($number)->get();
 	}
 
 	public function getMeta($post, $key)
