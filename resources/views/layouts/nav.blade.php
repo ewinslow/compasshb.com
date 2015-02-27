@@ -1,8 +1,10 @@
 <header class="container-fluid">
     <div class="row" style="background-color: #477e9f; color: #fff; text-align: right; height: 25px; ">
-        <a href="http://twitter.com/compasshb/" title="Twitter"><span class="fa fa-twitter" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
-        <a href="http://facebook.com/compasshb/" title="Facebook"><span class="fa fa-facebook" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
-        <a href="http://instagram.com/compasshb/" title="Instragram"><span class="fa fa-instagram" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
+        <div class="col-sm-10 col-sm-offset-1">
+            <a href="http://twitter.com/compasshb/" title="Twitter"><span class="fa fa-twitter" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
+            <a href="http://facebook.com/compasshb/" title="Facebook"><span class="fa fa-facebook" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
+            <a href="http://instagram.com/compasshb/" title="Instragram"><span class="fa fa-instagram" style="color: #fff; padding: 5px 5px; font-size: 1.25em;"></span></a>
+        </div>
     </div>
     <div class="row">
         <nav class="navbar navbar-default navbar-static-top">

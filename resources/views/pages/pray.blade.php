@@ -29,8 +29,8 @@
 
   <div class="media">
     <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="..." alt="...">
+      <a href="https://vimeo.com/118441384">
+        <img class="media-object" src="{{ getvideothumb('https://vimeo.com/118441384') }}" alt="If God's People Pray" width="60">
       </a>
     </div>
     <div class="media-body">
@@ -41,8 +41,8 @@
 
   <div class="media">
     <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="..." alt="...">
+      <a href="https://vimeo.com/119068075">
+        <img class="media-object" src="{{ getvideothumb('https://vimeo.com/119068075') }}" alt="When God's People Pray"  width="60">
       </a>
     </div>
     <div class="media-body">
@@ -53,6 +53,4 @@
 
   </div>
 </div>
-
-<p><a href="#" onClick="window.external.AddFavorite(location.href, 'pray'); return false" class="btn btn-default" ><span class="glyphicon glyphicon-home"></span>  Bookmark this page</a></p>
 @endsection
