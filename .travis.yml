@@ -1,7 +1,20 @@
 language: php
-php: '5.4'
-install: composer install
+
+php:
+	- 5.4
+	- 5.5
+	- 5.6
+	- 7.0
+	- hhvm
+
+matrix:
+	allow_failures:
+		- php: 7.0
+
 sudo: false
+
+install: composer install --no-interaction --prefer-source
+
 notifications:
   slack:
     secure: Dws5+spWCvfCMCflZywFq09MYld8gv4xccJG0pLhw08oerCJHsiAqWNJBr+GlCwCVXqkls7AdmDYye+B27dPQBv/akx2f4StLJ7vQmSWVgnYn0reDa16+VUkRfQ32Csbj7Y0OR7/2Z3uePaS8vX/g1QbII0Y7GNIhIVce3TVeck=
