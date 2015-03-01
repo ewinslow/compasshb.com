@@ -29,7 +29,11 @@ Route::get('/', 'PagesController@home');
  * /2015/02/page-title-here
  *
  */
-Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')->where(['year' => '\d{4}', 'month' => '\d{2}']);
+Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
+	->where(['year' => '\d{4}', 'month' => '\d{2}']);
+
+Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
+	->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 Route::get('read', 'PagesController@read');
 

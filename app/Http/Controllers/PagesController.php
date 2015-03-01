@@ -37,8 +37,33 @@ class PagesController extends Controller {
 									 ->with('title', $post[0]->post_title);
 		}
 
-		return view('pages.blog')->with('post', $post);
+		return view('pages.blog')->with('post', $post)
+								 ->with('title', $post[0]->post_title);
 
+	}
+
+	// stub for downloading podcasts
+	public function podcast($year, $date, $slug, $video_id)
+	{
+		$post = $this->posts->getSingle($year, $date, $slug);
+		
+		$video_url = $post[0]->meta->video_oembed;
+
+		$video_id = substr($video_url, strrpos($video_url, '/') + 1);
+
+        $vimeo = new \Vimeo\Vimeo(
+        	env('VIMEO_CLIENT_ID'), 
+        	env('VIMEO_CLIENT_SECRET'), 
+        	env('VIMEO_TOKEN')
+        );
+
+         $video = $vimeo->request("/videos/$video_id");
+         $video = $video['body'];
+         $video = $video['download'];
+         $video = $video[1];
+         $video = $video['link'];
+         
+         return redirect($video);
 	}
 
     public function read()
