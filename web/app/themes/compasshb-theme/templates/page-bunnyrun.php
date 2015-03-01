@@ -2,7 +2,7 @@
 <head>
     <title>The Bunny Run 5K - Compass Bible Church Huntington Beach</title>
 
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #5d5e5d">
 
