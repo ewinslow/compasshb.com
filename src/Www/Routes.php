@@ -36,6 +36,7 @@
                     'read' => 'Scripture of the Day',
                     'sermon' => 'Sermon Library',
                     'series' => 'Series',
+                    'bunnyrun' => "Bunny Run"
                 );
 
                 if (array_key_exists('pagename', $wp->query_vars)) {
