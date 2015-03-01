@@ -33,7 +33,8 @@ class PagesController extends Controller {
 
 			return view('pages.read')->with('content', $content)
 									 ->with('postflash', $postflash)
-									 ->with('post', $post);
+									 ->with('post', $post)
+									 ->with('title', $post[0]->post_title);
 		}
 
 		return view('pages.blog')->with('post', $post);
@@ -51,7 +52,8 @@ class PagesController extends Controller {
 
         return view('pages.read')->with('post', $read)
         						 ->with('content', $content)
-        						 ->with('postflash', '');
+        						 ->with('postflash', '')
+        						 ->with('title', 'Scripture of the Day'); ;
     }
 
 	/**
@@ -68,7 +70,8 @@ class PagesController extends Controller {
 		return view('app')->with('sermons', $sermons)
 						  ->with('blogs', $blogs)
 						  ->with('reading', $reading)
-						  ->with('upcomingsermon', $upcomingsermon);
+						  ->with('upcomingsermon', $upcomingsermon)
+						  ->with('title', 'Huntington Beach'); ;
 	}
 
 }

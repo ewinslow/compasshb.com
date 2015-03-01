@@ -39,65 +39,65 @@ Route::get('read', 'PagesController@read');
 
 Route::get('pray', function() 
 {  
-	return view('pages.pray'); 
+	return view('pages.pray')->with('title', 'Pray'); 
 });
 
 Route::get('fellowship', function()
 {
-	return view('pages.fellowship');
+	return view('pages.fellowship')->with('title', 'Home Fellowship Groups'); ;
 });
 
-Route::get('learn', function()
+Route::get('sermons', function()
 {
-	return view('pages.learn');
+	return view('pages.sermons')->with('title', 'Sermons'); ;
 });
 
 Route::get('worship', function()
 {
-	return view('pages.worship');
+	return view('pages.worship')->with('title', 'Worship'); ;
 });
 
 Route::get('who-we-are', function()
 {
-	return view('pages.whoweare');
+	return view('pages.whoweare')->with('title', 'Who We Are'); ;
 });
 
 Route::get('eight-distinctives', function()
 {
-	return view('pages.eightdistinctives');
+	return view('pages.eightdistinctives')->with('title', '8 Distinctives'); ;
 });
 
 Route::get('give', function()
 {
-	return view('pages.give');
+	return view('pages.give')->with('title', 'Give'); ;
 });
 
 Route::get('ice-cream-evangelism', function()
 {
-	return view('pages.icecreamevangelism');
+	return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism'); ;
 });
 
 Route::get('kids-ministry', function()
 {
-	return view('pages.kidsministry');
+	return view('pages.kidsministry')->with('title', 'Kids Ministry'); ;
 });
 
 Route::get('what-we-believe', function()
 {
-	return view('pages.whatwebelieve');
+	return view('pages.whatwebelieve')->with('title', 'What We Believe'); ;
 });
 
 Route::get('calendar', function()
 {
-	return view('pages.calendar');
+	return view('pages.calendar')->with('title', 'Calendar'); ;
 });
 
 Route::get('youth', function()
 {
-	return view('pages.youth');
+	return view('pages.youth')->with('title', 'The United'); ;
 });
 
 Route::get('college', function()
 {
-	return view('pages.college');
+	return view('pages.college')->with('title', 'The Underground'); ;
 });
