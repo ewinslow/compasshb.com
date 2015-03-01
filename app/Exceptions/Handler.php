@@ -1,7 +1,7 @@
 <?php namespace CompassHB\Www\Exceptions;
 
 use Exception;
-use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler
+use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
 
 class Handler extends ExceptionHandler {
 
