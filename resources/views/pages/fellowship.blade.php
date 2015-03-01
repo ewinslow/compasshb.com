@@ -3,24 +3,12 @@
 @section('content')
 <h1 class="page-header">Home Fellowship Groups</h1>
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <img src="...feature_image..." alt="..."/>
-      <div class="caption">
-          <h3>Latest Sermon</h3>
-          <p>Title</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <img src="...feature_image..." alt="..."/>
-      <div class="caption">
-          <h3>Postscript</h3>
-          <p>Title</p>
-      </div>
-    </div>
+<div class="thumbnail">
+  <img src="...feature_image..." alt="..."/>
+  <div class="caption">
+    <h3>Latest Sermon</h3>
+    <p>Title</p>
+    <p> <a href="" class="btn btn-default">Download Handout</a></p>
   </div>
 </div>
 
@@ -37,20 +25,6 @@
       <li>Read Matthew 6:5-8. What is your strategy to make sure you spend time praying to God every day?</li>
       <li>Who is someone specifically you are going to pray for this week?</li>
     </ol>
-    <p>These questions are designed for the application of today’s sermon. Take some time to thoughtfully write out the answers. It is also helpful to discuss in a home fellowship group. If you would like more information on a home fellowship group, email info@compassHB.com.</p>
-    <p> <a href="" class="btn btn-default">Download Handout</a></p>
-  </div>
-</div>
-@endsection
-
-@section('sidebar')
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">About Home Fellowship Groups</h3>
-  </div>
-  <div class="panel-body">
-  	<p>Get involved today.</p>
-	<a href="/fellowship" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Sign Up</a>
   </div>
 </div>
 
@@ -62,4 +36,52 @@
     <p>The Power of Prayer by R. A. Torrey - Pick up a copy in our book nook today!</p>
   </div>
 </div>
+
+@endsection
+
+@section('sidebar')
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About</h3>
+  </div>
+  <div class="panel-body">
+    <p>These questions are designed for the application of this week's sermon. Take some time to thoughtfully write out the answers. It is also helpful to discuss in a home fellowship group. If you would like more information on a home fellowship group, email info@compassHB.com.</p>
+    <p><a href="mailto:info@compasshb.com" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Sign Up</a></p>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Groups</h3>
+  </div>
+  <div class="panel-body">
+    <h4>Sunday</h4>
+    <ul class="list-unstyled">
+      <li>College @ Blakey's</li>
+    </ul>
+    <h4>Tuesday</h4>
+    <ul class="list-unstyled">
+      <li>Quists @ Quists (Young Married)</li>
+      <li>Paynes @ Church</li>
+      <li>Kids Min @ Blakey's</li>
+    </ul>
+    <h4>Wednesday</h4>
+    <ul class="list-unstyled">
+      <li>AWANA for Kids @ Church</li>
+      <li>Halvorsen @ Church (Singles)</li>
+      <li>Miller @ Church</li>
+      <li>Jorden @ Church</li>
+      <li>Randolph @ Church</li>
+    </ul>
+    <h4>Thursday</h4>
+    <ul class="list-unstyled">
+      <li>United for Junior High and High School @ Church</li>
+      <li>Shouse @ Church</li>
+    </ul>
+    <h4>Friday</h4>
+    <ul class="list-unstyled">
+      <li>Davey @ Davey</li>
+    </ul>
+  </div>
+</div>
+
 @endsection

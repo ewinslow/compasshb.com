@@ -15,6 +15,7 @@
             <p>Compass Bible Church exists to make disciples of Christ by <strong>reaching</strong> as many people
                 as possible for Christ, <strong>teaching</strong> them to be like Christ, and
                 <strong>training</strong> them to serve Christ.</p>
+            <p><a hrefOur Mission Statement</p>
         </div>
         <div class="col-md-3"><!-- // @todo: bootstrap nav component -->
             <h5 style="color: #FFF;">Sitemap</h5>

@@ -44,60 +44,68 @@ Route::get('pray', function()
 
 Route::get('fellowship', function()
 {
-	return view('pages.fellowship')->with('title', 'Home Fellowship Groups'); ;
+	return view('pages.fellowship')->with('title', 'Home Fellowship Groups');
 });
 
 Route::get('sermons', function()
 {
-	return view('pages.sermons')->with('title', 'Sermons'); ;
+	return view('pages.sermons')->with('title', 'Sermons');
 });
 
 Route::get('worship', function()
 {
-	return view('pages.worship')->with('title', 'Worship'); ;
+	return view('pages.worship')->with('title', 'Worship');
 });
 
 Route::get('who-we-are', function()
 {
-	return view('pages.whoweare')->with('title', 'Who We Are'); ;
+	return view('pages.whoweare')->with('title', 'Who We Are');
 });
 
 Route::get('eight-distinctives', function()
 {
-	return view('pages.eightdistinctives')->with('title', '8 Distinctives'); ;
+	return view('pages.eightdistinctives')->with('title', '8 Distinctives');
 });
 
 Route::get('give', function()
 {
-	return view('pages.give')->with('title', 'Give'); ;
+	return view('pages.give')->with('title', 'Give');
 });
 
 Route::get('ice-cream-evangelism', function()
 {
-	return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism'); ;
+	return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
 });
 
 Route::get('kids-ministry', function()
 {
-	return view('pages.kidsministry')->with('title', 'Kids Ministry'); ;
+	return view('pages.kidsministry')->with('title', 'Kids Ministry');
 });
 
 Route::get('what-we-believe', function()
 {
-	return view('pages.whatwebelieve')->with('title', 'What We Believe'); ;
+	return view('pages.whatwebelieve')->with('title', 'What We Believe');
 });
 
 Route::get('calendar', function()
 {
-	return view('pages.calendar')->with('title', 'Calendar'); ;
+	return view('pages.calendar')->with('title', 'Calendar');
 });
 
 Route::get('youth', function()
 {
-	return view('pages.youth')->with('title', 'The United'); ;
+	return view('pages.youth')->with('title', 'The United');
 });
 
 Route::get('college', function()
 {
-	return view('pages.college')->with('title', 'The Underground'); ;
+	return view('pages.college')->with('title', 'The Underground');
+});
+
+/**
+ * Landing Pages
+ */
+Route::get('bunnyrun', function()
+{
+	return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
 });

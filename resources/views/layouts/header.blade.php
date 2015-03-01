@@ -8,7 +8,6 @@
 
     <title>{{$title }} - Compass Bible Church</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     <script src="//use.typekit.net/gdu1kdg.js"></script>

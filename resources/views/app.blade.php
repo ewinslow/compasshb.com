@@ -40,26 +40,30 @@
 <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px; padding-bottom: 30px;">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="col-md-4 text-center">
-      <h2>Weekends</h2>
-      <p>9am - Sunday School</p>
-      <p>11am - Main Service</p>
-      <p>&nbsp;</p>
-      <p>This Weekend...<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
+      <h2>Sundays at 11am</h2>
+      <br/>
+      <p>Upcoming Sermon<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
       <p>Pastor {{ $upcomingsermon[0]->meta->byline }}</p>
       <a href="{{ $upcomingsermon[0]->meta->worksheet }}" class="btn btn-default">Worksheet</a>
       <a href="{{ $upcomingsermon[0]->meta->announcements }}" class="btn btn-default">Announcements</a>
     </div>
-    <div class="col-md-4 text-center">
-      <h2>Midweek</h2>
-      <p>Awana and Home Fellowship Groups</p>
-      <p><a href="/fellowship" class="btn btn-default">Home Fellowship Groups</a></p>
-    </div>
     <div class="col-md-4 text-center" style="">
       <h2>Directions</h2>
+      <br/>
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p><br/>
       <p><a class="btn btn-default" href="https://www.google.com/maps/place/5082+Argosy+Ave,+Huntington+Beach,+CA+92649/@33.7407795,-118.0402322,17z/data=!3m1!4b1!4m2!3m1!1s0x80dd25f2e1f15bbd:0x2b2a43000587dfc0" role="button">View Map</a></p>
     </div>    
+    <div class="col-md-4 text-center">
+      <h2>Midweek</h2>
+      <br/>
+      <h4>Home Fellowship Groups</h4>
+      <p>Tuesday, Wednesday, Thursday, and Friday</p>
+      <h4>Awana for kids</h4>
+      <p>Wednesday</p>
+      <h4>The United for Youth</h4>
+      <p>Thursday</p>
+    </div>
   </div>
 </div>
 
