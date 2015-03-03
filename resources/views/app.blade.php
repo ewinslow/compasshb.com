@@ -52,7 +52,7 @@
       <br/>
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p><br/>
-      <p><a class="btn btn-default" href="https://www.google.com/maps/place/5082+Argosy+Ave,+Huntington+Beach,+CA+92649/@33.7407795,-118.0402322,17z/data=!3m1!4b1!4m2!3m1!1s0x80dd25f2e1f15bbd:0x2b2a43000587dfc0" role="button">View Map</a></p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212337.23819364296!2d-118.04023200000005!3d33.740779999999994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1425366656204" width="300" height="275" frameborder="0" style="border:0"></iframe>
     </div>    
     <div class="col-md-4 text-center">
       <h2>Midweek</h2>
