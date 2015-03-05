@@ -22,7 +22,10 @@ Route::get('/wp-admin', function()
 /*
  * Home Page
  */
-Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('/', [
+	'as' => 'home', 
+	'uses' => 'PagesController@home'
+]);
 
 /*
  * Dynamic Pages
@@ -35,9 +38,15 @@ Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
 Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
 	->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
-Route::get('read', ['as' => 'read', 'uses' => 'PagesController@read']);
+Route::get('read', [
+	'as' => 'read', 
+	'uses' => 'PagesController@read'
+]);
 
-Route::get('fellowship', ['as' => 'fellowship', 'uses' => 'PagesController@fellowship']);
+Route::get('fellowship', [
+	'as' => 'fellowship', 
+	'uses' => 'PagesController@fellowship'
+]);
 
 /**
  * Routes without controllers

@@ -70,6 +70,7 @@
                                            alt=""/>
         </div>
         <div class="col-md-6">
+            <a name="awana"></a>
             <h2 style="color:#ffffff;">AWANA</h2>
             <p>God tells every Dad to teach his children the Bible (Deuteronomy 6:4-9 and Ephesians 6:4). Mom is
                         his ministry partner at home. Together they lead their children in how to listen to God’s
