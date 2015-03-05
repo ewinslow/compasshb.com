@@ -112,6 +112,11 @@ Route::get('college', ['as' => 'college', function()
 	return view('pages.college')->with('title', 'The Underground');
 }]);
 
+Route::get('sundayschool', ['as' => 'sundayschool', function()
+{
+	return view('pages.sundayschool')->with('title', 'Sunday School');
+}]);
+
 /**
  * Landing Pages
  */
