@@ -13,7 +13,7 @@
   <section class="row">
     <div class="col-md-7 col-md-offset-1" style="background-color: #fff; border: 1px solid #E4E4E4; padding: 20px; margin-top: 20px">
       <p style='text-transform: uppercase; font-size: .9rem;'><span style="padding-right: 20px;">{{ date_format($post->first()->post_date, 'Y-m-d') }} <a href="{{ $post->first()->meta->sermon_worksheet }}">Worksheet</a> <a href="{{ $post->first()->meta->sermon_announcements }}">Announcements</a></span></p>
-      <p>{!! oembed($post->first()->meta->video_oembed) !!}</p>
+      <p>{!! $post->first()->oembedhtml !!}</p>
       <p>{!! $post->first()->post_content !!}</p>
       <hr/>
       <p><a href="/sermons" class="btn btn-default">View All</a></p>

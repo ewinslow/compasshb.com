@@ -37,6 +37,11 @@ class PagesController extends Controller {
 									 ->with('title', $post[0]->post_title);
 		}
 
+		if ($post->first()->meta->video_oembed)
+		{
+			$post->first()->oembedhtml = oembed($post->first()->meta->video_oembed);
+		}
+
 		return view('pages.blog')->with('post', $post)
 								 ->with('title', $post[0]->post_title);
 

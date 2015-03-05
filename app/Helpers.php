@@ -68,13 +68,13 @@ function getnextpost(WPost $wpost)
 	//
 }
 
-function oembed($video_url)
+function oembed($video_url = '')
 {
     $client = new \GuzzleHttp\Client();
 
     $url = 'https://vimeo.com/api/oembed.json?autoplay=true&url=' . $video_url;
     $response = $client->get($url);
-    $response_body = json_decode($response->getBody());
 
+    $response_body = json_decode($response->getBody());
     return $response_body->html;
 }
