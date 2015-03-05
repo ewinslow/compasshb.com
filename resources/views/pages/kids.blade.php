@@ -12,13 +12,13 @@
 <div class="container-fluid">
     <div class="row" style="background:none; background-color: #a0a0a0; padding-top: 30px;padding-bottom: 30px;">
         <div class="col-xs-10 col-xs-offset-1">
-            <h1>Kids Ministry</h1>
-            <p><span style="color: #ffffff;">Kids Ministry is a safe and fun environment for your child. Kids Ministry meets at our 11AM service Sunday morning for relevant Bible instruction, worship, and crafts. All of our teachers and adult volunteers have background checks. Personal &#8220;Buddies&#8221; are available to assist children with special needs.</span></p>
+            <h1 class="tk-seravek-web">Kids Ministry</h1>
+            <p><span style="color: #ffffff;">Kids Ministry is a safe and fun environment for your child. Kids Ministry meets at our 11AM service Sunday morning for relevant Bible instruction, worship, and crafts. All of our teachers and adult volunteers have background checks. Personal &#8220;Buddies&#8221; are available to assist children with special needs. View our <a href="/app/uploads/2015/02/SICK-POLICY.pdf">sick policy</a>.</span><br/><br/></p>
 
             <div class="col-md-4">
                 <img width="554" height="554" src="http://www.compasshb.com/app/uploads/2014/10/DSC_0018-X2.png"
                              alt="Bre and Taylor Thompson"/><br/>
-                <span>Kids Ministry</span>
+                <h4 class="tk-seravek-web">Kids Ministry</h4>
                 <p style="color: #ffffff;">Bre Thompson is the Director of Kids Ministry and lives in Huntington
                             Beach with her husband Taylor and son Cade. She has been involved in Kids Ministry the past
                             seven years at Compass Bible Church in Aliso Viejo.</p>
@@ -36,7 +36,7 @@
                 <img width="682" height="682"
                              src="http://www.compasshb.com/app/uploads/2014/10/96e84d0900d6d60ad24d96bce5c88eb5.jpeg"
                              alt="Bible Teaching Stories"/>
-                <span>Bible Stories</span>
+                <h4 class="tk-seravek-web">Bible Stories</h4>
                 <p style="color: #ffffff;">Your child will be instructed each week by a story from the Bible.
                             Our aim is to teach in a way that is relevant to each age group and engages your child so
                             they are able to tell you what they learned after the service!</p>
@@ -45,7 +45,7 @@
             <div class="col-md-4">
                 <img width="400" height="400" src="http://www.compasshb.com/app/uploads/2014/10/nY-YQn04.jpeg"
                              alt="Shane Rouland"/>
-                <span>Student Ministry</span>
+                <h4 class="tk-seravek-web">Student Ministry</h4>
                 <p><span style="color: #ffffff;">Shane Rouland is the Student Ministry Director. Shane has a desire to reach out onto the school campuses in Huntington Beach and will lead a midweek Bible study for middle school and high schoolers. He is pursuing a Bible degree from <a
                                     style="color: #ffffff;" href="http://www.masters.edu">The Master’s College</a> and previously worked with Pastor Bobby for two years as an intern. Shane was saved by Jesus in high school where he led a Bible club preached the gospel through campus lunches.</span></p>
                 <ul>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-md-6">
             <a name="awana"></a>
-            <h2 style="color:#ffffff;">AWANA</h2>
+            <h2 style="color:#ffffff;" class="tk-seravek-web">AWANA</h2>
             <p>God tells every Dad to teach his children the Bible (Deuteronomy 6:4-9 and Ephesians 6:4). Mom is
                         his ministry partner at home. Together they lead their children in how to listen to God’s
                         word.</p>
