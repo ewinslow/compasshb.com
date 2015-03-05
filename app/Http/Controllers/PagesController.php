@@ -104,6 +104,29 @@ class PagesController extends Controller {
 									   ->with('sermons', $sermons);
     }
 
+    public function worship()
+    {
+    	$songs = $this->posts->get('worship-song', 6);
+
+			$client = new \GuzzleHttp\Client();
+
+    	foreach ($songs as $song)
+    	{
+		    $url = 'https://vimeo.com/api/oembed.json?url=' . $song->meta->video_oembed;
+				$response = $client->get($url);
+				$response_body = json_decode($response->getBody());
+				$song->othumbnail = $response_body->thumbnail_url;
+     	}
+
+    	return view('pages.worship')
+    		->with('songs', $songs)
+    		->with('title', 'Worship');
+    }
+
+
+
+
+
 	/**
 	 * Homepage
 	 */
@@ -133,8 +156,8 @@ class PagesController extends Controller {
 			$video->othumbnail = $response_body->thumbnail_url;
 		}
 
-        // Instagram
-        $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id=' . env('INSTAGRAM_CLIENT_ID');
+    // Instagram
+    $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id=' . env('INSTAGRAM_CLIENT_ID');
 		$instagrams = file_get_contents($url);
 		$instagrams = json_decode($instagrams, true);
 
@@ -168,7 +191,7 @@ class PagesController extends Controller {
 						  ->with('images', $results)
 						  ->with('instagrams', $instagrams['data'])
 						  ->with('upcomingsermon', $upcomingsermon)
-						  ->with('title', 'Huntington Beach'); ;
+						  ->with('title', 'Compass HB - Huntington Beach'); ;
 	}
 
 }
