@@ -81,22 +81,91 @@ class PagesController extends Controller {
         						 ->with('title', 'Scripture of the Day'); ;
     }
 
+    public function fellowship()
+    {
+    	$sermons = $this->posts->get('sermon', 1);
+		
+		$client = new \GuzzleHttp\Client();
+
+		foreach($sermons as $sermon)
+		{
+			$url = 'https://vimeo.com/api/oembed.json?url=' . $sermon->meta->video_oembed;
+			$response = $client->get($url);
+			$response_body = json_decode($response->getBody());
+			$sermon->othumbnail = $response_body->thumbnail_url;
+		}
+
+		return view('pages.fellowship')->with('title', 'Home Fellowship Groups')
+									   ->with('sermons', $sermons);
+    }
+
 	/**
 	 * Homepage
 	 */
 	public function home()
 	{
 		$sermons = $this->posts->get('sermon', 4);
-		$upcomingsermon = $this->posts->get('sermon', 1, 'future');
-
 		$blogs = $this->posts->get('blog', 2);
+		$videos = $this->posts->get('video', 2);
+		$upcomingsermon = $this->posts->get('sermon', 1, 'future');
 		$reading = $this->posts->get('scripture-of-the-day', 1);
+
+		$client = new \GuzzleHttp\Client();
+
+		foreach ($sermons as $sermon)
+		{
+			$url = 'https://vimeo.com/api/oembed.json?url=' . $sermon->meta->video_oembed;
+			$response = $client->get($url);
+			$response_body = json_decode($response->getBody());
+			$sermon->othumbnail = $response_body->thumbnail_url;
+		}
+
+		foreach ($videos as $video)
+		{
+			$url = 'https://vimeo.com/api/oembed.json?url=' . $video->meta->video_oembed;
+			$response = $client->get($url);
+			$response_body = json_decode($response->getBody());
+			$video->othumbnail = $response_body->thumbnail_url;
+		}
+
+        // Instagram
+        $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id=' . env('INSTAGRAM_CLIENT_ID');
+		$instagrams = file_get_contents($url);
+		$instagrams = json_decode($instagrams, true);
+
+		// Smugmug
+        $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
+        $num = 4;
+
+        $rawFeed = file_get_contents($feedUrl);
+        $xml = new \SimpleXmlElement($rawFeed);
+        $results = array();
+
+        for ($i = 0; $i < $num; $i++) {
+            // Parse Image Link
+            $link = $xml->channel->item->link;
+            $link = substr($link->asXML(), 6, -7);
+
+            // Parse Image Source
+            $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
+            $media = $xml->channel->item[$i]->children($namespaces['media']);
+            $image = $media->group->content[3]->attributes();
+            $image = $image['url']->asXML();
+            $image = substr($image, 6, -1);
+
+            $results[] = array($link, $image);
+        }
 
 		return view('app')->with('sermons', $sermons)
 						  ->with('blogs', $blogs)
 						  ->with('reading', $reading)
+						  ->with('videos', $videos)
+						  ->with('images', $results)
+						  ->with('instagrams', $instagrams['data'])
 						  ->with('upcomingsermon', $upcomingsermon)
 						  ->with('title', 'Huntington Beach'); ;
 	}
 
 }
+
+
