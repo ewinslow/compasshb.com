@@ -26,11 +26,11 @@
   @endforeach
 
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable" href="/read/" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://photos.compasshb.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
+    <a class="clickable" href="{{ route('read') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://photos.compasshb.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
       <h4 class="tk-seravek-web">Scripture of the Day</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="/read/">{{ $reading[0]->post_title }}</a>
+      <a class="clickable" style="color: #fff" href="{{ route('read') }}">{{ $reading[0]->post_title }}</a>
     </h4>
   </div>
 
@@ -42,6 +42,9 @@
     <div class="col-md-4 text-center">
       <h2>Sundays at 11am</h2>
       <br/>
+      <p>5082 Argosy Avenue</p>
+      <p>Huntington Beach, CA 92649</p>
+      <br/>
       <p>Upcoming Sermon<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
       <p>Pastor {{ $upcomingsermon[0]->meta->byline }}</p>
       <a href="{{ $upcomingsermon[0]->meta->worksheet }}" class="btn btn-default">Worksheet</a>
@@ -50,18 +53,16 @@
     <div class="col-md-4 text-center" style="">
       <h2>Directions</h2>
       <br/>
-      <p>5082 Argosy Avenue</p>
-      <p>Huntington Beach, CA 92649</p><br/>
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212337.23819364296!2d-118.04023200000005!3d33.740779999999994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1425366656204" width="300" height="275" frameborder="0" style="border:0"></iframe>
     </div>    
     <div class="col-md-4 text-center">
       <h2>Midweek</h2>
       <br/>
-      <h4>Home Fellowship Groups</h4>
+      <h4><a href="{{ route('fellowship') }}">Home Fellowship Groups</a></h4>
       <p>Tuesday, Wednesday, Thursday, and Friday</p>
-      <h4>Awana for kids</h4>
+      <h4><a href="{{ route('kids') }}#awana">Awana for kids</a></h4>
       <p>Wednesday</p>
-      <h4>The United for Youth</h4>
+      <h4><a href="{{ route('youth') }}">The United for Youth</a></h4>
       <p>Thursday</p>
     </div>
   </div>
@@ -76,22 +77,20 @@
 <!-- Recent Sermons -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2>Recent Sermons</h2>
-        <p><a href="/learn">View All</a></p>
-
+        <h2><a href="{{ route('sermons') }}">Sermons</a></h2>
         @foreach($sermons as $sermon)
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="...feature_image..." alt="..."/>
+                <img src="{{ $sermon->othumbnail }}" alt="{{ $sermon->post_title }}"/>
                 <div class="caption">
-                    <h3>{{ $sermon->post_title }}</h3>
-                    <p>{{ $sermon->attachment }} {{ $sermon->meta->byline }}, ID, Date, Summary, {{ $sermon->meta->sermon_text }}</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h4>{{ $sermon->post_title }}</h4>
+                    <p><small>{{ date_format($sermon->post_date, 'F n') }}</small><br/>
+                    {{ $sermon->meta->sermon_text }}</p>
+                    <p><a href="/{{ date_format($sermon->post_date, 'Y') }}/{{ date_format($sermon->post_date, 'm') }}/{{ $sermon->post_name }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>
         @endforeach
-
     </div>
 </div>
 
@@ -99,16 +98,16 @@
 <!-- Recent Videos -->
 <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2>Recent Videos</h2>
+        <h2><a href="{{ route('videos') }}">Videos</a></h2>
 
-        @foreach($blogs as $blog)
+        @foreach($videos as $video)
         <div class="col-sm-6 col-md-6">
             <div class="thumbnail">
-                <img src="{{ $blog->attachment[0]->guid }}" alt="..."/>
+                <img src="{{ $video->othumbnail }}" alt="{{ $video->post_title }}"/>
                 <div class="caption">
-                    <h3>{{ $blog->post_title }}</h3>
-                    <p>Preacher, ID, {{ $blog->post_date }}, Summary</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Watch</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h4>{{ $video->post_title }}</h4>
+                    <p><small>{{ date_format($video->post_date, 'F n') }}</small></p>
+                    <p><a href="/{{ date_format($video->post_date, 'Y') }}/{{ date_format($video->post_date, 'm') }}/{{ $video->post_name }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>
@@ -121,19 +120,17 @@
 <div class="row" style="background: none; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="col-md-8">
-        <h2>Recent Photography</h2>
-        <?php /*
-        $results = apply_filters('chb_feed_smugmug', $results);
-        foreach ($results as $result) {
-            */ ?>
+        <h2><a href="http://photos.compasshb.com/">Photos</a></h2>
+
+        @foreach($images as $image)
         <div class="col-md-6" style="padding-bottom: 10px">
-            <a href="***result0"><img src="***result1" style="height: 175px;"></a>
+            <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;"></a>
         </div>
-        <?php // } ?>
+        @endforeach
     </div>
     <div class="col-md-4">
-         <h2>Recent Tweets</h2>
-         <a class="twitter-timeline" height="300" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+         <h2><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
+         <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 </div>
 <br/><br/>&nbsp;<br/><br/>
@@ -143,12 +140,15 @@
 <!-- Instagram -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2>Instagram</h2>
+        <h2><a href="http://www.instagram.com/compasshb">Instagram</a></h2>
 
-        @foreach($sermons as $sermon)
+        @foreach($instagrams as $instagram)
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="...feature_image..." alt="..."/>
+              <a href="{{ $instagram['link'] }}">
+                <img src="{{ $instagram['images']['standard_resolution']['url'] }}" alt="Compass HB Instagram"/>
+              </a>
+              <p style="padding: 10px">{{ $instagram['caption']['text'] }} </p>
             </div>
         </div>
         @endforeach
