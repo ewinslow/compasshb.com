@@ -40,7 +40,7 @@
 <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px; padding-bottom: 30px;">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="col-md-4 text-center">
-      <h2>Sundays at 11am</h2>
+      <h2 class="tk-seravek-web">Sundays at 11am</h2>
       <br/>
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
@@ -51,12 +51,12 @@
       <a href="{{ $upcomingsermon[0]->meta->announcements }}" class="btn btn-default">Announcements</a>
     </div>
     <div class="col-md-4 text-center" style="">
-      <h2>Directions</h2>
+      <h2 class="tk-seravek-web">Directions</h2>
       <br/>
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212337.23819364296!2d-118.04023200000005!3d33.740779999999994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1425366656204" width="300" height="275" frameborder="0" style="border:0"></iframe>
     </div>    
     <div class="col-md-4 text-center">
-      <h2>Midweek</h2>
+      <h2 class="tk-seravek-web">Midweek</h2>
       <br/>
       <h4><a href="{{ route('fellowship') }}">Home Fellowship Groups</a></h4>
       <p>Tuesday, Wednesday, Thursday, and Friday</p>
@@ -77,7 +77,7 @@
 <!-- Recent Sermons -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2><a href="{{ route('sermons') }}">Sermons</a></h2>
+        <h2 class="tk-seravek-web"><a href="{{ route('sermons') }}">Sermons</a></h2>
         @foreach($sermons as $sermon)
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
@@ -98,7 +98,7 @@
 <!-- Recent Videos -->
 <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2><a href="{{ route('videos') }}">Videos</a></h2>
+        <h2 class="tk-seravek-web"><a href="{{ route('videos') }}">Videos</a></h2>
 
         @foreach($videos as $video)
         <div class="col-sm-6 col-md-6">
@@ -120,27 +120,26 @@
 <div class="row" style="background: none; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="col-md-8">
-        <h2><a href="http://photos.compasshb.com/">Photos</a></h2>
+        <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Photos</a></h2>
 
         @foreach($images as $image)
         <div class="col-md-6" style="padding-bottom: 10px">
-            <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;"></a>
+            <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;" alt="photos.compasshb.com"></a>
         </div>
         @endforeach
     </div>
     <div class="col-md-4">
-         <h2><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
+         <h2 class="tk-seravek-web"><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
          <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 </div>
 <br/><br/>&nbsp;<br/><br/>
 </div>
-</div>
 
 <!-- Instagram -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2><a href="http://www.instagram.com/compasshb">Instagram</a></h2>
+        <h2 class="tk-seravek-web"><a href="http://www.instagram.com/compasshb">Instagram</a></h2>
 
         @foreach($instagrams as $instagram)
         <div class="col-sm-6 col-md-3">
