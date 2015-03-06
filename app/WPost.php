@@ -2,41 +2,37 @@
 
 // use Illuminate\Database\Eloquent\Model;
 
-class WPost {
+class WPost
+{
+    public function __construct()
+    {
+        $params = array(
+            'database'  => getenv('DB_NAME'),
+            'username'  => getenv('DB_USER'),
+            'password'  => getenv('DB_PASSWORD'),
+            'prefix'    => 'wp_', );
 
-	public function __construct()
-	{
-		$params = array(
-    		'database'  => getenv('DB_NAME'),
-    		'username'  => getenv('DB_USER'),
-    		'password'  => getenv('DB_PASSWORD'),
-    		'prefix'    => 'wp_');
-		
-		\Corcel\Database::connect($params);
-	}
+        \Corcel\Database::connect($params);
+    }
 
-	public function get($format = 'blog', $number = 1, $status = 'publish')
-	{
-			return \Post::taxonomy('format', $format)->status($status)->with('attachment')->take($number)->get();
-	}
+    public function get($format = 'blog', $number = 1, $status = 'publish')
+    {
+        return \Post::taxonomy('format', $format)->status($status)->with('attachment')->take($number)->get();
+    }
 
-	public function getMeta($post, $key)
-	{
-		foreach ($post->meta as $meta)
-		{
-			if ($meta->meta_key == $key)
-			{
-				return $meta->meta_value;
-			}
-		}
+    public function getMeta($post, $key)
+    {
+        foreach ($post->meta as $meta) {
+            if ($meta->meta_key == $key) {
+                return $meta->meta_value;
+            }
+        }
 
-		return false;
+        return false;
+    }
 
-	}
-
-	public function getSingle($year, $date, $slug)
-	{
-		return \Post::slug($slug)->get();
-	}
-
+    public function getSingle($year, $date, $slug)
+    {
+        return \Post::slug($slug)->get();
+    }
 }

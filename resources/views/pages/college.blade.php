@@ -5,7 +5,7 @@
         <h1>College!</h1>
 
         <p>Welcome Grads!</p>
-        
+
 @endsection
 
 @section('sidebar')

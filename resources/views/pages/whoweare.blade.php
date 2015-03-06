@@ -12,7 +12,7 @@
 <div class="container-fluid">
     <div class="row" style="background-color: #eaeaea; padding-top: 40px;">
         <div class="col-xs-10 col-xs-offset-1">
-            <h2>Welcome to Compass Bible Church Huntington Beach</h2>
+            <h2 class="tk-seravek-web">Welcome to Compass Bible Church Huntington Beach</h2>
             <p>On August 2nd, 2014 we were commissioned by <a title="Compass Bible Church Aliso Viejo"
                                                                           href="http://www.compasschurch.org"
                                                                           target="_blank">Compass Bible Church in Aliso
@@ -31,7 +31,7 @@
             <div class="col-md-4">
                 <img src="http://www.compasshb.com/app/uploads/2014/10/BobbyBlakey.png"
                                      alt="Bobby Blakey" width="432" height="426"/>
-                <h4>Pastor Bobby Blakey</h4>
+                <h4 class="tk-seravek-web">Pastor Bobby Blakey</h4>
                 <p style="text-align: left;">Pastor Bobby grew up as a pastor’s son, graduated from <a
                                         title="The Master's College" href="http://www.masters.edu" target="_blank">The
                                         Master’s College</a> and has been preaching weekly for over a decade. He is
@@ -62,7 +62,7 @@
             <div class="col-md-4">
                 <img src="http://www.compasshb.com/app/uploads/2014/10/RyanPeirceCBCHBWorshipBand.png"
                                      alt="Ryan Pierce" width="432" height="426"/>
-                <h4>Worship Director Ryan Pierce</h4>
+                <h4 class="tk-seravek-web">Worship Director Ryan Pierce</h4>
                 <p style="text-align: left;">Our Worship Director, Ryan Pierce, and his team will lead
                                     us in singing praise to Jesus. Our goal is to lift the name of Jesus higher so that
                                     he will get the glory.  Ryan has been leading worship and serving alongside Pastor
@@ -87,7 +87,7 @@
             <div class="col-md-4">
                 <img src="http://www.compasshb.com/app/uploads/2014/10/CBCHBWorshipBand.png"
                                      alt="Compass HB Worship Band" width="432" height="426"/>
-                <h4>The Gospel Rings Out!</h4>
+                <h4 class="tk-seravek-web">The Gospel Rings Out!</h4>
                 <p style="text-align: left;">Our goal is for the word of the Lord to sound forth here in
                                     Huntington Beach so many will put their faith in the gospel of Jesus Christ.  This
                                     was the theme of our first sermon which you can watch here: <a

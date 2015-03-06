@@ -11,7 +11,7 @@
         </style>
         	<div class="row">
                 <div class="col-xs-10 col-xs-offset-1">
-                    <h1>The United Student Ministry</h1>
+                    <h1 class="tk-seravek-web">The United Student Ministry</h1>
                 </div>
             </div>
             <div class="row">
@@ -39,7 +39,7 @@
                     <div class="col-md-4 col-md-offset-1">
                         <img width="554" height="554" src="https://www.compasshb.com/app/uploads/2015/02/awakening.png"
                              alt="AWAKENING"/><br/>
-                        <h4 style="color: #fff">AWAKENING</h4>
+                        <h4 style="color: #fff" class="tk-seravek-web">AWAKENING</h4>
 
                         <p><a class="btn btn-default" href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=874">Register Here</a></p>
 
@@ -57,7 +57,7 @@
                     <div class="col-md-4 col-md-offset-2">
                         <img width="400" height="400" src="http://www.compasshb.com/app/uploads/2014/10/nY-YQn04.jpeg"
                              alt="Shane Rouland"/>
-                        <h4>Student Ministry</h4>
+                        <h4 class="tk-seravek-web">Student Ministry</h4>
                         <p><span>Shane Rouland is the Student Ministry Director. Shane has a desire to reach out onto the school campuses in Huntington Beach and will lead a midweek Bible study for middle school and high schoolers. He is pursuing a Bible degree from <a
                                     style="color: #ffffff;" href="http://www.masters.edu">The Master’s College</a> and previously worked with Pastor Bobby for two years as an intern. Shane was saved by Jesus in high school where he led a Bible club preached the gospel through campus lunches.</span>
                         </p>

@@ -8,12 +8,12 @@
 </style>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
-                <h1>What We Believe</h1>
+                <h1 class="tk-seravek-web">What We Believe</h1>
             </div>
 
             <div class="col-xs-10 col-xs-offset-1 well">
 
-                <h2>THE BIBLE</h2>
+                <h2 class="tk-seravek-web">THE BIBLE</h2>
 
                 <p>The sixty-six books of the Bible were given by the inspiration of God&#8217;s Spirit and are not the
                     product of human creativity or ingenuity (2 Pt 1:20-21). Every word of the Bible is inspired by God in
@@ -22,7 +22,7 @@
                     interpreted considering the literal, grammatical and historical aspects of a given text.</p>
                 <hr/>
 
-                <h2>GOD THE FATHER</h2>
+                <h2 class="tk-seravek-web">GOD THE FATHER</h2>
 
                 <p>There is only one true and living God (Deuteronomy 6:4; Isaiah 45:5-7; 1 Corinthians 8:4). God is one
                     essence existing in three persons: the Father, the Son and the Holy Spirit (Mt.28:19; 2 Corinthians
@@ -30,7 +30,7 @@
                     42:2), holy (Isaiah 6:1-7), unchanging (Malachi 3:6), just (Ps 97:2) and loving (1 John 4:8).</p>
                 <hr/>
 
-                <h2>JESUS CHRIST</h2>
+                <h2 class="tk-seravek-web">JESUS CHRIST</h2>
 
                 <p>Jesus is God in very essence and pre-existed as God in all His glory before His incarnation in time and
                     space (John 8:57-58; Philippians 2:6-7). Jesus Christ became a man, virgin born (Matthew 1:23), to
@@ -41,7 +41,7 @@
                     church (Acts 1:9-11; 1 Thessalonians 4:13-17).</p>
                 <hr/>
 
-                <h2>THE HOLY SPIRIT</h2>
+                <h2 class="tk-seravek-web">THE HOLY SPIRIT</h2>
 
                 <p>The Holy Spirit is coequal with the Father and the Son (Matthew 28:19; Acts 5:3-4, 28:25-26; 1
                     Corinthians 12:4-6; 2 Corinthians 13:14). The Holy Spirit regenerates the Christian at conversion (Titus
@@ -52,7 +52,7 @@
                     source of giftedness in ministering to the local church (1 Corinthians 12:7-11).</p>
                 <hr/>
 
-                <h2>PEOPLE</h2>
+                <h2 class="tk-seravek-web">PEOPLE</h2>
 
                 <p>The human race began by the direct and instantaneous creation of God (Gen.1:26-27). Men and women are
                     created in God&#8217;s image (Gen.1:26-27) and exist to glorify God (Is.43:7). People forfeited their
@@ -63,7 +63,7 @@
                     (Is.59:2; Rom.3:10-18).</p>
                 <hr/>
 
-                <h2>SALVATION</h2>
+                <h2 class="tk-seravek-web">SALVATION</h2>
 
                 <p>Salvation of individuals is wholly carried out by God&#8217;s grace, based on the redemptive work of
                     Jesus on the cross and is in no way contributed to or accomplished by the merit or work of the
@@ -79,7 +79,7 @@
                     (2 Cor.5:17; Mt.3:8; 7:17-23; Jn.3:36).</p>
                 <hr/>
 
-                <h2>THE CHURCH</h2>
+                <h2 class="tk-seravek-web">THE CHURCH</h2>
 
                 <p>The universal church is composed of all Christians from Acts 2 to the rapture and is considered the
                     complete body of Christ (Eph.5:22-33; Mt.16:18; Jn.1:12-13). Christians gathered in geographical
@@ -89,7 +89,7 @@
                     Gal.1:2; 1Th.1:1).</p>
                 <hr/>
 
-                <h2>THE LAST THINGS</h2>
+                <h2 class="tk-seravek-web">THE LAST THINGS</h2>
 
                 <p>All people will be physically resurrected (Ac.24:14-15; 1 Cor.15:22-23), the saved to blessing and reward
                     (2 Cor.4:14), the unsaved to retribution and punishment (Rev.20:13-15; Dan.12:2). God has appointed

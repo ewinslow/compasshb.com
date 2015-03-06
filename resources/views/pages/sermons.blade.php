@@ -26,14 +26,14 @@
         <td>{{ $sermon->meta->sermon_number }}</td>
         <td><a href="/{{ date_format($sermon->post_date, 'Y') }}/{{ date_format($sermon->post_date, 'm') }}/{{ $sermon->post_name }}">{{ $sermon->post_title }}</a></td>
         <td>{{ $sermon->meta->sermon_text }}</td>
-        <td>{{ date_format($sermon->post_date, 'l, F j, Y') }}</td>       
+        <td>{{ date_format($sermon->post_date, 'l, F j, Y') }}</td>
       </tr>
       @endforeach
     </tbody>
   </table>
 </div>
 
-{{-- 
+{{--
 <h1 class="tk-seravek-web">Scripture Index</h1>
 
 <div class="row">

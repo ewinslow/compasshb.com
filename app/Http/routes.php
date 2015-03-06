@@ -14,17 +14,16 @@
 /*
  * Temporary Redirects
  */
-Route::get('/wp-admin', function()
-{
-	return redirect('/wp/wp-admin');
+Route::get('/wp-admin', function () {
+    return redirect('/wp/wp-admin');
 });
 
 /*
  * Home Page
  */
 Route::get('/', [
-	'as' => 'home', 
-	'uses' => 'PagesController@home'
+    'as' => 'home',
+    'uses' => 'PagesController@home',
 ]);
 
 /*
@@ -33,111 +32,95 @@ Route::get('/', [
  *
  */
 Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
-	->where(['year' => '\d{4}', 'month' => '\d{2}']);
+    ->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
-	->where(['year' => '\d{4}', 'month' => '\d{2}']);
+    ->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
 Route::get('read', [
-	'as' => 'read', 
-	'uses' => 'PagesController@read'
+    'as' => 'read',
+    'uses' => 'PagesController@read',
 ]);
 
 Route::get('fellowship', [
-	'as' => 'fellowship', 
-	'uses' => 'PagesController@fellowship'
+    'as' => 'fellowship',
+    'uses' => 'PagesController@fellowship',
 ]);
 
 Route::get('worship', [
-	'as' => 'worship', 
-	'uses' => 'PagesController@worship'
+    'as' => 'worship',
+    'uses' => 'PagesController@worship',
 ]);
 
 Route::get('photos', [
-	'as' => 'photos', 
-	'uses' => 'PagesController@photos'
+    'as' => 'photos',
+    'uses' => 'PagesController@photos',
 ]);
 
 Route::get('sermons', [
-	'as' => 'sermons',
-	'uses' => 'PagesController@sermons'
+    'as' => 'sermons',
+    'uses' => 'PagesController@sermons',
 ]);
 
 Route::get('pray', [
-	'as' => 'pray', 
-	'uses' => 'PagesController@pray'
+    'as' => 'pray',
+    'uses' => 'PagesController@pray',
 ]);
 
-/**
+/*
  * Routes without controllers
  */
 
-
-
-
-
-Route::get('who-we-are', ['as' => 'who-we-are', function()
-{
-	return view('pages.whoweare')->with('title', 'Who We Are');
+Route::get('who-we-are', ['as' => 'who-we-are', function () {
+    return view('pages.whoweare')->with('title', 'Who We Are');
 }]);
 
-Route::get('eight-distinctives', ['as' => 'distinctives', function()
-{
-	return view('pages.eightdistinctives')->with('title', '8 Distinctives');
+Route::get('eight-distinctives', ['as' => 'distinctives', function () {
+    return view('pages.eightdistinctives')->with('title', '8 Distinctives');
 }]);
 
-Route::get('give', ['as' => 'give', function()
-{
-	return view('pages.give')->with('title', 'Give');
+Route::get('give', ['as' => 'give', function () {
+    return view('pages.give')->with('title', 'Give');
 }]);
 
-Route::get('ice-cream-evangelism', ['as' => 'evangelism', function()
-{
-	return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
+Route::get('ice-cream-evangelism', ['as' => 'evangelism', function () {
+    return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
 }]);
 
-Route::get('kids', ['as' => 'kids', function()
-{
-	return view('pages.kids')->with('title', 'Kids Ministry');
+Route::get('kids', ['as' => 'kids', function () {
+    return view('pages.kids')->with('title', 'Kids Ministry');
 }]);
 
-Route::get('what-we-believe', ['as' => 'believe', function()
-{
-	return view('pages.whatwebelieve')->with('title', 'What We Believe');
+Route::get('what-we-believe', ['as' => 'believe', function () {
+    return view('pages.whatwebelieve')->with('title', 'What We Believe');
 }]);
 
-Route::get('calendar', ['as' => 'calendar', function()
-{
-	return view('pages.calendar')->with('title', 'Calendar');
+Route::get('calendar', ['as' => 'calendar', function () {
+    return view('pages.calendar')->with('title', 'Calendar');
 }]);
 
-Route::get('youth', ['as' => 'youth', function()
-{
-	return view('pages.youth')->with('title', 'The United');
+Route::get('youth', ['as' => 'youth', function () {
+    return view('pages.youth')->with('title', 'The United');
 }]);
 
-Route::get('college', ['as' => 'college', function()
-{
-	return view('pages.college')->with('title', 'The Underground');
+Route::get('college', ['as' => 'college', function () {
+    return view('pages.college')->with('title', 'The Underground');
 }]);
 
-Route::get('sundayschool', ['as' => 'sundayschool', function()
-{
-	return view('pages.sundayschool')->with('title', 'Sunday School');
+Route::get('sundayschool', ['as' => 'sundayschool', function () {
+    return view('pages.sundayschool')->with('title', 'Sunday School');
 }]);
 
-/**
+/*
  * Landing Pages
  */
-Route::get('bunnyrun', ['as' => 'bunnyrun', function()
-{
-	return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
+Route::get('bunnyrun', ['as' => 'bunnyrun', function () {
+    return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
 }]);
 
-/**
+/*
  * Archives
  */
-Route::get('videos', ['as' => 'videos', function()
-{
-	return view('archives.videos')->with('title', 'Videos');
+Route::get('videos', ['as' => 'videos', function () {
+    return view('archives.videos')->with('title', 'Videos');
 }]);

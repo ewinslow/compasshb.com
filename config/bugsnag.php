@@ -1,5 +1,5 @@
 <?php # config/bugsnag.php
 
 return array(
-    'api_key' => env('BUGSNAG_API_KEY')
+    'api_key' => env('BUGSNAG_API_KEY'),
 );

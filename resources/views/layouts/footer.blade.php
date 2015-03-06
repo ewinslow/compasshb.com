@@ -39,13 +39,13 @@
       <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:info@compasshb.com">info@compasshb.com</a></p>
     </div>
   </div>
-  <div class="row" style="padding: 15px; 
-                          background-image: url('/images/lineofmanycolors.png'); 
-                          background-repeat: repeat-x; 
-                          background-size: 850px; 
+  <div class="row" style="padding: 15px;
+                          background-image: url('/images/lineofmanycolors.png');
+                          background-repeat: repeat-x;
+                          background-size: 850px;
                           background-color: #222;
-                          background-position: center bottom; 
-                          min-height: 50px; color: #999; 
+                          background-position: center bottom;
+                          min-height: 50px; color: #999;
                           font-size: 0.923em; ">
     <span>© 2014-{{ date('Y') }} Compass Bible Church Huntington Beach. All Rights Reserved.</span>
     <span style="float: right;">
@@ -82,4 +82,4 @@
 </script>
 
 </body>
-</html>    
+</html>

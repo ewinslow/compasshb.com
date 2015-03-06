@@ -2,21 +2,21 @@
 /**
  * Configuration settings for Wordpress are below.
  */
-require_once(dirname(__DIR__) . '/vendor/autoload.php');
+require_once dirname(__DIR__).'/vendor/autoload.php';
 
 $root_dir = dirname(__DIR__);
-$webroot_dir = $root_dir . '/../wp';
+$webroot_dir = $root_dir.'/../wp';
 
-/**
+/*
  * Use Dotenv to set required environment variables and load .env file in root
  */
-if (file_exists($root_dir . '/.env')) {
-  Dotenv::load($root_dir);
+if (file_exists($root_dir.'/.env')) {
+    Dotenv::load($root_dir);
 }
 
 Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
 
-/**
+/*
  * Set up our global environment constant and load its config first
  * Default: development
  */
@@ -33,14 +33,14 @@ ini_set('display_errors', 0);
 define('DEBUG_DISPLAY', false);
 define('SCRIPT_DEBUG', false);
 
-/**
+/*
  * DB settings
  */
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 $table_prefix = getenv('DB_PREFIX') ? getenv('DB_PREFIX') : 'wp_';
 
-/**
+/*
  * Authentication Unique Keys and Salts
  */
 define('AUTH_KEY',         getenv('AUTH_KEY'));
@@ -52,7 +52,7 @@ define('SECURE_AUTH_SALT', getenv('SECURE_AUTH_SALT'));
 define('LOGGED_IN_SALT',   getenv('LOGGED_IN_SALT'));
 define('NONCE_SALT',       getenv('NONCE_SALT'));
 
-/**
+/*
  * Custom Settings
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
@@ -60,9 +60,9 @@ define('DISABLE_WP_CRON', true);
 define('DISALLOW_FILE_EDIT', true);
 define('WP_USE_THEMES', false);
 
-/**
+/*
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {
-  define('ABSPATH', $webroot_dir);
+    define('ABSPATH', $webroot_dir);
 }

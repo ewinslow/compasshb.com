@@ -19,7 +19,7 @@
       <p><a href="/sermons" class="btn btn-default">View All</a></p>
     </div>
     <aside class="col-md-2 col-md-offset-1" role="complementary" style="background-color: #fff; border: 1px solid #E4E4E4; margin-top: 20px; padding: 20px;">
-      <h4>Browse Sermons</h4>
+      <h4 class="tk-seravek-web">Browse Sermons</h4>
       <ul class="list-unstyled">
         <li><a href="/sermons/">By Scripture</a></li>
       </ul>

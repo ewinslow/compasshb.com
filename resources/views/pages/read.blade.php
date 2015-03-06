@@ -10,7 +10,7 @@
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'compasshb';
     var disqus_url = 'http://www.compasshb.com/{{ date_format($post[0]->post_date, 'Y') }}/{{ date_format($post[0]->post_date, 'm') }}/{{ $post[0]->post_name }}/';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -44,7 +44,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">This Week's Schedule</h3>
-  </div>            
+  </div>
   <div class="panel-body">
     <ul>
     @foreach ($post as $p)

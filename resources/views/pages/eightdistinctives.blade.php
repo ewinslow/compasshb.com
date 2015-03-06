@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
-            <h1>8 Distinctives</h1>
+            <h1 class="tk-seravek-web">8 Distinctives</h1>
             <p>At Compass Bible Church we are called to make disciples of Christ (Matthew 28:18-20). As we do,
                         we will always work to express and maintain these eight ministry values.</p>
         </div>
@@ -25,14 +25,14 @@
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-5 well">
                 <center><span class="glyphicon glyphicon-book" aria-hidden="true"></span></center>
-                <h2>1. THE BIBLE IS CENTRAL</h2>
+                <h2 class="tk-seravek-web">1. THE BIBLE IS CENTRAL</h2>
                 <p>While the Bible is not an end in itself, it is certainly the indispensable &#8220;compass&#8221;
                             for our knowledge and understanding of God and his plan for our lives.</p>
                 <p>Psalm 43:3; Psalm 119:105; John 17:17; 1 Timothy 3:15</p>
             </div>
             <div class="col-md-5 col-md-offset-1 well">
                 <center><span class="glyphicon glyphicon-cog"></span></center>
-                <h2>2. WE SHOWCASE EXPOSITORY PREACHING</h2>
+                <h2 class="tk-seravek-web">2. WE SHOWCASE EXPOSITORY PREACHING</h2>
                 <p>Because God&#8217;s written revelation to us is &#8220;living and active and sharper than any
                             two-edged sword&#8221; it is our intention to allow it to utilize Compass preachers to get
                             to our hearts and minds as they open the word and let its message out. Our goal is that
@@ -47,7 +47,7 @@
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-5  well" >
                 <center><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></center>
-                <h2>3. WE SEEK TO MAINTAIN A HIGH VIEW OF GOD</h2>
+                <h2 class="tk-seravek-web">3. WE SEEK TO MAINTAIN A HIGH VIEW OF GOD</h2>
                 <p>In a day when many have attempted to reduce God to be their spiritual therapist, it is
                             important for us to remember that God, our Creator, is the highly exalted, transcendent,
                             King of all things. We cannot afford to think less of God than he really is. We dare not
@@ -57,7 +57,7 @@
             </div>
             <div class="col-md-5 col-md-offset-1 well" >
                 <center><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></center>
-                <h2>4. WE WORK TO PROCLAIM A BIBLICAL GOSPEL</h2>
+                <h2 class="tk-seravek-web">4. WE WORK TO PROCLAIM A BIBLICAL GOSPEL</h2>
                 <p>It is imperative that we understand what God&#8217;s word says about how one becomes a
                             disciple of Christ and thus a child of God. We cannot truncate, sterilize, simplify, adjust
                             or in any other way modify the message of the gospel that was once and for all delivered to
@@ -73,7 +73,7 @@
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-5 well">
                 <center><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></center>
-                <h2>5. WE HAVE A GENUINE RELIANCE ON PRAYER</h2>
+                <h2 class="tk-seravek-web">5. WE HAVE A GENUINE RELIANCE ON PRAYER</h2>
                 <p>We understand that the mission, the goals and the values at Compass Bible Church are humanly
                             impossible. We do not inherently possess the wherewithal to make disciples or aid them in
                             knowing, loving and serving Christ. These are works of God and we will always rely on him as
@@ -83,7 +83,7 @@
             </div>
             <div class="col-md-5 col-md-offset-1 well" >
                 <center><span class="glyphicon glyphicon-user" aria-hidden="true"></span></center>
-                <h2>6. WE HAVE HIGHLY COMMITTED PARTICIPANTS</h2>
+                <h2 class="tk-seravek-web">6. WE HAVE HIGHLY COMMITTED PARTICIPANTS</h2>
                 <p>To effectively and efficiently accomplish all that God has called us to do, we cannot
                             maintain the all-too-common &#8220;20% of the people do 80% of the work.&#8221; At Compass
                             we must always encourage that &#8220;each part does its work.&#8221; (Eph.4:16b)</p>
@@ -95,7 +95,7 @@
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-5 well" >
                 <center><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></center>
-                <h2>7. WE WILL LOOK TO AUTHENTIC AND SACRIFICIAL LEADERS</h2>
+                <h2 class="tk-seravek-web">7. WE WILL LOOK TO AUTHENTIC AND SACRIFICIAL LEADERS</h2>
                 <p>The kind of people that God calls to lead at Compass Bible Church is extremely important.
                             Obviously our pastors and teachers must meet the biblical qualifications as set forth in the
                             books of 1 Timothy and Titus. Beyond that we expect our leaders to follow in Apostle Paul&#8217;s
@@ -106,7 +106,7 @@
             </div>
             <div class="col-md-5 col-md-offset-1 well" >
                 <center><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></center>
-                <h2>8. WE WILL ALWAYS BE WORKING TO PLANT NEW CHURCHES</h2>
+                <h2 class="tk-seravek-web">8. WE WILL ALWAYS BE WORKING TO PLANT NEW CHURCHES</h2>
                 <p>It is our concern that we work to regularly launch more Bible-teaching churches that are
                             resolved and constrained to move into more communities with a biblical purpose, a biblical
                             mission and clearly maintained biblical values. It is our hope that Compass will never lose
