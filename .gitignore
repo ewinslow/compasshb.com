@@ -2,6 +2,7 @@
 !.travis.yml
 !.gitignore
 !.env.example
+composer.lock
 vendor
 node_modules
 public/wp
