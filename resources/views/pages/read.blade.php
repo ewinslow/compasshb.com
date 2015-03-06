@@ -24,7 +24,7 @@
 @section('sidebar')
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">About Scripture of the Day</h3>
+    <h3 class="panel-title tk-seravek-web">About Scripture of the Day</h3>
   </div>
   <div class="panel-body">
     <p>Read through a portion of scripture each day with your church family. Be encouraged by reading others' comments and leave your own.</p>
@@ -34,7 +34,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Cross References</h3>
+    <h3 class="panel-title tk-seravek-web">Cross References</h3>
   </div>
   <div class="panel-body">
     <p>See these sermons and articles for other content on this site that references this chapter.</p>
@@ -43,7 +43,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">This Week's Schedule</h3>
+    <h3 class="panel-title tk-seravek-web">This Week's Schedule</h3>
   </div>            
   <div class="panel-body">
     <ul>

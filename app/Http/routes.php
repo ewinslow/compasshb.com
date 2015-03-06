@@ -63,14 +63,16 @@ Route::get('sermons', [
 	'uses' => 'PagesController@sermons'
 ]);
 
+Route::get('pray', [
+	'as' => 'pray', 
+	'uses' => 'PagesController@pray'
+]);
+
 /**
  * Routes without controllers
  */
 
-Route::get('pray', ['as' => 'pray', function() 
-{  
-	return view('pages.pray')->with('title', 'Pray'); 
-}]);
+
 
 
 

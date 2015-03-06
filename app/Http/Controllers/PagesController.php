@@ -73,7 +73,6 @@ class PagesController extends Controller {
 
     public function read()
     {
-
     	$read = $this->posts->get('scripture-of-the-day', 6);
 
     	$esv = new \CompassHB\Www\Esv\Esv;
@@ -81,6 +80,7 @@ class PagesController extends Controller {
     	$content = $esv->getScripture($read[0]->post_title);
 
         return view('pages.read')->with('post', $read)
+        						 ->with('read', $read)
         						 ->with('content', $content)
         						 ->with('postflash', '')
         						 ->with('title', 'Scripture of the Day'); ;
@@ -89,6 +89,7 @@ class PagesController extends Controller {
     public function fellowship()
     {
     	$sermons = $this->posts->get('sermon', 1);
+		$read = $this->posts->get('scripture-of-the-day', 1);
 		
 		$client = new \GuzzleHttp\Client();
 
@@ -100,15 +101,18 @@ class PagesController extends Controller {
 			$sermon->othumbnail = $response_body->thumbnail_url;
 		}
 
-		return view('pages.fellowship')->with('title', 'Home Fellowship Groups')
-									   ->with('sermons', $sermons);
+		return view('pages.fellowship')
+			->with('title', 'Home Fellowship Groups')
+			->with('read', $read)
+			->with('sermons', $sermons);
     }
 
     public function worship()
     {
     	$songs = $this->posts->get('worship-song', 6);
+		$read = $this->posts->get('scripture-of-the-day', 1);    	
 
-			$client = new \GuzzleHttp\Client();
+		$client = new \GuzzleHttp\Client();
 
     	foreach ($songs as $song)
     	{
@@ -120,6 +124,7 @@ class PagesController extends Controller {
 
     	return view('pages.worship')
     		->with('songs', $songs)
+    		->with('read', $read)
     		->with('title', 'Worship');
     }
 
@@ -228,10 +233,20 @@ class PagesController extends Controller {
 	public function sermons()
 	{
 		$sermons = $this->posts->get('sermon', 300);
+		$read = $this->posts->get('scripture-of-the-day', 1);
 
 		return view('pages.sermons')
 			->with('sermons', $sermons)
+			->with('read', $read)
 			->with('title', 'Sermons');
+	}
+
+	public function pray()
+	{
+		$read = $this->posts->get('scripture-of-the-day', 1);
+		return view('pages.pray')
+			->with('title', 'Pray')
+			->with('read', $read); 
 	}
 
 }
