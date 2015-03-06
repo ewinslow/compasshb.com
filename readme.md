@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CompassHB/compasshb.com.svg)](https://travis-ci.org/CompassHB/compasshb.com)
+[![Build Status](https://travis-ci.org/CompassHB/compasshb.com.svg?branch=master)](https://travis-ci.org/CompassHB/compasshb.com)
 # CompassHB.com
 This is the source code for [compassHB.com](http://www.compasshb.com/).
 ## Updating the Theme (Presentation)

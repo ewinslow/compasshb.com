@@ -1,0 +1,50 @@
+// Fonts
+$icon-font-path: '../../fonts/';
+$fa-font-path: '../../fonts/';
+@import 'font-awesome';
+@import 'bootstrap';
+
+// Styles for /read and Scripture of the Day pages
+// where the content is retrieved using the ESV API.
+@import 'scriptureoftheday';
+
+// Styles for the "dashboard" fixed header
+@import 'dashboardnav';
+
+// Styles for the homepage drawer
+@import 'homepage';
+
+// General styles
+body, label, .checkbox label {
+	font-weight: 300;
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.clickable:hover 
+{
+    text-decoration: none;
+}
+
+a p .glyphicon 
+{
+    font-size: 5rem;
+}
+
+.drawer a:hover, a:focus {
+    color: #fff;
+}
+
+h2.tk-seravek-web a
+{
+	color: #000;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  background-image: url("/images/background.png");
+  font-size: 1.2em;
+}

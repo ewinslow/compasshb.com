@@ -1,47 +1,78 @@
 {
-    "name": "compasshb/compasshb.com",
-    "description": "...and the gospel rings out!",
-    "license": "MIT",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://wpackagist.org"
-        }
-    ],
-    "require": {
-        "php": "~5.4",
-        "johnpbloch/wordpress": "~4.1",
-        "bugsnag/bugsnag": "2.*",
-        "vimeo/vimeo-api": "1.*",
-        "vlucas/phpdotenv": "1.*",
-        "guzzlehttp/guzzle": "~5.1",
-        "wpackagist-plugin/disqus-comment-system": "~2.84",
-        "wpackagist-plugin/feedpress": "~1.6",
-        "wpackagist-plugin/jetpack": "3.*",
-        "wpackagist-plugin/varnish-http-purge": "~3.6",
-        "wpackagist-plugin/vaultpress": "~1.7",
-        "wpackagist-plugin/w3-total-cache": "0.9.4.1",
-        "wpackagist-plugin/wordpress-seo": "~1.7",
-        "wpackagist-plugin/simple-history": "~2.0",
-        "wpackagist-plugin/restrict-categories": "~2.6",
-        "wpackagist-plugin/remove-category-url": "~0.1",
-        "wpackagist-plugin/jetpack": "~3.3"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.4",
-        "wp-cli/wp-cli": "0.17.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "CompassHB\\": "src/"
-        }
-    },
-    "extra": {
-        "wordpress-install-dir": "web/wp",
-        "installer-paths": {
-            "web/app/plugins/{$name}/": [
-                "type:wordpress-plugin"
-            ]
-        }
+	"name": "compasshb/compasshb.com",
+	"description": "...and the gospel rings out!",
+	"support": {
+		"issues": "https://github.com/CompassHB/compasshb.com/issues"
+	},
+	"type": "project",
+	"license": "MIT",
+	"repositories": [ {
+		"type": "composer",
+		"url": "http://wpackagist.org"
+	} ],
+	"require": {
+		"laravel/framework": "5.0.*",
+		"php": "~5.4",
+		"johnpbloch/wordpress": "~4.1",
+		"jgrossi/corcel": "dev-master",
+		"bugsnag/bugsnag-laravel": "1.*",
+		"vimeo/vimeo-api": "~1.1",
+		"guzzlehttp/guzzle": "~5.1",
+		"twbs/bootstrap-sass": "~3.2",
+		"bradmsmith/theme-compasshb": "dev-master",
+		"wpackagist-plugin/varnish-http-purge": "~3.6",
+		"wpackagist-plugin/vaultpress": "~1.7",
+		"wpackagist-plugin/w3-total-cache": "0.9.4.1",
+		"wpackagist-plugin/wordpress-seo": "~1.7",
+		"wpackagist-plugin/simple-history": "~2.0",
+		"wpackagist-plugin/restrict-categories": "~2.6",
+		"wpackagist-plugin/remove-category-url": "~0.1",
+		"wpackagist-plugin/jetpack": "~3.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.0",
+		"phpspec/phpspec": "~2.1"
+	},
+	"autoload": {
+		"classmap": [
+			"database"
+		],
+		"psr-4": {
+			"CompassHB\\Www\\": "app/"
+		},
+		"files": ["app/Helpers.php"]
+	},
+	"autoload-dev": {
+		"classmap": [
+			"tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php -r \"copy('.env.example', '.env');\"",
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+    	"public/wp/wp-content/themes/{$name}/": [
+      	"type:wordpress-theme"
+      ],
+      "public/wp/wp-content/plugins/{$name}/": [
+      	"type:wordpress-plugin"
+      ]
     }
+	}
 }

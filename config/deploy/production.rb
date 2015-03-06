@@ -1,1 +1,0 @@
-role :web, %w{wp_9xx2cb@compasshb.com}
