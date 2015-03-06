@@ -1,5 +1,12 @@
 @include('layouts.header')
 
+<style>
+body
+{
+  background:none;
+}
+</style>
+
 @include('layouts.dashboardnav')
 
     <div class="container-fluid">

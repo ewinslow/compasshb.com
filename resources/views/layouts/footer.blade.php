@@ -30,13 +30,6 @@
       </ul>
     </div>
     <div class="col-md-3">
-      <h4 style="color: #FFF;" class="tk-seravek-web">Follows Us</h4>
-      <ul class="list-inline">
-        <li><a href="https://www.facebook.com/compasshb" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-        <li><a href="http://instagram.com/compasshb" title="Instagram"><span class="fa fa-instagram"></span></a></li>
-        <li><a href="https://twitter.com/compasshb" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-        <li><a href="http://vimeo.com/compasshb" title="Vimeo"><span class="fa fa-vimeo-square"></span></a></li>
-      </ul>
     </div>
     <div class="col-md-3">
       <h4 style="color: #FFF;" class="tk-seravek-web">Contact Us</h4>
@@ -55,8 +48,15 @@
                           min-height: 50px; color: #999; 
                           font-size: 0.923em; ">
     <span>© 2014-{{ date('Y') }} Compass Bible Church Huntington Beach. All Rights Reserved.</span>
-    <span style="float: right"><a href="mailto:info@compasshb.com" style="color: #989898">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                  href="http://github.com/compasshb">Design</a></span>
+    <span style="float: right;">
+      <span class="tk-seravek-web">Follow Us</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://www.facebook.com/compasshb" title="Facebook"><span class="fa fa-facebook"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://instagram.com/compasshb" title="Instagram"><span class="fa fa-instagram"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://twitter.com/compasshb" title="Twitter"><span class="fa fa-twitter"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://vimeo.com/compasshb" title="Vimeo"><span class="fa fa-vimeo-square"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="mailto:info@compasshb.com" style="color: #989898">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://github.com/compasshb">Design</a>
+    </span>
   </div>
 </footer><!-- #footer -->
 

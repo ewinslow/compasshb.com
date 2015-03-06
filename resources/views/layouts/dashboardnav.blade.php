@@ -13,15 +13,9 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">{{ date('l, F d') }}</a></li>
-        <li><a href="#" data-toggle="popover" data-placement="bottom" title="Compass_HB_Today" data-content="is a collection of pages for daily spiritual growth. Click the home link on the bottom left to return to the main site. Send feedback to info@compasshb.com"><span class="glyphicon glyphicon-question-sign"></span></a></li>
+        <li><a href="/">{{ date('l, F j') }}</a></li>
+        <li><a href="#" onClick="javascript:alert('This dashboard is a collection of pages focused on spiritual growth. To return to the homepage, click the home link on the bottom left menu. Send feedback to info@compasshb.com');"><span class="glyphicon glyphicon-question-sign" style="font-size: 1.5em"></span></a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-<script>
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>

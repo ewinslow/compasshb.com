@@ -156,8 +156,8 @@ class PagesController extends Controller {
 			$video->othumbnail = $response_body->thumbnail_url;
 		}
 
-    // Instagram
-    $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id=' . env('INSTAGRAM_CLIENT_ID');
+    	// Instagram
+    	$url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id=' . env('INSTAGRAM_CLIENT_ID');
 		$instagrams = file_get_contents($url);
 		$instagrams = json_decode($instagrams, true);
 
@@ -192,6 +192,37 @@ class PagesController extends Controller {
 						  ->with('instagrams', $instagrams['data'])
 						  ->with('upcomingsermon', $upcomingsermon)
 						  ->with('title', 'Compass HB - Huntington Beach'); ;
+	}
+
+	public function photos()
+	{
+		// Smugmug
+	  $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
+	  $num = 40;
+
+	  $rawFeed = file_get_contents($feedUrl);
+	  $xml = new \SimpleXmlElement($rawFeed);
+	  $results = array();
+
+	  for ($i = 0; $i < $num; $i++) 
+	  {
+	      // Parse Image Link
+	      $link = $xml->channel->item->link;
+	      $link = substr($link->asXML(), 6, -7);
+
+	      // Parse Image Source
+	      $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
+	      $media = $xml->channel->item[$i]->children($namespaces['media']);
+	      $image = $media->group->content[3]->attributes();
+	      $image = $image['url']->asXML();
+	      $image = substr($image, 6, -1);
+
+	      $results[] = array($link, $image);
+	  }
+
+		return view('pages.photos')
+			->with('title', 'Photography')
+			->with('photos', $results);
 	}
 
 }
