@@ -27,7 +27,6 @@
 		"wpackagist-plugin/simple-history": "~2.0",
 		"wpackagist-plugin/restrict-categories": "~2.6",
 		"wpackagist-plugin/remove-category-url": "~0.1",
-		"wpackagist-plugin/jetpack": "~3.3"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
