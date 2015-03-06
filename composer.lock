@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cccee3e3661dbc1704f6512c525117b6",
+    "hash": "0d6c5edb84f4a22ae6a7e5318111f35d",
     "packages": [
         {
             "name": "bradmsmith/theme-compasshb",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bradmsmith/theme-compasshb.git",
-                "reference": "05c1aa7b3cb92c5e014b7aa25fcaf2be70e57b8c"
+                "reference": "ce6e7719bcf5942fdf2673e22f943a515d3ac001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bradmsmith/theme-compasshb/zipball/05c1aa7b3cb92c5e014b7aa25fcaf2be70e57b8c",
-                "reference": "05c1aa7b3cb92c5e014b7aa25fcaf2be70e57b8c",
+                "url": "https://api.github.com/repos/bradmsmith/theme-compasshb/zipball/ce6e7719bcf5942fdf2673e22f943a515d3ac001",
+                "reference": "ce6e7719bcf5942fdf2673e22f943a515d3ac001",
                 "shasum": ""
             },
             "type": "wordpress-theme",
@@ -26,7 +26,7 @@
                 "MIT"
             ],
             "description": "site specific theme",
-            "time": "2015-02-24 19:11:57"
+            "time": "2015-03-06 05:58:20"
         },
         {
             "name": "bugsnag/bugsnag",
@@ -2368,26 +2368,6 @@
             "time": "2014-12-05 15:19:21"
         },
         {
-            "name": "wpackagist-plugin/jetpack",
-            "version": "3.3.2",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/3.3.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/jetpack.3.3.2.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/jetpack/"
-        },
-        {
             "name": "wpackagist-plugin/remove-category-url",
             "version": "0.1.0",
             "source": {
@@ -2397,7 +2377,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/remove-category-url.0.1.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/remove-category-url.0.1.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2417,7 +2397,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/restrict-categories.2.6.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/restrict-categories.2.6.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2437,7 +2417,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/simple-history.2.0.22.zip",
+                "url": "https://downloads.wordpress.org/plugin/simple-history.2.0.22.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2457,7 +2437,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/varnish-http-purge.3.6.zip",
+                "url": "https://downloads.wordpress.org/plugin/varnish-http-purge.3.6.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2477,7 +2457,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/vaultpress.1.7.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/vaultpress.1.7.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2497,7 +2477,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/w3-total-cache.0.9.4.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.0.9.4.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2517,7 +2497,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/wordpress-seo.1.7.3.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.1.7.3.3.zip",
                 "reference": null,
                 "shasum": null
             },
