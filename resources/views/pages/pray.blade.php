@@ -1,56 +1,41 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1 class="page-heading">Prayer Topic</h1>
-<ul class="list-group">
-  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
-  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
-  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
-  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
-  <li class="list-group-item"><label><input type="checkbox"> Item 1</label></li>
-</ul>
+<h1 class="tk-seravek-web">Prayer</h1>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="thumbnail">
+      <img src="{{ getvideothumb('https://vimeo.com/118441384') }}" alt="If God's People Pray">
+      <div class="caption">
+        <h3>If God's People Pray</h3>
+        <p>Why to Pray</p>
+        <p><a href="https://vimeo.com/118441384" class="btn btn-primary" role="button">Watch</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="thumbnail">
+      <img src="{{ getvideothumb('https://vimeo.com/119068075') }}" alt="When God's People Pray">
+      <div class="caption">
+        <h3>When God's People Pray</h3>
+        <p>How to Pray</p>
+        <p><a href="https://vimeo.com/119068075" class="btn btn-primary" role="button">Watch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('sidebar')
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">About Prayer</h3>
+    <h3 class="panel-title tk-seravek-web">Distinctive #5</h3>
   </div>
   <div class="panel-body">
-    <p>Distinctive #2 is we rely on prayer.</p>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Learn to Pray</h3>
-  </div>
-  <div class="panel-body">
-
-  <div class="media">
-    <div class="media-left">
-      <a href="https://vimeo.com/118441384">
-        <img class="media-object" src="{{ getvideothumb('https://vimeo.com/118441384') }}" alt="If God's People Pray" width="60">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">If God's People Pray</h4>
-      <p>Why we should pray</p>
-    </div>
-  </div>
-
-  <div class="media">
-    <div class="media-left">
-      <a href="https://vimeo.com/119068075">
-        <img class="media-object" src="{{ getvideothumb('https://vimeo.com/119068075') }}" alt="When God's People Pray"  width="60">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">When God's People Pray</h4>
-      <p>How we should pray</p>
-    </div>
-  </div>  
-
+    <p>We understand that the mission, the goals and the values at Compass Bible Church are humanly impossible. We do not inherently possess the wherewithal to make disciples or aid them in knowing, loving and serving Christ. These are works of God and we will always rely on him as we ardently ask him to accomplish these biblical objectives among us.</p>
+    <p>Colossians 4:2-6</p>
+    <p><a href="{{ route('distinctives') }}">8 Distinctives</a></p>
   </div>
 </div>
 @endsection
