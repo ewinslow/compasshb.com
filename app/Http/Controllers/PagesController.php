@@ -225,6 +225,15 @@ class PagesController extends Controller {
 			->with('photos', $results);
 	}
 
+	public function sermons()
+	{
+		$sermons = $this->posts->get('sermon', 300);
+
+		return view('pages.sermons')
+			->with('sermons', $sermons)
+			->with('title', 'Sermons');
+	}
+
 }
 
 

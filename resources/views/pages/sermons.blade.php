@@ -1,7 +1,40 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1 class="page-header">Scripture Index</h1>
+<h1 class="tk-seravek-web">Sermon Library</h1>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading tk-seravek-web">All Sermons</div>
+  <div class="panel-body">
+    <p>Archive of all sermon videos</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($sermons as $sermon)
+      <tr>
+        <td>{{ $sermon->meta->sermon_number }}</td>
+        <td><a href="/{{ date_format($sermon->post_date, 'Y') }}/{{ date_format($sermon->post_date, 'm') }}/{{ $sermon->post_name }}">{{ $sermon->post_title }}</a></td>
+        <td>{{ $sermon->meta->sermon_text }}</td>
+        <td>{{ date_format($sermon->post_date, 'l, F j, Y') }}</td>       
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+{{-- 
+<h1 class="tk-seravek-web">Scripture Index</h1>
 
 <div class="row">
   <div class="col-md-3">
@@ -79,21 +112,21 @@
     </ul>
   </div>
 </div>
+--}}
 @endsection
 
 @section('sidebar')
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Search</h3>
+    <h3 class="panel-title tk-seravek-web">Feeds</h3>
   </div>
   <div class="panel-body">
-    <p>Featured </p>
-    <p>By Scripture</p>
-    <p>By Topic</p>
-    <p>By Series</p>
-    <p>By Date</p>
-    <p>Video Feed</p>
-    <p>Audio Feed</p>
+    <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
+      <img src="http://www.compasshb.com/app/uploads/2014/11/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
+      width="110" height="40" alt="Subscribe on iTunes"/>
+    </a>
+    <br/><br/>
+    <a href="http://feeds.compasshb.com/sermons">Subscribe via Feed</a>
   </div>
 </div>
 @endsection

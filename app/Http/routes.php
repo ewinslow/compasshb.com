@@ -58,6 +58,11 @@ Route::get('photos', [
 	'uses' => 'PagesController@photos'
 ]);
 
+Route::get('sermons', [
+	'as' => 'sermons',
+	'uses' => 'PagesController@sermons'
+]);
+
 /**
  * Routes without controllers
  */
@@ -67,10 +72,7 @@ Route::get('pray', ['as' => 'pray', function()
 	return view('pages.pray')->with('title', 'Pray'); 
 }]);
 
-Route::get('sermons', ['as' => 'sermons', function()
-{
-	return view('pages.sermons')->with('title', 'Sermons');
-}]);
+
 
 Route::get('who-we-are', ['as' => 'who-we-are', function()
 {

@@ -117,7 +117,7 @@
 </div>
 
 <!-- Recent Photography / SmugMug -->
-<div class="row" style="background: none; padding-bottom: 40px;">
+<div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="col-md-8">
         <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Photos</a></h2>
