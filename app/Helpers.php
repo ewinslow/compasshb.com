@@ -76,3 +76,15 @@ function oembed($video_url = '')
 
     return $response_body->html;
 }
+
+function getSetList()
+{
+    /*$client = new \GuzzleHttp\Client();
+
+    $url = 'https://www.planningcenteronline.com/organization.json';
+    $response = $client->get($url);
+
+    $response_body = json_decode($response->getBody());*/
+
+    return null;
+}

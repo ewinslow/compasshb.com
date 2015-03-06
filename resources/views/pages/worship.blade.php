@@ -26,8 +26,9 @@
   </div>
   <div class="panel-body">
     <ul>
-    	<li>10,000 Reasons</li>
-    	<li>Amazing Grace</li>
+      @foreach($setlist as $setitem)
+    	<li>{{ $setitem }}</li>
+      @endforeach
     </ul>
   </div>
 </div>

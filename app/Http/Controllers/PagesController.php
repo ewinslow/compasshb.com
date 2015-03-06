@@ -115,7 +115,11 @@ class PagesController extends Controller
             $song->othumbnail = $response_body->thumbnail_url;
         }
 
+        // Song set
+        $setlist[] = getSetList();
+
         return view('pages.worship')
+            ->with('setlist', $setlist)
             ->with('songs', $songs)
             ->with('read', $read)
             ->with('title', 'Worship');
