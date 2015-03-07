@@ -67,6 +67,9 @@ Route::get('pray', [
     'uses' => 'PagesController@pray',
 ]);
 
+// Feeds
+Route::get('feeds/sermons.json', 'PagesController@feeds');
+
 /*
  * Routes without controllers
  */

@@ -47,6 +47,11 @@ function getvideothumb($url)
     // Define from which video you want to pull data and make the request
     $video = $vimeo->request("/videos/$videoid");
 
+    if ($video['status'] == '404' || $video['status'] == '400')
+    {
+        return;
+    }
+
     // Get the video thumbnail
     $thumb = $video['body'];
     $thumb = $thumb['pictures'];
