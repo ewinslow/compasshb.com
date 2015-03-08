@@ -31,6 +31,7 @@ class PagesController extends Controller
             return view('pages.read')->with('content', $content)
                                      ->with('postflash', $postflash)
                                      ->with('post', $post)
+                                     ->with('read', $post)
                                      ->with('title', $post[0]->post_title);
         }
 
