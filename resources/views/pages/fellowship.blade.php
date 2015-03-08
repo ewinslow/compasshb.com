@@ -3,6 +3,7 @@
 @section('content')
 <h1 class="tk-seravek-web">Home Fellowship Groups</h1>
 
+{{--
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">Application Questions</h3>
@@ -18,6 +19,7 @@
     </ol>
   </div>
 </div>
+--}}
 
 <div class="row">
   <div class="col-md-12">
@@ -42,6 +44,7 @@
   </div>
 </div>
 
+{{--
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">Recommended Reading</h3>
@@ -50,6 +53,7 @@
     <p>The Power of Prayer by R. A. Torrey - Pick up a copy in our book nook today!</p>
   </div>
 </div>
+--}}
 
 @endsection
 

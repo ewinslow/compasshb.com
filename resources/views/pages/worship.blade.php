@@ -25,6 +25,7 @@
     <h3 class="panel-title tk-seravek-web">Last Week's Songs</h3>
   </div>
   <div class="panel-body">
+    <p>Coming soon...</p>
     <ul>
       @foreach($setlist as $setitem)
     	<li>{{ $setitem }}</li>

@@ -74,10 +74,15 @@ class PagesController extends Controller
 
         $content = $esv->getScripture($read[0]->post_title);
 
+        if (date('D') == "Sun" || date('D') == "Sat")
+        {
+            $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
+        }
+
         return view('pages.read')->with('post', $read)
                                  ->with('read', $read)
                                  ->with('content', $content)
-                                 ->with('postflash', '')
+                                 ->with('postflash', $postflash)
                                  ->with('title', 'Scripture of the Day');
     }
 

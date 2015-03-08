@@ -45,7 +45,7 @@
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
       <br/>
-      <p>Upcoming Sermon<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
+      <p>Upcoming Sermon ({{ date_format($upcomingsermon[0]->post_date, 'F n') }})<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
       <p>Pastor {{ $upcomingsermon[0]->meta->byline }}</p>
       <a href="{{ $upcomingsermon[0]->meta->worksheet }}" class="btn btn-default">Worksheet</a>
       <a href="{{ $upcomingsermon[0]->meta->announcements }}" class="btn btn-default">Announcements</a>
