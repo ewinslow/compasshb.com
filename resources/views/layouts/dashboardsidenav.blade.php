@@ -1,7 +1,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
     <li class="{{ set_active('read') }}">
-    	  <a href="{{ route('read') }}">Read <span class="badge disqus-comment-count" data-disqus-url="http://www.compasshb.com/{{ date_format($read[0]->post_date, 'Y') }}/{{ date_format($read[0]->post_date, 'm') }}/{{ $read[0]->post_name }}/" style="display: block; float: right">0</span></a>
+    	  <a href="{{ route('read') }}">Read {{--<span class="badge disqus-comment-count" data-disqus-url="http://www.compasshb.com/{{ date_format($read[0]->post_date, 'Y') }}/{{ date_format($read[0]->post_date, 'm') }}/{{ $read[0]->post_name }}/" style="display: block; float: right">0</span>--}}</a>
     </li>
     <li class="{{ set_active('pray') }}"><a href="{{ route('pray') }}">Pray</a></li>
     <li class="{{ set_active('sermons') }}"><a href="{{ route('sermons') }}">Sermons</a></li>

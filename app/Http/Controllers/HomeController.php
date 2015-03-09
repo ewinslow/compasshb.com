@@ -26,8 +26,10 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function home()
     {
-        return view('home');
+        
+        return view('admin.home')
+            ->with('title', 'Admin');
     }
 }

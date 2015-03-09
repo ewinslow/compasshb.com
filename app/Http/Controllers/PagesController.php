@@ -3,13 +3,18 @@
 use CompassHB\Www\Http\Requests;
 use Illuminate\Http\Request;
 
+
 class PagesController extends Controller
 {
     public $posts;
 
+    /**
+     * Create a new controller instance.
+     */
     public function __construct()
     {
         $this->posts = new \CompassHB\Www\WPost();
+        $this->middleware('guest');
     }
 
     /**
@@ -254,5 +259,15 @@ class PagesController extends Controller
         
         return view('feeds.sermons')
             ->with('sermons', $sermons);
+    }
+
+    public function admin()
+    {   
+        // Todo: remove
+        $sermons = $this->posts->get('sermon', 1);
+
+        return view('admin.home')
+            ->with('title', 'Admin')
+            ->with('read', $sermons);
     }
 }

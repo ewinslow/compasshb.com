@@ -1,22 +1,12 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-/*
  * Temporary Redirects
  */
 Route::get('/wp-admin', function () {
     return redirect('/wp/wp-admin');
 });
+
 
 /*
  * Home Page
@@ -127,3 +117,20 @@ Route::get('bunnyrun', ['as' => 'bunnyrun', function () {
 Route::get('videos', ['as' => 'videos', function () {
     return view('archives.videos')->with('title', 'Videos');
 }]);
+
+/**
+ * Administration Pages
+ */
+Route::get('/admin', [
+    'as' => 'admin',
+    'uses' => 'HomeController@home',
+]);
+
+
+/**
+ * Authentication
+ */
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
