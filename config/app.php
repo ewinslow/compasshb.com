@@ -145,6 +145,7 @@ return [
         'CompassHB\Www\Providers\EventServiceProvider',
         'CompassHB\Www\Providers\RouteServiceProvider',
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
 
     ],
 
@@ -193,7 +194,9 @@ return [
         'URL'       => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View'      => 'Illuminate\Support\Facades\View',
-        'Bugsnag'    => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
+        'Bugsnag'   => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
+        'Html'      => 'Illuminate\Html\HtmlFacade',
+        'Form'      => 'Illuminate\Html\FormFacade',
 
     ],
 
