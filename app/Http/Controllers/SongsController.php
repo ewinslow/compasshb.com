@@ -5,6 +5,9 @@ use CompassHB\Www\Song;
 use CompassHB\Www\Http\Requests\SongRequest;
 use CompassHB\Www\Http\Controllers\Controller;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Subscriber\Oauth\Oauth1;
+
 class SongsController extends Controller {
 
 
@@ -22,7 +25,6 @@ class SongsController extends Controller {
 	 */
 	public function index()
 	{
-
 		$songs = Song::latest('published_at')->published()->get();
 
 		foreach ($songs as $song)
@@ -30,10 +32,12 @@ class SongsController extends Controller {
 			$song->thumbnail = get_othumb($song->video);
 		}
 
-		return view('songs.index', compact('songs'));
+		$setlist = last_weeks_set_list();
+
+		return view('songs.index', compact('songs', 'setlist'));
 	}
 
-	/** 
+	/**
 	 * Show a single song
 	 *
 	 * @param Song $song
@@ -47,7 +51,7 @@ class SongsController extends Controller {
 		return view('songs.show', compact('song'));
 	}
 
-	/** 
+	/**
 	 * Edit an existing song
 	 *
 	 * @param Song $song
@@ -59,7 +63,7 @@ class SongsController extends Controller {
 		return view('songs.edit', compact('song'));
 	}
 
-	/** 
+	/**
 	 * Update a song
 	 *
 	 * @param Song $song
@@ -80,7 +84,7 @@ class SongsController extends Controller {
 	 */
 	public function create()
 	{
-	
+
 		return view('songs.create');
 	}
 

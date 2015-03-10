@@ -19,6 +19,7 @@
 		"bugsnag/bugsnag-laravel": "1.*",
 		"vimeo/vimeo-api": "~1.1",
 		"guzzlehttp/guzzle": "~5.1",
+		"guzzlehttp/oauth-subscriber": "~0.2",
 		"twbs/bootstrap-sass": "~3.2",
 		"bradmsmith/theme-compasshb": "dev-master",
 		"wpackagist-plugin/varnish-http-purge": "~3.6",
