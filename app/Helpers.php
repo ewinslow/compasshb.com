@@ -73,7 +73,7 @@ function get_othumb($url)
 {
     $client = new \GuzzleHttp\Client();
 
-    $request = 'https://vimeo.com/api/oembed.json?url=f'. $url;
+    $request = 'https://vimeo.com/api/oembed.json?url='. $url;
 
     try {
 
