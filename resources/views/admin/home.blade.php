@@ -17,7 +17,12 @@
     <h3 class="panel-title tk-seravek-web">Worship Songs</h3>
   </div>
   <div class="panel-body">
-    <p>Links</p>
+    <ul>
+      @foreach ($songs as $song)
+        <li><a href="songs/{{ $song->id }}">{{ $song->title }}</a> (<a href="songs/{{ $song->id }}/edit">Edit</a>)</li>
+      @endforeach
+    </ul>
+    <p><a href="/songs/create" class="btn btn-default">New Song</a></p>
   </div>
 </div>
 

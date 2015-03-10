@@ -114,30 +114,6 @@ class PagesController extends Controller
             ->with('sermons', $sermons);
     }
 
-    public function worship()
-    {
-        $songs = $this->posts->get('worship-song', 6);
-        $read = $this->posts->get('scripture-of-the-day', 1);
-
-        $client = new \GuzzleHttp\Client();
-
-        foreach ($songs as $song) {
-            $url = 'https://vimeo.com/api/oembed.json?url='.$song->meta->video_oembed;
-            $response = $client->get($url);
-            $response_body = json_decode($response->getBody());
-            $song->othumbnail = $response_body->thumbnail_url;
-        }
-
-        // Song set
-        $setlist[] = getSetList();
-
-        return view('pages.worship')
-            ->with('setlist', $setlist)
-            ->with('songs', $songs)
-            ->with('read', $read)
-            ->with('title', 'Worship');
-    }
-
     /**
      * Homepage.
      */
@@ -261,13 +237,4 @@ class PagesController extends Controller
             ->with('sermons', $sermons);
     }
 
-    public function admin()
-    {   
-        // Todo: remove
-        $sermons = $this->posts->get('sermon', 1);
-
-        return view('admin.home')
-            ->with('title', 'Admin')
-            ->with('read', $sermons);
-    }
 }
