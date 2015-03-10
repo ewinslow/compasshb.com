@@ -5,9 +5,6 @@ use CompassHB\Www\Song;
 use CompassHB\Www\Http\Requests\SongRequest;
 use CompassHB\Www\Http\Controllers\Controller;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Subscriber\Oauth\Oauth1;
-
 class SongsController extends Controller {
 
 

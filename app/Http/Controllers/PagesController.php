@@ -232,13 +232,4 @@ class PagesController extends Controller
             ->with('title', 'Pray')
             ->with('read', $read);
     }
-
-    public function feeds()
-    {
-        $sermons = $this->posts->get('sermon', 300);
-        
-        return view('feeds.sermons')
-            ->with('sermons', $sermons);
-    }
-
 }

@@ -56,9 +56,11 @@ Route::get('pray', [
     'uses' => 'PagesController@pray',
 ]);
 
-// Feeds
-Route::get('feeds/sermons.json', 'PagesController@feeds');
-
+/**
+ * Feeds for json responeses like sermons.json and songs.json
+ */
+Route::get('feeds/sermons.json', 'FeedsController@sermons');
+Route::get('feeds/songs.xml', 'FeedsController@songs');
 /*
  * Routes without controllers
  */

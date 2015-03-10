@@ -19,6 +19,17 @@
   @endforeach
 </div>
 
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title tk-seravek-web">Audio Player</h3>
+    </div>
+    <div class="panel-body">
+      <div id="myElement"></div>
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('sidebar')
@@ -27,31 +38,27 @@
     <h3 class="panel-title tk-seravek-web">Last Week's Songs</h3>
   </div>
   <div class="panel-body">
-    <p>Coming soon...</p>
-    <ul>
-{{--       @foreach($setlist as $setitem)
-    	<li>{{ $setitem }}</li>
-      @endforeach
-      --}}
-    </ul>
+    @foreach($setlist as $song)
+      <p>
+        <strong>{{ $song['title'] }}</strong><br/>
+        <small>{{ $song['author'] }}</small><br/>
+        @if (isset($song['link']))
+          <a href="{{ $song['link'] }}">Link</a>
+        @endif
+      </p>
+    @endforeach
   </div>
 </div>
 
 <script src="http://jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Audio Player</h3>
-  </div>
-  <div class="panel-body">
-  	<div id="myElement"></div>
-
 <script>
     jwplayer("myElement").setup({
-        file: "http://www.compasshb.com/app/uploads/2015/02/There-is-a-Rock.mp3",
-        width: 250,
-        height: 30
+        playlist: "/feeds/songs.xml",
+        width: 500,
+        height: 30,
+        autostart: true,
+        repeat: true,
     });
 </script>
-  </div>
-</div>
+
 @endsection
