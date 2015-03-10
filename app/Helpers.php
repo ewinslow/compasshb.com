@@ -119,6 +119,10 @@ function oembed($url = '')
     return $response_body->html;
 }
 
+/**
+ * Find out what songs were sung last weekend
+ * @return type
+ */
 function getSetList()
 {
     /*$client = new \GuzzleHttp\Client();

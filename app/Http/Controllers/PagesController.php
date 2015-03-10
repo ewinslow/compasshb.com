@@ -179,6 +179,10 @@ class PagesController extends Controller
                           ->with('title', 'Compass HB - Huntington Beach');
     }
 
+    /**
+     * Populate the Photos page from Smugmug
+     * @return type
+     */
     public function photos()
     {
         // Smugmug
