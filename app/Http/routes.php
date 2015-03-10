@@ -7,6 +7,10 @@ Route::get('/wp-admin', function () {
     return redirect('/wp/wp-admin');
 });
 
+/**
+ * Songs
+ */
+Route::resource('songs', 'SongsController');
 
 /*
  * Home Page
@@ -35,11 +39,6 @@ Route::get('read', [
 Route::get('fellowship', [
     'as' => 'fellowship',
     'uses' => 'PagesController@fellowship',
-]);
-
-Route::get('worship', [
-    'as' => 'worship',
-    'uses' => 'PagesController@worship',
 ]);
 
 Route::get('photos', [
@@ -121,9 +120,9 @@ Route::get('videos', ['as' => 'videos', function () {
 /**
  * Administration Pages
  */
-Route::get('/admin', [
+Route::get('admin', [
     'as' => 'admin',
-    'uses' => 'HomeController@home',
+    'uses' => 'HomeController@index',
 ]);
 
 

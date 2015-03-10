@@ -63,6 +63,31 @@ function getvideothumb($url)
 }
 
 /**
+ * Make an oembed request and return the thumbnail
+ *
+ */
+function get_othumb($url)
+{
+    $client = new \GuzzleHttp\Client();
+
+    $request = 'https://vimeo.com/api/oembed.json?url=f'. $url;
+
+    try {
+
+        $response = $client->get($request);         
+    
+     } catch (Exception $e) {
+
+       return;  
+
+     } 
+
+    $response_body = json_decode($response->getBody());
+        
+    return $response_body->thumbnail_url;
+}
+
+/**
  * Given a single post, will return the next newest post in the same taxnomy - TODO.
  */
 function getnextpost(WPost $wpost)
@@ -70,12 +95,24 @@ function getnextpost(WPost $wpost)
     //
 }
 
-function oembed($video_url = '')
+/**
+ * Oembed iframe
+ */
+function oembed($url = '')
 {
     $client = new \GuzzleHttp\Client();
 
-    $url = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$video_url;
-    $response = $client->get($url);
+    $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url=' . $url;
+
+    try {
+
+        $response = $client->get($request);
+            
+    } catch (Exception $e) {
+
+        return;
+            
+    }
 
     $response_body = json_decode($response->getBody());
 

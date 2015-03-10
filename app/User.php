@@ -31,4 +31,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/** 
+	 * A user can have many songs
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function songs()
+	{
+		return $this->hasMany('CompassHB\Www\Song');
+
+	}
+
 }

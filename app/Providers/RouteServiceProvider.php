@@ -23,7 +23,13 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        //
+
+        $router->bind('songs', function($id)
+        {
+            return \CompassHB\Www\Song::findOrFail($id);
+//            return \CompassHB\Www\Song::published()->findOrFail($id);
+        });
+
     }
 
     /**
