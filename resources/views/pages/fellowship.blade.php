@@ -80,6 +80,7 @@
       <li>Miller @ Church</li>
       <li>Jorden @ Church</li>
       <li>Randolph @ Church</li>
+      <li>Laurder @ Church</li>
     </ul>
     <h4 class="tk-seravek-web">Thursday</h4>
     <ul class="list-unstyled">
