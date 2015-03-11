@@ -10,6 +10,7 @@
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'compasshb';
     var disqus_url = 'http://www.compasshb.com/{{ date_format($post[0]->post_date, 'Y') }}/{{ date_format($post[0]->post_date, 'm') }}/{{ $post[0]->post_name }}/';
+    var disqus_title = '{{ $post[0]->post_title }} - Compass Bible Church';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
