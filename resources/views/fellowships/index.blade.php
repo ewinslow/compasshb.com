@@ -26,34 +26,17 @@
     <h3 class="panel-title tk-seravek-web">Groups</h3>
   </div>
   <div class="panel-body">
-    <h4 class="tk-seravek-web">Sunday</h4>
-    <ul class="list-unstyled">
-      <li>College @ Blakey's</li>
-    </ul>
-    <h4 class="tk-seravek-web">Tuesday</h4>
-    <ul class="list-unstyled">
-      <li>Quists @ Quists (Young Married)</li>
-      <li>Paynes @ Church</li>
-      <li>Kids Min @ Blakey's</li>
-    </ul>
-    <h4 class="tk-seravek-web">Wednesday</h4>
-    <ul class="list-unstyled">
-      <li>AWANA for Kids @ Church</li>
-      <li>Halvorsen @ Church (Singles)</li>
-      <li>Miller @ Church</li>
-      <li>Jorden @ Church</li>
-      <li>Randolph @ Church</li>
-      <li>Laurder @ Church</li>
-    </ul>
-    <h4 class="tk-seravek-web">Thursday</h4>
-    <ul class="list-unstyled">
-      <li>United for Junior High and High School @ Church</li>
-      <li>Shouse @ Church</li>
-    </ul>
-    <h4 class="tk-seravek-web">Friday</h4>
-    <ul class="list-unstyled">
-      <li>Davey @ Davey</li>
-    </ul>
+    @foreach ($days as $day)
+      <h4 class="tk-seravek-web">{{ $day }}</h4>
+      <ul class="list-unstyled">
+        @foreach ($fellowships as $fellowship)
+          @if ($fellowship['day'] == $day)
+            <li>{{ $fellowship['title'] }} @ {{ $fellowship['location'] }}
+              {{ (isset($fellowship['description'])) ? $fellowship['description'] : '' }}</li>
+          @endif
+        @endforeach
+      </ul>
+      @endforeach
   </div>
 </div>
 

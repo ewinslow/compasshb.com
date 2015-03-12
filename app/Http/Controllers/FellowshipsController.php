@@ -22,7 +22,10 @@ class FellowshipsController extends Controller {
 	 */
 	public function index()
 	{
-    return view('fellowships.index')
+		$fellowships = Fellowship::all()->toArray();
+		$days = array_column($fellowships, 'day');
+
+    return view('fellowships.index', compact('fellowships', 'days'))
         ->with('title', 'Home Fellowship Groups');
 	}
 
