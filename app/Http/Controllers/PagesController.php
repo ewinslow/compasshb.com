@@ -59,24 +59,6 @@ class PagesController extends Controller
         return redirect($video);
     }
 
-    public function fellowship()
-    {
-        $sermons = $this->posts->get('sermon', 1);
-
-        $client = new \GuzzleHttp\Client();
-
-        foreach ($sermons as $sermon) {
-            $url = 'https://vimeo.com/api/oembed.json?url='.$sermon->meta->video_oembed;
-            $response = $client->get($url);
-            $response_body = json_decode($response->getBody());
-            $sermon->othumbnail = $response_body->thumbnail_url;
-        }
-
-        return view('pages.fellowship')
-            ->with('title', 'Home Fellowship Groups')
-            ->with('sermons', $sermons);
-    }
-
     /**
      * Homepage.
      */

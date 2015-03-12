@@ -2,6 +2,9 @@
 
 @section('content')
 <h1 class="tk-seravek-web">Admin</h1>
+<p>Admin page for posting and scheduling site content.</p>
+
+<br/>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -36,6 +39,44 @@
   </table>
 </div>
 
+<br/>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h3 class="panel-title tk-seravek-web" id="fellowship">Home Fellowship Groups</h3>
+  </div>
+  <div class="panel-body">
+    <p>All of the home fellowship groups.</p>
+    <p><a href="{{ route('fellowship.create') }}" class="btn btn-default">New Home Fellowship Group</a></p>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Home Fellowship Group</th>
+        <th>Day</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($fellowships as $fellowship)
+        <tr>
+          <td>{{ $fellowship->title }}</td>
+          <td>{{ $fellowship->day }}</td>
+          <td>{{ $fellowship->location }}</td>
+          <td>{{ $fellowship->description }}</td>
+          <td><a href="{{ route('fellowship.edit', $fellowship->id) }}">Edit</a></td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+<br/>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -72,6 +113,7 @@
 
 @section('sidebar')
 <h1 class="page-title tk-seravek-web">&nbsp;</h1>
+<p>&nbsp;</p><br/>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">Jump to...</h3>
@@ -79,6 +121,7 @@
   <div class="panel-body">
     <ul class="list-unstyled">
       <li><a href="#scriptureoftheday">Scripture of the Day</a></li>
+      <li><a href="#fellowship">Home Fellowship Groups</a></li>
       <li><a href="#worship">Worship</a></li>
     </ul>
   </div>

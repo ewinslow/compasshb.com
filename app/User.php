@@ -51,4 +51,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('CompassHB\Www\Passage');
 	}
 
+	/**
+	 * A user can have many fellowships
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function fellowships()
+	{
+		return $this->hasMany('CompassHB\Www\Fellowship');
+	}
 }

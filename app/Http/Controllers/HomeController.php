@@ -2,6 +2,7 @@
 
 use CompassHB\Www\Song;
 use CompassHB\Www\Passage;
+use CompassHB\Www\Fellowship;
 
 class HomeController extends Controller
 {
@@ -33,8 +34,9 @@ class HomeController extends Controller
     {
         $songs = Song::latest()->get();
         $passages = Passage::latest('published_at')->get();
+        $fellowships = Fellowship::latest('day')->get();
 
-        return view('admin.home', compact('songs', 'passages'))
+        return view('admin.home', compact('songs', 'passages', 'fellowships'))
             ->with('title', 'Admin');
     }
 }

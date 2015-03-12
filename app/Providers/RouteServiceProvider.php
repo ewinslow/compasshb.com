@@ -39,6 +39,13 @@ class RouteServiceProvider extends ServiceProvider
             return \CompassHB\Www\Passage::published()->findOrFail($id);
         });
 
+        /**
+         * A fellowship is at /fellowship/{fellowship}
+         */
+        $router->bind('fellowship', function($id)
+        {
+            return \CompassHB\Www\Fellowship::findOrFail($id);
+        });
 
     }
 

@@ -18,7 +18,7 @@
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('pray') }}">Pray</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('sermons') }}">Sermons</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('songs.index') }}">Worship</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('fellowship') }}">Fellowship</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('fellowship.index') }}">Fellowship</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('home') }}">Home</a></li>
       </ul>
       <p class="navbar-text navbar-right hidden-xs">

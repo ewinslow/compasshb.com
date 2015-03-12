@@ -17,6 +17,11 @@ Route::resource('songs', 'SongsController', ['except' => ['destroy']]);
  */
 Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 
+/**
+ * Fellowships
+ */
+Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
+
 /*
  * Home Page
  */
@@ -35,11 +40,6 @@ Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
 
 Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
     ->where(['year' => '\d{4}', 'month' => '\d{2}']);
-
-Route::get('fellowship', [
-    'as' => 'fellowship',
-    'uses' => 'PagesController@fellowship',
-]);
 
 Route::get('photos', [
     'as' => 'photos',
