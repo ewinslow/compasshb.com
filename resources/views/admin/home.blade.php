@@ -64,6 +64,7 @@
         <tr>
           <td>{{ $sermon->sku }}</td>
           <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
+          <td>{{ $sermon->text }}</td>
           <td>{{ date_format($sermon->published_at, 'Y-m-d l') }}</td>
           <td>{{ $sermon->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
           <td><a href="{{ route('sermons.edit', $sermon->id) }}">Edit</a></td>

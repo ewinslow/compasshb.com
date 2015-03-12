@@ -7,6 +7,11 @@ class Sermon extends Model {
 		protected $fillable = [
 		'title',
 		'body',
+		'teacher',
+		'text',
+		'video',
+		'series',
+		'sku',
 		'published_at'
 	];
 

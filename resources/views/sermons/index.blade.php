@@ -24,7 +24,7 @@
         <td>{{ $sermon->sku }}</td>
         <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
         <td>{{ $sermon->text }}</td>
-        <td>{{ date_format($sermon->post_date, 'l, F j, Y') }}</td>
+        <td>{{ date_format($sermon->published_at, 'l, F j, Y') }}</td>
       </tr>
       @endforeach
     </tbody>

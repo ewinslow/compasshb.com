@@ -8,14 +8,12 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public $posts;
 
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
-        $this->posts = new \CompassHB\Www\WPost();
         $this->middleware('guest');
     }
 
@@ -66,25 +64,27 @@ class PagesController extends Controller
     public function home()
     {
         $sermons = Sermon::latest('published_at')->published()->take(4)->get();
-        $blogs = $this->posts->get('blog', 2);
-        $videos = $this->posts->get('video', 2);
-        $upcomingsermon = $this->posts->get('sermon', 1, 'future');
+        $prevsermon = $sermons->first();
+        $nextsermon = Sermon::unpublished()->get();
+
+        $blogs = []; //$this->posts->get('blog', 2);
+        $videos = []; //$this->posts->get('video', 2);
 
         $client = new \GuzzleHttp\Client();
 
         foreach ($sermons as $sermon) {
-            $url = 'https://vimeo.com/api/oembed.json?url='.$sermon->meta->video_oembed;
+            $url = 'https://vimeo.com/api/oembed.json?url='.$sermon->video;
             $response = $client->get($url);
             $response_body = json_decode($response->getBody());
             $sermon->othumbnail = $response_body->thumbnail_url;
         }
 
-        foreach ($videos as $video) {
+/**        foreach ($videos as $video) {
             $url = 'https://vimeo.com/api/oembed.json?url='.$video->meta->video_oembed;
             $response = $client->get($url);
             $response_body = json_decode($response->getBody());
             $video->othumbnail = $response_body->thumbnail_url;
-        }
+        }*/
 
         // Instagram
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
@@ -115,9 +115,10 @@ class PagesController extends Controller
         }
         return view('app', compact(
             'sermons',
+            'nextsermon',
+            'prevsermon',
             'blogs',
-            'videos',
-            'upcomingsermon'
+            'videos'
         ))->with('images', $results)
           ->with('instagrams', $instagrams['data'])
           ->with('title', 'Compass HB - Huntington Beach');

@@ -27,7 +27,6 @@ class SermonRequest extends Request {
 			'teacher' => 'required',
 			'text' => 'required',
 			'sku' => 'required',
-			'video' => 'required|min:10',
 		];
 	}
 

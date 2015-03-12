@@ -3,9 +3,9 @@
 @section('content')
 <div class="row drawer">
   <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
-    <a class="clickable latestsermon" href="/{{ date_format($sermons[0]->post_date, 'Y') }}/{{ date_format($sermons[0]->post_date, 'm') }}/{{ $sermons[0]->post_name }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($sermons[0]->meta->video_oembed) }});">
+    <a class="clickable latestsermon" href="{{ route('sermons.show', '1') }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
       <p>Watch Latest Sermon</p>
-      <h1 class="tk-seravek-web">{{ $sermons[0]->post_title }}</h1>
+      <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
       <p><i class="glyphicon glyphicon-play-circle"></i></p>
     </a>
   </div>
@@ -16,11 +16,11 @@
 
   @foreach($blogs as $blog)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="/{{ date_format($blog->post_date, 'Y') }}/{{ date_format($blog->post_date, 'm') }}/{{ $blog->post_name }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->attachment[0]->guid }});">
-      <h4 class="tk-seravek-web">{{ $blog->attachment[0]->post_title }}</h4>
+    <a class="clickable featuredblog" href="#" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(#);">
+      <h4 class="tk-seravek-web">{{ $blog->title }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="/{{ date_format($blog->post_date, 'Y') }}/{{ date_format($blog->post_date, 'm') }}/{{ $blog->post_name }}">{{ $blog->post_title }}</a>
+      <a class="clickable" style="color: #fff" href="#">{{ $blog->title }}</a>
     </h4>
   </div>
   @endforeach
@@ -45,10 +45,10 @@
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
       <br/>
-      <p>Upcoming Sermon ({{ date_format($upcomingsermon[0]->post_date, 'F n') }})<br/>{{ $upcomingsermon[0]->post_title }} &mdash; {{ $upcomingsermon[0]->meta->sermon_text }}</p>
-      <p>Pastor {{ $upcomingsermon[0]->meta->byline }}</p>
-      <a href="{{ $upcomingsermon[0]->meta->worksheet }}" class="btn btn-default">Worksheet</a>
-      <a href="{{ $upcomingsermon[0]->meta->announcements }}" class="btn btn-default">Announcements</a>
+      <p>Upcoming Sermon ( date_format($nextsermon->published_at, 'F n') )<br/> $nextsermon->title  &mdash; $nextsermon->text </p>
+      <p>Pastor  $nextsermon->teacher </p>
+      <a href="#" class="btn btn-default">Worksheet</a>
+      <a href="#" class="btn btn-default">Announcements</a>
     </div>
     <div class="col-md-4 text-center" style="">
       <h2 class="tk-seravek-web">Directions</h2>
@@ -77,16 +77,16 @@
 <!-- Recent Sermons -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2 class="tk-seravek-web"><a href="{{ route('sermons') }}">Sermons</a></h2>
+        <h2 class="tk-seravek-web"><a href="{{ route('sermons.index') }}">Sermons</a></h2>
         @foreach($sermons as $sermon)
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{ $sermon->othumbnail }}" alt="{{ $sermon->post_title }}"/>
+                <img src="{{ $sermon->othumbnail }}" alt="{{ $sermon->title }}"/>
                 <div class="caption">
-                    <h4>{{ $sermon->post_title }}</h4>
-                    <p><small>{{ date_format($sermon->post_date, 'F n') }}</small><br/>
-                    {{ $sermon->meta->sermon_text }}</p>
-                    <p><a href="/{{ date_format($sermon->post_date, 'Y') }}/{{ date_format($sermon->post_date, 'm') }}/{{ $sermon->post_name }}" class="btn btn-primary" role="button">Watch</a></p>
+                    <h4>{{ $sermon->title }}</h4>
+                    <p><small>{{ date_format($sermon->published_at, 'F n') }}</small><br/>
+                    {{ $sermon->text }}</p>
+                    <p><a href="{{ route('sermons.show', $sermon->id) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>
@@ -105,9 +105,9 @@
             <div class="thumbnail">
                 <img src="{{ $video->othumbnail }}" alt="{{ $video->post_title }}"/>
                 <div class="caption">
-                    <h4>{{ $video->post_title }}</h4>
-                    <p><small>{{ date_format($video->post_date, 'F n') }}</small></p>
-                    <p><a href="/{{ date_format($video->post_date, 'Y') }}/{{ date_format($video->post_date, 'm') }}/{{ $video->post_name }}" class="btn btn-primary" role="button">Watch</a></p>
+                    <h4>{{ $video->title }}</h4>
+                    <p><small>{{ date_format($video->published_at, 'F n') }}</small></p>
+                    <p><a href="" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>

@@ -5,32 +5,32 @@
 
 <div class="form-group">
 	{!! Form::label('body', 'Body:') !!}
-	{!! Form::text('body', null, ['class' => 'form-control']) !!}
+	{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::label('published_at', 'Teacher:') !!}
-	{!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::label('teacher', 'Preacher:') !!}
+	{!! Form::text('teacher', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::label('published_at', 'Text:') !!}
-	{!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::label('text', 'Text:') !!}
+	{!! Form::text('text', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::label('published_at', 'Video:') !!}
-	{!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::label('video', 'Video:') !!}
+	{!! Form::text('video', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::label('published_at', 'Series:') !!}
-	{!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::label('series', 'Series:') !!}
+	{!! Form::text('series', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::label('published_at', 'SKU:') !!}
-	{!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::label('sku', 'SKU:') !!}
+	{!! Form::text('sku', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

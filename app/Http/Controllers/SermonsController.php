@@ -1,6 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
-use auth;
+use Auth;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
 use CompassHB\Www\Http\Controllers\Controller;
@@ -36,7 +36,7 @@ class SermonsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('sermons.create');
 	}
 
 	/**
@@ -44,9 +44,13 @@ class SermonsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(SermonRequest $request)
 	{
-		//
+		$sermon = new Sermon($request->all());
+
+		Auth::user()->sermons()->save($sermon);
+
+		return redirect('admin');
 	}
 
 	/**
@@ -55,9 +59,9 @@ class SermonsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Sermon $sermon)
 	{
-		//
+		return view('sermons.show', compact('sermon'));
 	}
 
 	/**
@@ -66,9 +70,9 @@ class SermonsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Sermon $sermon)
 	{
-		//
+		return view('sermons.edit', compact('sermon'));
 	}
 
 	/**
@@ -77,20 +81,11 @@ class SermonsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Sermon $sermon, SermonRequest $request)
 	{
-		//
-	}
+		$sermon->update($request->all());
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		return redirect('admin');
 	}
 
 }

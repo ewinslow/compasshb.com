@@ -62,7 +62,7 @@
   <div class="panel-body">
     <p>{{-- These questions are designed for the application of this week's sermon. Take some time to thoughtfully write out the answers. It is also helpful to discuss in a home fellowship group.--}} If you would like more information on a home fellowship group, email info@compassHB.com.</p>
     <p><a href="mailto:info@compasshb.com" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Sign Up</a></p>
-    <p>Click <a href="{{ route('sermons') }}">here</a> to watch the latest sermon and get this week's worksheet.</p>
+    <p>Click <a href="{{ route('sermons.index') }}">here</a> to watch the latest sermon and get this week's worksheet.</p>
   </div>
 </div>
 
