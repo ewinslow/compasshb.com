@@ -33,7 +33,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * A user can have many songs
-	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function songs()
@@ -43,7 +42,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * A user can have many passages
-	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function passages()
@@ -53,11 +51,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * A user can have many fellowships
-	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function fellowships()
 	{
 		return $this->hasMany('CompassHB\Www\Fellowship');
+	}
+
+	/**
+	 * A user can have many sermons
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function sermons()
+	{
+		return $this->hasMany('CompassHB\Www\Sermon');
 	}
 }

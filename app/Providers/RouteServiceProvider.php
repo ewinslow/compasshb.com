@@ -47,6 +47,14 @@ class RouteServiceProvider extends ServiceProvider
             return \CompassHB\Www\Fellowship::findOrFail($id);
         });
 
+        /**
+         * A sermon is at /sermons/{sermon}
+         */
+        $router->bind('sermons', function($id)
+        {
+            return \CompassHB\Www\Sermon::published()->findOrFail($id);
+        });
+
     }
 
     /**

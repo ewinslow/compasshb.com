@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Http\Requests;
 use Illuminate\Http\Request;
@@ -64,7 +65,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $sermons = $this->posts->get('sermon', 4);
+        $sermons = Sermon::latest('published_at')->published()->take(4)->get();
         $blogs = $this->posts->get('blog', 2);
         $videos = $this->posts->get('video', 2);
         $upcomingsermon = $this->posts->get('sermon', 1, 'future');
@@ -112,14 +113,14 @@ class PagesController extends Controller
 
             $results[] = array($link, $image);
         }
-        return view('app')
-                        ->with('sermons', $sermons)
-                        ->with('blogs', $blogs)
-                        ->with('videos', $videos)
-                        ->with('images', $results)
-                        ->with('instagrams', $instagrams['data'])
-                        ->with('upcomingsermon', $upcomingsermon)
-                        ->with('title', 'Compass HB - Huntington Beach');
+        return view('app', compact(
+            'sermons',
+            'blogs',
+            'videos',
+            'upcomingsermon'
+        ))->with('images', $results)
+          ->with('instagrams', $instagrams['data'])
+          ->with('title', 'Compass HB - Huntington Beach');
     }
 
     /**
@@ -154,15 +155,6 @@ class PagesController extends Controller
         return view('pages.photos')
             ->with('title', 'Photography')
             ->with('photos', $results);
-    }
-
-    public function sermons()
-    {
-        $sermons = $this->posts->get('sermon', 300);
-
-        return view('pages.sermons')
-            ->with('sermons', $sermons)
-            ->with('title', 'Sermons');
     }
 
     public function pray()

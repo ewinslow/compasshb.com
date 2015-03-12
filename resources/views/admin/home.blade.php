@@ -6,8 +6,8 @@
 
 <br/>
 
+<!-- Scripture of the Day -->
 <div class="panel panel-default">
-  <!-- Default panel contents -->
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="scriptureoftheday">Scripture of the Day</h3>
   </div>
@@ -15,8 +15,6 @@
     <p>Here is a list of all of the scripture of the day passages and links to edit the content or post new ones.</p>
     <p><a href="{{ route('read.create') }}" class="btn btn-default">New Passage</a></p>
   </div>
-
-  <!-- Table -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -33,6 +31,42 @@
           <td>{{ date_format($passage->published_at, 'Y-m-d l') }}</td>
           <td>{{ $passage->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
           <td><a href="{{ route('read.edit', $passage->id) }}">Edit</a></td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+<!-- Sermons -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title tk-seravek-web" id="sermons">Sermons</h3>
+  </div>
+  <div class="panel-body">
+    <p>All sermons and links to edit the content or post new ones.</p>
+    <p><a href="{{ route('sermons.create') }}" class="btn btn-default">New Sermon</a></p>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Sermon</th>
+        <th>Text</th>
+        <th>Publish Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($sermons as $sermon)
+        <tr>
+          <td>{{ $sermon->sku }}</td>
+          <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
+          <td>{{ date_format($sermon->published_at, 'Y-m-d l') }}</td>
+          <td>{{ $sermon->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
+          <td><a href="{{ route('sermons.edit', $sermon->id) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -120,6 +154,7 @@
   </div>
   <div class="panel-body">
     <ul class="list-unstyled">
+      <li><a href="#sermons">Sermons</a></li>
       <li><a href="#scriptureoftheday">Scripture of the Day</a></li>
       <li><a href="#fellowship">Home Fellowship Groups</a></li>
       <li><a href="#worship">Worship</a></li>

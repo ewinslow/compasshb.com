@@ -1,16 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1 class="tk-seravek-web">Sermon Library</h1>
+
+	<h1 class="tk-seravek-web">Sermon Library</h1>
 
 <div class="panel panel-default">
-  <!-- Default panel contents -->
   <div class="panel-heading tk-seravek-web">All Sermons</div>
   <div class="panel-body">
     <p>Archive of all sermon videos</p>
   </div>
-
-  <!-- Table -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -23,9 +21,9 @@
     <tbody>
       @foreach ($sermons as $sermon)
       <tr>
-        <td>{{ $sermon->meta->sermon_number }}</td>
-        <td><a href="/{{ date_format($sermon->post_date, 'Y') }}/{{ date_format($sermon->post_date, 'm') }}/{{ $sermon->post_name }}">{{ $sermon->post_title }}</a></td>
-        <td>{{ $sermon->meta->sermon_text }}</td>
+        <td>{{ $sermon->sku }}</td>
+        <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
+        <td>{{ $sermon->text }}</td>
         <td>{{ date_format($sermon->post_date, 'l, F j, Y') }}</td>
       </tr>
       @endforeach
@@ -113,20 +111,12 @@
   </div>
 </div>
 --}}
+
 @endsection
 
+
 @section('sidebar')
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Feeds</h3>
-  </div>
-  <div class="panel-body">
-    <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
-      <img src="http://www.compasshb.com/app/uploads/2014/11/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
-      width="110" height="40" alt="Subscribe on iTunes"/>
-    </a>
-    <br/><br/>
-    <a href="http://feeds.compasshb.com/sermons">Subscribe via Feed</a>
-  </div>
-</div>
+
+  @include('sermons.sidebar')
+
 @endsection

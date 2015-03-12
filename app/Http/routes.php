@@ -22,6 +22,11 @@ Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
  */
 Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
 
+/**
+ * Sermons
+ */
+Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
+
 /*
  * Home Page
  */
@@ -44,11 +49,6 @@ Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podc
 Route::get('photos', [
     'as' => 'photos',
     'uses' => 'PagesController@photos',
-]);
-
-Route::get('sermons', [
-    'as' => 'sermons',
-    'uses' => 'PagesController@sermons',
 ]);
 
 Route::get('pray', [
