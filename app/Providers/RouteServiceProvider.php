@@ -55,6 +55,13 @@ class RouteServiceProvider extends ServiceProvider
             return \CompassHB\Www\Sermon::published()->findOrFail($id);
         });
 
+        /**
+         * A blog is at /blog/{blog}
+         */
+        $router->bind('blog', function($id)
+        {
+            return \CompassHB\Www\Blog::published()->findOrFail($id);
+        });
     }
 
     /**

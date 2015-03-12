@@ -27,6 +27,11 @@ Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 
  */
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
 
+/**
+ * Blogs
+ */
+Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
+
 /*
  * Home Page
  */

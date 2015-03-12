@@ -67,4 +67,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->hasMany('CompassHB\Www\Sermon');
 	}
+
+	/**
+	 * A user can have many blogs
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function blogs()
+	{
+		return $this->hasMany('CompassHB\Www\Blog');
+	}
 }

@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
@@ -34,12 +35,14 @@ class HomeController extends Controller
     public function index()
     {
         $songs = Song::latest()->get();
+        $blogs = Blog::latest('published_at')->get();
         $sermons = Sermon::latest('published_at')->get();
         $passages = Passage::latest('published_at')->get();
         $fellowships = Fellowship::latest('day')->get();
 
         return view('admin.home', compact(
             'songs',
+            'blogs',
             'passages',
             'fellowships',
             'sermons'

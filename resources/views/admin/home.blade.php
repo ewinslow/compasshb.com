@@ -9,7 +9,7 @@
 <!-- Scripture of the Day -->
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web" id="scriptureoftheday">Scripture of the Day</h3>
+    <h3 class="panel-title tk-seravek-web" ="scriptureoftheday">Scripture of the Day</h3>
   </div>
   <div class="panel-body">
     <p>Here is a list of all of the scripture of the day passages and links to edit the content or post new ones.</p>
@@ -76,8 +76,41 @@
 
 <br/>
 
+<!-- Blogs -->
 <div class="panel panel-default">
-  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h3 class="panel-title tk-seravek-web" id="blogs">Blogs/Videos</h3>
+  </div>
+  <div class="panel-body">
+    <p>All blogs and links to edit the content or post new ones.</p>
+    <p><a href="{{ route('blog.create') }}" class="btn btn-default">New Blog</a></p>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Publish Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($blogs as $blog)
+        <tr>
+          <td><a href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a></td>
+          <td>{{ date_format($blog->published_at, 'Y-m-d l') }}</td>
+          <td>{{ $blog->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
+          <td><a href="{{ route('blog.edit', $blog->id) }}">Edit</a></td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+<!-- Home Fellowship Groups -->
+<div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="fellowship">Home Fellowship Groups</h3>
   </div>
@@ -85,8 +118,6 @@
     <p>All of the home fellowship groups.</p>
     <p><a href="{{ route('fellowship.create') }}" class="btn btn-default">New Home Fellowship Group</a></p>
   </div>
-
-  <!-- Table -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -113,8 +144,8 @@
 
 <br/>
 
+<!-- Worship Songs -->
 <div class="panel panel-default">
-  <!-- Default panel contents -->
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="worship">Worship Songs</h3>
   </div>
@@ -122,8 +153,6 @@
     <p>Here is a list of all of the worship songs and links to edit the content or post new ones.</p>
     <p><a href="{{ route('songs.create') }}" class="btn btn-default">New Song</a></p>
   </div>
-
-  <!-- Table -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -155,8 +184,9 @@
   </div>
   <div class="panel-body">
     <ul class="list-unstyled">
-      <li><a href="#sermons">Sermons</a></li>
       <li><a href="#scriptureoftheday">Scripture of the Day</a></li>
+      <li><a href="#sermons">Sermons</a></li>
+      <li><a href="#blogs">Blogs</a></li>
       <li><a href="#fellowship">Home Fellowship Groups</a></li>
       <li><a href="#worship">Worship</a></li>
     </ul>
