@@ -58,7 +58,7 @@
     <div class="col-md-4 text-center">
       <h2 class="tk-seravek-web">Midweek</h2>
       <br/>
-      <h4><a href="{{ route('fellowship') }}">Home Fellowship Groups</a></h4>
+      <h4><a href="{{ route('fellowship.index') }}">Home Fellowship Groups</a></h4>
       <p>Tuesday, Wednesday, Thursday, and Friday</p>
       <h4><a href="{{ route('kids') }}#awana">Awana for kids</a></h4>
       <p>Wednesday</p>
