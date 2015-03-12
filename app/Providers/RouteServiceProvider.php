@@ -23,12 +23,22 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-
+        /**
+         * A song is at /songs/{song}
+         */
         $router->bind('songs', function($id)
         {
             return \CompassHB\Www\Song::findOrFail($id);
-//            return \CompassHB\Www\Song::published()->findOrFail($id);
         });
+
+        /**
+         * A passage is at /read/{passage}
+         */
+        $router->bind('read', function($id)
+        {
+            return \CompassHB\Www\Passage::published()->findOrFail($id);
+        });
+
 
     }
 

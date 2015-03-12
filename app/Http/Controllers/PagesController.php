@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use CompassHB\Www\Passage;
 use CompassHB\Www\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -25,20 +26,6 @@ class PagesController extends Controller
         $post = $this->posts->getSingle($year, $date, $slug);
         $category = $post->first()->taxonomies;
         $category = $category[1]->term->name;
-
-        // Template for Scripture of the Day single posts
-        if (in_tax($post, 'Format', 'Scripture of the Day')) {
-            $esv = new \CompassHB\Www\Esv\Esv();
-            $content = $esv->getScripture($post[0]->post_title);
-
-            $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
-
-            return view('pages.read')->with('content', $content)
-                                     ->with('postflash', $postflash)
-                                     ->with('post', $post)
-                                     ->with('read', $post)
-                                     ->with('title', $post[0]->post_title);
-        }
 
         if ($post->first()->meta->video_oembed) {
             $post->first()->oembedhtml = oembed($post->first()->meta->video_oembed);
@@ -72,32 +59,9 @@ class PagesController extends Controller
         return redirect($video);
     }
 
-    public function read()
-    {
-        $read = $this->posts->get('scripture-of-the-day', 6);
-
-        $esv = new \CompassHB\Www\Esv\Esv();
-
-        $content = $esv->getScripture($read[0]->post_title);
-
-        $postflash = '';
-
-        if (date('D') == "Sun" || date('D') == "Sat")
-        {
-            $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
-        }
-
-        return view('pages.read')->with('post', $read)
-                                 ->with('read', $read)
-                                 ->with('content', $content)
-                                 ->with('postflash', $postflash)
-                                 ->with('title', 'Scripture of the Day');
-    }
-
     public function fellowship()
     {
         $sermons = $this->posts->get('sermon', 1);
-        $read = $this->posts->get('scripture-of-the-day', 1);
 
         $client = new \GuzzleHttp\Client();
 
@@ -110,7 +74,6 @@ class PagesController extends Controller
 
         return view('pages.fellowship')
             ->with('title', 'Home Fellowship Groups')
-            ->with('read', $read)
             ->with('sermons', $sermons);
     }
 
@@ -123,7 +86,6 @@ class PagesController extends Controller
         $blogs = $this->posts->get('blog', 2);
         $videos = $this->posts->get('video', 2);
         $upcomingsermon = $this->posts->get('sermon', 1, 'future');
-        $reading = $this->posts->get('scripture-of-the-day', 1);
 
         $client = new \GuzzleHttp\Client();
 
@@ -168,15 +130,14 @@ class PagesController extends Controller
 
             $results[] = array($link, $image);
         }
-
-        return view('app')->with('sermons', $sermons)
-                          ->with('blogs', $blogs)
-                          ->with('reading', $reading)
-                          ->with('videos', $videos)
-                          ->with('images', $results)
-                          ->with('instagrams', $instagrams['data'])
-                          ->with('upcomingsermon', $upcomingsermon)
-                          ->with('title', 'Compass HB - Huntington Beach');
+        return view('app')
+                        ->with('sermons', $sermons)
+                        ->with('blogs', $blogs)
+                        ->with('videos', $videos)
+                        ->with('images', $results)
+                        ->with('instagrams', $instagrams['data'])
+                        ->with('upcomingsermon', $upcomingsermon)
+                        ->with('title', 'Compass HB - Huntington Beach');
     }
 
     /**
@@ -186,7 +147,7 @@ class PagesController extends Controller
     public function photos()
     {
         // Smugmug
-      $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
+        $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
         $num = 40;
 
         $rawFeed = file_get_contents($feedUrl);
@@ -216,20 +177,15 @@ class PagesController extends Controller
     public function sermons()
     {
         $sermons = $this->posts->get('sermon', 300);
-        $read = $this->posts->get('scripture-of-the-day', 1);
 
         return view('pages.sermons')
             ->with('sermons', $sermons)
-            ->with('read', $read)
             ->with('title', 'Sermons');
     }
 
     public function pray()
     {
-        $read = $this->posts->get('scripture-of-the-day', 1);
-
         return view('pages.pray')
-            ->with('title', 'Pray')
-            ->with('read', $read);
+            ->with('title', 'Pray');
     }
 }

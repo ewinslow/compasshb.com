@@ -6,28 +6,30 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Scripture of the Day</h3>
+    <h3 class="panel-title tk-seravek-web" id="scriptureoftheday">Scripture of the Day</h3>
   </div>
   <div class="panel-body">
     <p>Here is a list of all of the scripture of the day passages and links to edit the content or post new ones.</p>
-    <p><a href="{{ route('songs.create') }}" class="btn btn-default">New Post</a></p>
+    <p><a href="{{ route('read.create') }}" class="btn btn-default">New Passage</a></p>
   </div>
 
   <!-- Table -->
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>#</th>
         <th>Passage</th>
-        <th>Edit</th>
+        <th>Publish Date</th>
+        <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($songs as $index => $song)
+      @foreach ($passages as $index => $passage)
         <tr>
-          <td>{{ $index+1 }}</td>
-          <td><a href="{{ route('songs.show', $song->id) }}">{{ $song->title }}</a></td>
-          <td><a href="{{ route('songs.edit', $song->id) }}">Edit</a></td>
+          <td><a href="{{ route('read.show', $passage->id) }}">{{ $passage->title }}</a></td>
+          <td>{{ date_format($passage->published_at, 'Y-m-d l') }}</td>
+          <td>{{ $passage->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
+          <td><a href="{{ route('read.edit', $passage->id) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -35,12 +37,10 @@
 </div>
 
 
-
-
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Worship Songs</h3>
+    <h3 class="panel-title tk-seravek-web" id="worship">Worship Songs</h3>
   </div>
   <div class="panel-body">
     <p>Here is a list of all of the worship songs and links to edit the content or post new ones.</p>
@@ -53,7 +53,7 @@
       <tr>
         <th>#</th>
         <th>Song Name</th>
-        <th>Edit</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -71,12 +71,18 @@
 @endsection
 
 @section('sidebar')
+<h1 class="page-title tk-seravek-web">&nbsp;</h1>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Quicklinks</h3>
+    <h3 class="panel-title tk-seravek-web">Jump to...</h3>
   </div>
   <div class="panel-body">
-    <p>Links</p>
+    <ul class="list-unstyled">
+      <li><a href="#scriptureoftheday">Scripture of the Day</a></li>
+      <li><a href="#worship">Worship</a></li>
+    </ul>
   </div>
 </div>
+
+<p><a href="/auth/logout" class="btn btn-default">Logout</a></p>
 @endsection

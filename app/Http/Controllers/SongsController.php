@@ -7,17 +7,16 @@ use CompassHB\Www\Http\Controllers\Controller;
 
 class SongsController extends Controller {
 
-
   /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store']]);
-    }
+   * Create a new controller instance.
+   */
+  public function __construct()
+  {
+      $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
+  }
 
-	/** Show all songs.
-	 *
+	/**
+	 * Show all songs.
 	 * @return Response
 	 */
 	public function index()
@@ -56,7 +55,6 @@ class SongsController extends Controller {
 	 */
 	public function edit(Song $song)
 	{
-
 		return view('songs.edit', compact('song'));
 	}
 
@@ -86,9 +84,9 @@ class SongsController extends Controller {
 	}
 
 	/**
-	 * Store a new article
+	 * Store a new song
 	 *
-	 * @param CreateSongRequest $request
+	 * @param SongRequest $request
 	 * @return Response
 	 */
 	public function store(SongRequest $request)

@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -36,6 +37,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+
+        // 404 if model does not exist
+        if ($e instanceof ModelNotFoundException)
+        {
+            abort(404);
+        }
+
         return parent::render($request, $e);
     }
 }

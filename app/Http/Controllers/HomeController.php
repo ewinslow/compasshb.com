@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use CompassHB\Www\Song;
+use CompassHB\Www\Passage;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $songs = Song::latest()->get();
-        
-        return view('admin.home', compact('songs'))
+        $passages = Passage::latest('published_at')->get();
+
+        return view('admin.home', compact('songs', 'passages'))
             ->with('title', 'Admin');
     }
 }

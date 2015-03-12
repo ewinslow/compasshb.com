@@ -39,7 +39,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function songs()
 	{
 		return $this->hasMany('CompassHB\Www\Song');
+	}
 
+	/**
+	 * A user can have many passages
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function passages()
+	{
+		return $this->hasMany('CompassHB\Www\Passage');
 	}
 
 }

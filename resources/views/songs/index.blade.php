@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
 
-
 @section('content')
 <h1 class="tk-seravek-web">Worship Songs</h1>
 <p>Original worship songs from Compass HB.</p>

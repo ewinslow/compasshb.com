@@ -1,4 +1,4 @@
-<?php namespace CompassHB\Www\Http\Requests;
+p<?php namespace CompassHB\Www\Http\Requests;
 
 use CompassHB\Www\Http\Requests\Request;
 

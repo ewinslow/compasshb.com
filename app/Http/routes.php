@@ -10,7 +10,12 @@ Route::get('/wp-admin', function () {
 /**
  * Songs
  */
-Route::resource('songs', 'SongsController');
+Route::resource('songs', 'SongsController', ['except' => ['destroy']]);
+
+/**
+ * Passages
+ */
+Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 
 /*
  * Home Page
@@ -30,11 +35,6 @@ Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
 
 Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
     ->where(['year' => '\d{4}', 'month' => '\d{2}']);
-
-Route::get('read', [
-    'as' => 'read',
-    'uses' => 'PagesController@read',
-]);
 
 Route::get('fellowship', [
     'as' => 'fellowship',
@@ -57,10 +57,14 @@ Route::get('pray', [
 ]);
 
 /**
- * Feeds for json responeses like sermons.json and songs.json
+ * Feeds
  */
-Route::get('feeds/sermons.json', 'FeedsController@sermons');
-Route::get('feeds/songs.xml', 'FeedsController@songs');
+Route::group(['prefix' => 'feeds'], function()
+{
+    Route::get('sermons.json', 'FeedsController@sermons');
+    Route::get('songs.xml', 'FeedsController@songs');
+});
+
 /*
  * Routes without controllers
  */

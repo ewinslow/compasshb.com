@@ -12,7 +12,7 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
  */
 function set_active($path, $active = 'active')
 {
-    return Request::is($path) ? $active : '';
+    return Request::is($path.'*') ? $active : '';
 }
 
 /**

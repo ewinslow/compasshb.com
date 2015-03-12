@@ -5,11 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 class Song extends Model {
 
 	protected $fillable = [
-		'title', 
-		'body', 
+		'title',
+		'body',
 		'excerpt',
 		'video',
-		'audio', 
+		'audio',
 		'published_at'
 	];
 
@@ -25,19 +25,15 @@ class Song extends Model {
 		return $this->belongsTo('CompassHB\Www\Song');
 	}
 
-
-
 	public function setPublishedAtAttribute($date)
 	{
 		$this->attributes['published_at'] = \Carbon\Carbon::parse($date);
 	}
 
-
 	public function scopeUnpublished($query)
 	{
 		$query->where('published_at', '>', \Carbon\Carbon::now());
 	}
-
 
 	public function scopePublished($query)
 	{
