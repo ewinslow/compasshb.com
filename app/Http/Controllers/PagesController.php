@@ -1,37 +1,17 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use CompassHB\Www\Blog;
 use CompassHB\Www\Sermon;
-use CompassHB\Www\Passage;
-use CompassHB\Www\Http\Requests;
 use Illuminate\Http\Request;
-
 
 class PagesController extends Controller
 {
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    /**
-     * Dynamic single post requests.
-     */
-    public function singlepost($year, $date, $slug)
-    {
-        $post = $this->posts->getSingle($year, $date, $slug);
-        $category = $post->first()->taxonomies;
-        $category = $category[1]->term->name;
-
-        if ($post->first()->meta->video_oembed) {
-            $post->first()->oembedhtml = oembed($post->first()->meta->video_oembed);
-        }
-
-        return view('pages.blog')->with('post', $post)
-                                 ->with('title', $post[0]->post_title);
     }
 
     // stub for downloading podcasts
@@ -67,24 +47,18 @@ class PagesController extends Controller
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
 
-        $blogs = []; //$this->posts->get('blog', 2);
-        $videos = []; //$this->posts->get('video', 2);
+        $blogs = Blog::latest('published_at')->published()->take(2)->get();
+        $videos = Blog::latest('published_at')->published()->take(2)->get();
 
         $client = new \GuzzleHttp\Client();
 
         foreach ($sermons as $sermon) {
-            $url = 'https://vimeo.com/api/oembed.json?url='.$sermon->video;
-            $response = $client->get($url);
-            $response_body = json_decode($response->getBody());
-            $sermon->othumbnail = $response_body->thumbnail_url;
+            $sermon->othumbnail = get_othumb($sermon->video);
         }
 
-/**        foreach ($videos as $video) {
-            $url = 'https://vimeo.com/api/oembed.json?url='.$video->meta->video_oembed;
-            $response = $client->get($url);
-            $response_body = json_decode($response->getBody());
-            $video->othumbnail = $response_body->thumbnail_url;
-        }*/
+        foreach ($videos as $video) {
+            $video->othumbnail = get_othumb($video->video);
+        }
 
         // Instagram
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
@@ -113,6 +87,7 @@ class PagesController extends Controller
 
             $results[] = array($link, $image);
         }
+
         return view('app', compact(
             'sermons',
             'nextsermon',
@@ -125,7 +100,8 @@ class PagesController extends Controller
     }
 
     /**
-     * Populate the Photos page from Smugmug
+     * Populate the Photos page from Smugmug.
+     *
      * @return type
      */
     public function photos()

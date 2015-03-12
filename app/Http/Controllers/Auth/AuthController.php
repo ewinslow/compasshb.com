@@ -21,7 +21,7 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers;
 
     /**
-     * Where to redirect upon successful registration
+     * Where to redirect upon successful registration.
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class AuthController extends Controller
 
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        /**
+        /*
          * Disable registration
          */
         $this->middleware('auth', ['only' => 'getRegister']);

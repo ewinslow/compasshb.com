@@ -3,14 +3,11 @@
 use Auth;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Http\Requests\BlogRequest;
-use CompassHB\Www\Http\Requests;
-use CompassHB\Www\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
-class BlogsController extends Controller {
-
-	/**
+class BlogsController extends Controller
+{
+  /**
    * Create a new controller instance.
    */
   public function __construct()
@@ -18,77 +15,82 @@ class BlogsController extends Controller {
       $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
   }
 
-  /**
-	 * Show all blogs
-	 * @return Response
-	 */
-	public function index()
-	{
-		$blogs = Blog::latest('published_at')->published()->get();
+    /**
+     * Show all blogs.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $blogs = Blog::latest('published_at')->published()->get();
 
-		return view('blogs.index', compact('blogs'))
-			->with('title', 'Blog');
-	}
+        return view('blogs.index', compact('blogs'))
+            ->with('title', 'Blog');
+    }
 
-	/**
-	 * Show a single blog
-	 *
-	 * @param Blog $blog
-	 * @return Response
-	 */
-	public function show(Blog $blog)
-	{
-		return view('blogs.show', compact('blog'))
-			->with('title', $blog->title);
-	}
+    /**
+     * Show a single blog.
+     *
+     * @param Blog $blog
+     *
+     * @return Response
+     */
+    public function show(Blog $blog)
+    {
+        return view('blogs.show', compact('blog'))
+            ->with('title', $blog->title);
+    }
 
-	/**
-	 * Edit an existing blog
-	 *
-	 * @param Blog $blog
-	 * @return Response
-	 */
-	public function edit(Blog $blog)
-	{
-		return view('blogs.edit', compact('blog'));
-	}
+    /**
+     * Edit an existing blog.
+     *
+     * @param Blog $blog
+     *
+     * @return Response
+     */
+    public function edit(Blog $blog)
+    {
+        return view('blogs.edit', compact('blog'));
+    }
 
-		/**
-	 * Update a blog
-	 *
-	 * @param Blog $blog
-	 * @param BlogRequest $request
-	 * @return Response
-	 */
-	public function update(Blog $blog, BlogRequest $request)
-	{
-		$blog->update($request->all());
+    /**
+     * Update a blog.
+     *
+     * @param Blog        $blog
+     * @param BlogRequest $request
+     *
+     * @return Response
+     */
+    public function update(Blog $blog, BlogRequest $request)
+    {
+        $blog->update($request->all());
 
-		return redirect('admin');
-	}
+        return redirect('admin');
+    }
 
-	/**
-	 * Show the page to create a new blog.
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('blogs.create');
-	}
+    /**
+     * Show the page to create a new blog.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('blogs.create');
+    }
 
-	/**
-	 * Store a new blog
-	 *
-	 * @param BlogRequest $request
-	 * @return Response
-	 */
-	public function store(BlogRequest $request)
-	{
-		$blog = new Blog($request->all());
+    /**
+     * Store a new blog.
+     *
+     * @param BlogRequest $request
+     *
+     * @return Response
+     */
+    public function store(BlogRequest $request)
+    {
+        $blog = new Blog($request->all());
 
-		Auth::user()->blogs()->save($blog);
+        Auth::user()->blogs()->save($blog);
 
-		return redirect('admin');
-	}
-
+        return redirect('admin');
+    }
 }

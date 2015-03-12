@@ -7,27 +7,27 @@ Route::get('/wp-admin', function () {
     return redirect('/wp/wp-admin');
 });
 
-/**
+/*
  * Songs
  */
 Route::resource('songs', 'SongsController', ['except' => ['destroy']]);
 
-/**
+/*
  * Passages
  */
 Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 
-/**
+/*
  * Fellowships
  */
 Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
 
-/**
+/*
  * Sermons
  */
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
 
-/**
+/*
  * Blogs
  */
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
@@ -45,9 +45,6 @@ Route::get('/', [
  * /2015/02/page-title-here
  *
  */
-Route::get('{year}/{month}/{slug}', 'PagesController@singlepost')
-    ->where(['year' => '\d{4}', 'month' => '\d{2}']);
-
 Route::get('{year}/{month}/{slug}/podcast/{video_id}.mp4', 'PagesController@podcast')
     ->where(['year' => '\d{4}', 'month' => '\d{2}']);
 
@@ -61,11 +58,10 @@ Route::get('pray', [
     'uses' => 'PagesController@pray',
 ]);
 
-/**
+/*
  * Feeds
  */
-Route::group(['prefix' => 'feeds'], function()
-{
+Route::group(['prefix' => 'feeds'], function () {
     Route::get('sermons.json', 'FeedsController@sermons');
     Route::get('songs.xml', 'FeedsController@songs');
 });
@@ -128,7 +124,7 @@ Route::get('videos', ['as' => 'videos', function () {
     return view('archives.videos')->with('title', 'Videos');
 }]);
 
-/**
+/*
  * Administration Pages
  */
 Route::get('admin', [
@@ -136,8 +132,7 @@ Route::get('admin', [
     'uses' => 'HomeController@index',
 ]);
 
-
-/**
+/*
  * Authentication
  */
 Route::controllers([
