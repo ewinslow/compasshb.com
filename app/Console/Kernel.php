@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'CompassHB\Www\Console\Commands\Inspire',
+        'CompassHB\Www\Console\Commands\DatabaseBackup',
     ];
 
     /**
@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+        $schedule->command('db:backup')
+                 ->twiceDaily();
     }
 }
