@@ -4,6 +4,11 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('worksheet', 'Worksheet/Questions:') !!}
+	{!! Form::file('worksheet') !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('body', 'Body:') !!}
 	{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 </div>

@@ -1,6 +1,5 @@
 <?php namespace CompassHB\Www\Http\Requests;
 
-
 class SermonRequest extends Request
 {
     /**
@@ -26,6 +25,7 @@ class SermonRequest extends Request
             'teacher' => 'required',
             'text' => 'required',
             'sku' => 'required',
+            'worksheet' => 'mimes:pdf',
         ];
     }
 }

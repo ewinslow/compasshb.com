@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('content')
+
+@if (Session::has('message'))
+    <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 <h1 class="tk-seravek-web">Admin</h1>
 <p>Admin page for posting and scheduling site content.</p>
 
@@ -55,6 +60,7 @@
         <th>Sermon</th>
         <th>Text</th>
         <th>Publish Date</th>
+        <th>Worksheet</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
@@ -66,6 +72,7 @@
           <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
           <td>{{ $sermon->text }}</td>
           <td>{{ date_format($sermon->published_at, 'Y-m-d l') }}</td>
+          <td>{!! $sermon->worksheet ? '<span class="glyphicon glyphicon-ok"></span>' : '' !!}</td>
           <td>{{ $sermon->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
           <td><a href="{{ route('sermons.edit', $sermon->id) }}">Edit</a></td>
         </tr>

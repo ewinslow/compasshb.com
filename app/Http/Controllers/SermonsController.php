@@ -41,11 +41,19 @@ class SermonsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Cloud
+     * @param SermonRequest
+     *
      * @return Response
      */
     public function store(Cloud $cloud, SermonRequest $request)
     {
         $sermon = new Sermon($request->all());
+
+        if ($sermon->worksheet) {
+            $cloud->put('worksheet'.$sermon->worksheet->getClientOriginalName(), file_get_contents($sermon->worksheet));
+            $sermon->worksheet = $sermon->worksheet->getClientOriginalName();
+        }
 
         Auth::user()->sermons()->save($sermon);
 
