@@ -25,7 +25,7 @@ class SermonRequest extends Request
             'teacher' => 'required',
             'text' => 'required',
             'sku' => 'required',
-            'worksheet' => 'mimes:pdf',
+            'worksheet' => 'url',
         ];
     }
 }

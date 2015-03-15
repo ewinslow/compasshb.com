@@ -3,7 +3,6 @@
 use Auth;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Http\Requests\BlogRequest;
-use Illuminate\Http\Request;
 
 class BlogsController extends Controller
 {

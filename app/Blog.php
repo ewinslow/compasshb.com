@@ -8,6 +8,7 @@ class Blog extends Model
         'title',
         'body',
         'video',
+        'thumbnail',
         'published_at',
     ];
 

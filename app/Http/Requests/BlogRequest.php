@@ -1,6 +1,5 @@
 <?php namespace CompassHB\Www\Http\Requests;
 
-
 class BlogRequest extends Request
 {
     /**
@@ -24,6 +23,7 @@ class BlogRequest extends Request
         return [
             'title' => 'required|min:3',
             'body' => 'required|min:6',
+            'thumbnail' => 'url',
         ];
     }
 }

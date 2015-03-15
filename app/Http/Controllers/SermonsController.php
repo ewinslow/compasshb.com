@@ -3,8 +3,6 @@
 use Auth;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Filesystem\Cloud;
 
 class SermonsController extends Controller
 {
@@ -46,14 +44,9 @@ class SermonsController extends Controller
      *
      * @return Response
      */
-    public function store(Cloud $cloud, SermonRequest $request)
+    public function store(SermonRequest $request)
     {
         $sermon = new Sermon($request->all());
-
-        if ($sermon->worksheet) {
-            $cloud->put('worksheet'.$sermon->worksheet->getClientOriginalName(), file_get_contents($sermon->worksheet));
-            $sermon->worksheet = $sermon->worksheet->getClientOriginalName();
-        }
 
         Auth::user()->sermons()->save($sermon);
 

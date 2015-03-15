@@ -4,8 +4,8 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('worksheet', 'Worksheet/Questions:') !!}
-	{!! Form::file('worksheet') !!}
+	{!! Form::label('worksheet', 'Worksheet URL:') !!}
+	{!! Form::text('worksheet', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
