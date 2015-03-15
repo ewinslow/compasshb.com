@@ -3,10 +3,10 @@
 @section('content')
 	<h1>Create New Sermon</h1>
 
-	{!! Form::open(['url' => 'sermons']) !!}
+	@include('errors.list')
+
+	{!! Form::open(['route' => 'sermons.store', 'files' => true]) !!}
 		@include('sermons.form', ['submitButtonText' => 'Create Sermon'])
 	{!! Form::close() !!}
-
-	@include('errors.list')
 
 @endsection
