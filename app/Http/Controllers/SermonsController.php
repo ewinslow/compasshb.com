@@ -4,6 +4,7 @@ use Auth;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Filesystem\Cloud;
 
 class SermonsController extends Controller
 {
@@ -42,13 +43,14 @@ class SermonsController extends Controller
      *
      * @return Response
      */
-    public function store(SermonRequest $request)
+    public function store(Cloud $cloud, SermonRequest $request)
     {
         $sermon = new Sermon($request->all());
 
         Auth::user()->sermons()->save($sermon);
 
-        return redirect('admin');
+        return redirect('admin')
+            ->with('message', 'Success! Your sermon was saved.');
     }
 
     /**
@@ -88,6 +90,7 @@ class SermonsController extends Controller
     {
         $sermon->update($request->all());
 
-        return redirect('admin');
+        return redirect('admin')
+            ->with('message', 'Success! Your sermon was saved.');
     }
 }

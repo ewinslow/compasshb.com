@@ -70,7 +70,8 @@ class SongsController extends Controller
     {
         $song->update($request->all());
 
-        return redirect('songs');
+        return redirect('songs')
+            ->with('message', 'Success! Your song was saved.');
     }
 
     /**
@@ -96,6 +97,7 @@ class SongsController extends Controller
 
         Auth::user()->songs()->save($song);
 
-        return redirect('songs');
+        return redirect('songs')
+            ->with('message', 'Success! Your song was saved.');
     }
 }

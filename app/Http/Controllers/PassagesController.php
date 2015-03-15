@@ -87,7 +87,8 @@ class PassagesController extends Controller
     {
         $passage->update($request->all());
 
-        return redirect('admin');
+        return redirect('admin')
+            ->with('message', 'Success! Your Scripture of the Day was saved.');
     }
 
     /**
@@ -113,6 +114,7 @@ class PassagesController extends Controller
 
         Auth::user()->passages()->save($passage);
 
-        return redirect('admin');
+        return redirect('admin')
+            ->with('message', 'Success! Your Scripture of the Day was saved.');
     }
 }
