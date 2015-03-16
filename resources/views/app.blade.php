@@ -13,7 +13,7 @@
                 </a>
             </div>
            <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', '1') }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
+                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->id) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
                 <p><i class="glyphicon glyphicon-play-circle"></i></p>
