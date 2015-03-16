@@ -129,7 +129,7 @@ $(document).ready(function(){
                 <div class="caption">
                     <h4>{{ $video->title }}</h4>
                     <p><small>{{ date_format($video->published_at, 'F n') }}</small></p>
-                    <p><a href="" class="btn btn-primary" role="button">Watch</a></p>
+                    <p><a href="{{ route('blog.show', $video->id) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>
