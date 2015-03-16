@@ -71,10 +71,6 @@ $(document).ready(function(){
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
       <br/>
-      <p>Upcoming Sermon ( date_format($nextsermon->published_at, 'F n') )<br/> $nextsermon->title  &mdash; $nextsermon->text </p>
-      <p>Pastor  $nextsermon->teacher </p>
-      <a href="#" class="btn btn-default">Worksheet</a>
-      <a href="#" class="btn btn-default">Announcements</a>
     </div>
     <div class="col-md-4 text-center" style="">
       <h2 class="tk-seravek-web">Directions</h2>
