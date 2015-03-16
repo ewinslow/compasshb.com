@@ -5,5 +5,7 @@
 composer.lock
 vendor
 node_modules
-public/wp
+bower_components
+public/js/all.js
 public/css/app.css
+public/build
