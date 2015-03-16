@@ -1,26 +1,52 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row drawer">
+
+<div class="drawer row">
   <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
-    <a class="clickable latestsermon" href="{{ route('sermons.show', '1') }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
-      <p>Watch Latest Sermon</p>
-      <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
-      <p><i class="glyphicon glyphicon-play-circle"></i></p>
-    </a>
-  </div>
+        <div class="owl-carousel">
+            <div>
+                <a class="clickable latestsermon" href="/bunnyrun" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb('https://vimeo.com/122325194') }});">
+                <p><br/><br/>Special Announcement</p>
+                <h1 class="tk-seravek-web">The Bunny Run 5K</h1>
+                <p>Sign Up Here</p>
+                </a>
+            </div>
+           <div>
+                <a class="clickable latestsermon" href="{{ route('sermons.show', '1') }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
+                <p>Watch Latest Sermon</p>
+                <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
+                <p><i class="glyphicon glyphicon-play-circle"></i></p>
+                </a>
+          </div>
+        </div>
+    </div>
 </div>
+
+<script>
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel(
+    {
+        items: 1,
+        loop: true,
+        autoplay: true,
+        lazyLoad: true,
+        center: true,
+        smartSpeed: 1000,
+    });
+})
+</script>
 
 <div class="row drawer">
   <div class="col-md-1"></div>
 
-  @foreach($blogs as $blog)
+  @foreach($blogs->reverse() as $blog)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="#" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(#);">
+    <a class="clickable featuredblog" href="{{ route('blog.show', $blog->id) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->thumbnail }});">
       <h4 class="tk-seravek-web">{{ $blog->title }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="#">{{ $blog->title }}</a>
+      <a class="clickable" style="color: #fff" href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a>
     </h4>
   </div>
   @endforeach
@@ -30,10 +56,10 @@
       <h4 class="tk-seravek-web">Scripture of the Day</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ route('read.index') }}">Scripture of the Day</a>
+      <a class="clickable" style="color: #fff" href="{{ route('read.index') }}">{{ $passage->title }}</a>
     </h4>
   </div>
-
+<br/><br/>
 </div>
 
 <!-- Directions -->
@@ -103,7 +129,7 @@
         @foreach($videos as $video)
         <div class="col-sm-6 col-md-6">
             <div class="thumbnail">
-                <img src="{{ $video->othumbnail }}" alt="{{ $video->post_title }}"/>
+                <img src="{{ $video->othumbnail }}" alt="{{ $video->title }}"/>
                 <div class="caption">
                     <h4>{{ $video->title }}</h4>
                     <p><small>{{ date_format($video->published_at, 'F n') }}</small></p>

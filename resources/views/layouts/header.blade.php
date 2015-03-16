@@ -10,6 +10,8 @@
 
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
+
+    <script src="{{ elixir('js/all.js') }}"></script>
     <script src="//use.typekit.net/gdu1kdg.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <!-- do_action('compass_video_og'); -->

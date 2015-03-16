@@ -4,6 +4,7 @@
     <title>The Bunny Run 5K - Compass Bible Church Huntington Beach</title>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta property="og:video" content="https://vimeo.com/122325194">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
 </div>
 
 <div class="row text-center">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <h1>Saturday, March 28th</h1>
         <h3>@ Central Park</h3>
         <ul class="list-unstyled">
@@ -34,11 +35,21 @@
             <li>11:00AM - Lunch</li>
         </ul>
     </div>
-    <div class="col-xs-12 col-md-4">
+
+        <div class="col-xs-12 col-md-6">
+    <iframe src="https://player.vimeo.com/video/122325194" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <br/><br/><br/>
+
+    </div>
+
+</div>
+
+<div class="row text-center">
+    <div class="col-xs-12 col-md-6">
         <h1>Register to Run</h1>
         <p><br/><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=888" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Register to Run</a></p>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <h1>Volunteer</h1>
         <p><br/><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=889" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Volunteer to Help</a></p>
     </div>

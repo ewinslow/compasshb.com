@@ -60,7 +60,7 @@
   </div>
 </footer><!-- #footer -->
 
-@include('layouts.script');
+@include('layouts.script')
 
 </body>
 </html>

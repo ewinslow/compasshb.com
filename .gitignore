@@ -6,6 +6,6 @@ composer.lock
 vendor
 node_modules
 bower_components
-public/js/all.js
-public/css/app.css
+public/js
+public/css
 public/build

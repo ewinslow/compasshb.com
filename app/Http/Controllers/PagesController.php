@@ -2,6 +2,7 @@
 
 use CompassHB\Www\Blog;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Passage;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -48,7 +49,8 @@ class PagesController extends Controller
         $nextsermon = Sermon::unpublished()->get();
 
         $blogs = Blog::latest('published_at')->published()->take(2)->get();
-        $videos = Blog::latest('published_at')->published()->take(2)->get();
+        $videos = Blog::whereNotNull('video')->latest('published_at')->published()->take(2)->get();
+        $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
 
         $client = new \GuzzleHttp\Client();
 
@@ -93,7 +95,8 @@ class PagesController extends Controller
             'nextsermon',
             'prevsermon',
             'blogs',
-            'videos'
+            'videos',
+            'passage'
         ))->with('images', $results)
           ->with('instagrams', $instagrams['data'])
           ->with('title', 'Compass HB - Huntington Beach');
