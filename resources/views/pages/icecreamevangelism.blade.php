@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-5 col-xs-offset-1">
                     <img width="800" height="434"
-                         src="http://www.compasshb.com/app/uploads/2014/10/IceCreamEvangelism.png"
+                         src="http://www.compasshb.com/images/IceCreamEvangelism.png"
                          alt="Ice Cream Evangelism"/>
                 </div>
                 <div class="col-md-5  well">

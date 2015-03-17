@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="{{ route('home') }}">
-                        <img src="http://www.compasshb.com/app/uploads/2014/10/CBC-HB-logo-small.png"
+                        <img src="http://www.compasshb.com/images/CBC-HB-logo-small.png"
                              alt="Compass Bible Church" style="height: 40px; margin-top: -10px"/>
                     </a>
                 </div>

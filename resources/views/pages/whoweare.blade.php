@@ -20,7 +20,7 @@
                             Jack) were sent out to plant another Compass here in Huntington Beach. Twelve families moved
                             up with them, but there are also Compass family members who already lived here in north
                             Orange County.</p>
-            <img src="http://www.compasshb.com/app/uploads/2014/10/blakey-fam-hb-01.jpg" alt="Blakey Family"
+            <img src="http://www.compasshb.com/images/blakey-fam-hb-01.jpg" alt="Blakey Family"
                              width="2048" height="1366"/>
             <p>&nbsp;</p>
         </div>
@@ -29,7 +29,7 @@
     <div class="row" style="background-color: #88d5ee; padding-top: 40px; padding-bottom: 40px;">
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/app/uploads/2014/10/BobbyBlakey.png"
+                <img src="http://www.compasshb.com/images/BobbyBlakey.png"
                                      alt="Bobby Blakey" width="432" height="426"/>
                 <h4 class="tk-seravek-web">Pastor Bobby Blakey</h4>
                 <p style="text-align: left;">Pastor Bobby grew up as a pastor’s son, graduated from <a
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/app/uploads/2014/10/RyanPeirceCBCHBWorshipBand.png"
+                <img src="http://www.compasshb.com/images/RyanPeirceCBCHBWorshipBand.png"
                                      alt="Ryan Pierce" width="432" height="426"/>
                 <h4 class="tk-seravek-web">Worship Director Ryan Pierce</h4>
                 <p style="text-align: left;">Our Worship Director, Ryan Pierce, and his team will lead
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/app/uploads/2014/10/CBCHBWorshipBand.png"
+                <img src="http://www.compasshb.com/images/CBCHBWorshipBand.png"
                                      alt="Compass HB Worship Band" width="432" height="426"/>
                 <h4 class="tk-seravek-web">The Gospel Rings Out!</h4>
                 <p style="text-align: left;">Our goal is for the word of the Lord to sound forth here in

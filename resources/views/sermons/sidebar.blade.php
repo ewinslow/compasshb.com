@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
-      <img src="http://www.compasshb.com/app/uploads/2014/11/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
+      <img src="http://www.compasshb.com/images/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
       width="110" height="40" alt="Subscribe on iTunes"/>
     </a>
     <br/><br/>

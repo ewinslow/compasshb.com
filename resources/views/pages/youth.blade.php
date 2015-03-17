@@ -24,7 +24,7 @@
         		</div>
         		<div class="col-md-5">
         			<center>
-        				<img src="/app/uploads/2015/02/UNITED-LOGO.jpg" width="250"/><br/>&nbsp;
+        				<img src="/images/UNITED-LOGO.jpg" width="250"/><br/>&nbsp;
         			</center>
         		</div>
         	</div>
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="col-md-4 col-md-offset-2">
-                        <img width="400" height="400" src="http://www.compasshb.com/app/uploads/2014/10/nY-YQn04.jpeg"
+                        <img width="400" height="400" src="http://www.compasshb.com/images/nY-YQn04.jpeg"
                              alt="Shane Rouland"/>
                         <h4 class="tk-seravek-web">Student Ministry</h4>
                         <p><span>Shane Rouland is the Student Ministry Director. Shane has a desire to reach out onto the school campuses in Huntington Beach and will lead a midweek Bible study for middle school and high schoolers. He is pursuing a Bible degree from <a

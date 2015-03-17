@@ -21,7 +21,7 @@
 
 <div class="container">
 <div class="row">
-    <img src="http://www.compasshb.com/app/uploads/2015/03/Screen-Shot-2015-03-02-at-3.01.44-PM.png" style="width: 100%"/>
+    <img src="http://www.compasshb.com/images/Screen-Shot-2015-03-02-at-3.01.44-PM.png" style="width: 100%"/>
 </div>
 
 <div class="row text-center">
