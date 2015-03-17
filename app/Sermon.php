@@ -33,6 +33,18 @@ class Sermon extends Model
         $this->attributes['published_at'] = \Carbon\Carbon::parse($date);
     }
 
+    /**
+     * Get the published_at attribute.
+     *
+     * @param $date
+     *
+     * @return string
+     */
+    public function getPublishedAtAttribute($date)
+    {
+        return new \Carbon\Carbon($date);
+    }
+
     public function scopeUnpublished($query)
     {
         $query->where('published_at', '>', \Carbon\Carbon::now());

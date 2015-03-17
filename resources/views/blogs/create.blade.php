@@ -5,7 +5,7 @@
 
 	@include('errors.list')
 
-	{!! Form::open(['url' => 'blog']) !!}
+	{!! Form::model($blog = new \CompassHB\Www\Blog, ['url' => 'blog']) !!}
 		@include('blogs.form', ['submitButtonText' => 'Create Blog'])
 	{!! Form::close() !!}
 

@@ -5,7 +5,7 @@
 
 	@include('errors.list')
 
-	{!! Form::open(['url' => 'fellowship']) !!}
+	{!! Form::model($fellowship = new \CompassHB\Www\fellowship, ['url' => 'fellowship']) !!}
 		@include('fellowships.form', ['submitButtonText' => 'Create Home Fellowship Group'])
 	{!! Form::close() !!}
 

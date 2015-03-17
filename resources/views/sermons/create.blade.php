@@ -5,7 +5,7 @@
 
 	@include('errors.list')
 
-	{!! Form::open(['route' => 'sermons.store', 'files' => true]) !!}
+	{!! Form::model($sermon = new \CompassHB\Www\Sermon, ['url' => 'sermons']) !!}
 		@include('sermons.form', ['submitButtonText' => 'Create Sermon'])
 	{!! Form::close() !!}
 

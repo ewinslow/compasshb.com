@@ -5,7 +5,7 @@
 
 	@include('errors.list')
 
-	{!! Form::open(['url' => 'read']) !!}
+	{!! Form::model($passage = new \CompassHB\Www\Passage, ['url' => 'read']) !!}
 		@include('passages.form', ['submitButtonText' => 'Create Passage'])
 	{!! Form::close() !!}
 
