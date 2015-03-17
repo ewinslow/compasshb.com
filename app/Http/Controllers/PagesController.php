@@ -142,4 +142,65 @@ class PagesController extends Controller
         return view('pages.pray')
             ->with('title', 'Pray');
     }
+
+    public function whoweare()
+    {
+        return view('pages.whoweare')->with('title', 'Who We Are');
+    }
+
+    public function eightdistinctives()
+    {
+        return view('pages.eightdistinctives')->with('title', '8 Distinctives');
+    }
+
+    public function give()
+    {
+        return view('pages.give')->with('title', 'Give');
+    }
+
+    public function icecreamevangelism()
+    {
+        return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
+    }
+
+    public function kids()
+    {
+        return view('pages.kids')->with('title', 'Kids Ministry');
+    }
+
+    public function whatwebelieve()
+    {
+        return view('pages.whatwebelieve')->with('title', 'What We Believe');
+    }
+
+    public function youth()
+    {
+        return view('pages.youth')->with('title', 'The United');
+    }
+
+    public function college()
+    {
+        return view('pages.college')->with('title', 'The Underground');
+    }
+
+    public function sundayschool()
+    {
+        return view('pages.sundayschool')->with('title', 'Sunday School');
+    }
+
+    public function bunnyrun()
+    {
+        return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
+    }
+
+    public function videos()
+    {
+        return view('archives.videos')
+            ->with('title', 'Videos');
+    }
+
+    public function calendar()
+    {
+        return view('pages.calendar')->with('title', 'Calendar');
+    }
 }
