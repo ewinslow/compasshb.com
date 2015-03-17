@@ -19,7 +19,7 @@
     <tbody>
       @foreach ($blogs as $blog)
       <tr>
-        <td><a href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a></td>
+        <td><a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a></td>
         <td>{{ date_format($blog->published_at, 'l, F j, Y') }}</td>
       </tr>
       @endforeach

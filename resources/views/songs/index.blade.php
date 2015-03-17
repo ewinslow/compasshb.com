@@ -11,7 +11,7 @@
         <img src="{{ $song->thumbnail }}" alt="{{ $song->title }}"/>
         <div class="caption">
           <h5 class="tk-seravek-web">{{ $song->title }}</h5>
-          <p>{{ $song->excerpt }}<br/><a href="{{ url('songs', $song->id) }}" class="btn btn-default" role="button">Listen</a></p>
+          <p>{{ $song->excerpt }}<br/><a href="{{ route('songs.show', $song->slug) }}" class="btn btn-default" role="button">Listen</a></p>
         </div>
       </div>
     </div>

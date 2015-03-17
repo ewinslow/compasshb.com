@@ -32,10 +32,10 @@
     <tbody>
       @foreach ($passages as $index => $passage)
         <tr>
-          <td><a href="{{ route('read.show', $passage->id) }}">{{ $passage->title }}</a></td>
+          <td><a href="{{ route('read.show', $passage->slug) }}">{{ $passage->title }}</a></td>
           <td>{{ date_format($passage->published_at, 'Y-m-d l') }}</td>
           <td>{{ $passage->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
-          <td><a href="{{ route('read.edit', $passage->id) }}">Edit</a></td>
+          <td><a href="{{ route('read.edit', $passage->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -69,12 +69,12 @@
       @foreach ($sermons as $sermon)
         <tr>
           <td>{{ $sermon->sku }}</td>
-          <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
+          <td><a href="{{ route('sermons.show', $sermon->slug) }}">{{ $sermon->title }}</a></td>
           <td>{{ $sermon->text }}</td>
           <td>{{ date_format($sermon->published_at, 'Y-m-d l') }}</td>
           <td>{!! $sermon->worksheet ? '<span class="glyphicon glyphicon-ok"></span>' : '' !!}</td>
           <td>{{ $sermon->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
-          <td><a href="{{ route('sermons.edit', $sermon->id) }}">Edit</a></td>
+          <td><a href="{{ route('sermons.edit', $sermon->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -104,10 +104,10 @@
     <tbody>
       @foreach ($blogs as $blog)
         <tr>
-          <td><a href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a></td>
+          <td><a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a></td>
           <td>{{ date_format($blog->published_at, 'Y-m-d l') }}</td>
           <td>{{ $blog->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
-          <td><a href="{{ route('blog.edit', $blog->id) }}">Edit</a></td>
+          <td><a href="{{ route('blog.edit', $blog->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -142,7 +142,7 @@
           <td>{{ $fellowship->day }}</td>
           <td>{{ $fellowship->location }}</td>
           <td>{{ $fellowship->description }}</td>
-          <td><a href="{{ route('fellowship.edit', $fellowship->id) }}">Edit</a></td>
+          <td><a href="{{ route('fellowship.edit', $fellowship->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -172,8 +172,8 @@
       @foreach ($songs as $index => $song)
         <tr>
           <td>{{ $index+1 }}</td>
-          <td><a href="{{ route('songs.show', $song->id) }}">{{ $song->title }}</a></td>
-          <td><a href="{{ route('songs.edit', $song->id) }}">Edit</a></td>
+          <td><a href="{{ route('songs.show', $song->slug) }}">{{ $song->title }}</a></td>
+          <td><a href="{{ route('songs.edit', $song->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>

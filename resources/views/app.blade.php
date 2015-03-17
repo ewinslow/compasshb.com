@@ -13,7 +13,7 @@
                 </a>
             </div>
            <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->id) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
+                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
                 <p><i class="glyphicon glyphicon-play-circle"></i></p>
@@ -42,11 +42,11 @@ $(document).ready(function(){
 
   @foreach($blogs->reverse() as $blog)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="{{ route('blog.show', $blog->id) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->thumbnail }});">
+    <a class="clickable featuredblog" href="{{ route('blog.show', $blog->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->thumbnail }});">
       <h4 class="tk-seravek-web">{{ $blog->title }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a>
+      <a class="clickable" style="color: #fff" href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a>
     </h4>
   </div>
   @endforeach
@@ -108,7 +108,7 @@ $(document).ready(function(){
                     <h4>{{ $sermon->title }}</h4>
                     <p><small>{{ date_format($sermon->published_at, 'F n') }}</small><br/>
                     {{ $sermon->text }}</p>
-                    <p><a href="{{ route('sermons.show', $sermon->id) }}" class="btn btn-primary" role="button">Watch</a></p>
+                    <p><a href="{{ route('sermons.show', $sermon->slug) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@ $(document).ready(function(){
                 <div class="caption">
                     <h4>{{ $video->title }}</h4>
                     <p><small>{{ date_format($video->published_at, 'F n') }}</small></p>
-                    <p><a href="{{ route('blog.show', $video->id) }}" class="btn btn-primary" role="button">Watch</a></p>
+                    <p><a href="{{ route('blog.show', $video->slug) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>
         </div>

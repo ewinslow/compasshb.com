@@ -24,7 +24,7 @@
   <div class="panel-body">
     <ul>
     @foreach ($passages as $passage)
-      <li><a href="{{ route('read.show', $passage->id) }}">{{ $passage->title }}</a></li>
+      <li><a href="{{ route('read.show', $passage->slug) }}">{{ $passage->title }}</a></li>
     @endforeach
     </ul>
   </div>

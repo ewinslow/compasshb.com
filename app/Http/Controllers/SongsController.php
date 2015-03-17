@@ -68,10 +68,12 @@ class SongsController extends Controller
      */
     public function update(Song $song, SongRequest $request)
     {
+        $song->slug = makeSlugFromTitle(new Song(), $song->title);
+
         $song->update($request->all());
 
-        return redirect('songs')
-            ->with('message', 'Success! Your song was saved.');
+        return redirect('admin')
+            ->with('message', 'Success! Your song was updated.');
     }
 
     /**
@@ -97,7 +99,7 @@ class SongsController extends Controller
 
         Auth::user()->songs()->save($song);
 
-        return redirect('songs')
+        return redirect('admin')
             ->with('message', 'Success! Your song was saved.');
     }
 }

@@ -23,44 +23,39 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        /**
-         * A song is at /songs/{song}
+        /*
+         * A song is at /songs/{slug}
          */
-        $router->bind('songs', function($id)
-        {
-            return \CompassHB\Www\Song::findOrFail($id);
+        $router->bind('songs', function ($slug) {
+            return \CompassHB\Www\Song::where('slug', $slug)->firstOrFail();
         });
 
-        /**
-         * A passage is at /read/{passage}
+        /*
+         * A passage is at /read/{slug}
          */
-        $router->bind('read', function($id)
-        {
-            return \CompassHB\Www\Passage::published()->findOrFail($id);
+        $router->bind('read', function ($slug) {
+            return \CompassHB\Www\Passage::where('slug', $slug)->published()->firstOrFail();
         });
 
-        /**
-         * A fellowship is at /fellowship/{fellowship}
+        /*
+         * A fellowship is at /fellowship/{slug}
          */
-        $router->bind('fellowship', function($id)
-        {
-            return \CompassHB\Www\Fellowship::findOrFail($id);
+        $router->bind('fellowship', function ($slug) {
+            return \CompassHB\Www\Fellowship::where('slug', $slug)->firstOrFail();
         });
 
-        /**
-         * A sermon is at /sermons/{sermon}
+        /*
+         * A sermon is at /sermons/{slug}
          */
-        $router->bind('sermons', function($id)
-        {
-            return \CompassHB\Www\Sermon::published()->findOrFail($id);
+        $router->bind('sermons', function ($slug) {
+            return \CompassHB\Www\Sermon::where('slug', $slug)->published()->firstOrFail();
         });
 
-        /**
-         * A blog is at /blog/{blog}
+        /*
+         * A blog is at /blog/{slug}
          */
-        $router->bind('blog', function($id)
-        {
-            return \CompassHB\Www\Blog::published()->findOrFail($id);
+        $router->bind('blog', function ($slug) {
+            return \CompassHB\Www\Blog::where('slug', $slug)->published()->firstOrFail();
         });
     }
 

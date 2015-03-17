@@ -52,7 +52,7 @@ class FellowshipsController extends Controller
     {
         $fellowship->update($request->all());
 
-        return redirect('fellowship')
+        return redirect('admin')
             ->with('message', 'Success! Your home fellowship group was saved.');
     }
 
@@ -79,7 +79,7 @@ class FellowshipsController extends Controller
 
         Auth::user()->fellowships()->save($fellowship);
 
-        return redirect('fellowship')
+        return redirect('admin')
             ->with('message', 'Success! Your home fellowship group was saved.');
     }
 }

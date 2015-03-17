@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
+use Illuminate\Support\Str;
 
 /**
  * Helper functions created specifically for this site are
@@ -9,9 +10,11 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
  */
 
 /**
- * Set active link on side navigation
+ * Set active link on side navigation.
+ *
  * @param string
  * @param string
+ *
  * @return string
  */
 function set_active($path, $active = 'active')
@@ -22,7 +25,9 @@ function set_active($path, $active = 'active')
 /**
  * Returns the largest thumbnail from a video
  * from Vimeo for use on homepage banner.
+ *
  * @param  string
+ *
  * @return string
  */
 function getvideothumb($url)
@@ -38,38 +43,32 @@ function getvideothumb($url)
     $video = $vimeo->request("/videos/$videoid");
 
     // @todo: try/catch this
-    if ($video['status'] == '404' || $video['status'] == '400')
-    {
+    if ($video['status'] == '404' || $video['status'] == '400') {
         return;
     }
 
     // Get the video thumbnail
-    if (isset(end($video['body']['pictures']['sizes'])['link']))
-    {
+    if (isset(end($video['body']['pictures']['sizes'])['link'])) {
         return end($video['body']['pictures']['sizes'])['link'];
     }
+
     return;
 }
 
 /**
- * Make an oembed request and return the thumbnail
- *
+ * Make an oembed request and return the thumbnail.
  */
 function get_othumb($url)
 {
     $client = new \GuzzleHttp\Client();
 
-    $request = 'https://vimeo.com/api/oembed.json?url='. $url;
+    $request = 'https://vimeo.com/api/oembed.json?url='.$url;
 
     try {
-
         $response = $client->get($request);
-
-     } catch (Exception $e) {
-
-       return;
-
-     }
+    } catch (Exception $e) {
+        return;
+    }
 
     $response_body = json_decode($response->getBody());
 
@@ -85,22 +84,18 @@ function getnextpost(WPost $wpost)
 }
 
 /**
- * Oembed iframe
+ * Oembed iframe.
  */
 function oembed($url = '')
 {
     $client = new \GuzzleHttp\Client();
 
-    $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url=' . $url;
+    $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$url;
 
     try {
-
         $response = $client->get($request);
-
     } catch (Exception $e) {
-
         return;
-
     }
 
     $response_body = json_decode($response->getBody());
@@ -109,7 +104,8 @@ function oembed($url = '')
 }
 
 /**
- * Find out what songs were sung last weekend
+ * Find out what songs were sung last weekend.
+ *
  * @return type
  */
 function getSetList()
@@ -121,25 +117,26 @@ function getSetList()
 
     $response_body = json_decode($response->getBody());*/
 
-    return null;
+    return;
 }
 
 /**
- * Service for Planning Center API
+ * Service for Planning Center API.
+ *
  * @return array
  */
 function last_weeks_set_list()
 {
     $client = new Client([
         'base_url' => 'https://services.planningcenteronline.com/',
-        'defaults' => ['auth' => 'oauth']
+        'defaults' => ['auth' => 'oauth'],
     ]);
 
     $oauth = new Oauth1([
         'consumer_key'    => env('PLANNINGCENTER_CONSUMER_KEY'),
         'consumer_secret' => env('PLANNINGCENTER_CONSUMER_SECRET'),
         'token'           => env('PLANNINGCENTER_TOKEN_KEY'),
-        'token_secret'    => env('PLANNINGCENTER_TOKEN_SECRET')
+        'token_secret'    => env('PLANNINGCENTER_TOKEN_SECRET'),
     ]);
 
     $client->getEmitter()->attach($oauth);
@@ -150,43 +147,37 @@ function last_weeks_set_list()
     $service = $res->service_types[1]->id;
 
     // Get Plans for all services
-    $res = $client->get('service_types/' . $service .' /plans.json?all=true');
+    $res = $client->get('service_types/'.$service.' /plans.json?all=true');
     $res =  json_decode($res->getBody());
     $plans = $res;
 
     // Get Plan ID for most recent service
-    foreach (array_reverse($plans) as $plan)
-    {
+    foreach (array_reverse($plans) as $plan) {
         $plandate = \Carbon\Carbon::parse($plan->dates);
         $now = \Carbon\Carbon::now();
 
-        if ($plandate->lt($now))
-        {
+        if ($plandate->lt($now)) {
             $planid = $plan->id;
             break;
         }
     }
 
     // Get specific items from last weekend service
-    $res = $client->get('plans/' . $planid .'.json');
+    $res = $client->get('plans/'.$planid.'.json');
     $res =  json_decode($res->getBody());
     $items = $res->items;
     $setlist = [];
 
-    foreach($items as $item)
-    {
+    foreach ($items as $item) {
         // Only interested in songs
-        if ($item->type == 'PlanSong')
-        {
+        if ($item->type == 'PlanSong') {
             $tmp = [];
             $tmp['title'] = $item->song->title;
             $tmp['author'] = $item->song->author;
 
             // Add remote link to song if exists
-            foreach($item->attachments as $attachment)
-            {
-                if (isset($attachment->link))
-                {
+            foreach ($item->attachments as $attachment) {
+                if (isset($attachment->link)) {
                     $tmp['link'] = $attachment->link;
                 }
             }
@@ -196,4 +187,20 @@ function last_weeks_set_list()
     }
 
     return $setlist;
+}
+
+/**
+ * Create a model's slug.
+ *
+ * @param  string $title
+ *
+ * @return string
+ */
+function makeSlugFromTitle($model, $title)
+{
+    $slug = Str::slug($title);
+
+    $count = $model::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+
+    return $count ? "{$slug}-{$count}" : $slug;
 }

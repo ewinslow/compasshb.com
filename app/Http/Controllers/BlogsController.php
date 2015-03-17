@@ -62,10 +62,12 @@ class BlogsController extends Controller
      */
     public function update(Blog $blog, BlogRequest $request)
     {
+        $blog->slug = makeSlugFromTitle(new Blog(), $blog->title);
+
         $blog->update($request->all());
 
         return redirect('admin')
-            ->with('message', 'Success! Your blog was saved.');
+            ->with('message', 'Success! Your blog was updated.');
     }
 
     /**

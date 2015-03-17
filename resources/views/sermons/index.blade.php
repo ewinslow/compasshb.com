@@ -22,7 +22,7 @@
       @foreach ($sermons as $sermon)
       <tr>
         <td>{{ $sermon->sku }}</td>
-        <td><a href="{{ route('sermons.show', $sermon->id) }}">{{ $sermon->title }}</a></td>
+        <td><a href="{{ route('sermons.show', $sermon->slug) }}">{{ $sermon->title }}</a></td>
         <td>{{ $sermon->text }}</td>
         <td>{{ date_format($sermon->published_at, 'l, F j, Y') }}</td>
       </tr>
