@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Providers;
 
+use Auth;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -27,6 +28,12 @@ class RouteServiceProvider extends ServiceProvider
          * A song is at /songs/{slug}
          */
         $router->bind('songs', function ($slug) {
+
+            // Logged in users can see future posts
+            if (Auth::check()) {
+                return \CompassHB\Www\Song::where('slug', $slug)->firstOrFail();
+            }
+
             return \CompassHB\Www\Song::where('slug', $slug)->firstOrFail();
         });
 
@@ -34,6 +41,12 @@ class RouteServiceProvider extends ServiceProvider
          * A passage is at /read/{slug}
          */
         $router->bind('read', function ($slug) {
+
+            // Logged in users can see future posts
+            if (Auth::check()) {
+                return \CompassHB\Www\Passage::where('slug', $slug)->firstOrFail();
+            }
+
             return \CompassHB\Www\Passage::where('slug', $slug)->published()->firstOrFail();
         });
 
@@ -48,6 +61,12 @@ class RouteServiceProvider extends ServiceProvider
          * A sermon is at /sermons/{slug}
          */
         $router->bind('sermons', function ($slug) {
+
+            // Logged in users can see future posts
+            if (Auth::check()) {
+                return \CompassHB\Www\Sermon::where('slug', $slug)->firstOrFail();
+            }
+
             return \CompassHB\Www\Sermon::where('slug', $slug)->published()->firstOrFail();
         });
 
@@ -55,6 +74,12 @@ class RouteServiceProvider extends ServiceProvider
          * A blog is at /blog/{slug}
          */
         $router->bind('blog', function ($slug) {
+
+            // Logged in users can see future posts
+            if (Auth::check()) {
+                return \CompassHB\Www\Blog::where('slug', $slug)->firstOrFail();
+            }
+
             return \CompassHB\Www\Blog::where('slug', $slug)->published()->firstOrFail();
         });
     }
