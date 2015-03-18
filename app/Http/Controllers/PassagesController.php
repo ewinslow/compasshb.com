@@ -47,7 +47,7 @@ class PassagesController extends Controller
      */
     public function show(Passage $passage)
     {
-        $passages = Passage::latest('published_at')->published()->get();
+        $passages = Passage::latest('published_at')->published()->take(5)->get();
 
         $esv = new \CompassHB\Www\Esv\Esv();
 
