@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use CompassHB\Www\Sermon;
 use CompassHB\Www\Fellowship;
 use CompassHB\Www\Http\Requests\FellowshipRequest;
 
@@ -24,8 +25,11 @@ class FellowshipsController extends Controller
         $fellowships = Fellowship::all()->toArray();
         $days = array_unique(array_column($fellowships, 'day'));
 
-        return view('fellowships.index', compact('fellowships', 'days'))
-        ->with('title', 'Home Fellowship Groups');
+        $sermon = Sermon::latest('published_at')->published()->take(1)->get()->first();
+        $sermon->iframe = oembed($sermon->video);
+
+        return view('fellowships.index', compact('fellowships', 'days', 'sermon'))
+            ->with('title', 'Home Fellowship Groups');
     }
 
     /**
