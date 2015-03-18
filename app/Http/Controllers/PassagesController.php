@@ -24,7 +24,7 @@ class PassagesController extends Controller
     {
         $esv = new \CompassHB\Www\Esv\Esv();
 
-        $passages = Passage::latest('published_at')->published()->get();
+        $passages = Passage::latest('published_at')->published()->take(5)->get();
         $passage = $passages->first();
         $passage->verses = $esv->getScripture($passage->title);
 
