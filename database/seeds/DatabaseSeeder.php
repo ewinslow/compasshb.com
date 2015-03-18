@@ -145,6 +145,7 @@ class SermonTableSeeder extends Seeder
             'body' => 'Transcript would go here',
             'teacher' => 'Bobby Blakey',
             'text' => '1 Thessalonians 1:8',
+            'worksheet' => 'https://s3.amazonaws.com/compasshb-worksheets/1-And-the-Gospel-Rings-Out.pdf',
             'video' => 'https://vimeo.com/105505785',
             'sku' => '1',
             'published_at' => '2014-09-07 00:00:00',
