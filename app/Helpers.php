@@ -198,7 +198,6 @@ function last_weeks_set_list()
  */
 function makeSlugFromTitle($model, $title)
 {
-    dd('test');
     $slug = Str::slug($title);
 
     $count = $model::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
