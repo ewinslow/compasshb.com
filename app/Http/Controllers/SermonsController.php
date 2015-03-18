@@ -89,8 +89,6 @@ class SermonsController extends Controller
      */
     public function update(Sermon $sermon, SermonRequest $request)
     {
-        $sermon->slug = makeSlugFromTitle(new Sermon(), $sermon->title);
-
         $sermon->update($request->all());
 
         return redirect('admin')
