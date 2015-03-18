@@ -35,23 +35,23 @@ class EventServiceProvider extends ServiceProvider
          * Generate slug on models with that column when saved
          * or updated.
          */
-        Fellowship::saving(function ($object) {
+        Fellowship::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Fellowship(), $object->title);
         });
 
-        Blog::saving(function ($object) {
+        Blog::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Blog(), $object->title);
         });
 
-        Passage::saving(function ($object) {
+        Passage::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Passage(), $object->title);
         });
 
-        Sermon::saving(function ($object) {
+        Sermon::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Sermon(), $object->title);
         });
 
-        Song::saving(function ($object) {
+        Song::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Song(), $object->title);
         });
     }
