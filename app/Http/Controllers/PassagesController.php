@@ -2,6 +2,7 @@
 
 use Auth;
 use CompassHB\Www\Passage;
+use CompassHB\Google\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,10 @@ class PassagesController extends Controller
             $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
         }
 
-        return view('passages.index', compact('passages', 'passage', 'postflash'))
+        $a = new Analytics();
+        $analytics = $a->getPageViews('/read', \Carbon\Carbon::now()->subDay()->format('Y-m-d'), \Carbon\Carbon::now()->format('Y-m-d'));
+
+        return view('passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
             ->with('title', 'Scripture of the Day');
     }
 

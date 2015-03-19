@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cb621ef7d601122c741646c0bc0971b4",
+    "hash": "42ce9d8a33d5145808f6f2653e623b24",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -123,16 +123,16 @@
         },
         {
             "name": "bugsnag/bugsnag-laravel",
-            "version": "v1.4.1",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bugsnag/bugsnag-laravel.git",
-                "reference": "2f4bbc3868edbe54b9a2d53790e2c8035305b067"
+                "reference": "eab38bc44ead6a522132a9bbbde63225f6db7e20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bugsnag/bugsnag-laravel/zipball/2f4bbc3868edbe54b9a2d53790e2c8035305b067",
-                "reference": "2f4bbc3868edbe54b9a2d53790e2c8035305b067",
+                "url": "https://api.github.com/repos/bugsnag/bugsnag-laravel/zipball/eab38bc44ead6a522132a9bbbde63225f6db7e20",
+                "reference": "eab38bc44ead6a522132a9bbbde63225f6db7e20",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "logging",
                 "tracking"
             ],
-            "time": "2015-02-20 02:13:17"
+            "time": "2015-03-18 21:07:12"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -385,17 +385,59 @@
             "time": "2014-12-20 21:24:13"
         },
         {
-            "name": "guzzle/guzzle",
-            "version": "v3.9.2",
+            "name": "google/apiclient",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155"
+                "url": "https://github.com/google/google-api-php-client.git",
+                "reference": "9c35bbbbaf04a5236d763560dab1e2f6e672a724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/9c35bbbbaf04a5236d763560dab1e2f6e672a724",
+                "reference": "9c35bbbbaf04a5236d763560dab1e2f6e672a724",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Client library for Google APIs",
+            "homepage": "http://developers.google.com/api-client-library/php",
+            "keywords": [
+                "google"
+            ],
+            "time": "2014-11-25 14:35:03"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "v3.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
                 "shasum": ""
             },
             "require": {
@@ -436,6 +478,9 @@
                 "zendframework/zend-cache": "2.*,<2.3",
                 "zendframework/zend-log": "2.*,<2.3"
             },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -463,7 +508,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -474,7 +519,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-11 04:32:36"
+            "time": "2015-03-18 18:23:50"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -920,16 +965,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.16",
+            "version": "v5.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "861a1e78c84dca82fe4bd85d00349c52304eea77"
+                "reference": "b4abcbc98885e1b339acc7e993d2758d47f01ecc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/861a1e78c84dca82fe4bd85d00349c52304eea77",
-                "reference": "861a1e78c84dca82fe4bd85d00349c52304eea77",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b4abcbc98885e1b339acc7e993d2758d47f01ecc",
+                "reference": "b4abcbc98885e1b339acc7e993d2758d47f01ecc",
                 "shasum": ""
             },
             "require": {
@@ -1042,7 +1087,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-13 13:27:55"
+            "time": "2015-03-17 21:45:31"
         },
         {
             "name": "league/flysystem",
