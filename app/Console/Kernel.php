@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('db:backup')
-                 ->twiceDaily()
+                 ->dailyAt('23:59')
                  ->thenPing(env('ENVOYER_HEARTBEAT'));
     }
 }
