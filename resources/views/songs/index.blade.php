@@ -32,22 +32,24 @@
 @endsection
 
 @section('sidebar')
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Last Week's Songs</h3>
-  </div>
-  <div class="panel-body">
+
+    <div class="list-group">
+        <a href="#" class="list-group-item disabled">
+            <h4 class="list-group-item-heading">Last Week's Songs</h4>
+            <p>{{ \Carbon\Carbon::parse($setlist[0]['date'])->format('l, F d') }}</p>
+        </a>
     @foreach($setlist as $song)
-      <p>
-        <strong>{{ $song['title'] }}</strong><br/>
-        <small>{{ $song['author'] }}</small><br/>
         @if (isset($song['link']))
-          <a href="{{ $song['link'] }}">Link</a>
+        <a href="{{ $song['link'] }}" class="list-group-item">
+            <span class="glyphicon glyphicon-expand"></span>
+        @else
+        <a href="#" class="list-group-item">
         @endif
-      </p>
+            <strong>{{ $song['title'] }}</strong><br/>
+            <small>{{ $song['author'] }}</small><br/>
+        </a>
     @endforeach
-  </div>
-</div>
+    </ol>
 
 <script src="http://jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
 <script>

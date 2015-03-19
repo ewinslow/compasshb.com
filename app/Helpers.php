@@ -174,11 +174,15 @@ function last_weeks_set_list()
             $tmp = [];
             $tmp['title'] = $item->song->title;
             $tmp['author'] = $item->song->author;
+            $tmp['date'] = $plandate;
 
             // Add remote link to song if exists
             foreach ($item->attachments as $attachment) {
                 if (isset($attachment->link)) {
                     $tmp['link'] = $attachment->link;
+                }
+                if (isset($attachment->public_url)) {
+                    $tmp['link'] = $attachment->public_url;
                 }
             }
 

@@ -29,7 +29,9 @@ class SongsController extends Controller
 
         $setlist = last_weeks_set_list();
 
-        return view('songs.index', compact('songs', 'setlist'));
+        return view('songs.index', compact(
+            'songs', 'setlist'
+        ))->with('title', 'Worship Songs');
     }
 
     /**
@@ -43,7 +45,8 @@ class SongsController extends Controller
     {
         $song->iframe = oembed($song->video);
 
-        return view('songs.show', compact('song'));
+        return view('songs.show', compact('song'))
+            ->with('title', $song->title);
     }
 
     /**
