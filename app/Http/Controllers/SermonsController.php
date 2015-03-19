@@ -65,7 +65,8 @@ class SermonsController extends Controller
     {
         $sermon->iframe = oembed($sermon->video);
 
-        return view('sermons.show', compact('sermon'));
+        return view('sermons.show', compact('sermon'))
+            ->with('title', $sermon->title);
     }
 
     /**

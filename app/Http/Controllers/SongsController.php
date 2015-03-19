@@ -58,7 +58,7 @@ class SongsController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('songs.edit', compact('song'));
+        return view('songs.edit', compact('song'))->with('title', 'Edit Song');
     }
 
     /**

@@ -32,3 +32,9 @@
 
 <p><a href="http://feeds.compasshb.com/read" class="feedpress-button" name="feed-9178">Subscribe to Podcast</a></p>
 <script src="//static.feedpress.it/js/button.js" async></script>
+
+<p><div class="fb-share-button" data-href="http://www.compasshb.com/read" data-layout="button_count"></div></p>
+
+<p><a href="https://twitter.com/share" class="twitter-share-button" data-via="CompassHB" data-dnt="true">Tweet</a></p>
+
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

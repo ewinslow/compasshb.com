@@ -141,7 +141,7 @@ $(document).ready(function(){
 <!-- Recent Photography / SmugMug -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
-    <div class="col-md-8">
+    <div class="col-md-4">
         <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Photos</a></h2>
 
         @foreach($images as $image)
@@ -149,6 +149,10 @@ $(document).ready(function(){
             <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;" alt="photos.compasshb.com"></a>
         </div>
         @endforeach
+    </div>
+    <div class="col-md-4">
+            <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Facebook</a></h2>
+      <div class="fb-like-box" data-href="https://www.facebook.com/CompassHB" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
     </div>
     <div class="col-md-4">
          <h2 class="tk-seravek-web"><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
