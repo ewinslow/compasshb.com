@@ -76,14 +76,6 @@ function get_othumb($url)
 }
 
 /**
- * Given a single post, will return the next newest post in the same taxnomy - TODO.
- */
-function getnextpost(WPost $wpost)
-{
-    //
-}
-
-/**
  * Oembed iframe.
  */
 function oembed($url = '')

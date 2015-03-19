@@ -52,6 +52,13 @@ Route::group(['prefix' => 'feeds'], function () {
 });
 
 /*
+ * APIs
+ */
+Route::group(['prefix' => 'api/1.0'], function () {
+    Route::get('getsermonlist.json', 'FeedsController@getsermonlist');
+});
+
+/*
  * Routes without controllers
  */
 

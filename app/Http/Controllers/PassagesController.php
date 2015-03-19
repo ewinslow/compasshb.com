@@ -35,6 +35,7 @@ class PassagesController extends Controller
             $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
         }
 
+        session_start();
         $a = new Analytics();
         $analytics = $a->getPageViews('/read', 'today', 'today');
         $analytics['activeUsers'] = $a->getActiveUsers();

@@ -14,20 +14,25 @@ class FeedsController extends Controller
 
     public function sermons()
     {
-        $this->posts = new \CompassHB\Www\WPost();
-
-        $sermons = $this->posts->get('sermon', 300);
+        $sermons = ''; //todo
 
         return view('feeds.sermons', compact('sermons'));
     }
 
     /**
      * Generate XML of songs with MP3s.
+     * Used for the audio player on the songs page.
      */
     public function songs()
     {
         $songs = Song::latest('published_at')->published()->get()->shuffle();
 
         return view('feeds.songs', compact('songs'));
+    }
+
+    public function getsermonlist()
+    {
+        $sermons = ''; //todo
+        return view('feeds.sermons', compact('sermons'));
     }
 }
