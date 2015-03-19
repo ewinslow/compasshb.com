@@ -37,6 +37,7 @@ class PassagesController extends Controller
 
         $a = new Analytics();
         $analytics = $a->getPageViews('/read', \Carbon\Carbon::now()->subDay()->format('Y-m-d'), \Carbon\Carbon::now()->format('Y-m-d'));
+        $analytics['activeUsers'] = $a->getActiveUsers();
 
         return view('passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
             ->with('title', 'Scripture of the Day');

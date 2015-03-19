@@ -3,49 +3,51 @@
 interface AnalyticsProvider
 {
     public function getPageViews($path, $startDate, $endDate);
+    public function getActiveUsers();
 }
 
 class Analytics implements AnalyticsProvider
 {
     private $email;
+    private $service;
+    private $client;
     private $url = "http://www.esvapi.org/v2/rest/passageQuery";
 
     public function __construct()
     {
-        $this->email = getenv('GOOGLE_ANALYTICS_EMAIL');
-    }
-
-    public function getPageViews($path, $startDate, $endDate)
-    {
         session_start();
-        $client = new \Google_Client();
-        $client->setApplicationName("Compass HB");
+        $this->email = getenv('GOOGLE_ANALYTICS_EMAIL');
+        $this->client = new \Google_Client();
+        $this->client->setApplicationName("Compass HB");
 
-        $client->setAssertionCredentials(
+        $this->client->setAssertionCredentials(
             new \Google_Auth_AssertionCredentials(
                 $this->email,
                 array('https://www.googleapis.com/auth/analytics.readonly'),
                 file_get_contents(storage_path('keys/CompassHB-27e1adae11b5.p12'))
         ));
 
-        $client->setClientId(env('GOOGLE_CLIENT_ID'));
-        $client->setAccessType('offline_access'); // unnecessary?
+        $this->client->setClientId(env('GOOGLE_CLIENT_ID'));
+        $this->client->setAccessType('offline_access'); // unnecessary?
 
-        $service = new \Google_Service_Analytics($client);
+        $this->service = new \Google_Service_Analytics($this->client);
+    }
 
+    public function getPageViews($path, $startDate, $endDate)
+    {
         $optParams = array(
             'dimensions' => 'ga:source,ga:keyword',
-            'sort' => '-ga:sessions,ga:source',
+            'sort' => '-ga:users,ga:source',
             'filters' => 'ga:pagePath=='.$path,
             'max-results' => '25',
         );
 
         try {
-            $results = $service->data_ga->get(
+            $results = $this->service->data_ga->get(
                 'ga:89284462',
                 $startDate,
                 $endDate,
-                'ga:sessions,ga:avgSessionDuration',
+                'ga:users,ga:avgSessionDuration',
                 $optParams
             );
         } catch (apiServiceException $e) {
@@ -53,8 +55,24 @@ class Analytics implements AnalyticsProvider
         }
 
         return array(
-            'sessions' => $results->totalsForAllResults['ga:sessions'],
+            'sessions' => $results->totalsForAllResults['ga:users'],
             'avgSessionDuration' => round($results->totalsForAllResults['ga:avgSessionDuration'] / 60, 2),
         );
+    }
+
+    public function getActiveUsers()
+    {
+        $optParams = array('dimensions' => 'rt:medium');
+
+        try {
+            $results = $this->service->data_realtime->get(
+                'ga:89284462',
+                'rt:activeUsers',
+                $optParams);
+        } catch (apiServieException $e) {
+            $error = $e->getMessage();
+        }
+
+        return $results->totalsForAllResults['rt:activeUsers'];
     }
 }
