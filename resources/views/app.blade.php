@@ -6,7 +6,7 @@
   <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
         <div class="owl-carousel">
             <div>
-                <a class="clickable latestsermon" href="/bunnyrun" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb('https://vimeo.com/122325194') }});">
+                <a class="clickable latestsermon" href="/bunnyrun" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb('https://vimeo.com/122930830') }});">
                 <p><br/><br/>Special Announcement</p>
                 <h1 class="tk-seravek-web">The Bunny Run 5K</h1>
                 <p>Sign Up Here</p>
