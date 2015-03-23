@@ -64,7 +64,8 @@ class BlogsController extends Controller
     {
         $blog->update($request->all());
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.blog')
             ->with('message', 'Success! Your blog was updated.');
     }
 
@@ -91,7 +92,8 @@ class BlogsController extends Controller
 
         Auth::user()->blogs()->save($blog);
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.blog')
             ->with('message', 'Success! Your blog was saved.');
     }
 }

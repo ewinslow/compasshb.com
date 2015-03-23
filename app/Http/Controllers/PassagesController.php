@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use Redirect;
 use CompassHB\Www\Passage;
 use CompassHB\Google\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
@@ -92,7 +93,8 @@ class PassagesController extends Controller
     {
         $passage->update($request->all());
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.read')
             ->with('message', 'Success! Your Scripture of the Day was saved.');
     }
 
@@ -119,7 +121,8 @@ class PassagesController extends Controller
 
         Auth::user()->passages()->save($passage);
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.read')
             ->with('message', 'Success! Your Scripture of the Day was saved.');
     }
 }

@@ -50,7 +50,8 @@ class SermonsController extends Controller
 
         Auth::user()->sermons()->save($sermon);
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.sermons')
             ->with('message', 'Success! Your sermon was saved.');
     }
 
@@ -92,7 +93,8 @@ class SermonsController extends Controller
     {
         $sermon->update($request->all());
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.sermons')
             ->with('message', 'Success! Your sermon was updated.');
     }
 }

@@ -130,10 +130,39 @@ Route::get('videos', [
 /*
  * Administration Pages
  */
-Route::get('admin', [
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/', [
     'as' => 'admin',
     'uses' => 'HomeController@index',
-]);
+    ]);
+
+    Route::get('songs',  [
+        'as' => 'admin.songs',
+        'uses' => 'HomeController@songs',
+    ]);
+
+    Route::get('blog',  [
+        'as' => 'admin.blog',
+        'uses' => 'HomeController@blog',
+    ]);
+
+    Route::get('sermons',  [
+        'as' => 'admin.sermons',
+        'uses' => 'HomeController@sermons',
+    ]);
+
+    Route::get('read',  [
+        'as' => 'admin.read',
+        'uses' => 'HomeController@read',
+    ]);
+
+    Route::get('fellowship',  [
+        'as' => 'admin.fellowship',
+        'uses' => 'HomeController@fellowship',
+    ]);
+
+});
 
 /*
  * Authentication

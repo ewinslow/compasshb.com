@@ -56,7 +56,8 @@ class FellowshipsController extends Controller
     {
         $fellowship->update($request->all());
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.fellowship')
             ->with('message', 'Success! Your home fellowship group was saved.');
     }
 
@@ -83,7 +84,8 @@ class FellowshipsController extends Controller
 
         Auth::user()->fellowships()->save($fellowship);
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.fellowship')
             ->with('message', 'Success! Your home fellowship group was saved.');
     }
 }

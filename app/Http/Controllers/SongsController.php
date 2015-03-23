@@ -73,7 +73,8 @@ class SongsController extends Controller
     {
         $song->update($request->all());
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.songs')
             ->with('message', 'Success! Your song was updated.');
     }
 
@@ -100,7 +101,8 @@ class SongsController extends Controller
 
         Auth::user()->songs()->save($song);
 
-        return redirect('admin')
+        return redirect()
+            ->route('admin.songs')
             ->with('message', 'Success! Your song was saved.');
     }
 }
