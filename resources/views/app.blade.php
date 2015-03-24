@@ -40,13 +40,13 @@ $(document).ready(function(){
 <div class="row drawer">
   <div class="col-md-1"></div>
 
-  @foreach($blogs->reverse() as $blog)
+  @foreach($slides->reverse() as $slide)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="{{ route('blog.show', $blog->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->thumbnail }});">
-      <h4 class="tk-seravek-web">{{ $blog->title }}</h4>
+    <a class="clickable featuredblog" href="{{ $slide->url }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $slide->image }});">
+      <h4 class="tk-seravek-web">{{ $slide->title }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a>
+      <a class="clickable" style="color: #fff" href="{{ $slide->url }}">{{ $slide->title }}</a>
     </h4>
   </div>
   @endforeach

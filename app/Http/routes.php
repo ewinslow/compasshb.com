@@ -13,7 +13,7 @@ Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 /*
  * Route for slides
  */
-Route::resource('slides', 'SlidesConstroller', ['except' => ['destroy', 'show', 'index']]);
+Route::resource('slides', 'SlidesController', ['except' => ['destroy', 'show', 'index']]);
 
 /*
  * Route for fellowships
@@ -172,6 +172,10 @@ Route::group(['prefix' => 'admin'], function () {
         'uses' => 'HomeController@fellowship',
     ]);
 
+    Route::get('slides',  [
+        'as' => 'admin.slides',
+        'uses' => 'HomeController@slides',
+    ]);
 });
 
 /*

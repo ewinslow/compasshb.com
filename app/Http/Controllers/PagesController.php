@@ -2,6 +2,7 @@
 
 use CompassHB\Smugmug;
 use CompassHB\Www\Blog;
+use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ class PagesController extends Controller
      */
     public function home()
     {
+        $slides = Slide::latest('published_at')->published()->take(2)->get();
         $sermons = Sermon::latest('published_at')->published()->take(4)->get();
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
@@ -71,6 +73,7 @@ class PagesController extends Controller
 
         return view('app', compact(
             'sermons',
+            'slides',
             'nextsermon',
             'prevsermon',
             'blogs',

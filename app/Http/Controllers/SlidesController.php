@@ -1,5 +1,9 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use Auth;
+use CompassHB\Www\Slide;
+use CompassHB\Www\Http\Requests\SlideRequest;
+
 class SlidesController extends Controller
 {
     /**
@@ -17,7 +21,7 @@ class SlidesController extends Controller
      */
     public function create()
     {
-        //
+        return view('slides.create');
     }
 
     /**
@@ -25,9 +29,15 @@ class SlidesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(SlideRequest $request)
     {
-        //
+        $slide = new Slide($request->all());
+
+        Auth::user()->slides()->save($slide);
+
+        return redirect()
+            ->route('admin.slides')
+            ->with('message', 'Success! Your slide was saved.');
     }
 
     /**
@@ -37,9 +47,9 @@ class SlidesController extends Controller
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Slide $slide)
     {
-        //
+        return view('slides.edit', compact('slide'))->with('title', 'Edit Slide');
     }
 
     /**
@@ -49,8 +59,12 @@ class SlidesController extends Controller
      *
      * @return Response
      */
-    public function update($id)
+    public function update(Slide $slide, SlideRequest $request)
     {
-        //
+        $slide->update($request->all());
+
+        return redirect()
+            ->route('admin.slides')
+            ->with('message', 'Success! Your slide was updated.');
     }
 }

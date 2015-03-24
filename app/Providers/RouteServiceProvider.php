@@ -84,9 +84,9 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         /*
-         * A slides is at /blog/{id}
+         * A slides is at /slides/{id}
          */
-        $router->bind('slide', function ($id) {
+        $router->bind('slides', function ($id) {
             return \CompassHB\Www\Slide::published()->findOrFail($id);
         });
     }

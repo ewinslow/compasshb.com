@@ -8,6 +8,7 @@
     <ul class="list-unstyled">
       <li><a href="{{ route('admin') }}">Admin Home</a></li>
       <li>&nbsp;</li>
+      <li><a href="{{ route('admin.slides') }}">Homepage Slides</a></li>
       <li><a href="{{ route('admin.read') }}">Scripture of the Day</a></li>
       <li><a href="{{ route('admin.sermons') }}">Sermons</a></li>
       <li><a href="{{ route('admin.blog') }}">Blogs</a></li>
