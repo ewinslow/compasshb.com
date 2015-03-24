@@ -2,6 +2,7 @@
 
 class VimeoVideo implements VideoProvider
 {
+    private $vimeoClient;
     private $client;
     private $clientId;
     private $clientSecret;
@@ -9,11 +10,11 @@ class VimeoVideo implements VideoProvider
 
     public function __construct()
     {
-        $this->cliendId = env('VIMEO_CLIENT_ID');
+        $this->clientId = env('VIMEO_CLIENT_ID');
         $this->clientSecret = env('VIMEO_CLIENT_SECRET');
         $this->token = env('VIMEO_TOKEN');
 
-        $vimeoClient = new \Vimeo\Vimeo($this->clientID, $this->clientSecret, $this->token);
+        $this->vimeoClient = new \Vimeo\Vimeo($this->clientId, $this->clientSecret, $this->token);
         $this->client = new \GuzzleHttp\Client();
     }
 
@@ -72,10 +73,10 @@ class VimeoVideo implements VideoProvider
     public function getVideoThumb($url)
     {
         // Parse Vimeo video ID
-        $videoid = substr($url, strrpos($url, '/') + 1);
+        $videoId = substr($url, strrpos($url, '/') + 1);
 
         try {
-            $video = $this->vimeoClient->request("/videos/$videoid");
+            $video = $this->vimeoClient->request("/videos/$videoId");
 
             if ($video['status'] == '404' || $video['status'] == '400') {
                 return;

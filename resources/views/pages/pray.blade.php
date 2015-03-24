@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="thumbnail">
-      <img src="{{ getvideothumb('https://vimeo.com/118441384') }}" alt="If God's People Pray">
+      <img src="https://i.vimeocdn.com/video/505459850_960x540.jpg" alt="If God's People Pray">
       <div class="caption">
         <h3>If God's People Pray</h3>
         <p>Why to Pray</p>
@@ -16,7 +16,7 @@
   </div>
   <div class="col-sm-6">
     <div class="thumbnail">
-      <img src="{{ getvideothumb('https://vimeo.com/119068075') }}" alt="When God's People Pray">
+      <img src="https://i.vimeocdn.com/video/506218559_960x540.jpg" alt="When God's People Pray">
       <div class="caption">
         <h3>When God's People Pray</h3>
         <p>How to Pray</p>

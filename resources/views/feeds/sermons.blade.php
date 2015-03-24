@@ -6,7 +6,7 @@
 	  	"byline": "{{ $sermon->meta->byline }}",
 	  	"text": "{{ $sermon->meta->sermon_text }}",
 	  	"url": "{{ $sermon->meta->video_oembed }}",
-	  	"cover": "{{ getvideothumb($sermon->meta->video_oembed) }}"
+	  	"cover": "{{ $sermon->meta->othumbnail }}"
 	}
 	@unless ($index+1 == count($sermons))
 	,

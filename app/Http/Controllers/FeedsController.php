@@ -16,6 +16,8 @@ class FeedsController extends Controller
     {
         $sermons = ''; //todo
 
+        // getvideothumb($sermon->meta->video_oembed)
+
         return view('feeds.sermons', compact('sermons'));
     }
 

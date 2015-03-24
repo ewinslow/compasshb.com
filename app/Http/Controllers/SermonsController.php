@@ -2,17 +2,21 @@
 
 use Auth;
 use CompassHB\Www\Sermon;
+use CompassHB\Vimeo\VimeoVideo;
 use CompassHB\Www\Http\Requests\SermonRequest;
 
 class SermonsController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   */
-  public function __construct()
-  {
-      $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-  }
+    private $videoClient;
+
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
+        $this->videoClient = new VimeoVideo();
+    }
 
     /**
      * Display a listing of the resource.
@@ -64,7 +68,7 @@ class SermonsController extends Controller
      */
     public function show(Sermon $sermon)
     {
-        $sermon->iframe = oembed($sermon->video);
+        $sermon->iframe = $this->videoClient->oembed($sermon->video);
 
         return view('sermons.show', compact('sermon'))
             ->with('title', $sermon->title);

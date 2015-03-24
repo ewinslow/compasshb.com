@@ -3,17 +3,21 @@
 use Auth;
 use CompassHB\Www\Song;
 use CompassHB\Pco\Setlist;
+use CompassHB\Vimeo\VimeoVideo;
 use CompassHB\Www\Http\Requests\SongRequest;
 
 class SongsController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   */
-  public function __construct()
-  {
-      $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-  }
+    private $videoClient;
+
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
+        $this->videoClient = new VimeoVideo();
+    }
 
     /**
      * Show all songs.
@@ -25,7 +29,7 @@ class SongsController extends Controller
         $songs = Song::latest('published_at')->published()->get();
 
         foreach ($songs as $song) {
-            $song->thumbnail = get_othumb($song->video);
+            $song->thumbnail = $this->videoClient->getOThumb($song->video);
         }
 
         $setlist = new Setlist();
@@ -45,7 +49,7 @@ class SongsController extends Controller
      */
     public function show(Song $song)
     {
-        $song->iframe = oembed($song->video);
+        $song->iframe = $this->videoClient->oembed($song->video);
 
         return view('songs.show', compact('song'))
             ->with('title', $song->title);
