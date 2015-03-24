@@ -8,6 +8,7 @@ class Sermon extends Model
       'title',
       'body',
       'worksheet',
+      'file',
       'teacher',
       'text',
       'video',

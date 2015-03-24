@@ -4,8 +4,9 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('worksheet', 'Worksheet URL:') !!}
-	{!! Form::text('worksheet', null, ['class' => 'form-control']) !!}
+	{!! Form::label('worksheet', 'Worksheet:') !!}
+	{!! Form::file('worksheet', ['class' => 'form-control']) !!}
+	<p><a href="{{ $sermon->worksheet }}">{{ $sermon->worksheet }}</a></p>
 </div>
 
 <div class="form-group">

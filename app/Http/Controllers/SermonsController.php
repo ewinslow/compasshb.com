@@ -1,7 +1,9 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use Input;
 use CompassHB\Www\Sermon;
+use CompassHB\Aws\AwsUploader;
 use CompassHB\Vimeo\VimeoVideo;
 use CompassHB\Www\Http\Requests\SermonRequest;
 
@@ -48,9 +50,15 @@ class SermonsController extends Controller
      *
      * @return Response
      */
-    public function store(SermonRequest $request)
+    public function store(SermonRequest $request, AwsUploader $client)
     {
         $sermon = new Sermon($request->all());
+        $worksheet = Input::file('worksheet');
+
+        // Save worksheet if one was uploaded
+        if ($worksheet != null) {
+            $sermon->worksheet = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+        }
 
         Auth::user()->sermons()->save($sermon);
 
@@ -93,9 +101,17 @@ class SermonsController extends Controller
      *
      * @return Response
      */
-    public function update(Sermon $sermon, SermonRequest $request)
+    public function update(Sermon $sermon, SermonRequest $request, AwsUploader $client)
     {
-        $sermon->update($request->all());
+        $worksheet = Input::file('worksheet');
+        $all = $request->all();
+
+        // Replace worksheet if one was uploaded
+        if ($worksheet != null) {
+            $all['worksheet'] = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+        }
+
+        $sermon->update($all);
 
         return redirect()
             ->route('admin.sermons')
