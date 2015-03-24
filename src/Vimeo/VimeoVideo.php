@@ -1,0 +1,94 @@
+<?php namespace CompassHB\Vimeo;
+
+class VimeoVideo implements VideoProvider
+{
+    private $client;
+    private $clientId;
+    private $clientSecret;
+    private $token;
+
+    public function __construct()
+    {
+        $this->cliendId = env('VIMEO_CLIENT_ID');
+        $this->clientSecret = env('VIMEO_CLIENT_SECRET');
+        $this->token = env('VIMEO_TOKEN');
+
+        $vimeoClient = new \Vimeo\Vimeo($this->clientID, $this->clientSecret, $this->token);
+        $this->client = new \GuzzleHttp\Client();
+    }
+
+    /**
+     * Get oembed iframe.
+     *
+     * @param string $url location of video
+     *
+     * @return string
+     */
+    public function oembed($url)
+    {
+        $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$url;
+
+        try {
+            $response = $this->client->get($request);
+        } catch (Exception $e) {
+            return;
+        }
+
+        $response_body = json_decode($response->getBody());
+
+        return $response_body->html;
+    }
+
+    /**
+     * Make an oembed request and return the thumbnail.
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public function getOThumb($url)
+    {
+        $request = 'https://vimeo.com/api/oembed.json?url='.$url;
+
+        try {
+            $response = $this->client->get($request);
+        } catch (Exception $e) {
+            return;
+        }
+
+        $response_body = json_decode($response->getBody());
+
+        return $response_body->thumbnail_url;
+    }
+
+    /**
+     * Returns the largest thumbnail from a video from Vimeo
+     * to display on the homepage banner.
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public function getVideoThumb($url)
+    {
+        // Parse Vimeo video ID
+        $videoid = substr($url, strrpos($url, '/') + 1);
+
+        try {
+            $video = $this->vimeoClient->request("/videos/$videoid");
+
+            if ($video['status'] == '404' || $video['status'] == '400') {
+                return;
+            }
+        } catch (Exception $e) {
+            return;
+        }
+
+        // Get the video thumbnail
+        if (isset(end($video['body']['pictures']['sizes'])['link'])) {
+            return end($video['body']['pictures']['sizes'])['link'];
+        }
+
+        return;
+    }
+}
