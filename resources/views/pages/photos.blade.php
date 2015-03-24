@@ -6,6 +6,8 @@
 <div class="container">
 
     <h1 class="tk-seravek-web">Photos</h1>
+    <p>View more photos at <a href="http://photos.compasshb.com/">http://photos.compasshb.com/</a></p>
+
 
     <div class="row">
         @foreach ($photos as $photo)

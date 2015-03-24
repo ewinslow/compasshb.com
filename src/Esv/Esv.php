@@ -1,9 +1,4 @@
-<?php namespace CompassHB\Www\Esv;
-
-interface ScriptureProvider
-{
-    public function getScripture($passage);
-}
+<?php namespace CompassHB\Esv;
 
 class Esv implements ScriptureProvider
 {
@@ -13,7 +8,7 @@ class Esv implements ScriptureProvider
 
     public function __construct()
     {
-        $this->apikey = getenv('ESV_API');
+        $this->apikey = env('ESV_API');
     }
 
     public function getScripture($passage)

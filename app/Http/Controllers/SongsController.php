@@ -2,6 +2,7 @@
 
 use Auth;
 use CompassHB\Www\Song;
+use CompassHB\Pco\Setlist;
 use CompassHB\Www\Http\Requests\SongRequest;
 
 class SongsController extends Controller
@@ -27,7 +28,8 @@ class SongsController extends Controller
             $song->thumbnail = get_othumb($song->video);
         }
 
-        $setlist = last_weeks_set_list();
+        $setlist = new Setlist();
+        $setlist = $setlist->getSetList();
 
         return view('songs.index', compact(
             'songs', 'setlist'

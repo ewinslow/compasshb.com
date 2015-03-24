@@ -3,30 +3,25 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
-interface SongsProvider
-{
-    public function getSetList();
-}
-
 /**
  * Service for Planning Center API.
  *
  * @todo : exception handling
  */
-class Setlist implements SongsProvider
+class Setlist implements ServiceProvider
 {
     private $url = 'https://services.planningcenteronline.com/';
-    private $consumer_key;
-    private $consumer_secret;
+    private $consumerKey;
+    private $consumerSecret;
     private $token;
-    private $token_secret;
+    private $tokenSecret;
 
     public function __construct()
     {
         $this->token = env('PLANNINGCENTER_TOKEN_KEY');
-        $this->token_secret = env('PLANNINGCENTER_TOKEN_SECRET');
-        $this->consumer_key = env('PLANNINGCENTER_CONSUMER_KEY');
-        $this->consumer_secret = env('PLANNINGCENTER_CONSUMER_SECRET');
+        $this->tokenSecret = env('PLANNINGCENTER_TOKEN_SECRET');
+        $this->consumerKey = env('PLANNINGCENTER_CONSUMER_KEY');
+        $this->consumerSecret = env('PLANNINGCENTER_CONSUMER_SECRET');
     }
 
     /**
@@ -36,18 +31,18 @@ class Setlist implements SongsProvider
      */
     public function getSetList()
     {
-        $planid = '';
-        $plandate = '';
+        $planId = '';
+        $planDate = '';
         $client = new Client([
             'base_url' => $this->url,
             'defaults' => ['auth' => 'oauth'],
         ]);
 
         $oauth = new Oauth1([
-            'consumer_key'    => $this->consumer_key,
-            'consumer_secret' => $this->consumer_secret,
+            'consumer_key'    => $this->consumerKey,
+            'consumer_secret' => $this->consumerSecret,
             'token'           => $this->token,
-            'token_secret'    => $this->token_secret,
+            'token_secret'    => $this->tokenSecret,
         ]);
 
         $client->getEmitter()->attach($oauth);
@@ -64,17 +59,17 @@ class Setlist implements SongsProvider
 
         // Get Plan ID for most recent service
         foreach (array_reverse($plans) as $plan) {
-            $plandate = \Carbon\Carbon::parse($plan->dates);
+            $planDate = \Carbon\Carbon::parse($plan->dates);
             $now = \Carbon\Carbon::now();
 
-            if ($plandate->lt($now)) {
-                $planid = $plan->id;
+            if ($planDate->lt($now)) {
+                $planId = $plan->id;
                 break;
             }
         }
 
         // Get specific items from last weekend service
-        $res = $client->get('plans/'.$planid.'.json');
+        $res = $client->get('plans/'.$planId.'.json');
         $res =  json_decode($res->getBody());
         $items = $res->items;
         $setlist = [];
@@ -85,7 +80,7 @@ class Setlist implements SongsProvider
                 $tmp = [];
                 $tmp['title'] = $item->song->title;
                 $tmp['author'] = $item->song->author;
-                $tmp['date'] = $plandate;
+                $tmp['date'] = $planDate;
 
                 // Add remote link to song if exists
                 foreach ($item->attachments as $attachment) {
