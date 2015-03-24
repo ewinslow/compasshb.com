@@ -3,6 +3,7 @@
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Fellowship;
 use CompassHB\Www\Handlers\Events\LogUserLastLogin;
@@ -49,6 +50,10 @@ class EventServiceProvider extends ServiceProvider
 
         Sermon::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Sermon(), $object->title);
+        });
+
+        Series::creating(function ($object) {
+            $object->slug = makeSlugFromTitle(new Series(), $object->title);
         });
 
         Song::creating(function ($object) {

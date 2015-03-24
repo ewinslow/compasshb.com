@@ -11,6 +11,7 @@
       <li><a href="{{ route('admin.slides') }}">Homepage Slides</a></li>
       <li><a href="{{ route('admin.read') }}">Scripture of the Day</a></li>
       <li><a href="{{ route('admin.sermons') }}">Sermons</a></li>
+      <li><a href="{{ route('admin.series') }}">Sermon Series</a></li>
       <li><a href="{{ route('admin.blog') }}">Blogs</a></li>
       <li><a href="{{ route('admin.fellowship') }}">Home Fellowship Groups</a></li>
       <li><a href="{{ route('admin.songs') }}">Worship Songs</a></li>

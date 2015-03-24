@@ -5,6 +5,7 @@ use CompassHB\Www\Song;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Fellowship;
 use Illuminate\Database\Seeder;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call('PassageTableSeeder');
         $this->call('FellowshipTableSeeder');
         $this->call('SermonTableSeeder');
+        $this->call('SeriesTableSeeder');
         $this->call('BlogTableSeeder');
         $this->call('SlideTableSeeder');
     }
@@ -154,6 +156,22 @@ class SermonTableSeeder extends Seeder
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+    }
+}
+
+class SeriesTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('series')->delete();
+
+        Series::create([
+            'user_id' => 1,
+            'title' => '3 Most Important Words',
+            'body' => 'Details go here',
+            'image' => 'http://www.example.com/#',
+            'slug' => '3-most-important-words',
+        ]);
     }
 }
 

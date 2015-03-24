@@ -26,6 +26,11 @@ Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
 
 /*
+ * Route for sermon series
+ */
+Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
+
+/*
  * Route for blogs
  */
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
@@ -176,6 +181,12 @@ Route::group(['prefix' => 'admin'], function () {
         'as' => 'admin.slides',
         'uses' => 'HomeController@slides',
     ]);
+
+    Route::get('series',  [
+        'as' => 'admin.series',
+        'uses' => 'HomeController@series',
+    ]);
+
 });
 
 /*

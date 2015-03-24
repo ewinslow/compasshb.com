@@ -6,13 +6,13 @@ use CompassHB\Www\Http\Requests\BlogRequest;
 
 class BlogsController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   */
-  public function __construct()
-  {
-      $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-  }
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
+    }
 
     /**
      * Show all blogs.

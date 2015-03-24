@@ -71,6 +71,13 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         /*
+         * A sermon series is at /series/{slug}
+         */
+        $router->bind('series', function ($slug) {
+            return \CompassHB\Www\Series::where('slug', $slug)->firstOrFail();
+        });
+
+        /*
          * A blog is at /blog/{slug}
          */
         $router->bind('blog', function ($slug) {
@@ -84,7 +91,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         /*
-         * A slides is at /slides/{id}
+         * A slide is at /slides/{id}
          */
         $router->bind('slides', function ($id) {
             return \CompassHB\Www\Slide::published()->findOrFail($id);
