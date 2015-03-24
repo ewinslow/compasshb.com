@@ -82,6 +82,13 @@ class RouteServiceProvider extends ServiceProvider
 
             return \CompassHB\Www\Blog::where('slug', $slug)->published()->firstOrFail();
         });
+
+        /*
+         * A slides is at /slides/{id}
+         */
+        $router->bind('slides', function ($id) {
+            return \CompassHB\Www\Slide::published()->findOrFail($id);
+        });
     }
 
     /**
