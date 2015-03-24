@@ -2,7 +2,9 @@
 
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
+use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Fellowship;
 
@@ -75,5 +77,21 @@ class HomeController extends Controller
 
         return view('admin.fellowship', compact('fellowships'))
             ->with('title', 'Admin - Home Fellowship Groups');
+    }
+
+    public function slides()
+    {
+        $slides = Slide::latest('published_at')->paginate(15);
+
+        return view('admin.slides', compact('slides'))
+            ->with('title', 'Admin - Slides');
+    }
+
+    public function series()
+    {
+        $series = Series::paginate(15);
+
+        return view('admin.series', compact('series'))
+            ->with('title', 'Admin - Series');
     }
 }

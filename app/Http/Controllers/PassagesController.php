@@ -2,6 +2,7 @@
 
 use Auth;
 use Redirect;
+use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
 use CompassHB\Google\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
@@ -24,7 +25,7 @@ class PassagesController extends Controller
      */
     public function index()
     {
-        $esv = new \CompassHB\Www\Esv\Esv();
+        $esv = new Esv();
 
         $passages = Passage::latest('published_at')->published()->take(5)->get();
         $passage = $passages->first();
@@ -55,7 +56,7 @@ class PassagesController extends Controller
     {
         $passages = Passage::latest('published_at')->published()->take(5)->get();
 
-        $esv = new \CompassHB\Www\Esv\Esv();
+        $esv = new Esv();
 
         $passage->verses = $esv->getScripture($passage->title);
 

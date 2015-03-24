@@ -80,4 +80,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('CompassHB\Www\Blog');
     }
+
+    /**
+     * A user can have many slides.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function slides()
+    {
+        return $this->hasMany('CompassHB\Www\Slide');
+    }
+
+    /**
+     * A user can have many series.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function series()
+    {
+        return $this->hasMany('CompassHB\Www\Series');
+    }
 }

@@ -6,14 +6,14 @@
   <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
         <div class="owl-carousel">
             <div>
-                <a class="clickable latestsermon" href="/bunnyrun" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb('https://vimeo.com/122930830') }});">
+                <a class="clickable latestsermon" href="/bunnyrun" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.vimeocdn.com/video/512070046_1280x720.jpg');">
                 <p><br/><br/>Special Announcement</p>
                 <h1 class="tk-seravek-web">The Bunny Run 5K</h1>
                 <p>Sign Up Here</p>
                 </a>
             </div>
            <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ getvideothumb($prevsermon->video) }});">
+                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
                 <p><i class="glyphicon glyphicon-play-circle"></i></p>
@@ -40,13 +40,13 @@ $(document).ready(function(){
 <div class="row drawer">
   <div class="col-md-1"></div>
 
-  @foreach($blogs->reverse() as $blog)
+  @foreach($slides->reverse() as $slide)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="{{ route('blog.show', $blog->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $blog->thumbnail }});">
-      <h4 class="tk-seravek-web">{{ $blog->title }}</h4>
+    <a class="clickable featuredblog" href="{{ $slide->url }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $slide->image }});">
+      <h4 class="tk-seravek-web">{{ $slide->title }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a>
+      <a class="clickable" style="color: #fff" href="{{ $slide->url }}">{{ $slide->title }}</a>
     </h4>
   </div>
   @endforeach
