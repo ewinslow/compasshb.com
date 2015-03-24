@@ -1,50 +1,69 @@
 <?php
 
-/*
- * Songs
+/**
+ * Route for songs.
  */
 Route::resource('songs', 'SongsController', ['except' => ['destroy']]);
 
 /*
- * Passages
+ * Route for passages
  */
 Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 
 /*
- * Fellowships
+ * Route for slides
+ */
+Route::resource('slides', 'SlidesConstroller', ['except' => ['destroy', 'show', 'index']]);
+
+/*
+ * Route for fellowships
  */
 Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
 
 /*
- * Sermons
+ * Route for sermons
  */
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
 
 /*
- * Blogs
+ * Route for blogs
  */
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
 
 /*
- * Home Page
+ * Route for videos
+ */
+Route::get('videos', [
+    'as' => 'videos',
+    'uses' => 'PagesController@videos',
+]);
+
+/*
+ * Route for homepage
  */
 Route::get('/', [
     'as' => 'home',
     'uses' => 'PagesController@home',
 ]);
 
+/*
+ * Route for photos
+ */
 Route::get('photos', [
     'as' => 'photos',
     'uses' => 'PagesController@photos',
 ]);
 
+/*
+ * Route for pray
+ */
 Route::get('pray', [
     'as' => 'pray',
     'uses' => 'PagesController@pray',
 ]);
 
 /*
- * Feeds
+ * Routes for feeds
  */
 Route::group(['prefix' => 'feeds'], function () {
     Route::get('sermons.json', 'FeedsController@sermons');
@@ -52,16 +71,15 @@ Route::group(['prefix' => 'feeds'], function () {
 });
 
 /*
- * APIs
+ * Routes for APIs
  */
 Route::group(['prefix' => 'api/1.0'], function () {
     Route::get('getsermonlist.json', 'FeedsController@getsermonlist');
 });
 
 /*
- * Routes without controllers
+ * Routes for static pages
  */
-
 Route::get('who-we-are', [
     'as' => 'who-we-are',
     'uses' => 'PagesController@whoweare',
@@ -113,18 +131,10 @@ Route::get('sundayschool', [
 ]);
 
 /*
- * Landing Pages
+ * Routes for landing pages
  */
 Route::get('bunnyrun', ['as' => 'bunnyrun',
     'uses' => 'PagesController@bunnyrun',
-]);
-
-/*
- * Archives
- */
-Route::get('videos', [
-    'as' => 'videos',
-    'uses' => 'PagesController@videos',
 ]);
 
 /*

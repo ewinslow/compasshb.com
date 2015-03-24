@@ -3,6 +3,7 @@
 use CompassHB\Www\User;
 use CompassHB\Www\Song;
 use CompassHB\Www\Blog;
+use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Fellowship;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call('FellowshipTableSeeder');
         $this->call('SermonTableSeeder');
         $this->call('BlogTableSeeder');
+        $this->call('SlideTableSeeder');
     }
 }
 
@@ -175,6 +177,25 @@ class BlogTableSeeder extends Seeder
             'title' => 'Another blog',
             'body' => 'This is a test blog.',
             'published_at' => '2015-03-15 00:00:00',
+        ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+    }
+}
+
+class SlideTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('slides')->delete();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
+        Slide::create([
+            'user_id' => 1,
+            'url' => '/link-one',
+            'image' => '/image-one',
+            'published_at' => '2015-03-17 00:00:00',
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');

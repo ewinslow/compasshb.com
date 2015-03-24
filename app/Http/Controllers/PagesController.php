@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use CompassHB\Smugmug;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
@@ -16,12 +17,11 @@ class PagesController extends Controller
     }
 
     // stub for downloading podcasts
-    public function podcast($year, $date, $slug, $video_id)
+    // @todo: write and move into /src folder
+    public function podcast($videoId)
     {
-        $post = $this->posts->getSingle($year, $date, $slug);
-
-        $video_url = $post[0]->meta->video_oembed;
-
+        return $videoId;
+        /*
         $video_id = substr($video_url, strrpos($video_url, '/') + 1);
 
         $vimeo = new \Vimeo\Vimeo(
@@ -37,6 +37,7 @@ class PagesController extends Controller
         $video = $video['link'];
 
         return redirect($video);
+        */
     }
 
     /**
@@ -52,8 +53,6 @@ class PagesController extends Controller
         $videos = Blog::whereNotNull('video')->latest('published_at')->published()->take(2)->get();
         $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
 
-        $client = new \GuzzleHttp\Client();
-
         foreach ($sermons as $sermon) {
             $sermon->othumbnail = get_othumb($sermon->video);
         }
@@ -67,28 +66,8 @@ class PagesController extends Controller
         $instagrams = file_get_contents($url);
         $instagrams = json_decode($instagrams, true);
 
-        // Smugmug
-        $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
-        $num = 4;
-
-        $rawFeed = file_get_contents($feedUrl);
-        $xml = new \SimpleXmlElement($rawFeed);
-        $results = array();
-
-        for ($i = 0; $i < $num; $i++) {
-            // Parse Image Link
-            $link = $xml->channel->item->link;
-            $link = substr($link->asXML(), 6, -7);
-
-            // Parse Image Source
-            $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
-            $media = $xml->channel->item[$i]->children($namespaces['media']);
-            $image = $media->group->content[3]->attributes();
-            $image = $image['url']->asXML();
-            $image = substr($image, 6, -1);
-
-            $results[] = array($link, $image);
-        }
+        $results = new Smugmug\Smugmug();
+        $results = $results->getPhotos(4);
 
         return view('app', compact(
             'sermons',
@@ -109,28 +88,8 @@ class PagesController extends Controller
      */
     public function photos()
     {
-        // Smugmug
-        $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
-        $num = 40;
-
-        $rawFeed = file_get_contents($feedUrl);
-        $xml = new \SimpleXmlElement($rawFeed);
-        $results = array();
-
-        for ($i = 0; $i < $num; $i++) {
-            // Parse Image Link
-          $link = $xml->channel->item->link;
-            $link = substr($link->asXML(), 6, -7);
-
-          // Parse Image Source
-          $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
-            $media = $xml->channel->item[$i]->children($namespaces['media']);
-            $image = $media->group->content[3]->attributes();
-            $image = $image['url']->asXML();
-            $image = substr($image, 6, -1);
-
-            $results[] = array($link, $image);
-        }
+        $results = new Smugmug\Smugmug();
+        $results = $results->getRecentPhotos();
 
         return view('pages.photos')
             ->with('title', 'Photography')
