@@ -37,7 +37,7 @@
     </div>
 
         <div class="col-xs-12 col-md-6">
-    <iframe src="https://player.vimeo.com/video/122325194" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/122930830" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <br/><br/><br/>
 
     </div>
@@ -46,12 +46,17 @@
 
 <div class="row text-center">
     <div class="col-xs-12 col-md-6">
-        <h1>Register to Run</h1>
-        <p><br/><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=888" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Register to Run</a></p>
+                    <img src="https://s3-us-west-1.amazonaws.com/compasshb-images/BunnyRunMap.jpg" style="width: 100%"/>
+
     </div>
     <div class="col-xs-12 col-md-6">
-        <h1>Volunteer</h1>
+        <h1>Register to Run</h1>
+        <p><br/><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=888" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Register to Run</a></p>
+
+                <h1>Volunteer</h1>
         <p><br/><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=889" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Volunteer to Help</a></p>
+
+
     </div>
 </div>
 
