@@ -49,12 +49,12 @@ class Setlist implements ServiceProvider
 
         // Get Service ID for Weekend Service
         $res = $client->get('organization.json');
-        $res =  json_decode($res->getBody());
+        $res = json_decode($res->getBody());
         $service = $res->service_types[1]->id;
 
         // Get Plans for all services
         $res = $client->get('service_types/'.$service.' /plans.json?all=true');
-        $res =  json_decode($res->getBody());
+        $res = json_decode($res->getBody());
         $plans = $res;
 
         // Get Plan ID for most recent service
@@ -70,7 +70,7 @@ class Setlist implements ServiceProvider
 
         // Get specific items from last weekend service
         $res = $client->get('plans/'.$planId.'.json');
-        $res =  json_decode($res->getBody());
+        $res = json_decode($res->getBody());
         $items = $res->items;
         $setlist = [];
 

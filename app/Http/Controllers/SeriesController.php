@@ -13,7 +13,7 @@ class SeriesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class SeriesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -36,7 +36,7 @@ class SeriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SeriesRequest $request)
     {
@@ -52,9 +52,8 @@ class SeriesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function show(Series $series)
     {
@@ -65,9 +64,8 @@ class SeriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Series $series)
     {
@@ -77,9 +75,8 @@ class SeriesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Series $series, SeriesRequest $request)
     {

@@ -4,17 +4,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sermon extends Model
 {
-  protected $fillable = [
-      'title',
-      'body',
-      'worksheet',
-      'file',
-      'teacher',
-      'text',
-      'video',
-      'series',
-      'sku',
-      'published_at',
+    protected $fillable = [
+        'title',
+        'body',
+        'worksheet',
+        'file',
+        'teacher',
+        'text',
+        'video',
+        'series',
+        'sku',
+        'published_at',
     ];
 
     protected $dates = ['published_at'];

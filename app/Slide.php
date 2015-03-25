@@ -4,12 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slide extends Model
 {
-      protected $fillable = [
-      'title',
-      'url',
-      'image',
-      'published_at',
-      'expired_at',
+        protected $fillable = [
+        'title',
+        'url',
+        'image',
+        'published_at',
+        'expired_at',
     ];
 
     protected $dates = ['published_at', 'expired_at'];

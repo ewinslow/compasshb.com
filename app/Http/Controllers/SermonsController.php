@@ -23,7 +23,7 @@ class SermonsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -35,7 +35,7 @@ class SermonsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -48,7 +48,7 @@ class SermonsController extends Controller
      * @param Cloud
      * @param SermonRequest
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SermonRequest $request, AwsUploader $client)
     {
@@ -70,9 +70,8 @@ class SermonsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function show(Sermon $sermon)
     {
@@ -85,9 +84,8 @@ class SermonsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Sermon $sermon)
     {
@@ -97,9 +95,8 @@ class SermonsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Sermon $sermon, SermonRequest $request, AwsUploader $client)
     {

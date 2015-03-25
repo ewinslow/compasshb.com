@@ -10,18 +10,18 @@ use Illuminate\Http\Request;
 
 class PassagesController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   */
-  public function __construct()
-  {
-      $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-  }
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
+    }
 
     /**
      * Show all passages.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -50,7 +50,7 @@ class PassagesController extends Controller
      *
      * @param Passage $passage
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function show(Passage $passage)
     {
@@ -75,7 +75,7 @@ class PassagesController extends Controller
      *
      * @param Passage $passage
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Passage $passage)
     {
@@ -88,7 +88,7 @@ class PassagesController extends Controller
      * @param Passage        $passage
      * @param PassageRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Passage $passage, PassageRequest $request)
     {
@@ -102,7 +102,7 @@ class PassagesController extends Controller
     /**
      * Show the page to create a new passage.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -114,7 +114,7 @@ class PassagesController extends Controller
      *
      * @param PassageRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(PassageRequest $request)
     {

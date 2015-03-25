@@ -26,6 +26,11 @@ class Analytics implements AnalyticsProvider
         $this->service = new \Google_Service_Analytics($this->client);
     }
 
+    /**
+     * @param string $path
+     * @param string $startDate
+     * @param string $endDate
+     */
     public function getPageViews($path, $startDate, $endDate)
     {
         $optParams = array(

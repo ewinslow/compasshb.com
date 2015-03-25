@@ -70,7 +70,7 @@ Route::get('pray', [
 /*
  * Routes for feeds
  */
-Route::group(['prefix' => 'feeds'], function () {
+Route::group(['prefix' => 'feeds'], function() {
     Route::get('sermons.json', 'FeedsController@sermons');
     Route::get('songs.xml', 'FeedsController@songs');
 });
@@ -78,7 +78,7 @@ Route::group(['prefix' => 'feeds'], function () {
 /*
  * Routes for APIs
  */
-Route::group(['prefix' => 'api/1.0'], function () {
+Route::group(['prefix' => 'api/1.0'], function() {
     Route::get('getsermonlist.json', 'FeedsController@getsermonlist');
 });
 
@@ -145,44 +145,44 @@ Route::get('bunnyrun', ['as' => 'bunnyrun',
 /*
  * Administration Pages
  */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin'], function() {
 
     Route::get('/', [
     'as' => 'admin',
     'uses' => 'HomeController@index',
     ]);
 
-    Route::get('songs',  [
+    Route::get('songs', [
         'as' => 'admin.songs',
         'uses' => 'HomeController@songs',
     ]);
 
-    Route::get('blog',  [
+    Route::get('blog', [
         'as' => 'admin.blog',
         'uses' => 'HomeController@blog',
     ]);
 
-    Route::get('sermons',  [
+    Route::get('sermons', [
         'as' => 'admin.sermons',
         'uses' => 'HomeController@sermons',
     ]);
 
-    Route::get('read',  [
+    Route::get('read', [
         'as' => 'admin.read',
         'uses' => 'HomeController@read',
     ]);
 
-    Route::get('fellowship',  [
+    Route::get('fellowship', [
         'as' => 'admin.fellowship',
         'uses' => 'HomeController@fellowship',
     ]);
 
-    Route::get('slides',  [
+    Route::get('slides', [
         'as' => 'admin.slides',
         'uses' => 'HomeController@slides',
     ]);
 
-    Route::get('series',  [
+    Route::get('series', [
         'as' => 'admin.series',
         'uses' => 'HomeController@series',
     ]);

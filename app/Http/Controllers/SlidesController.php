@@ -17,7 +17,7 @@ class SlidesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -27,7 +27,7 @@ class SlidesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SlideRequest $request)
     {
@@ -43,9 +43,8 @@ class SlidesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Slide $slide)
     {
@@ -55,9 +54,8 @@ class SlidesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Slide $slide, SlideRequest $request)
     {

@@ -22,7 +22,7 @@ class FellowshipsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -41,7 +41,7 @@ class FellowshipsController extends Controller
      *
      * @param Fellowship $fellowship
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Fellowship $fellowship)
     {
@@ -54,7 +54,7 @@ class FellowshipsController extends Controller
      * @param Fellowship        $fellowship
      * @param FellowshipRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Fellowship $fellowship, FellowshipRequest $request)
     {
@@ -68,7 +68,7 @@ class FellowshipsController extends Controller
     /**
      * Show the page to create a new fellowship.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -80,7 +80,7 @@ class FellowshipsController extends Controller
      *
      * @param FellowshipRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(FellowshipRequest $request)
     {
