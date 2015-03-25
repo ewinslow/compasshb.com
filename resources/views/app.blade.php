@@ -120,7 +120,7 @@ $(document).ready(function(){
 <!-- Recent Videos -->
 <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2 class="tk-seravek-web"><a href="{{ route('videos') }}">Videos</a></h2>
+        <h2 class="tk-seravek-web"><a href="{{ route('blog.index') }}">Videos</a></h2>
 
         @foreach($videos as $video)
         <div class="col-sm-6 col-md-6">
