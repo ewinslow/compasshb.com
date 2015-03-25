@@ -1,6 +1,8 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use Response;
 use CompassHB\Www\Song;
+use CompassHB\Www\Sermon;
 
 class FeedsController extends Controller
 {
@@ -12,11 +14,18 @@ class FeedsController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * Feed to podcasting and RSS.
+     *
+     * @return \Illuminate\View\View
+     */
     public function sermons()
     {
-        $sermons = '';
+        $data['sermons'] = Sermon::orderBy('published_at', 'desc')->limit(300)->get();
 
-        return view('feeds.sermons', compact('sermons'));
+        return Response::view('feeds.rss', $data, 200, [
+            'Content-Type' => 'application/atom+xml; charset=UTF-8',
+        ]);
     }
 
     /**

@@ -70,7 +70,8 @@ Route::get('pray', [
 /*
  * Routes for feeds
  */
-Route::group(['prefix' => 'feeds'], function() {
+Route::group(['prefix' => 'feed'], function () {
+    Route::get('sermons', 'FeedsController@sermons');
     Route::get('sermons.json', 'FeedsController@sermons');
     Route::get('songs.xml', 'FeedsController@songs');
 });
@@ -78,7 +79,7 @@ Route::group(['prefix' => 'feeds'], function() {
 /*
  * Routes for APIs
  */
-Route::group(['prefix' => 'api/1.0'], function() {
+Route::group(['prefix' => 'api/1.0'], function () {
     Route::get('getsermonlist.json', 'FeedsController@getsermonlist');
 });
 
@@ -145,7 +146,7 @@ Route::get('bunnyrun', ['as' => 'bunnyrun',
 /*
  * Administration Pages
  */
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', [
     'as' => 'admin',
