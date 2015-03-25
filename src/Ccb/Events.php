@@ -21,11 +21,11 @@ class Events
      *
      * @return ...
      */
-    public function addIndividualToEvent($id, $event_id, $status)
+    public function addIndividualToEvent($id, $eventId, $status)
     {
         return $this->client->srv('add_individual_to_event', [
             'id' => $id,
-            'event_id' => $event_id,
+            'eventId' => $eventId,
             'status' => $status,
         ], 'POST');
     }
@@ -47,18 +47,18 @@ class Events
     /**
      * Create a new event in the Church Community Builder system.
      *
-     * @param int      $group_id
-     * @param DateTime $start_date
-     * @param DateTime $end_date
+     * @param int      $groupId
+     * @param DateTime $startDate
+     * @param DateTime $endDate
      * @param array    $options
      *
      * @return ... The profile of the event that was created.
      */
-    public function createEvent($group_id, DateTime $start_date, DateTime $end_date, $name, array $options = [])
+    public function createEvent($groupId, DateTime $startDate, DateTime $endDate, $name, array $options = [])
     {
-        $options['group_id'] = $group_id;
-        $options['start_date'] = $start_date; // TODO(evan): Convert date to string
-        $options['end_date'] = $end_date; // TODO(evan): Convert date to string
+        $options['groupId'] = $groupId;
+        $options['startDate'] = $startDate; // TODO(evan): Convert date to string
+        $options['endDate'] = $endDate; // TODO(evan): Convert date to string
         $options['name'] = $name;
 
         return $this->client->srv('create_event', $options, 'POST');
@@ -83,14 +83,14 @@ class Events
      *
      * If a date is not provided, all events in the system will be returned.
      *
-     * @param DateTime $modified_since
+     * @param DateTime $modifiedSince
      *
      * @return ...
      */
-    public function eventProfiles(DateTime $modified_since = null)
+    public function eventProfiles(DateTime $modifiedSince = null)
     {
         return $this->client->srv('event_profiles', [
-            'modified_since' => $modified_since,
+            'modified_since' => $modifiedSince,
         ]);
     }
 }

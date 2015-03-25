@@ -48,8 +48,8 @@ class Analytics implements AnalyticsProvider
                 'ga:users,ga:avgSessionDuration',
                 $optParams
             );
-        } catch (apiServiceException $e) {
-            $error = $e->getMessage();
+        } catch (Google_Service_Exception $e) {
+            return;
         }
 
         return array(
@@ -67,8 +67,8 @@ class Analytics implements AnalyticsProvider
                 'ga:89284462',
                 'rt:activeUsers',
                 $optParams);
-        } catch (apiServieException $e) {
-            $error = $e->getMessage();
+        } catch (Google_Service_Exception $e) {
+            return;
         }
 
         return $results->totalsForAllResults['rt:activeUsers'];

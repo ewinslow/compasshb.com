@@ -5,7 +5,6 @@ use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
-use Illuminate\Http\Request;
 use CompassHB\Vimeo\VimeoVideo;
 
 class PagesController extends Controller
@@ -26,23 +25,6 @@ class PagesController extends Controller
     public function podcast($videoId)
     {
         return $videoId;
-        /*
-        $video_id = substr($video_url, strrpos($video_url, '/') + 1);
-
-        $vimeo = new \Vimeo\Vimeo(
-            env('VIMEO_CLIENT_ID'),
-            env('VIMEO_CLIENT_SECRET'),
-            env('VIMEO_TOKEN')
-        );
-
-        $video = $vimeo->request("/videos/$video_id");
-        $video = $video['body'];
-        $video = $video['download'];
-        $video = $video[1];
-        $video = $video['link'];
-
-        return redirect($video);
-        */
     }
 
     /**

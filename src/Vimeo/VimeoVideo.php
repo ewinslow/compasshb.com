@@ -31,7 +31,7 @@ class VimeoVideo implements VideoProvider
 
         try {
             $response = $this->client->get($request);
-        } catch (Exception $e) {
+        } catch (VimeoUploadException $e) {
             return;
         }
 
@@ -53,7 +53,7 @@ class VimeoVideo implements VideoProvider
 
         try {
             $response = $this->client->get($request);
-        } catch (Exception $e) {
+        } catch (VimeoUploadException $e) {
             return;
         }
 
@@ -81,7 +81,7 @@ class VimeoVideo implements VideoProvider
             if ($video['status'] == '404' || $video['status'] == '400') {
                 return;
             }
-        } catch (Exception $e) {
+        } catch (VimeoUploadException $e) {
             return;
         }
 

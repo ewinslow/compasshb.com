@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
  *
  * @return string
  */
-function set_active($path, $active = 'active')
+function setActive($path, $active = 'active')
 {
     return Request::is($path.'*') ? $active : '';
 }
