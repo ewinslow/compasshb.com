@@ -25,11 +25,11 @@ class Smugmug implements PhotosProvider
 
         for ($i = 0; $i < $num; $i++) {
             // Parse Image Link
-              $link = $xml->channel->item->link;
+                $link = $xml->channel->item->link;
             $link = substr($link->asXML(), 6, -7);
 
-              // Parse Image Source
-              $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
+                // Parse Image Source
+                $namespaces = $xml->channel->item[$i]->getNameSpaces(true);
             $media = $xml->channel->item[$i]->children($namespaces['media']);
             $image = $media->group->content[3]->attributes();
             $image = $image['url']->asXML();

@@ -17,7 +17,7 @@ class BlogsController extends Controller
     /**
      * Show all blogs.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -32,7 +32,7 @@ class BlogsController extends Controller
      *
      * @param Blog $blog
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function show(Blog $blog)
     {
@@ -45,7 +45,7 @@ class BlogsController extends Controller
      *
      * @param Blog $blog
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Blog $blog)
     {
@@ -72,7 +72,7 @@ class BlogsController extends Controller
     /**
      * Show the page to create a new blog.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {

@@ -4,13 +4,13 @@ use CompassHB\Www\Song;
 
 class FeedsController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   */
-  public function __construct()
-  {
-      $this->middleware('guest');
-  }
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
     public function sermons()
     {

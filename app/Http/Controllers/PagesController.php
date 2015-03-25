@@ -86,14 +86,14 @@ class PagesController extends Controller
             'videos',
             'passage'
         ))->with('images', $results)
-          ->with('instagrams', $instagrams['data'])
-          ->with('title', 'Compass HB - Huntington Beach');
+            ->with('instagrams', $instagrams['data'])
+            ->with('title', 'Compass HB - Huntington Beach');
     }
 
     /**
      * Populate the Photos page from Smugmug.
      *
-     * @return type
+     * @return \Illuminate\View\View
      */
     public function photos()
     {

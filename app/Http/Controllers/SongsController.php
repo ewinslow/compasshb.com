@@ -22,7 +22,7 @@ class SongsController extends Controller
     /**
      * Show all songs.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -45,7 +45,7 @@ class SongsController extends Controller
      *
      * @param Song $song
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function show(Song $song)
     {
@@ -60,7 +60,7 @@ class SongsController extends Controller
      *
      * @param Song $song
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Song $song)
     {
@@ -73,7 +73,7 @@ class SongsController extends Controller
      * @param Song        $song
      * @param SongRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Song $song, SongRequest $request)
     {
@@ -87,7 +87,7 @@ class SongsController extends Controller
     /**
      * Show the page to create a new song.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -99,7 +99,7 @@ class SongsController extends Controller
      *
      * @param SongRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SongRequest $request)
     {
