@@ -3,7 +3,8 @@
 @section('content')
 
 	<h1 class="tk-seravek-web">{{ $blog->title }}</h1>
-  {!! $blog->body !!}
+	<p>{!! $blog->iframe !!}</p>
+  <p>{!! $blog->body !!}</p>
 
 @endsection
 
