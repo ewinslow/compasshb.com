@@ -3,15 +3,19 @@
 use Response;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
+use CompassHB\Vimeo\VimeoVideo;
 
 class FeedsController extends Controller
 {
+    private $videoClient;
+
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('guest');
+        $this->videoClient = new VimeoVideo();
     }
 
     /**
@@ -39,9 +43,22 @@ class FeedsController extends Controller
         return view('feeds.songs', compact('songs'));
     }
 
-    public function getsermonlist()
+    /**
+     * Feed to mobile app.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function json()
     {
-        $sermons = ''; //todo
-        return view('feeds.sermons', compact('sermons'));
+        $data['sermons'] = Sermon::orderBy('published_at', 'desc')->limit(300)->get();
+
+        // Retrieve coverart
+        foreach ($data['sermons'] as $sermon) {
+            $sermon->othumbnail = $this->videoClient->getOThumb($sermon->video);
+        }
+
+        return Response::view('feeds.json', $data, 200, [
+            'Content-Type' => 'application/json; charset=UTF-8',
+        ]);
     }
 }

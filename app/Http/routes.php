@@ -73,7 +73,7 @@ Route::get('pray', [
  */
 Route::group(['prefix' => 'feed'], function () {
     Route::get('sermons', 'FeedsController@sermons');
-    Route::get('sermons.json', 'FeedsController@sermons');
+    Route::get('sermons.json', 'FeedsController@json');
     Route::get('songs.xml', 'FeedsController@songs');
 });
 
