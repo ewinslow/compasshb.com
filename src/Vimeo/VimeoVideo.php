@@ -49,6 +49,10 @@ class VimeoVideo implements VideoProvider
      */
     public function getOThumb($url)
     {
+        if ($url == '') {
+            return;
+        }
+
         $request = 'https://vimeo.com/api/oembed.json?url='.$url;
 
         try {
