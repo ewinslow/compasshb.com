@@ -24,6 +24,7 @@ Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 
  * Route for sermons
  */
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
+Route::get('sermons/{sermons}/download', 'SermonsController@download');
 
 /*
  * Route for sermon series

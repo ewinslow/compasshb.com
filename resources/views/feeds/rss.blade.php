@@ -22,7 +22,7 @@
 				<link>{{ route('sermons.show', $sermon->slug) }}</link>
 				<itunes:author>{{ $sermon->byline }}</itunes:author>
 				<itunes:subtitle>{{ $sermon->byline }} {{ $sermon->text }}</itunes:subtitle>
-				<enclosure url="http://example.com/podcasts/everything/AllAboutEverythingEpisode3.m4a" length="8727310" type="audio/x-m4a" />
+				<enclosure url="http://www.compasshb.com/sermons/{{ $sermon->slug }}/download" length="" type="audio/x-mp4" />
 				<description>{{ $sermon->byline }} {{ $sermon->text }}</description>
 				<pubDate>{{ $sermon->published_at->toRfc2822String() }}</pubDate>
 				<guid>{{ route('sermons.show', $sermon->slug) }}</guid>

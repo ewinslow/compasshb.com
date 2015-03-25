@@ -92,4 +92,24 @@ class VimeoVideo implements VideoProvider
 
         return;
     }
+
+    /**
+     * Link to download Vimeo video.
+     *
+     * @param string $videoUrl
+     *
+     * @return string
+     */
+    public function getDownloadLink($videoUrl)
+    {
+        $id = substr($videoUrl, strrpos($videoUrl, '/') + 1);
+
+        $video = $this->vimeoClient->request("/videos/$id");
+        $video = $video['body'];
+        $video = $video['download'];
+        $video = $video[1];
+        $video = $video['link'];
+
+        return $video;
+    }
 }

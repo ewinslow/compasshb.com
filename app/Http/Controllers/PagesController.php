@@ -20,13 +20,6 @@ class PagesController extends Controller
         $this->videoClient = new VimeoVideo();
     }
 
-    // stub for downloading podcasts
-    // @todo: write and move into /src folder
-    public function podcast($videoId)
-    {
-        return $videoId;
-    }
-
     /**
      * Homepage.
      */

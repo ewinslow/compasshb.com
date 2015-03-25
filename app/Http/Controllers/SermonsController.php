@@ -114,4 +114,18 @@ class SermonsController extends Controller
             ->route('admin.sermons')
             ->with('message', 'Success! Your sermon was updated.');
     }
+
+    /**
+     * Redirect to sermon download link.
+     *
+     * @param Sermon
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function download(Sermon $sermon)
+    {
+        $video = $this->videoClient->getDownloadLink($sermon->video);
+
+        return redirect()->to($video);
+    }
 }
