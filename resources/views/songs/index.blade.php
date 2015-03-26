@@ -54,7 +54,7 @@
 <script src="http://jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
 <script>
     jwplayer("myElement").setup({
-        playlist: "/feeds/songs.xml",
+        playlist: "{{ route('feed.songs.xml') }}",
         width: 500,
         height: 30,
         autostart: true,

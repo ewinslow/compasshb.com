@@ -72,9 +72,9 @@ Route::get('pray', [
  * Routes for feeds
  */
 Route::group(['prefix' => 'feed'], function () {
-    Route::get('sermons', 'FeedsController@sermons');
-    Route::get('sermons.json', 'FeedsController@json');
-    Route::get('songs.xml', 'FeedsController@songs');
+    Route::get('sermons',  ['as' => 'feed.sermons', 'uses' => 'FeedsController@sermons']);
+    Route::get('sermons.json',  ['as' => 'feed.sermons.json', 'uses' => 'FeedsController@json']);
+    Route::get('songs.xml', ['as' => 'feed.songs.xml', 'uses' => 'FeedsController@songs']);
 });
 
 /*
