@@ -4,9 +4,9 @@ use Auth;
 use Redirect;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
+use Illuminate\Http\Request;
 use CompassHB\Google\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
-use Illuminate\Http\Request;
 
 class PassagesController extends Controller
 {
@@ -56,8 +56,11 @@ class PassagesController extends Controller
     {
         $passages = Passage::latest('published_at')->published()->take(5)->get();
 
-        $esv = new Esv();
+        $a = new Analytics();
+        $analytics = $a->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
+        $analytics['activeUsers'] = $a->getActiveUsers();
 
+        $esv = new Esv();
         $passage->verses = $esv->getScripture($passage->title);
 
         $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
@@ -66,7 +69,7 @@ class PassagesController extends Controller
             $postflash = '';
         }
 
-        return view('passages.show', compact('passage', 'passages', 'postflash'))
+        return view('passages.show', compact('passage', 'passages', 'postflash', 'analytics'))
             ->with('title', $passage->title);
     }
 
