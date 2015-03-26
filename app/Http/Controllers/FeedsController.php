@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use Cache;
 use Response;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
@@ -54,7 +55,11 @@ class FeedsController extends Controller
 
         // Retrieve coverart
         foreach ($data['sermons'] as $sermon) {
-            $sermon->othumbnail = $this->videoClient->getOThumb($sermon->video);
+            if (!Cache::has($sermon->video)) {
+                Cache::add($sermon->video, $this->videoClient->getOThumb($sermon->video), 1440);
+            }
+
+            $sermon->othumbnail = Cache::get($sermon->video);
         }
 
         return Response::view('feeds.json', $data, 200, [
