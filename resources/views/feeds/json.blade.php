@@ -2,7 +2,7 @@
 @foreach ($sermons as $index => $sermon)
 	{
 		"title": "{!! $sermon->title !!}",
-	  	"date": "{{ Carbon\Carbon::parse($sermon->published_at)->format('F n, Y') }}",
+	  	"date": "{{ $sermon->date }}",
 	  	"byline": "{{ $sermon->teacher }}",
 	  	"text": "{{ $sermon->text }}",
 	  	"url": "{{ $sermon->video }}",

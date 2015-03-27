@@ -60,6 +60,7 @@ class FeedsController extends Controller
             }
 
             $sermon->othumbnail = Cache::get($sermon->video);
+            $sermon->date = $sermon->published_at->format('F, n Y');
         }
 
         return Response::view('feeds.json', $data, 200, [
