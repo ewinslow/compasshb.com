@@ -3,7 +3,8 @@
 @section('content')
 
 	<h1 class="tk-seravek-web">{{ $sermon->title }}</h1>
-	<p>{!! $sermon->iframe !!}</p>
+
+  <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>{!! $sermon->text !!}</p>
   <p>
   @if ($sermon->worksheet != null)

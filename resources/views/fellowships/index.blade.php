@@ -11,7 +11,7 @@
   <div class="panel-body">
     <p>The materials on this page are to help you prepare for home fellowship group discussions.</p>
     <h3>{{ $sermon->title }}<h3>
-    {!! $sermon->iframe !!}
+    <div class="videocontainer">{!! $sermon->iframe !!}</div>
     <p><br/><a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a></p>
   </div>
 </div>

@@ -4,8 +4,8 @@
 
 	<h1 class="tk-seravek-web">{{ $blog->title }}</h1>
 	<p>{{ $blog->byline }}</p>
-	<p>{!! $blog->iframe !!}</p>
-  <p>{!! $blog->body !!}</p>
+	<div class="videocontainer">{!! $blog->iframe !!}</div>
+	<p>{!! $blog->body !!}</p>
 
 @endsection
 
