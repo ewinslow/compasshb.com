@@ -3,7 +3,7 @@
 	{
 		"title": "{!! $sermon->title !!}",
 	  	"date": "{{ date_format($sermon->published_at, 'F n, Y') }}",
-	  	"byline": "{{ $sermon->byline }}",
+	  	"byline": "{{ $sermon->teacher }}",
 	  	"text": "{{ $sermon->text }}",
 	  	"url": "{{ $sermon->video }}",
 	  	"cover": "{{ $sermon->othumbnail }}",
