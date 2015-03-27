@@ -7,7 +7,8 @@
 	  	"text": "{{ $sermon->text }}",
 	  	"url": "{{ $sermon->video }}",
 	  	"cover": "{{ $sermon->othumbnail }}",
-	  	"slug": "{{ $sermon->slug }}"
+	  	"slug": "{{ $sermon->slug }}",
+	  	"sku": "{{ $sermon->sku }}"
 	}
 	@unless ($index+1 == count($sermons))
 	,
