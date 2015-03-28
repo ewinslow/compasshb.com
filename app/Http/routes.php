@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Route for songs.
  */
 Route::resource('songs', 'SongsController', ['except' => ['destroy']]);

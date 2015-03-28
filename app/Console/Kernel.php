@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'CompassHB\Www\Console\Commands\DatabaseBackup',
+        'CompassHB\Www\Console\Commands\PassagePush',
     ];
 
     /**
@@ -24,5 +25,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('db:backup')
                     ->dailyAt('23:59')
                     ->thenPing(env('ENVOYER_HEARTBEAT'));
+        $schedule->command('push:passage')
+                    ->dailyAt('6:45');
     }
 }

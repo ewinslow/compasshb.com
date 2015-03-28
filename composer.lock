@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42ce9d8a33d5145808f6f2653e623b24",
+    "hash": "4742dd74c6f555a9f7919044064c0605",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.7.24",
+            "version": "2.7.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1c119a1d3b4c9fa726fc1eae25a2039357ca8808"
+                "reference": "5942bb53e6629c482e8fbc3828967f6516e95c02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1c119a1d3b4c9fa726fc1eae25a2039357ca8808",
-                "reference": "1c119a1d3b4c9fa726fc1eae25a2039357ca8808",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5942bb53e6629c482e8fbc3828967f6516e95c02",
+                "reference": "5942bb53e6629c482e8fbc3828967f6516e95c02",
                 "shasum": ""
             },
             "require": {
@@ -71,20 +71,20 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2015-03-24 22:03:02"
+            "time": "2015-03-26 19:36:25"
         },
         {
             "name": "bugsnag/bugsnag",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bugsnag/bugsnag-php.git",
-                "reference": "cd734eeda4738f62b439550e27dc4507be93227a"
+                "reference": "56ee4446be951eadd614a4ec768ddad3c527aa9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bugsnag/bugsnag-php/zipball/cd734eeda4738f62b439550e27dc4507be93227a",
-                "reference": "cd734eeda4738f62b439550e27dc4507be93227a",
+                "url": "https://api.github.com/repos/bugsnag/bugsnag-php/zipball/56ee4446be951eadd614a4ec768ddad3c527aa9a",
+                "reference": "56ee4446be951eadd614a4ec768ddad3c527aa9a",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
                 "logging",
                 "tracking"
             ],
-            "time": "2015-02-20 02:21:00"
+            "time": "2015-03-27 18:34:49"
         },
         {
             "name": "bugsnag/bugsnag-laravel",
@@ -425,6 +425,68 @@
                 "google"
             ],
             "time": "2014-11-25 14:35:03"
+        },
+        {
+            "name": "graham-campbell/parse",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Parse.git",
+                "reference": "732a526cd4456e1d681dad214ebb9f74bc153575"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Parse/zipball/732a526cd4456e1d681dad214ebb9f74bc153575",
+                "reference": "732a526cd4456e1d681dad214ebb9f74bc153575",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*",
+                "illuminate/support": "5.0.*",
+                "parse/php-sdk": "~1.0",
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Parse\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "Parse Is A Parse SDK Bridge For Laravel 5",
+            "keywords": [
+                "Bridge",
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Parse",
+                "Laravel-Parse",
+                "ParseSDK",
+                "framework",
+                "laravel",
+                "parse",
+                "parse bridge",
+                "parse sdk",
+                "parse sdk bridge",
+                "parse-sdk"
+            ],
+            "time": "2015-02-05 21:03:41"
         },
         {
             "name": "guzzle/guzzle",
@@ -965,16 +1027,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.20",
+            "version": "v5.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951"
+                "reference": "388289de68ba912746bd1adb20a8b1cd0f846ea1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/419d3f485ce7946cace4325ef19a30e1d5543951",
-                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/388289de68ba912746bd1adb20a8b1cd0f846ea1",
+                "reference": "388289de68ba912746bd1adb20a8b1cd0f846ea1",
                 "shasum": ""
             },
             "require": {
@@ -1087,7 +1149,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-24 13:36:37"
+            "time": "2015-03-27 14:49:51"
         },
         {
             "name": "league/flysystem",
@@ -1338,20 +1400,21 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.17.0",
+            "version": "1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86"
+                "reference": "99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
-                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36",
+                "reference": "99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "symfony/translation": "2.6.*"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -1380,7 +1443,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-03-08 14:05:44"
+            "time": "2015-03-26 03:05:57"
         },
         {
             "name": "nikic/php-parser",
@@ -1428,6 +1491,59 @@
             "time": "2015-03-24 19:10:28"
         },
         {
+            "name": "parse/php-sdk",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ParsePlatform/parse-php-sdk.git",
+                "reference": "c1e15362578725a79d8a8baf45c0da2192ebe5c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ParsePlatform/parse-php-sdk/zipball/c1e15362578725a79d8a8baf45c0da2192ebe5c0",
+                "reference": "c1e15362578725a79d8a8baf45c0da2192ebe5c0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "~2.5",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Parse\\": "src/Parse/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Parse Platform License"
+            ],
+            "authors": [
+                {
+                    "name": "Parse",
+                    "homepage": "https://github.com/parseplatform/parse-php-sdk/contributors"
+                }
+            ],
+            "description": "Parse PHP SDK",
+            "homepage": "https://github.com/parseplatform/parse-php-sdk",
+            "keywords": [
+                "parse",
+                "sdk"
+            ],
+            "time": "2015-03-25 17:37:21"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1467,16 +1583,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.4.3",
+            "version": "v0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a"
+                "reference": "489816db71649bd95b416e3ed9062d40528ab0ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a",
-                "reference": "b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/489816db71649bd95b416e3ed9062d40528ab0ac",
+                "reference": "489816db71649bd95b416e3ed9062d40528ab0ac",
                 "shasum": ""
             },
             "require": {
@@ -1534,7 +1650,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-03-17 15:17:33"
+            "time": "2015-03-26 18:43:54"
         },
         {
             "name": "react/promise",

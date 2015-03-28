@@ -146,6 +146,7 @@ return [
         'CompassHB\Www\Providers\RouteServiceProvider',
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+        'GrahamCampbell\Parse\ParseServiceProvider',
 
     ],
 
