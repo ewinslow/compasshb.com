@@ -20,9 +20,8 @@
 			<item>
 				<title>{{ $sermon->title }}</title>
 				<link>{{ route('sermons.show', $sermon->slug) }}</link>
-				<itunes:author>{{ $sermon->byline }}</itunes:author>
 				<itunes:subtitle>{{ $sermon->byline }} {{ $sermon->text }}</itunes:subtitle>
-				<enclosure url="http://www.compasshb.com/sermons/{{ $sermon->slug }}/download" length="" type="audio/x-mp4" />
+				<enclosure url="http://www.compasshb.com/sermons/{{ $sermon->slug }}/download" length="160000000" type="audio/x-mp4" />
 				<description>{{ $sermon->byline }} {{ $sermon->text }}</description>
 				<pubDate>{{ $sermon->published_at->toRfc2822String() }}</pubDate>
 				<guid>{{ route('sermons.show', $sermon->slug) }}</guid>
