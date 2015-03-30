@@ -20,6 +20,15 @@ class Sermon extends Model
     protected $dates = ['published_at'];
 
     /**
+     * Set the empty field to be null using
+     * a Laravel mutator function.
+     */
+    public function setVideoAttribute($value)
+    {
+        $this->attributes['video'] = (!$value) ? null : $value;
+    }
+
+    /**
      * A sermon is owned by a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

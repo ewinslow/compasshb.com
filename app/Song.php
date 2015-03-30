@@ -16,6 +16,15 @@ class Song extends Model
     protected $dates = ['published_at'];
 
     /**
+     * Set the empty field to be null using
+     * a Laravel mutator function.
+     */
+    public function setExcerptAttribute($value)
+    {
+        $this->attributes['excerpt'] = (!$value) ? null : $value;
+    }
+
+    /**
      * A song is owned by a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

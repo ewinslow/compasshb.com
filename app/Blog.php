@@ -16,6 +16,33 @@ class Blog extends Model
     protected $dates = ['published_at'];
 
     /**
+     * Set the empty video field to be null using
+     * a Laravel mutator function.
+     */
+    public function setVideoAttribute($value)
+    {
+        $this->attributes['video'] = (!$value) ? null : $value;
+    }
+
+    /**
+     * Set the empty field to be null using
+     * a Laravel mutator function.
+     */
+    public function setThumbnailAttribute($value)
+    {
+        $this->attributes['thumbnail'] = (!$value) ? null : $value;
+    }
+
+    /**
+     * Set the empty field to be null using
+     * a Laravel mutator function.
+     */
+    public function setBylineAttribute($value)
+    {
+        $this->attributes['byline'] = (!$value) ? null : $value;
+    }
+
+    /**
      * A blog is owned by a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
