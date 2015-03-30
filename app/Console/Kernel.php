@@ -26,6 +26,6 @@ class Kernel extends ConsoleKernel
                     ->dailyAt('23:59')
                     ->thenPing(env('ENVOYER_HEARTBEAT'));
         $schedule->command('push:passage')
-                    ->weekdays();
+                    ->dailyAt('06:45');
     }
 }
