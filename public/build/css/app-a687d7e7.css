@@ -6885,7 +6885,7 @@ body, label, .checkbox label {
 .clickable:hover {
   text-decoration: none; }
 
-a p .glyphicon {
+.large-icon {
   font-size: 5rem; }
 
 .drawer a:hover, a:focus {

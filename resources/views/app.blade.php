@@ -8,7 +8,7 @@
                 <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
-                <p><i class="glyphicon glyphicon-play-circle"></i></p>
+                <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
                 </a>
           </div>
     </div>
@@ -131,11 +131,11 @@
 <!-- Social Media -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
-    <div class="col-md-6">
+    <div class="col-md-5">
             <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Facebook</a></h2>
       <div class="fb-like-box" data-href="https://www.facebook.com/CompassHB" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
          <h2 class="tk-seravek-web"><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
          <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
