@@ -1,5 +1,7 @@
 <?php namespace CompassHB\Esv;
 
+use Log;
+
 class Esv implements ScriptureProvider
 {
     private $apikey;
@@ -18,6 +20,15 @@ class Esv implements ScriptureProvider
         $ch = curl_init($request);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
+
+        /* Check for 404 (file not found). */
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($httpCode == 404) {
+            Log::warning('Connection refused to  www.esvapi.org');
+
+            $response = 'Connection error: www.esvapi.org. Please try again.';
+        }
+
         curl_close($ch);
 
         return $response;

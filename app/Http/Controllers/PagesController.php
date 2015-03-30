@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
+use Log;
 use CompassHB\Smugmug;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
@@ -46,8 +47,14 @@ class PagesController extends Controller
 
         // Instagram
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
-        $instagrams = file_get_contents($url);
-        $instagrams = json_decode($instagrams, true);
+        try {
+            $instagrams = file_get_contents($url);
+            $instagrams = json_decode($instagrams, true);
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to api.instagram.com');
+
+            $instagrams['data'] = [];
+        }
 
         $results = new Smugmug\Smugmug();
         $results = $results->getPhotos(8);

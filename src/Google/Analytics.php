@@ -1,5 +1,7 @@
 <?php namespace CompassHB\Google;
 
+use Log;
+
 class Analytics implements AnalyticsProvider
 {
     private $email;
@@ -48,8 +50,10 @@ class Analytics implements AnalyticsProvider
                 'ga:users,ga:avgSessionDuration',
                 $optParams
             );
-        } catch (Google_Service_Exception $e) {
-            return;
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to www.googleapis.com');
+
+            return ['sessions' => 0];
         }
 
         return array(
@@ -67,8 +71,10 @@ class Analytics implements AnalyticsProvider
                 'ga:89284462',
                 'rt:activeUsers',
                 $optParams);
-        } catch (Google_Service_Exception $e) {
-            return;
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to www.googleapis.com');
+
+            return 0;
         }
 
         return $results->totalsForAllResults['rt:activeUsers'];

@@ -1,5 +1,7 @@
 <?php namespace CompassHB\Vimeo;
 
+use Log;
+
 class VimeoVideo implements VideoProvider
 {
     private $vimeoClient;
@@ -31,7 +33,9 @@ class VimeoVideo implements VideoProvider
 
         try {
             $response = $this->client->get($request);
-        } catch (VimeoUploadException $e) {
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to vimeo.com');
+
             return;
         }
 
@@ -57,7 +61,9 @@ class VimeoVideo implements VideoProvider
 
         try {
             $response = $this->client->get($request);
-        } catch (VimeoUploadException $e) {
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to vimeo.com');
+
             return;
         }
 

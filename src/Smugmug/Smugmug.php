@@ -1,5 +1,7 @@
 <?php namespace CompassHB\Smugmug;
 
+use Log;
+
 class Smugmug implements PhotosProvider
 {
     private $url = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
@@ -46,9 +48,17 @@ class Smugmug implements PhotosProvider
         // Smugmug
         $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
 
-        $rawFeed = file_get_contents($feedUrl);
-        $xml = new \SimpleXmlElement($rawFeed);
+        $rawfeed = '';
         $results = array();
+
+        try {
+            $rawFeed = file_get_contents($feedUrl);
+            $xml = new \SimpleXmlElement($rawFeed);
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to photos.compasshb.com');
+
+            return $results;
+        }
 
         for ($i = 0; $i < $num; $i++) {
             // Parse Image Link
