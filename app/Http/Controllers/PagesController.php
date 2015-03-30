@@ -50,7 +50,7 @@ class PagesController extends Controller
         $instagrams = json_decode($instagrams, true);
 
         $results = new Smugmug\Smugmug();
-        $results = $results->getPhotos(4);
+        $results = $results->getPhotos(8);
 
         return view('app', compact(
             'sermons',

@@ -41,11 +41,10 @@ class Smugmug implements PhotosProvider
         return $results;
     }
 
-    public function getPhotos($number)
+    public function getPhotos($num = 4)
     {
         // Smugmug
         $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
-        $num = 4;
 
         $rawFeed = file_get_contents($feedUrl);
         $xml = new \SimpleXmlElement($rawFeed);

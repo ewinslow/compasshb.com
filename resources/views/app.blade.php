@@ -43,7 +43,7 @@
 <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px; padding-bottom: 30px;">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="col-md-4 text-center">
-      <h2 class="tk-seravek-web">Sundays at 11am</h2>
+      <h2 class="tk-seravek-web">Sundays at 9am and 11am</h2>
       <br/>
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
@@ -116,22 +116,26 @@
 </div>
 
 <!-- Recent Photography / SmugMug -->
-<div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
-  <div class="col-xs-10 col-xs-offset-1">
-    <div class="col-md-4">
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
         <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Photos</a></h2>
 
         @foreach($images as $image)
-        <div class="col-md-6" style="padding-bottom: 10px">
+        <div class="col-md-3" style="padding-bottom: 10px">
             <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;" alt="photos.compasshb.com"></a>
         </div>
         @endforeach
     </div>
-    <div class="col-md-4">
+</div>
+
+<!-- Social Media -->
+<div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-md-6">
             <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Facebook</a></h2>
       <div class="fb-like-box" data-href="https://www.facebook.com/CompassHB" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
          <h2 class="tk-seravek-web"><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
          <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
