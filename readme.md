@@ -6,29 +6,29 @@ This is the source code for [compassHB.com](http://www.compasshb.com/).
 ## Install on Cloud9 for local development
 
 ###Create New Workspace
--> Clone from URL: https://github.com/CompassHB/compasshb.com.git
--> Start Editing
+* Clone from URL: https://github.com/CompassHB/compasshb.com.git
+* Start Editing
 
 ###Edit DocumentRoot (append /public)
--> sudo vi /etc/apache2/sites-enabled/001-cloud9.conf
--> apachectl restart
+* sudo vi /etc/apache2/sites-enabled/001-cloud9.conf
+* apachectl restart
 
 ###Set-Up Database
--> echo $C9_USER
--> mysql-ctl start
--> cp .env.example .env
+* echo $C9_USER
+* mysql-ctl start
+* cp .env.example .env
 
 ###Configure .env
--> DB_HOST=127.0.0.1
--> DB_DATABASE=c9
--> DB_USERNAME=yourusernamefromabove
--> DB_PASSWORD=
+* DB_HOST=127.0.0.1
+* DB_DATABASE=c9
+* DB_USERNAME=yourusernamefromabove
+* DB_PASSWORD=
 
 ###Install
--> sudo composer selfupdate && sudo npm install gulp && sudo npm install laravel-elixir && bower install && sudo apt-get update && sudo apt-get install php5-curl -y && sudo apt-get install php5-sqlite -y
--> sudo composer install && gulp
--> php artisan migrate:install
--> php artisan migrate:refresh --seed
+* sudo composer selfupdate && sudo npm install gulp && sudo npm install laravel-elixir && bower install && sudo apt-get update && sudo apt-get install php5-curl -y && sudo apt-get install php5-sqlite -y
+* sudo composer install && gulp
+* php artisan migrate:install
+* php artisan migrate:refresh --seed
 
 
 ## Install using Homstead
