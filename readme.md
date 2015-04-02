@@ -7,11 +7,9 @@ This is the source code for [compassHB.com](http://www.compasshb.com/).
 
 ###Create New Workspace
 * Clone from URL: https://github.com/CompassHB/compasshb.com.git
-* Start Editing
 
 ###Edit DocumentRoot (append /public)
 * sudo vi /etc/apache2/sites-enabled/001-cloud9.conf
-* apachectl restart
 
 ###Set-Up Database
 * echo $C9_USER
@@ -25,11 +23,11 @@ This is the source code for [compassHB.com](http://www.compasshb.com/).
 * DB_PASSWORD=
 
 ###Install
-* sudo composer selfupdate && sudo npm install gulp && sudo npm install laravel-elixir && bower install && sudo apt-get update && sudo apt-get install php5-curl -y && sudo apt-get install php5-sqlite -y
+* sudo composer selfupdate && sudo npm install gulp && sudo npm install laravel-elixir && bower install && sudo apt-get update && sudo apt-get install php5-curl -y
 * sudo composer install && gulp
 * php artisan migrate:install
 * php artisan migrate:refresh --seed
-
+* sudo apachectl restart
 
 ## Install using Homstead
 These instructions have been tested on Windows 7 and OS X Yosemite. They allow you to run a full version of the application on a virtiual machine that you can start and stop when you want to develop and keep the rest of your system clean. To set-up your environment you first must install:
