@@ -43,7 +43,7 @@
 <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px; padding-bottom: 30px;">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="col-md-4 text-center">
-      <h2 class="tk-seravek-web">Sundays at 9am and 11am</h2>
+      <h2 class="tk-seravek-web">Sundays at<br/> 9am and 11am</h2>
       <br/>
       <p>5082 Argosy Avenue</p>
       <p>Huntington Beach, CA 92649</p>
@@ -83,7 +83,7 @@
                 <img src="{{ $sermon->othumbnail }}" alt="{{ $sermon->title }}"/>
                 <div class="caption">
                     <h4>{{ $sermon->title }}</h4>
-                    <p><small>{{ date_format($sermon->published_at, 'F n') }}</small><br/>
+                    <p><small>{{ date_format($sermon->published_at, 'F j, Y') }}</small><br/>
                     {{ $sermon->text }}</p>
                     <p><a href="{{ route('sermons.show', $sermon->slug) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
@@ -105,7 +105,7 @@
                 <img src="{{ $video->othumbnail }}" alt="{{ $video->title }}"/>
                 <div class="caption">
                     <h4>{{ $video->title }}</h4>
-                    <p><small>{{ date_format($video->published_at, 'F n') }}</small></p>
+                    <p><small>{{ date_format($video->published_at, 'F j, Y') }}</small></p>
                     <p><a href="{{ route('blog.show', $video->slug) }}" class="btn btn-primary" role="button">Watch</a></p>
                 </div>
             </div>

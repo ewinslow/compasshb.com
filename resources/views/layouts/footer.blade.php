@@ -1,7 +1,8 @@
 <footer id="footer" class="container-fluid">
   <div class="row" style="background: none; background-color: #477e9f; padding: 25px">
     <div class="col-md-8" style="text-align: center; color: #fff; font-size: 1.2em">
-      <p><em>The word of the Lord sounded forth...</em><br/>1 Thessalonians 1:8</p>
+      <h4 class="tk-seravek-web">The word of the Lord sounded forth...</h4>
+      <p><em>1 Thessalonians 1:8</em></p>
     </div>
     <div class="col-md-4" style="text-align: center">
       <a href="{{ route('give') }}" title="Give" class="btn btn-default" role="button"

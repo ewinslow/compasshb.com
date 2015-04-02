@@ -96,7 +96,7 @@ class VimeoVideo implements VideoProvider
         }
 
         // Get the video thumbnail
-        if (isset(end($video['body']['pictures']['sizes'])['link'])) {
+        if (!isset($video['body']['error']) && isset(end($video['body']['pictures']['sizes'])['link'])) {
             return end($video['body']['pictures']['sizes'])['link'];
         }
 
