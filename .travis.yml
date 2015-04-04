@@ -1,22 +1,18 @@
 language: php
 
 php:
-  - 5.5
   - 5.6
-  - 7.0
-  - hhvm
-
-matrix:
-  allow_failures:
-    - php: 7.0
-    - php: hhvm
-  fast_finish: true
 
 sudo: false
 
 before_install: composer selfupdate
 
 install: travis_retry composer install --no-interaction --prefer-source
+
+before_script:
+   - mysql -e 'create database travis;'
+   - php artisan migrate:install
+   - php artisan migrate:refresh --seed
 
 script: vendor/bin/phpunit
 
