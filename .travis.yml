@@ -11,6 +11,8 @@ install: travis_retry composer install --no-interaction --prefer-source
 
 before_script:
    - mysql -e 'create database travis;'
+   - php artisan migrate:install
+   - php artisan migrate:refresh --seed
 
 script: vendor/bin/phpunit
 
