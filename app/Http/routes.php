@@ -29,7 +29,7 @@ Route::get('sermons/{sermons}/download', 'SermonsController@download');
 /*
  * Route for sermon series
  */
-Route::resource('/series', 'SeriesController', ['except' => ['destroy']]);
+Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
 
 /*
  * Route for blogs
