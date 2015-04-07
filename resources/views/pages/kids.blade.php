@@ -16,7 +16,7 @@
             <p><span style="color: #ffffff;">Kids Ministry is a safe and fun environment for your child. Kids Ministry meets at our 11AM service Sunday morning for relevant Bible instruction, worship, and crafts. All of our teachers and adult volunteers have background checks. Personal &#8220;Buddies&#8221; are available to assist children with special needs. View our <a href="https://s3-us-west-1.amazonaws.com/compasshb-kids/SICK-POLICY.pdf">sick policy</a>.</span><br/><br/></p>
 
             <div class="col-md-4">
-                <img width="554" height="554" src="http://www.compasshb.com/images/DSC_0018-X2.png"
+                <img width="554" height="554" src="{{ URL::to('/') }}/images/DSC_0018-X2.png"
                              alt="Bre and Taylor Thompson"/><br/>
                 <h4 class="tk-seravek-web">Kids Ministry</h4>
                 <p style="color: #ffffff;">Bre Thompson is the Director of Kids Ministry and lives in Huntington
@@ -34,7 +34,7 @@
 
             <div class="col-md-4">
                 <img width="682" height="682"
-                             src="http://www.compasshb.com/images/96e84d0900d6d60ad24d96bce5c88eb5.jpeg"
+                             src="{{ URL::to('/') }}/images/96e84d0900d6d60ad24d96bce5c88eb5.jpeg"
                              alt="Bible Teaching Stories"/>
                 <h4 class="tk-seravek-web">Bible Stories</h4>
                 <p style="color: #ffffff;">Your child will be instructed each week by a story from the Bible.
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-md-4">
-                <img width="400" height="400" src="http://www.compasshb.com/images/nY-YQn04.jpeg"
+                <img width="400" height="400" src="{{ URL::to('/') }}/images/nY-YQn04.jpeg"
                              alt="Shane Rouland"/>
                 <h4 class="tk-seravek-web">Student Ministry</h4>
                 <p><span style="color: #ffffff;">Shane Rouland is the Student Ministry Director. Shane has a desire to reach out onto the school campuses in Huntington Beach and will lead a midweek Bible study for middle school and high schoolers. He is pursuing a Bible degree from <a
@@ -66,7 +66,7 @@
 
     <div class="row" style="background: none; background-color: #B9302B; padding: 30px;">
         <div class="col-md-6">
-            <img src="http://www.compasshb.com/images/AWANA-e1417550726426.jpg"
+            <img src="{{ URL::to('/') }}/images/AWANA-e1417550726426.jpg"
                                            alt=""/>
         </div>
         <div class="col-md-6">
@@ -89,19 +89,19 @@
 
     <div class="row" style="padding: 30px;">
         <div class="col-md-2"><img
-                        src="http://www.compasshb.com/images/11292_10204720861009754_3380111245789242458_n-e1408598080323.jpg"
+                        src="{{ URL::to('/') }}/images/11292_10204720861009754_3380111245789242458_n-e1408598080323.jpg"
                         alt="" width="500" height="390"/></div>
         <div class="col-md-2"><img
-                        src="http://www.compasshb.com/images/1471281_10202320523634672_209139971_n.jpg"
+                        src="{{ URL::to('/') }}/images/1471281_10202320523634672_209139971_n.jpg"
                         alt="" width="720" height="486"/></div>
         <div class="col-md-2"><img
-                        src="http://www.compasshb.com/images/1948110_10203348337533213_810810873_n.jpg"
+                        src="{{ URL::to('/') }}/images/1948110_10203348337533213_810810873_n.jpg"
                         alt="" width="720" height="480"/></div>
         <div class="col-md-2"><img
-                        src="http://www.compasshb.com/images10366142_10204273932835422_7930220833540608895_n.jpg"
+                        src="{{ URL::to('/') }}/images10366142_10204273932835422_7930220833540608895_n.jpg"
                         alt="" width="720" height="480"/></div>
         <div class="col-md-2"><img
-                        src="http://www.compasshb.com/images/10256234_10152003967205666_8535752557094465938_n.jpg"
+                        src="{{ URL::to('/') }}/images/10256234_10152003967205666_8535752557094465938_n.jpg"
                         alt="" width="640" height="640"/></div>
     </div>
 </div>

@@ -21,7 +21,7 @@
 
 <div class="container">
 <div class="row">
-    <img src="http://www.compasshb.com/images/Screen-Shot-2015-03-02-at-3.01.44-PM.png" style="width: 100%"/>
+    <img src="{{ URL::to('/') }}/images/Screen-Shot-2015-03-02-at-3.01.44-PM.png" style="width: 100%"/>
 </div>
 
 <div class="row text-center">
@@ -64,25 +64,20 @@
 <div class="row text-center" style="padding-top: 80px;">
     <p>Saturday, March 28 @ Central Park in Huntington Beach</p>
     <p>Questions? Contact info@compasshb.com</p>
-    <p><a href="http://www.compasshb.com/">Compass Bible Church</a></p>
+    <p><a href="{{ URL::to('/') }}/">Compass Bible Church</a></p>
 </div>
 
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 <script>
-    (function (i, s, o, g, r, a, m) {
+    (function (i, r) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    })(window, 'ga');
 
     ga('create', 'UA-53384235-1', 'auto');
     ga('send', 'pageview');
-
 </script>
 
 </div>
