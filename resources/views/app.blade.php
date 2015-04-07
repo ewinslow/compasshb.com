@@ -136,8 +136,8 @@
       <div class="fb-like-box" data-href="https://www.facebook.com/CompassHB" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
     </div>
     <div class="col-md-7">
-         <h2 class="tk-seravek-web"><a href="http://www.twitter.com/compasshb">Tweets</a></h2>
-         <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+         <h2 class="tk-seravek-web"><a href="https://www.twitter.com/compasshb">Tweets</a></h2>
+         <a class="twitter-timeline" height="400" data-dnt="true" href="https://twitter.com/BradMSmith/lists/compasshb" data-widget-id="566872417012690945" data-chrome="noheader transparent">Tweets from https://twitter.com/BradMSmith/lists/compasshb</a>
     </div>
 </div>
 <br/><br/>&nbsp;<br/><br/>
@@ -146,7 +146,7 @@
 <!-- Instagram -->
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2 class="tk-seravek-web"><a href="http://www.instagram.com/compasshb">Instagram</a></h2>
+        <h2 class="tk-seravek-web"><a href="https://www.instagram.com/compasshb">Instagram</a></h2>
 
         @foreach($instagrams as $instagram)
         <div class="col-sm-6 col-md-3">
