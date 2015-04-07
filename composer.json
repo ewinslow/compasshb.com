@@ -50,7 +50,24 @@
 		"post-create-project-cmd": [
 			"php -r \"copy('.env.example', '.env');\"",
 			"php artisan key:generate"
-		]
+		],
+		"test": ["phpunit"],
+		"cloud9:install": [
+			"sudo composer self-update",
+			"sudo composer install",
+			"cp .env.cloud9 .env",
+			"sudo apt-get update",
+			"sudo apt-get install php5-curl -y",
+			"mysql-ctl start",
+			"sudo apachectl restart",
+			"sudo npm install gulp",
+			"sudo npm install laravel-elixir",
+			"bower install",
+			"gulp",
+			"php artisan migrate:install",
+			"php artisan migrate:refresh --seed"
+		],
+		"db:reset": "php artisan migrate:refresh --seed"
 	},
 	"config": {
 		"preferred-install": "dist"
