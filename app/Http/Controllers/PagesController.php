@@ -125,7 +125,7 @@ class PagesController extends Controller
 
     public function youth()
     {
-        return view('pages.youth')->with('title', 'The United');
+        return view('ministries.youth.index')->with('title', 'The United');
     }
 
     public function sundayschool()
@@ -140,7 +140,7 @@ class PagesController extends Controller
 
     public function college()
     {
-        return view('pages.college')->with('title', 'The Underground');
+        return view('ministries.college.index')->with('title', 'The Underground');
     }
 
     public function bunnyrun()

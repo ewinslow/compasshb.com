@@ -81,7 +81,7 @@ class HomeController extends Controller
 
     public function sundayschool()
     {
-        return 'test';
+        return 'Coming soon...';
     }
 
     public function slides()
