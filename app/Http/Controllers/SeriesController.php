@@ -18,6 +18,7 @@ class SeriesController extends Controller
     public function index()
     {
         $series = Series::all();
+        dd($series);
 
         return view('series.index', compact('series'))
             ->with('title', 'Sermon Series');

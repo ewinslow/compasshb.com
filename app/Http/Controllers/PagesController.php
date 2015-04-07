@@ -128,14 +128,19 @@ class PagesController extends Controller
         return view('pages.youth')->with('title', 'The United');
     }
 
+    public function sundayschool()
+    {
+        return view('ministries.sundayschool.index')->with('title', 'Sunday School');
+    }
+
+    public function sundayschoolseries()
+    {
+        return view('ministries.sundayschool.series')->with('title', 'Sunday School Series');
+    }
+
     public function college()
     {
         return view('pages.college')->with('title', 'The Underground');
-    }
-
-    public function sundayschool()
-    {
-        return view('pages.sundayschool')->with('title', 'Sunday School');
     }
 
     public function bunnyrun()

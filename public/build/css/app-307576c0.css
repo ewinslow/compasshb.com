@@ -6670,6 +6670,9 @@ button.close {
   .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #869791; }
 
+.esv {
+  max-width: 600px; }
+
 h3 {
   text-align: left; }
 

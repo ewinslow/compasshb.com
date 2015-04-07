@@ -14,6 +14,7 @@
       <li><a href="{{ route('admin.series') }}">Sermon Series</a></li>
       <li><a href="{{ route('admin.blog') }}">Blogs</a></li>
       <li><a href="{{ route('admin.fellowship') }}">Home Fellowship Groups</a></li>
+      <li><a href="{{ route('admin.sundayschool') }}">Sunday School</a></li>
       <li><a href="{{ route('admin.songs') }}">Worship Songs</a></li>
     </ul>
   </div>

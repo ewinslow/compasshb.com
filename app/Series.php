@@ -19,4 +19,14 @@ class Series extends Model
     {
         return $this->belongsTo('CompassHB\Www\Series');
     }
+
+    /**
+     * A series has many sermons.
+     *
+     * @return HasMany
+     */
+    public function sermons()
+    {
+        return $this->hasMany('CompassHB\Www\Sermon');
+    }
 }
