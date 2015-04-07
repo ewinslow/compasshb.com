@@ -20,7 +20,7 @@
                             Jack) were sent out to plant another Compass here in Huntington Beach. Twelve families moved
                             up with them, but there are also Compass family members who already lived here in north
                             Orange County.</p>
-            <img src="http://www.compasshb.com/images/blakey-fam-hb-01.jpg" alt="Blakey Family"
+            <img src="{{ URL::to('/') }}/images/blakey-fam-hb-01.jpg" alt="Blakey Family"
                              width="2048" height="1366"/>
             <p>&nbsp;</p>
         </div>
@@ -29,7 +29,7 @@
     <div class="row" style="background-color: #88d5ee; padding-top: 40px; padding-bottom: 40px;">
         <div class="col-xs-10 col-xs-offset-1">
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/images/BobbyBlakey.png"
+                <img src="{{ URL::to('/') }}/images/BobbyBlakey.png"
                                      alt="Bobby Blakey" width="432" height="426"/>
                 <h4 class="tk-seravek-web">Pastor Bobby Blakey</h4>
                 <p style="text-align: left;">Pastor Bobby grew up as a pastor’s son, graduated from <a
@@ -41,7 +41,7 @@
                 <p style="text-align: left;">As we gather together every <span class="aBn" tabindex="0"
                                                                                                data-term="goog_875465023"><span
                                             class="aQJ">Sunday</span></span> morning to hear from God’s word, Pastor
-                                    Bobby will preach through the book of <a href="http://www.compasshb.com/sermon/">1st
+                                    Bobby will preach through the book of <a href="{{ URL::to('/') }}/sermon/">1st
                                         Thessalonians</a>, which is about the beginning of a church where "the word of
                                     the Lord sounded forth.""</p>
                 <ul style="color: #ffffff;">
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/images/RyanPeirceCBCHBWorshipBand.png"
+                <img src="{{ URL::to('/') }}/images/RyanPeirceCBCHBWorshipBand.png"
                                      alt="Ryan Pierce" width="432" height="426"/>
                 <h4 class="tk-seravek-web">Worship Director Ryan Pierce</h4>
                 <p style="text-align: left;">Our Worship Director, Ryan Pierce, and his team will lead
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-md-4">
-                <img src="http://www.compasshb.com/images/CBCHBWorshipBand.png"
+                <img src="{{ URL::to('/') }}/images/CBCHBWorshipBand.png"
                                      alt="Compass HB Worship Band" width="432" height="426"/>
                 <h4 class="tk-seravek-web">The Gospel Rings Out!</h4>
                 <p style="text-align: left;">Our goal is for the word of the Lord to sound forth here in
