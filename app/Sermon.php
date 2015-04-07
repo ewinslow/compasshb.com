@@ -38,6 +38,16 @@ class Sermon extends Model
         return $this->belongsTo('CompassHB\Www\Sermon');
     }
 
+    /**
+     * A sermon belongs to a series.
+     *
+     * @return BelongsTo
+     */
+    public function series()
+    {
+        return $this->belongsTo('CompassHB\Www\Series');
+    }
+
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = \Carbon\Carbon::parse($date);

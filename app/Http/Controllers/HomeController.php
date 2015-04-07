@@ -79,6 +79,11 @@ class HomeController extends Controller
             ->with('title', 'Admin - Home Fellowship Groups');
     }
 
+    public function sundayschool()
+    {
+        return 'test';
+    }
+
     public function slides()
     {
         $slides = Slide::latest('published_at')->paginate(15);

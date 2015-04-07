@@ -32,7 +32,7 @@ Route::get('sermons/{sermons}/download', [
 /*
  * Route for sermon series
  */
-Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
+Route::resource('/series', 'SeriesController', ['except' => ['destroy']]);
 
 /*
  * Route for blogs
@@ -125,19 +125,39 @@ Route::get('calendar', [
     'uses' => 'PagesController@calendar',
 ]);
 
+/*
+ * Routes for Youth ministry
+ */
 Route::get('youth', [
     'as' => 'youth',
     'uses' => 'PagesController@youth',
 ]);
 
+/*
+ * Routes for Sunday School
+ *
+ */
+Route::group(['prefix' => 'sundayschool'], function () {
+
+    Route::get('/', [
+        'as' => 'sundayschool.index',
+        'uses' => 'PagesController@sundayschool',
+    ]);
+
+    Route::get('series', [
+        'as' => 'sundayschool.series',
+        'uses' => 'PagesController@sundsyachoolseries',
+    ]);
+
+});
+
+/*
+ * Routes for college ministry
+ *
+ */
 Route::get('college', [
     'as' => 'college',
     'uses' => 'PagesController@college',
-]);
-
-Route::get('sundayschool', [
-    'as' => 'sundayschool',
-    'uses' => 'PagesController@sundayschool',
 ]);
 
 /*
@@ -190,6 +210,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('series', [
         'as' => 'admin.series',
         'uses' => 'HomeController@series',
+    ]);
+
+    Route::get('sundayschool', [
+        'as' => 'admin.sundayschool',
+        'user' => 'HomeController@sundayschool',
     ]);
 
 });
