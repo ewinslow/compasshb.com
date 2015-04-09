@@ -15,12 +15,14 @@ class Analytics implements AnalyticsProvider
         $this->client = new \Google_Client();
         $this->client->setApplicationName("Compass HB");
 
-        $this->client->setAssertionCredentials(
-            new \Google_Auth_AssertionCredentials(
-                $this->email,
-                array($this->url),
-                file_get_contents(storage_path('keys/CompassHB-27e1adae11b5.p12'))
-        ));
+        if (file_exists(storage_path('keys/CompassHB-27e1adae11b5.p12'))) {
+            $this->client->setAssertionCredentials(
+                new \Google_Auth_AssertionCredentials(
+                    $this->email,
+                    array($this->url),
+                    file_get_contents(storage_path('keys/CompassHB-27e1adae11b5.p12'))
+            ));
+        }
 
         $this->client->setClientId(env('GOOGLE_CLIENT_ID'));
         $this->client->setAccessType('offline_access');
