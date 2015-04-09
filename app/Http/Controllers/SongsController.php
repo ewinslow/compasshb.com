@@ -35,7 +35,7 @@ class SongsController extends Controller
         $setlist = new Setlist();
         $setlist = $setlist->getSetList();
 
-        return view('songs.index', compact(
+        return view('dashboard.songs.index', compact(
             'songs', 'setlist'
         ))->with('title', 'Worship Songs');
     }
@@ -51,7 +51,7 @@ class SongsController extends Controller
     {
         $song->iframe = $this->videoClient->oembed($song->video);
 
-        return view('songs.show', compact('song'))
+        return view('dashboard.songs.show', compact('song'))
             ->with('title', $song->title);
     }
 
@@ -64,7 +64,7 @@ class SongsController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('songs.edit', compact('song'))->with('title', 'Edit Song');
+        return view('dashboard.songs.edit', compact('song'))->with('title', 'Edit Song');
     }
 
     /**
@@ -91,7 +91,7 @@ class SongsController extends Controller
      */
     public function create()
     {
-        return view('songs.create');
+        return view('dashboard.songs.create');
     }
 
     /**

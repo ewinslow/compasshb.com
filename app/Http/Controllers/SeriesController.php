@@ -19,7 +19,7 @@ class SeriesController extends Controller
     {
         $series = Series::all();
 
-        return view('series.index', compact('series'))
+        return view('dashboard.series.index', compact('series'))
             ->with('title', 'Sermon Series');
     }
 
@@ -30,7 +30,7 @@ class SeriesController extends Controller
      */
     public function create()
     {
-        return view('series.create');
+        return view('dashboard.series.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class SeriesController extends Controller
      */
     public function show(Series $series)
     {
-        return view('series.show', compact('series'))
+        return view('dashboard.series.show', compact('series'))
             ->with('title', $series->title);
     }
 
@@ -69,7 +69,7 @@ class SeriesController extends Controller
      */
     public function edit(Series $series)
     {
-        return view('series.edit', compact('series'));
+        return view('dashboard.series.edit', compact('series'));
     }
 
     /**

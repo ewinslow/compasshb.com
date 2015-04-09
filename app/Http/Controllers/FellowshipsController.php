@@ -32,7 +32,7 @@ class FellowshipsController extends Controller
         $sermon = Sermon::latest('published_at')->published()->take(1)->get()->first();
         $sermon->iframe = $this->videoClient->oembed($sermon->video);
 
-        return view('fellowships.index', compact('fellowships', 'days', 'sermon'))
+        return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon'))
             ->with('title', 'Home Fellowship Groups');
     }
 
@@ -45,7 +45,7 @@ class FellowshipsController extends Controller
      */
     public function edit(Fellowship $fellowship)
     {
-        return view('fellowships.edit', compact('fellowship'));
+        return view('dashboard.fellowships.edit', compact('fellowship'));
     }
 
     /**
@@ -72,7 +72,7 @@ class FellowshipsController extends Controller
      */
     public function create()
     {
-        return view('fellowships.create');
+        return view('dashboard.fellowships.create');
     }
 
     /**

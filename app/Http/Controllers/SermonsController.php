@@ -29,7 +29,7 @@ class SermonsController extends Controller
     {
         $sermons = Sermon::latest('published_at')->published()->get();
 
-        return view('sermons.index', compact('sermons'));
+        return view('dashboard.sermons.index', compact('sermons'));
     }
 
     /**
@@ -39,7 +39,7 @@ class SermonsController extends Controller
      */
     public function create()
     {
-        return view('sermons.create');
+        return view('dashboard.sermons.create');
     }
 
     /**
@@ -77,7 +77,7 @@ class SermonsController extends Controller
     {
         $sermon->iframe = $this->videoClient->oembed($sermon->video);
 
-        return view('sermons.show', compact('sermon'))
+        return view('dashboard.sermons.show', compact('sermon'))
             ->with('title', $sermon->title);
     }
 
@@ -89,7 +89,7 @@ class SermonsController extends Controller
      */
     public function edit(Sermon $sermon)
     {
-        return view('sermons.edit', compact('sermon'));
+        return view('dashboard.sermons.edit', compact('sermon'));
     }
 
     /**

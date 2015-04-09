@@ -27,7 +27,7 @@ class BlogsController extends Controller
     {
         $blogs = Blog::latest('published_at')->published()->get();
 
-        return view('blogs.index', compact('blogs'))
+        return view('dashboard.blogs.index', compact('blogs'))
             ->with('title', 'Blog');
     }
 
@@ -46,7 +46,7 @@ class BlogsController extends Controller
             $blog->iframe = $this->videoClient->oembed($blog->video);
         }
 
-        return view('blogs.show', compact('blog'))
+        return view('dashboard.blogs.show', compact('blog'))
             ->with('title', $blog->title);
     }
 
@@ -59,7 +59,7 @@ class BlogsController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('blogs.edit', compact('blog'));
+        return view('dashboard.blogs.edit', compact('blog'));
     }
 
     /**
@@ -86,7 +86,7 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        return view('blogs.create');
+        return view('dashboard.blogs.create');
     }
 
     /**

@@ -59,7 +59,7 @@ class PagesController extends Controller
         $results = new Smugmug\Smugmug();
         $results = $results->getPhotos(8);
 
-        return view('app', compact(
+        return view('pages.index', compact(
             'sermons',
             'slides',
             'nextsermon',
@@ -89,7 +89,7 @@ class PagesController extends Controller
 
     public function pray()
     {
-        return view('pages.pray')
+        return view('dashboard.pray.index')
             ->with('title', 'Pray');
     }
 
@@ -115,7 +115,7 @@ class PagesController extends Controller
 
     public function kids()
     {
-        return view('pages.kids')->with('title', 'Kids Ministry');
+        return view('ministries.kids.index')->with('title', 'Kids Ministry');
     }
 
     public function whatwebelieve()
@@ -146,12 +146,6 @@ class PagesController extends Controller
     public function bunnyrun()
     {
         return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
-    }
-
-    public function videos()
-    {
-        return view('archives.videos')
-            ->with('title', 'Videos');
     }
 
     public function calendar()
