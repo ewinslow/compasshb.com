@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard.master')
 
 @section('content')
 
@@ -6,10 +6,7 @@
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<h1 class="tk-seravek-web">Admin</h1>
-<p>Admin page for posting and scheduling site content.</p>
-
-<br/><br/><br/>
+  @include('layouts.admin.header')
 
 <p>Use the links on the right to navigate.</p>
 
@@ -17,6 +14,6 @@
 
 @section('sidebar')
 
-  @include('admin.sidebar')
+  @include('layouts.admin.sidebar')
 
 @endsection

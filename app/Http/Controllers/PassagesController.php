@@ -41,7 +41,7 @@ class PassagesController extends Controller
         $analytics = $a->getPageViews('/read', 'today', 'today');
         $analytics['activeUsers'] = $a->getActiveUsers();
 
-        return view('passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
+        return view('dashboard.passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
             ->with('title', 'Scripture of the Day');
     }
 
@@ -69,7 +69,7 @@ class PassagesController extends Controller
             $postflash = '';
         }
 
-        return view('passages.show', compact('passage', 'passages', 'postflash', 'analytics'))
+        return view('dashboard.passages.show', compact('passage', 'passages', 'postflash', 'analytics'))
             ->with('title', $passage->title);
     }
 
@@ -82,7 +82,7 @@ class PassagesController extends Controller
      */
     public function edit(Passage $passage)
     {
-        return view('passages.edit', compact('passage'));
+        return view('dashboard.passages.edit', compact('passage'));
     }
 
     /**
@@ -109,7 +109,7 @@ class PassagesController extends Controller
      */
     public function create()
     {
-        return view('passages.create');
+        return view('dashboard.passages.create');
     }
 
     /**

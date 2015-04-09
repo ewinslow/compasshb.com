@@ -31,12 +31,21 @@ class Setlist implements ServiceProvider
      */
     public function getSetList()
     {
+        $setlist = [];
+        $setlist[0]['date'] = '';
+        $setlist[0]['title'] = '';
+        $setlist[0]['author'] = '';
+
         $planId = '';
         $planDate = '';
         $client = new Client([
             'base_url' => $this->url,
             'defaults' => ['auth' => 'oauth'],
         ]);
+
+        if (!isset($this->consumerKey)) {
+            return $setlist;
+        }
 
         $oauth = new Oauth1([
             'consumer_key'    => $this->consumerKey,
@@ -49,6 +58,7 @@ class Setlist implements ServiceProvider
 
         // Get Service ID for Weekend Service
         $res = $client->get('organization.json');
+
         $res = json_decode($res->getBody());
         $service = $res->service_types[1]->id;
 
@@ -72,7 +82,6 @@ class Setlist implements ServiceProvider
         $res = $client->get('plans/'.$planId.'.json');
         $res = json_decode($res->getBody());
         $items = $res->items;
-        $setlist = [];
 
         foreach ($items as $item) {
             // Only interested in songs

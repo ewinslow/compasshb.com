@@ -21,7 +21,7 @@ class SlidesController extends Controller
      */
     public function create()
     {
-        return view('slides.create');
+        return view('admin.slides.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class SlidesController extends Controller
      */
     public function edit(Slide $slide)
     {
-        return view('slides.edit', compact('slide'))->with('title', 'Edit Slide');
+        return view('admin.slides.edit', compact('slide'))->with('title', 'Edit Slide');
     }
 
     /**

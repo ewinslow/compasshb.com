@@ -40,14 +40,6 @@ Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
 
 /*
- * Route for videos
- */
-Route::get('videos', [
-    'as' => 'videos',
-    'uses' => 'PagesController@videos',
-]);
-
-/*
  * Route for homepage
  */
 Route::get('/', [
@@ -214,7 +206,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('sundayschool', [
         'as' => 'admin.sundayschool',
-        'user' => 'HomeController@sundayschool',
+        'uses' => 'HomeController@sundayschool',
     ]);
 
 });

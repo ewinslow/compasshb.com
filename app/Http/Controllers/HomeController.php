@@ -81,7 +81,10 @@ class HomeController extends Controller
 
     public function sundayschool()
     {
-        return 'Coming soon...';
+        $sermons = Sermon::latest('published_at')->paginate(15);
+
+        return view('admin.sundayschool', compact('sermons'))
+            ->with('title', 'Admin - Sunday School');
     }
 
     public function slides()

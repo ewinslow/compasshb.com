@@ -1,8 +1,8 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard.master')
 
 @section('content')
 
-  @include('admin.header')
+  @include('layouts.admin.header')
 
 <!-- Slides -->
 <div class="panel panel-default">
@@ -41,6 +41,6 @@
 
 @section('sidebar')
 
-  @include('admin.sidebar')
+  @include('layouts.admin.sidebar')
 
 @endsection
