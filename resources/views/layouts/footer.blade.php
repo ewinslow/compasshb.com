@@ -16,27 +16,15 @@
       <p>Compass Bible Church exists to make disciples of Christ by <strong>reaching</strong> as many people
               as possible for Christ, <strong>teaching</strong> them to be like Christ, and
               <strong>training</strong> them to serve Christ.</p>
-      <p><!-- // @todo: our mission statement --></p>
+      <p><a href="/sermons/our-missions-statement">Our Mission Statement</a></p>
     </div>
-    <div class="col-md-3"><!-- // @todo: bootstrap nav component -->
-      <h4 style="color: #FFF;" class="tk-seravek-web">Sitemap</h4>
-      <ul class="list-unstyled">
-        <li><a href="{{ route('distinctives') }}">8 Distinctives</a></li>
-        <li><a href="{{ route('give') }}">Giving</a></li>
-        <li><a href="{{ route('home') }}">Home</a></li>
-        <li><a href="{{ route('evangelism') }}">Ice Cream Evangelism</a></li>
-        <li><a href="{{ route('kids') }}">Kids Ministry</a></li>
-        <li><a href="{{ route('believe') }}">What We Believe</a></li>
-        <li><a href="{{ route('who-we-are') }}">Who We Are</a></li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
     <div class="col-md-3">
       <h4 style="color: #FFF;" class="tk-seravek-web">Contact Us</h4>
       <p>Compass Bible Church<br/>
       <i class="glyphicon glyphicon-globe"></i> 5082 Argosy, Huntington Beach, CA 92649<br/>
-      <i class="glyphicon glyphicon-phone"></i> (714) 895-0034<br/><br/>
+      <i class="glyphicon glyphicon-phone"></i> (714) 895-0034<br/>
       <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:info@compasshb.com">info@compasshb.com</a></p>
     </div>
   </div>

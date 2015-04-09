@@ -21,9 +21,6 @@
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('fellowship.index') }}">Fellowship</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('home') }}">Home</a></li>
       </ul>
-      <p class="navbar-text navbar-right hidden-xs">
-        <a href="#" onClick="javascript:alert('You are in dashboard view. Click Home to return to the homepage. Send feedback to info@compasshb.com');"><span class="glyphicon glyphicon-question-sign" style="font-size: 1.5em"></span></a>
-      </p>
-      <p class="navbar-text navbar-right hidden-xs">{{ date('l, F j') }}</p>
+      <p class="navbar-text navbar-right hidden-xs" style="margin-right: 40px">{{ date('l, F j') }}</p>
     </div>
 </nav>
