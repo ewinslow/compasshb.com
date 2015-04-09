@@ -1,17 +1,5 @@
 <?php
 
-// use Laracasts\TestDummy\Factory as TestDummy;
-
-/* Test Navigation and Static Pages
-
-** Admin test
-*->visit('/admin')
-->andType('integration testing', 'query')
-->press('Search')
-->andSee('You post was added')
-->onPage('admin/xxx')
-*/
-
 class HomepageTest extends TestCase
 {
     /** @test */
@@ -66,5 +54,19 @@ class HomepageTest extends TestCase
         $this->visit('/')
              ->click('Ice Cream Evangelism')
              ->SeePageIs('/ice-cream-evangelism');
+    }
+
+    /** @test */
+    public function it_loads_the_photos_page()
+    {
+        $this->visit('/photos');
+    }
+
+    /** @test */
+    public function it_loads_the_give_page()
+    {
+        $this->visit('/')
+             ->click('Give')
+             ->SeePageIs('/give');
     }
 }
