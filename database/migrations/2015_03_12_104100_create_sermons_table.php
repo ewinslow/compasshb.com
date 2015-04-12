@@ -11,7 +11,6 @@ class CreateSermonsTable extends Migration
     public function up()
     {
         Schema::create('sermons', function (Blueprint $table) {
-            // @todo: worksheet pdf and announcements pdf, questions and recommended reading
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');

@@ -27,6 +27,7 @@ class AddSeriesColumn extends Migration
     public function down()
     {
         Schema::table('sermons', function (Blueprint $table) {
+            $table->dropForeign('sermons_series_id_foreign');
             $table->dropColumn('series_id');
             $table->dropColumn('ministry');
         });
