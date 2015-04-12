@@ -4,6 +4,7 @@ use Log;
 use CompassHB\Smugmug;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
+use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Vimeo\VimeoVideo;
@@ -130,12 +131,12 @@ class PagesController extends Controller
 
     public function sundayschool()
     {
-        return view('ministries.sundayschool.index')->with('title', 'Sunday School');
-    }
+        $sermons = Sermon::where('ministry', '=', 'sundayschool')->published()->get();
+        $upcoming = Sermon::where('ministry', '=', 'sundayschool')->unpublished()->get();
+        $series = Series::where('ministry', '=', 'sundayschool')->get();
 
-    public function sundayschoolseries()
-    {
-        return view('ministries.sundayschool.series')->with('title', 'Sunday School Series');
+        return view('ministries.sundayschool.index', compact('sermons', 'upcoming', 'series'))
+            ->with('title', 'Sunday School');
     }
 
     public function college()

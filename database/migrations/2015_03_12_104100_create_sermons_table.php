@@ -20,7 +20,6 @@ class CreateSermonsTable extends Migration
             $table->string('teacher');
             $table->string('text');
             $table->string('video')->nullable();
-            $table->string('series');
             $table->string('sku');
             $table->timestamps();
             $table->timestamp('published_at');

@@ -30,7 +30,7 @@ class SeriesController extends Controller
      */
     public function create()
     {
-        return view('dashboard.series.create');
+        return view('admin.series.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class SeriesController extends Controller
         Auth::user()->series()->save($series);
 
         return redirect()
-            ->route('admin.series')
+            ->route('admin')
             ->with('message', 'Success! Your series was saved.');
     }
 
@@ -69,7 +69,7 @@ class SeriesController extends Controller
      */
     public function edit(Series $series)
     {
-        return view('dashboard.series.edit', compact('series'));
+        return view('admin.series.edit', compact('series'));
     }
 
     /**
@@ -83,7 +83,7 @@ class SeriesController extends Controller
         $series->update($request->all());
 
         return redirect()
-            ->route('admin.series')
+            ->route('admin')
             ->with('message', 'Success! Your series was updated.');
     }
 }

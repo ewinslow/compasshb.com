@@ -6,6 +6,13 @@
     <li class="{{ setActive('songs') }}"><a href="{{ route('songs.index') }}">Worship</a></li>
     <li class="{{ setActive('fellowship') }}"><a href="{{ route('fellowship.index') }}">Fellowship</a></li>
     <li class="{{ setActive('blog') }}"><a href="{{ route('blog.index') }}">Blog</a></li>
+
+    @if (Auth::check())
+    	<li class="{{ setActive('admin') }}"
+    		style="position: absolute; width: 100%; bottom: 40px;"><a href="{{ route('admin') }}">Admin</a>
+    	</li>
+    @endif
+
     <li style="position: absolute; width: 100%; bottom: 0;"><a href="{{ route('home') }}">Home</a></li>
   </ul>
 </div>

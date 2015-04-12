@@ -10,13 +10,14 @@ class CreateSeriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('series', function(Blueprint $table) {
+        Schema::create('series', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->text('body');
             $table->string('image');
             $table->string('slug')->nullable();
+            $table->string('ministry')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

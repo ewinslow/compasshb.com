@@ -27,7 +27,7 @@ class SermonsController extends Controller
      */
     public function index()
     {
-        $sermons = Sermon::latest('published_at')->published()->get();
+        $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->get();
 
         return view('dashboard.sermons.index', compact('sermons'));
     }
@@ -39,7 +39,7 @@ class SermonsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.sermons.create');
+        return view('admin.sermons.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class SermonsController extends Controller
         Auth::user()->sermons()->save($sermon);
 
         return redirect()
-            ->route('admin.sermons')
+            ->route('admin')
             ->with('message', 'Success! Your sermon was saved.');
     }
 
@@ -89,7 +89,7 @@ class SermonsController extends Controller
      */
     public function edit(Sermon $sermon)
     {
-        return view('dashboard.sermons.edit', compact('sermon'));
+        return view('admin.sermons.edit', compact('sermon'));
     }
 
     /**
@@ -111,7 +111,7 @@ class SermonsController extends Controller
         $sermon->update($all);
 
         return redirect()
-            ->route('admin.sermons')
+            ->route('admin')
             ->with('message', 'Success! Your sermon was updated.');
     }
 

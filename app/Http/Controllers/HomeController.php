@@ -39,28 +39,23 @@ class HomeController extends Controller
         return view('admin.home')->with('title', 'Admin');
     }
 
+    public function mainservice()
+    {
+        $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->paginate(15);
+        $series = Series::where('ministry', '=', null)->paginate(15);
+        $blogs = Blog::latest('published_at')->paginate(15);
+        $slides = Slide::latest('published_at')->paginate(15);
+
+        return view('admin.mainservice', compact('sermons', 'blogs', 'slides', 'series'))
+            ->with('title', 'Admin - Main Service');
+    }
+
     public function songs()
     {
         $songs = Song::latest()->paginate(15);
 
         return view('admin.songs', compact('songs'))
             ->with('title', 'Admin - Songs');
-    }
-
-    public function blog()
-    {
-        $blogs = Blog::latest('published_at')->paginate(15);
-
-        return view('admin.blog', compact('blogs'))
-            ->with('title', 'Admin - Blog');
-    }
-
-    public function sermons()
-    {
-        $sermons = Sermon::latest('published_at')->paginate(15);
-
-        return view('admin.sermons', compact('sermons'))
-            ->with('title', 'Admin - Sermons');
     }
 
     public function read()
@@ -81,25 +76,10 @@ class HomeController extends Controller
 
     public function sundayschool()
     {
-        $sermons = Sermon::latest('published_at')->paginate(15);
+        $sermons = Sermon::where('ministry', '=', 'sundayschool')->latest('published_at')->paginate(15);
+        $series = Series::where('ministry', '=', 'sundayschool')->paginate(15);
 
-        return view('admin.sundayschool', compact('sermons'))
+        return view('admin.sundayschool', compact('sermons', 'series'))
             ->with('title', 'Admin - Sunday School');
-    }
-
-    public function slides()
-    {
-        $slides = Slide::latest('published_at')->paginate(15);
-
-        return view('admin.slides', compact('slides'))
-            ->with('title', 'Admin - Slides');
-    }
-
-    public function series()
-    {
-        $series = Series::paginate(15);
-
-        return view('admin.series', compact('series'))
-            ->with('title', 'Admin - Series');
     }
 }

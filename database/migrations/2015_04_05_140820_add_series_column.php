@@ -12,6 +12,7 @@ class AddSeriesColumn extends Migration
     {
         Schema::table('sermons', function (Blueprint $table) {
             $table->integer('series_id')->unsigned()->nullable();
+            $table->string('ministry')->nullable();
 
             $table->foreign('series_id')
             ->references('id')
@@ -27,6 +28,7 @@ class AddSeriesColumn extends Migration
     {
         Schema::table('sermons', function (Blueprint $table) {
             $table->dropColumn('series_id');
+            $table->dropColumn('ministry');
         });
     }
 }

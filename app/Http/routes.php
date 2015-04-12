@@ -136,11 +136,6 @@ Route::group(['prefix' => 'sundayschool'], function () {
         'uses' => 'PagesController@sundayschool',
     ]);
 
-    Route::get('series', [
-        'as' => 'sundayschool.series',
-        'uses' => 'PagesController@sundsyachoolseries',
-    ]);
-
 });
 
 /*
@@ -169,19 +164,14 @@ Route::group(['prefix' => 'admin'], function () {
     'uses' => 'HomeController@index',
     ]);
 
+    Route::get('mainservice', [
+        'as' => 'admin.mainservice',
+        'uses' => 'HomeController@mainservice',
+    ]);
+
     Route::get('songs', [
         'as' => 'admin.songs',
         'uses' => 'HomeController@songs',
-    ]);
-
-    Route::get('blog', [
-        'as' => 'admin.blog',
-        'uses' => 'HomeController@blog',
-    ]);
-
-    Route::get('sermons', [
-        'as' => 'admin.sermons',
-        'uses' => 'HomeController@sermons',
     ]);
 
     Route::get('read', [
@@ -192,16 +182,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('fellowship', [
         'as' => 'admin.fellowship',
         'uses' => 'HomeController@fellowship',
-    ]);
-
-    Route::get('slides', [
-        'as' => 'admin.slides',
-        'uses' => 'HomeController@slides',
-    ]);
-
-    Route::get('series', [
-        'as' => 'admin.series',
-        'uses' => 'HomeController@series',
     ]);
 
     Route::get('sundayschool', [
