@@ -73,7 +73,7 @@ class Smugmug implements PhotosProvider
             $image = substr($image, 6, -1);
 
             // Replace HTTP call with HTTPS
-            $image = str_replace('http://photos.compasshb.com', 'https://compasshb.smugmug.com', $image);
+            $image = str_replace('http://', 'https://', $image);
 
             $results[] = array($link, $image);
         }
