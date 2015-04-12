@@ -18,7 +18,12 @@
               <strong>training</strong> them to serve Christ.</p>
       <p><a href="/sermons/our-missions-statement">Our Mission Statement</a></p>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <h4 style="color: #FFF;" class="tk-seravek-web">Mobile App</h4>
+      <p>Download the CompassHB app on your phone.</p>
+      <p><a href="https://appsto.re/us/n_WA6.i">CompassHB for iPhone</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=com.compasshb.mobile">CompassHB for Android</a></p>
+    </div>
     <div class="col-md-3"></div>
     <div class="col-md-3">
       <h4 style="color: #FFF;" class="tk-seravek-web">Contact Us</h4>
