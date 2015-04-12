@@ -4,7 +4,7 @@ use Log;
 
 class Smugmug implements PhotosProvider
 {
-    private $url = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
+    private $url = 'https://compasshb.smugmug.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
 
     public function __construct()
     {
@@ -46,7 +46,7 @@ class Smugmug implements PhotosProvider
     public function getPhotos($num = 4)
     {
         // Smugmug
-        $feedUrl = 'http://photos.compasshb.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
+        $feedUrl = 'http://compasshb.smugmug.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
 
         $rawfeed = '';
         $results = array();
@@ -71,6 +71,9 @@ class Smugmug implements PhotosProvider
             $image = $media->group->content[3]->attributes();
             $image = $image['url']->asXML();
             $image = substr($image, 6, -1);
+
+            // Replace HTTP call with HTTPS
+            $image = str_replace('http://photos.compasshb.com', 'https://compasshb.smugmug.com', $image);
 
             $results[] = array($link, $image);
         }
