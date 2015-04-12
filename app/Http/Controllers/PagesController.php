@@ -7,7 +7,7 @@ use CompassHB\Www\Slide;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
-use CompassHB\Vimeo\VimeoVideo;
+use CompassHB\Video\Vimeo;
 
 class PagesController extends Controller
 {
@@ -19,7 +19,7 @@ class PagesController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->videoClient = new VimeoVideo();
+        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -28,7 +28,7 @@ class PagesController extends Controller
     public function home()
     {
         $slides = Slide::latest('published_at')->published()->take(2)->get();
-        $sermons = Sermon::latest('published_at')->published()->take(4)->get();
+        $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(4)->get();
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
 
