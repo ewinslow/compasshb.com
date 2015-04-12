@@ -2,21 +2,18 @@
 
 use Auth;
 use CompassHB\Www\Sermon;
+use CompassHB\Video\Client;
 use CompassHB\Www\Fellowship;
-use CompassHB\Video\Vimeo;
 use CompassHB\Www\Http\Requests\FellowshipRequest;
 
 class FellowshipsController extends Controller
 {
-    private $videoClient;
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -29,8 +26,10 @@ class FellowshipsController extends Controller
         $fellowships = Fellowship::all()->toArray();
         $days = array_unique(array_column($fellowships, 'day'));
 
-        $sermon = Sermon::latest('published_at')->published()->take(1)->get()->first();
-        $sermon->iframe = $this->videoClient->oembed($sermon->video);
+        $sermon = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(1)->get()->first();
+
+        $client = new Client($sermon->video);
+        $sermon->iframe = $client->getEmbedCode();
 
         return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon'))
             ->with('title', 'Home Fellowship Groups');

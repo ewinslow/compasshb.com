@@ -4,19 +4,16 @@ use Cache;
 use Response;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
-use CompassHB\Video\Vimeo;
+use CompassHB\Video\Client;
 
 class FeedsController extends Controller
 {
-    private $videoClient;
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('guest');
-        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -26,7 +23,7 @@ class FeedsController extends Controller
      */
     public function sermons()
     {
-        $data['sermons'] = Sermon::orderBy('published_at', 'desc')->limit(300)->get();
+        $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->limit(300)->get();
 
         return Response::view('feeds.rss', $data, 200, [
             'Content-Type' => 'application/atom+xml; charset=UTF-8',
@@ -51,12 +48,13 @@ class FeedsController extends Controller
      */
     public function json()
     {
-        $data['sermons'] = Sermon::orderBy('published_at', 'desc')->published()->limit(300)->get();
+        $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->published()->limit(300)->get();
 
         // Retrieve coverart
         foreach ($data['sermons'] as $sermon) {
             if (!Cache::has($sermon->video)) {
-                Cache::add($sermon->video, $this->videoClient->getOThumb($sermon->video), 1440);
+                $client = new Client($sermon->video);
+                Cache::add($sermon->video, $client->getThumbnail(), 1440);
             }
 
             $sermon->othumbnail = Cache::get($sermon->video);

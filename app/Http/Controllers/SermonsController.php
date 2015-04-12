@@ -3,21 +3,18 @@
 use Auth;
 use Input;
 use CompassHB\Www\Sermon;
+use CompassHB\Video\Client;
 use CompassHB\Aws\AwsUploader;
-use CompassHB\Video\Vimeo;
 use CompassHB\Www\Http\Requests\SermonRequest;
 
 class SermonsController extends Controller
 {
-    private $videoClient;
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -74,7 +71,9 @@ class SermonsController extends Controller
      */
     public function show(Sermon $sermon)
     {
-        $sermon->iframe = $this->videoClient->oembed($sermon->video);
+        $client = new Client($sermon->video);
+
+        $sermon->iframe = $client->getEmbedCode();
 
         return view('dashboard.sermons.show', compact('sermon'))
             ->with('title', $sermon->title);
@@ -123,8 +122,8 @@ class SermonsController extends Controller
      */
     public function download(Sermon $sermon)
     {
-        $video = $this->videoClient->getDownloadLink($sermon->video);
+        $client = new Client($sermon->video);
 
-        return redirect()->to($video);
+        return redirect()->to($client->getDownloadLink());
     }
 }

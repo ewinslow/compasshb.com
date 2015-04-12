@@ -2,20 +2,17 @@
 
 use Auth;
 use CompassHB\Www\Blog;
-use CompassHB\Video\Vimeo;
+use CompassHB\Video\Client;
 use CompassHB\Www\Http\Requests\BlogRequest;
 
 class BlogsController extends Controller
 {
-    private $videoClient;
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -43,7 +40,8 @@ class BlogsController extends Controller
         $blog->iframe = '';
 
         if (!empty($blog->video)) {
-            $blog->iframe = $this->videoClient->oembed($blog->video);
+            $client = new Client($blog->video);
+            $blog->iframe = $client->getEmbedCode();
         }
 
         return view('dashboard.blogs.show', compact('blog'))

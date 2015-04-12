@@ -7,19 +7,16 @@ use CompassHB\Www\Slide;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
-use CompassHB\Video\Vimeo;
+use CompassHB\Video\Client;
 
 class PagesController extends Controller
 {
-    private $videoClient;
-
     /**
      * Create a new controller instance.
      */
     public function __construct()
     {
         $this->middleware('guest');
-        $this->videoClient = new Vimeo();
     }
 
     /**
@@ -37,14 +34,17 @@ class PagesController extends Controller
         $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
 
         foreach ($sermons as $sermon) {
-            $sermon->othumbnail = $this->videoClient->getOThumb($sermon->video);
+            $client = new Client($sermon->video);
+            $sermon->othumbnail = $client->getThumbnail();
         }
 
         foreach ($videos as $video) {
-            $video->othumbnail = $this->videoClient->getOThumb($video->video);
+            $client = new Client($sermon->video);
+            $video->othumbnail = $client->getThumbnail();
         }
 
-        $prevsermon->othumbnail = $this->videoClient->getVideoThumb($prevsermon->video);
+        $client = new Client($prevsermon->video);
+        $prevsermon->othumbnail = $client->getThumbnail(true);
 
         // Instagram
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
