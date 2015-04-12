@@ -2,13 +2,14 @@
 
 use Log;
 
-class VimeoVideo implements VideoProvider
+class VimeoProvider implements VideoInterface
 {
     private $vimeoClient;
     private $client;
     private $clientId;
     private $clientSecret;
     private $token;
+    private $domain = 'vimeo.com';
 
     public function __construct()
     {
@@ -20,6 +21,11 @@ class VimeoVideo implements VideoProvider
         $this->client = new \GuzzleHttp\Client();
     }
 
+    public function recognizes($url)
+    {
+        return strpos($url, $this->domain) != false;
+    }
+
     /**
      * Get oembed iframe.
      *
@@ -27,7 +33,7 @@ class VimeoVideo implements VideoProvider
      *
      * @return string
      */
-    public function oembed($url)
+    public function getEmbedCode($url)
     {
         $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$url;
 
@@ -51,10 +57,14 @@ class VimeoVideo implements VideoProvider
      *
      * @return string
      */
-    public function getOThumb($url)
+    public function getThumbnail($url, $large = false)
     {
         if ($url == '') {
             return;
+        }
+
+        if ($large) {
+            return $this->getVideoThumb($url);
         }
 
         $request = 'https://vimeo.com/api/oembed.json?url='.$url;
@@ -80,7 +90,7 @@ class VimeoVideo implements VideoProvider
      *
      * @return string
      */
-    public function getVideoThumb($url)
+    private function getVideoThumb($url)
     {
         // Parse Vimeo video ID
         $videoId = substr($url, strrpos($url, '/') + 1);
