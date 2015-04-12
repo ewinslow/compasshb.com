@@ -51,7 +51,7 @@
     @endforeach
     </ol>
 
-<script src="http://jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
+<script src="//jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
 <script>
     jwplayer("myElement").setup({
         playlist: "{{ route('feed.songs.xml') }}",
