@@ -6,7 +6,7 @@
 	@include('errors.list')
 
 	{!! Form::model($series = new \CompassHB\Www\Series, ['url' => 'series']) !!}
-		@include('dashboard.series.form', ['submitButtonText' => 'Create Series'])
+		@include('admin.series.form', ['submitButtonText' => 'Create Series'])
 	{!! Form::close() !!}
 
 @endsection
