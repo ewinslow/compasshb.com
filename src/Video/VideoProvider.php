@@ -1,4 +1,4 @@
-<?php namespace CompassHB\Vimeo;
+<?php namespace CompassHB\Video;
 
 interface VideoProvider
 {
