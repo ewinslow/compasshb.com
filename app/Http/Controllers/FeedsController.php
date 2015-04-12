@@ -4,7 +4,7 @@ use Cache;
 use Response;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
-use CompassHB\Vimeo\VimeoVideo;
+use CompassHB\Video\Vimeo;
 
 class FeedsController extends Controller
 {
@@ -16,7 +16,7 @@ class FeedsController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->videoClient = new VimeoVideo();
+        $this->videoClient = new Vimeo();
     }
 
     /**

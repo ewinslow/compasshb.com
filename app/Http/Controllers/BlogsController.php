@@ -2,7 +2,7 @@
 
 use Auth;
 use CompassHB\Www\Blog;
-use CompassHB\Vimeo\VimeoVideo;
+use CompassHB\Video\Vimeo;
 use CompassHB\Www\Http\Requests\BlogRequest;
 
 class BlogsController extends Controller
@@ -15,7 +15,7 @@ class BlogsController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-        $this->videoClient = new VimeoVideo();
+        $this->videoClient = new Vimeo();
     }
 
     /**

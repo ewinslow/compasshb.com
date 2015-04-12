@@ -2,6 +2,7 @@
 
 use Auth;
 use CompassHB\Www\Series;
+use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SeriesRequest;
 
 class SeriesController extends Controller
@@ -45,8 +46,7 @@ class SeriesController extends Controller
         Auth::user()->series()->save($series);
 
         return redirect()
-            ->route('admin')
-            ->with('message', 'Success! Your series was saved.');
+            ->route('admin');
     }
 
     /**
@@ -57,7 +57,9 @@ class SeriesController extends Controller
      */
     public function show(Series $series)
     {
-        return view('dashboard.series.show', compact('series'))
+        $sermons = Sermon::where('series_id', '=', $series->id)->latest('published_at')->published()->get();
+
+        return view('dashboard.series.show', compact('series', 'sermons'))
             ->with('title', $series->title);
     }
 

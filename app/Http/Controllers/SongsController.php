@@ -3,7 +3,7 @@
 use Auth;
 use CompassHB\Www\Song;
 use CompassHB\Pco\Setlist;
-use CompassHB\Vimeo\VimeoVideo;
+use CompassHB\Video\Vimeo;
 use CompassHB\Www\Http\Requests\SongRequest;
 
 class SongsController extends Controller
@@ -16,7 +16,7 @@ class SongsController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
-        $this->videoClient = new VimeoVideo();
+        $this->videoClient = new Vimeo();
     }
 
     /**
