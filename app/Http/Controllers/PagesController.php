@@ -39,7 +39,7 @@ class PagesController extends Controller
         }
 
         foreach ($videos as $video) {
-            $client = new Client($sermon->video);
+            $client = new Client($video->video);
             $video->othumbnail = $client->getThumbnail();
         }
 
