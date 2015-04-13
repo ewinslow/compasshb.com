@@ -6,7 +6,7 @@
 	@include('errors.list')
 
 	{!! Form::model($passage = new \CompassHB\Www\Passage, ['url' => 'read']) !!}
-		@include('dashboard.passages.form', ['submitButtonText' => 'Create Passage'])
+		@include('admin.passages.form', ['submitButtonText' => 'Create Passage'])
 	{!! Form::close() !!}
 
 @endsection

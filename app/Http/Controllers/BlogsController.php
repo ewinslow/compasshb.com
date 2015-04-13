@@ -57,7 +57,7 @@ class BlogsController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('dashboard.blogs.edit', compact('blog'));
+        return view('admin.blogs.edit', compact('blog'));
     }
 
     /**
@@ -73,7 +73,7 @@ class BlogsController extends Controller
         $blog->update($request->all());
 
         return redirect()
-            ->route('admin.blog')
+            ->route('admin')
             ->with('message', 'Success! Your blog was updated.');
     }
 
@@ -84,7 +84,7 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.blogs.create');
+        return view('admin.blogs.create');
     }
 
     /**
@@ -101,7 +101,7 @@ class BlogsController extends Controller
         Auth::user()->blogs()->save($blog);
 
         return redirect()
-            ->route('admin.blog')
+            ->route('admin')
             ->with('message', 'Success! Your blog was saved.');
     }
 }

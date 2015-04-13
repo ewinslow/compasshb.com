@@ -82,7 +82,7 @@ class PassagesController extends Controller
      */
     public function edit(Passage $passage)
     {
-        return view('dashboard.passages.edit', compact('passage'));
+        return view('admin.passages.edit', compact('passage'));
     }
 
     /**
@@ -109,7 +109,7 @@ class PassagesController extends Controller
      */
     public function create()
     {
-        return view('dashboard.passages.create');
+        return view('admin.passages.create');
     }
 
     /**

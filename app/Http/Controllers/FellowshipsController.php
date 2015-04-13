@@ -44,7 +44,7 @@ class FellowshipsController extends Controller
      */
     public function edit(Fellowship $fellowship)
     {
-        return view('dashboard.fellowships.edit', compact('fellowship'));
+        return view('admin.fellowships.edit', compact('fellowship'));
     }
 
     /**
@@ -71,7 +71,7 @@ class FellowshipsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.fellowships.create');
+        return view('admin.fellowships.create');
     }
 
     /**

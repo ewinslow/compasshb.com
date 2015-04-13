@@ -63,7 +63,7 @@ class SongsController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('dashboard.songs.edit', compact('song'))->with('title', 'Edit Song');
+        return view('admin.songs.edit', compact('song'))->with('title', 'Edit Song');
     }
 
     /**
@@ -90,7 +90,7 @@ class SongsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.songs.create');
+        return view('admin.songs.create');
     }
 
     /**

@@ -6,7 +6,7 @@
 	@include('errors.list')
 
 	{!! Form::model($song = new \CompassHB\Www\Song, ['url' => 'songs']) !!}
-		@include('dashboard.songs.form', ['submitButtonText' => 'Create Song'])
+		@include('admin.songs.form', ['submitButtonText' => 'Create Song'])
 	{!! Form::close() !!}
 
 @endsection
