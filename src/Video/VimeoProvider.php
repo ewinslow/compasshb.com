@@ -23,7 +23,7 @@ class VimeoProvider implements VideoInterface
 
     public function recognizes($url)
     {
-        return strpos($url, $this->domain) != false;
+        return strpos($url, $this->domain) !== false;
     }
 
     /**

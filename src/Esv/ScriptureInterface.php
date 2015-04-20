@@ -1,6 +1,6 @@
 <?php namespace CompassHB\Esv;
 
-interface ScriptureProvider
+interface ScriptureInterface
 {
     public function getScripture($passage);
 }

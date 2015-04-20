@@ -2,7 +2,7 @@
 
 use Log;
 
-class Analytics implements AnalyticsProvider
+class Analytics implements AnalyticsInterface
 {
     private $email;
     private $service;

@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-interface UploadProvider
+interface UploadInterface
 {
     public function uploadAndSaveS3(UploadedFile $file, $folder);
 }

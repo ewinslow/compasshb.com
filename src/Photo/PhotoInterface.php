@@ -1,6 +1,6 @@
-<?php namespace CompassHB\Smugmug;
+<?php namespace CompassHB\Photo;
 
-interface PhotosProvider
+interface PhotoInterface
 {
     public function getRecentPhotos();
     public function getPhotos($number);

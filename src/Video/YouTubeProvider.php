@@ -15,7 +15,7 @@ class YouTubeProvider implements VideoInterface
 
     public function recognizes($url)
     {
-        return (strpos($url, $this->domain) != false || strpos($url, $this->domain2) != false);
+        return (strpos($url, $this->domain) !== false || strpos($url, $this->domain2) !== false);
     }
 
     /**

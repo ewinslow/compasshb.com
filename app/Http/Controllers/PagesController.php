@@ -1,13 +1,13 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Log;
-use CompassHB\Smugmug;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
-use CompassHB\Video\Client;
+use CompassHB\Video\Client as VideoClient;
+use CompassHB\Photo\Client as PhotoClient;
 
 class PagesController extends Controller
 {
@@ -34,16 +34,16 @@ class PagesController extends Controller
         $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
 
         foreach ($sermons as $sermon) {
-            $client = new Client($sermon->video);
+            $client = new VideoClient($sermon->video);
             $sermon->othumbnail = $client->getThumbnail();
         }
 
         foreach ($videos as $video) {
-            $client = new Client($video->video);
+            $client = new VideoClient($video->video);
             $video->othumbnail = $client->getThumbnail();
         }
 
-        $client = new Client($prevsermon->video);
+        $client = new VideoClient($prevsermon->video);
         $prevsermon->othumbnail = $client->getThumbnail(true);
 
         // Instagram
@@ -57,7 +57,7 @@ class PagesController extends Controller
             $instagrams['data'] = [];
         }
 
-        $results = new Smugmug\Smugmug();
+        $results = new PhotoClient();
         $results = $results->getPhotos(8);
 
         return view('pages.index', compact(
@@ -74,13 +74,13 @@ class PagesController extends Controller
     }
 
     /**
-     * Populate the Photos page from Smugmug.
+     * Populate the Photos page from Photo Client.
      *
      * @return \Illuminate\View\View
      */
     public function photos()
     {
-        $results = new Smugmug\Smugmug();
+        $results = new PhotoClient();
         $results = $results->getRecentPhotos();
 
         return view('pages.photos')

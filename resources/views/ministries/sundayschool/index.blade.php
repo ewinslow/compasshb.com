@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-	<div class="row">
+	<div class="row" style="background: url(https://secure.smugmug.com/PhotoArchive/Worship-Services/Weekend-Service-022215/i-nN8dnFB/0/L/150222_SER_SS-016-L.jpg); background-size: cover; background-position: center; height: 125px">
         <div class="col-xs-10 col-xs-offset-1">
-            <h1 class="tk-seravek-web">Sunday School</h1>
+            <h1 class="tk-seravek-web" style="color: #FFF">Sunday School</h1>
             <br/>
         </div>
     </div>
 
     <div class="row"
-         style="background:none; background-color: #a0a0a0; padding-top: 30px;padding-bottom: 30px;">
+         style="background:none; background-color: #FFF; padding-top: 30px;padding-bottom: 30px;">
         <div class="container">
 
             <div class="col-md-4 col-md-offset-1">

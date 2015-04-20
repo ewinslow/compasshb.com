@@ -53,7 +53,7 @@ class SermonsController extends Controller
         $worksheet = Input::file('worksheet');
 
         // Save worksheet if one was uploaded
-        if ($worksheet != null) {
+        if ($worksheet !== null) {
             $sermon->worksheet = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
@@ -102,7 +102,7 @@ class SermonsController extends Controller
         $all = $request->all();
 
         // Replace worksheet if one was uploaded
-        if ($worksheet != null) {
+        if ($worksheet !== null) {
             $all['worksheet'] = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
