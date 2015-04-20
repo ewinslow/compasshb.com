@@ -8,7 +8,7 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
  *
  * @todo : exception handling
  */
-class Setlist implements ServiceProvider
+class Setlist implements ServiceInterface
 {
     private $url = 'https://services.planningcenteronline.com/';
     private $consumerKey;

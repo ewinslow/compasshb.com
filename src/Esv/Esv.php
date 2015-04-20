@@ -2,7 +2,7 @@
 
 use Log;
 
-class Esv implements ScriptureProvider
+class Esv implements ScriptureInterface
 {
     private $apikey;
     private $options = "include-footnotes=false&audio-format=mp3";

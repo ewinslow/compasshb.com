@@ -3,7 +3,7 @@
 use Aws\S3\S3Client;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class AwsUploader implements UploadProvider
+class AwsUploader implements UploadInterface
 {
     private $client;
     private $key;

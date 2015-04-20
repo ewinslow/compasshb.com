@@ -1,8 +1,8 @@
-<?php namespace CompassHB\Smugmug;
+<?php namespace CompassHB\Photo;
 
 use Log;
 
-class Smugmug implements PhotosProvider
+class SmugmugProvider implements PhotoInterface
 {
     private $url = 'https://compasshb.smugmug.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
 

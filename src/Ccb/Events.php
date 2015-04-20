@@ -1,6 +1,8 @@
 <?php
 namespace CompassHB\Ccb;
 
+use GuzzleHttp\Client;
+
 class Events
 {
     /** @var Client */
@@ -9,7 +11,7 @@ class Events
     /**
      * @param Client $client
      */
-    public function __construct(Client $client)
+    public function __construct(GuzzleHttp\Client $client)
     {
         $this->client = $client;
     }

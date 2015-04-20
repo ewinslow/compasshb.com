@@ -4,7 +4,6 @@ use Auth;
 use Redirect;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
-use Illuminate\Http\Request;
 use CompassHB\Google\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
 
