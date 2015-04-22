@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CompassHB/compasshb.com.svg?branch=master)](https://travis-ci.org/CompassHB/compasshb.com) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/CompassHB/compasshb.com/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/CompassHB/compasshb.com/?branch=master)
+[![Build Status](https://travis-ci.org/CompassHB/compasshb.com.svg?branch=master)](https://travis-ci.org/CompassHB/compasshb.com) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/CompassHB/compasshb.com/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/CompassHB/compasshb.com/?branch=master) [Factory link](https://codenvy.com/f?id=mojyqwx13yodb1ux) [![Contribute](https://codenvy.com/factory/resources/factory-white.png)](http://nightly.codenvy-stg.com/f?id=yrtazdmruzya046n)
 
 # CompassHB.com
 This is the source code for [compassHB.com](http://www.compasshb.com/).
