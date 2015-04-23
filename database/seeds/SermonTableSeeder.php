@@ -37,6 +37,9 @@ class SermonTableSeeder extends Seeder
             'slug' => 'dont-forget-his-benefits',
         ]);
 
+        /*
+         * Sunday school lessons
+         */
         Sermon::create([
             'user_id' => 2,
             'title' => 'Self-Existance',
@@ -48,6 +51,22 @@ class SermonTableSeeder extends Seeder
             'sku' => '10',
             'published_at' => '2015-01-14 00:00:00',
             'slug' => 'self-existance',
+            'series_id' => 2,
+            'ministry' => 'sundayschool',
+        ]);
+
+        Sermon::create([
+            'user_id' => 2,
+            'title' => 'Trinity & Unity',
+            'body' => 'Description',
+            'teacher' => 'Steve B',
+            'text' => 'Various',
+            'worksheet' => '',
+            'video' => 'https://youtu.be/V4bmzC2-YpQ',
+            'sku' => '10',
+            'published_at' => '2015-01-14 00:00:00',
+            'slug' => 'trinity-unity',
+            'series_id' => 3,
             'ministry' => 'sundayschool',
         ]);
 
