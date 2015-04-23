@@ -4,7 +4,7 @@
 
   @include('layouts.admin.header')
 
-<!-- Scripture of the Day -->
+{{-- Scripture of the Day --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" ="scriptureoftheday">Scripture of the Day</h3>

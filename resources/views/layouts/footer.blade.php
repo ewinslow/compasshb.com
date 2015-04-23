@@ -52,7 +52,7 @@
       <a href="https://github.com/compasshb">Design</a>
     </span>
   </div>
-</footer><!-- #footer -->
+</footer>
 
 @include('layouts.script')
 

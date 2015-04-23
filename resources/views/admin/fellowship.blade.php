@@ -4,7 +4,7 @@
 
   @include('layouts.admin.header')
 
-<!-- Home Fellowship Groups -->
+{{-- Home Fellowship Groups --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="fellowship">Home Fellowship Groups</h3>

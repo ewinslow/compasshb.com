@@ -39,7 +39,7 @@
 <br/><br/>
 </div>
 
-<!-- Directions -->
+{{-- Directions --}}
 <div class="row" style="background: none; background-color: #f7f7f7; padding-top: 30px; padding-bottom: 30px;">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="col-md-4 text-center">
@@ -68,12 +68,12 @@
 </div>
 
 
-<!-- Parallax -->
+{{-- Parallax --}}
 <div class="row">
     <div style="background-image: url(https://compasshb.smugmug.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/X2/150111_Wor_SS-093-X2.jpg);padding-top: 250px; background-attachment: fixed; background-position: 50% 0px; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-repeat: no-repeat;"></div>
 </div>
 
-<!-- Recent Sermons -->
+{{-- Recent Sermons --}}
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
         <h2 class="tk-seravek-web"><a href="{{ route('sermons.index') }}">Sermons</a></h2>
@@ -94,7 +94,7 @@
 </div>
 
 
-<!-- Recent Videos -->
+{{-- Recent Videos --}}
 <div class="row" style="background: none; background-color: #dddddd; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
         <h2 class="tk-seravek-web"><a href="{{ route('blog.index') }}">Videos</a></h2>
@@ -115,7 +115,7 @@
     </div>
 </div>
 
-<!-- Recent Photography / SmugMug -->
+{{-- Photos --}}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <h2 class="tk-seravek-web"><a href="{{ route('photos') }}">Photos</a></h2>
@@ -128,7 +128,7 @@
     </div>
 </div>
 
-<!-- Social Media -->
+{{-- Social Media --}}
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 40px;">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="col-md-5">
@@ -142,7 +142,7 @@
 <br/><br/>&nbsp;<br/><br/>
 </div>
 
-<!-- Instagram -->
+{{-- Instagram --}}
 <div class="row" style="background: none; background-color: #fff; padding-bottom: 20px;">
     <div class="col-xs-10 col-xs-offset-1">
         <h2 class="tk-seravek-web"><a href="https://www.instagram.com/compasshb">Instagram</a></h2>

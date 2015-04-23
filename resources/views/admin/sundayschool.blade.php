@@ -4,7 +4,7 @@
 
   @include('layouts.admin.header')
 
-<!-- Sunday School Messages -->
+{{-- Sunday School Messages --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="sermons">Sunday School Lessons</h3>
@@ -43,7 +43,7 @@
 
 {!! $sermons->render() !!}
 
-<!-- Series -->
+{{-- Series --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="series">Sunday School Series</h3>

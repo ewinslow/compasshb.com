@@ -4,7 +4,7 @@
 
   @include('layouts.admin.header')
 
-<!-- Sermons -->
+{{-- Sermons --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="sermons">Sermons</h3>
@@ -43,7 +43,7 @@
 
 {!! $sermons->render() !!}
 
-<!-- Series -->
+{{-- Series --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="series">Sermon Series</h3>
@@ -72,7 +72,7 @@
 
 {!! $series->render() !!}
 
-<!-- Blogs -->
+{{-- Blogs --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="blogs">Blogs/Videos</h3>
@@ -105,7 +105,7 @@
 
 {!! $blogs->render() !!}
 
-<!-- Slides -->
+{{-- Slides --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="blogs">Slides</h3>

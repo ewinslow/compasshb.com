@@ -4,7 +4,7 @@
 
   @include('layouts.admin.header')
 
-<!-- Worship Songs -->
+{{-- Worship Songs --}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web" id="worship">Worship Songs</h3>
