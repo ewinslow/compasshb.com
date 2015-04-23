@@ -102,11 +102,6 @@ Route::get('ice-cream-evangelism', [
     'uses' => 'PagesController@icecreamevangelism',
 ]);
 
-Route::get('kids', [
-    'as' => 'kids',
-    'uses' => 'PagesController@kids',
-]);
-
 Route::get('what-we-believe', [
     'as' => 'believe',
     'uses' => 'PagesController@whatwebelieve',
@@ -117,34 +112,44 @@ Route::get('calendar', [
     'uses' => 'PagesController@calendar',
 ]);
 
-/*
- * Routes for Youth ministry
+/***********************************************************************
+ * Routes for ministry pages
  */
-Route::get('youth', [
-    'as' => 'youth',
-    'uses' => 'PagesController@youth',
+
+/*
+ * Route for Kids ministry
+ */
+Route::get('kids', [
+    'as' => 'kids',
+    'uses' => 'MinistryController@kids',
 ]);
 
 /*
- * Routes for Sunday School
- *
+ * Route for Youth ministry
+ */
+Route::get('youth', [
+    'as' => 'youth',
+    'uses' => 'MinistryController@youth',
+]);
+
+/*
+ * Route for Sunday School ministry
  */
 Route::group(['prefix' => 'sundayschool'], function () {
 
     Route::get('/', [
         'as' => 'sundayschool.index',
-        'uses' => 'PagesController@sundayschool',
+        'uses' => 'MinistryController@sundayschool',
     ]);
 
 });
 
 /*
- * Routes for college ministry
- *
+ * Route for college ministry
  */
 Route::get('college', [
     'as' => 'college',
-    'uses' => 'PagesController@college',
+    'uses' => 'MinistryController@college',
 ]);
 
 /*

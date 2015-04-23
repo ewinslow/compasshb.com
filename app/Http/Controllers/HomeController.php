@@ -74,6 +74,11 @@ class HomeController extends Controller
             ->with('title', 'Admin - Home Fellowship Groups');
     }
 
+    /**
+     * Controller for route to admin page for Sunday School ministry.
+     *
+     * @return [type] [description]
+     */
     public function sundayschool()
     {
         $sermons = Sermon::where('ministry', '=', 'sundayschool')->latest('published_at')->paginate(15);

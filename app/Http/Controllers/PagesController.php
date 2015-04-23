@@ -3,7 +3,6 @@
 use Log;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Slide;
-use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Video\Client as VideoClient;
@@ -20,7 +19,9 @@ class PagesController extends Controller
     }
 
     /**
-     * Homepage.
+     * Controller for the homepage.
+     *
+     * @return view
      */
     public function home()
     {
@@ -114,34 +115,9 @@ class PagesController extends Controller
         return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
     }
 
-    public function kids()
-    {
-        return view('ministries.kids.index')->with('title', 'Kids Ministry');
-    }
-
     public function whatwebelieve()
     {
         return view('pages.whatwebelieve')->with('title', 'What We Believe');
-    }
-
-    public function youth()
-    {
-        return view('ministries.youth.index')->with('title', 'The United');
-    }
-
-    public function sundayschool()
-    {
-        $sermons = Sermon::where('ministry', '=', 'sundayschool')->published()->get();
-        $upcoming = Sermon::where('ministry', '=', 'sundayschool')->unpublished()->get();
-        $series = Series::where('ministry', '=', 'sundayschool')->get();
-
-        return view('ministries.sundayschool.index', compact('sermons', 'upcoming', 'series'))
-            ->with('title', 'Sunday School');
-    }
-
-    public function college()
-    {
-        return view('ministries.college.index')->with('title', 'The Underground');
     }
 
     public function bunnyrun()
