@@ -4,7 +4,7 @@ use Auth;
 use Redirect;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
-use CompassHB\Google\Analytics;
+use CompassHB\Google\AnalyticsInterface;
 use CompassHB\Www\Http\Requests\PassageRequest;
 
 class PassagesController extends Controller
@@ -22,7 +22,7 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(AnalyticsInterface $a)
     {
         $esv = new Esv();
 
@@ -36,7 +36,6 @@ class PassagesController extends Controller
             $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
         }
 
-        $a = new Analytics();
         $analytics = $a->getPageViews('/read', 'today', 'today');
         $analytics['activeUsers'] = $a->getActiveUsers();
 

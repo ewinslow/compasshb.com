@@ -23,7 +23,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Illuminate\Contracts\Auth\Registrar',
-            'CompassHB\Www\Services\Registrar'
-        );
+            'CompassHB\Www\Services\Registrar');
+        
+        $this->app->bind(
+            'CompassHB\Google\AnalyticsInterface',
+            $this->app->environment() == 'local' ?
+                'CompassHB\Analytics\FakeAnalytics' :
+                'CompassHB\Google\Analytics');
     }
 }
