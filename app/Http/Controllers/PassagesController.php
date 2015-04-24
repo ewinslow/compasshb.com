@@ -50,11 +50,10 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Passage $passage)
+    public function show(Passage $passage, Analytics $a)
     {
         $passages = Passage::latest('published_at')->published()->take(5)->get();
 
-        $a = new Analytics();
         $analytics = $a->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
         $analytics['activeUsers'] = $a->getActiveUsers();
 

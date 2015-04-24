@@ -9,6 +9,12 @@ class DashboardTest extends TestCase
     }
 
     /** @test */
+    public function it_loads_scripture_of_the_day_individual()
+    {
+        $this->visit('/read/matthew-1');
+    }
+
+    /** @test */
     public function it_loads_fellowships()
     {
         $this->visit('/fellowship');
