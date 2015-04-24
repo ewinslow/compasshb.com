@@ -27,5 +27,6 @@ class Kernel extends HttpKernel
         'auth' => 'CompassHB\Www\Http\Middleware\Authenticate',
         'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'CompassHB\Www\Http\Middleware\RedirectIfAuthenticated',
+        'cors' => 'CompassHB\Www\Http\Middleware\CORSMiddleware',
     ];
 }

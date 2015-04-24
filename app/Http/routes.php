@@ -67,9 +67,22 @@ Route::get('pray', [
  * Routes for feeds
  */
 Route::group(['prefix' => 'feed'], function () {
-    Route::get('sermons',  ['as' => 'feed.sermons', 'uses' => 'FeedsController@sermons']);
-    Route::get('sermons.json',  ['as' => 'feed.sermons.json', 'uses' => 'FeedsController@json']);
-    Route::get('songs.xml', ['as' => 'feed.songs.xml', 'uses' => 'FeedsController@songs']);
+
+    Route::get('sermons',  [
+        'as' => 'feed.sermons',
+        'uses' => 'FeedsController@sermons',
+    ]);
+
+    Route::get('sermons.json',  [
+        'middleware' => 'cors',
+        'as' => 'feed.sermons.json',
+        'uses' => 'FeedsController@json',
+    ]);
+
+    Route::get('songs.xml', [
+        'as' => 'feed.songs.xml',
+        'uses' => 'FeedsController@songs',
+    ]);
 });
 
 /*
@@ -165,8 +178,8 @@ Route::get('bunnyrun', ['as' => 'bunnyrun',
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', [
-    'as' => 'admin',
-    'uses' => 'HomeController@index',
+        'as' => 'admin',
+        'uses' => 'HomeController@index',
     ]);
 
     Route::get('mainservice', [
