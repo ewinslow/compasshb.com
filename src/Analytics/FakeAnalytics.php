@@ -1,9 +1,7 @@
 <?php
 namespace CompassHB\Analytics;
 
-use CompassHB\Google\AnalyticsInterface;
-
-class FakeAnalytics implements AnalyticsInterface
+class FakeAnalytics implements Analytics
 {
     public function getPageViews($path, $startDate, $endDate) {
         return [

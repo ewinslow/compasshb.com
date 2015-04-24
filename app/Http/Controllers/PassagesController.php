@@ -4,7 +4,7 @@ use Auth;
 use Redirect;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
-use CompassHB\Google\AnalyticsInterface;
+use CompassHB\Analytics\Analytics;
 use CompassHB\Www\Http\Requests\PassageRequest;
 
 class PassagesController extends Controller
@@ -22,7 +22,7 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(AnalyticsInterface $a)
+    public function index(Analytics $a)
     {
         $esv = new Esv();
 
