@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Services\Registrar');
         
         $this->app->bind(
-            'CompassHB\Google\AnalyticsInterface',
+            'CompassHB\Analytics\Analytics',
             $this->app->environment() == 'local' ?
                 'CompassHB\Analytics\FakeAnalytics' :
-                'CompassHB\Google\Analytics');
+                'CompassHB\Analytics\GoogleAnalytics');
     }
 }

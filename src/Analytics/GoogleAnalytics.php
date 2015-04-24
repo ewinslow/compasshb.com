@@ -1,8 +1,8 @@
-<?php namespace CompassHB\Google;
+<?php namespace CompassHB\Analytics;
 
 use Log;
 
-class Analytics implements AnalyticsInterface
+class GoogleAnalytics implements Analytics
 {
     private $email;
     private $service;
