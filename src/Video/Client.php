@@ -7,6 +7,7 @@ class Client
     private $providers = [
         VimeoProvider::class,
         YouTubeProvider::class,
+        NullProvider::class,
     ];
 
     public function __construct($url)
