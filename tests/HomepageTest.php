@@ -33,6 +33,12 @@ class HomepageTest extends TestCase
     }
 
     /** @test */
+    public function it_loads_the_sundayschool_page()
+    {
+        $this->visit('/sundayschool');
+    }
+
+    /** @test */
     public function it_loads_the_eight_distinctives_page()
     {
         $this->visit('/')

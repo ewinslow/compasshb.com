@@ -151,7 +151,7 @@ Route::get('youth', [
 Route::group(['prefix' => 'sundayschool'], function () {
 
     Route::get('/', [
-        'as' => 'sundayschool.index',
+        'as' => 'sundayschool',
         'uses' => 'MinistryController@sundayschool',
     ]);
 
