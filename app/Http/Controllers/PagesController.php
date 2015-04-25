@@ -142,7 +142,7 @@ class PagesController extends Controller
     public function sitemap()
     {
         $blogs = Blog::lists('slug');
-        $sermons = Sermon::lists('slug');
+        $sermons = Sermon::published()->lists('slug', 'video');
         $passages = Passage::lists('slug');
         $series = Series::lists('slug');
         $songs = Song::lists('slug');

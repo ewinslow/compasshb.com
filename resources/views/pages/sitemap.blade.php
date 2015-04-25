@@ -1,5 +1,6 @@
 <?php print '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
 {{--Static Pages--}}
 <url>
@@ -79,11 +80,16 @@
 </url>
 
 {{--Dynamic Pages--}}
-@foreach($sermons as $slug)
+@foreach($sermons as $video=>$slug)
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    @if ($video != null)
+    <video:video>
+        <video:player_loc allow_embed="yes">{{ $video }}</video:player_loc>
+    </video:video>
+    @endif
 </url>
 @endforeach
 

@@ -35,7 +35,7 @@ class MinistryController extends Controller
     public function sundayschool()
     {
         $series = Series::where('ministry', '=', 'sundayschool')->get();
-        $sermons = Sermon::where('ministry', '=', 'sundayschool')->where('series_id', '=', $series->first()->id)->published()->get();
+        $sermons = Sermon::where('ministry', '=', 'sundayschool')->where('series_id', '=', $series->first()->id)->latest('published_at')->published()->get();
 
         return view('ministries.sundayschool.index',
             compact('sermons', 'series'))
