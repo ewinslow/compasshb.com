@@ -12,3 +12,6 @@
 </script>
 <div id="fb-root"></div>
 <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0" id="facebook-jssdk" async defer></script>
+<script src="{{ elixir('js/all.js') }}" async defer></script>
+<script src="//use.typekit.net/gdu1kdg.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
