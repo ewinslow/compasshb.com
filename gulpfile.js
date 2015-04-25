@@ -1,33 +1,28 @@
 var elixir = require('laravel-elixir');
 
-var paths = {
-    'bootstrap': './bower_components/bootstrap-sass-official/assets/stylesheets/',
-    'owl': './bower_components/owl-carousel2/src/scss/',
-    'fa': './bower_components/font-awesome/scss/'
-}
-
 elixir(function(mix) {
 
 	// Stylesheets
-
     mix.sass(
         'app.sass',
         'public/css/',
         {
             includePaths: [
-                paths.bootstrap,
-                paths.fa,
-                paths.owl
+                './bower_components/bootstrap-sass-official/assets/stylesheets/',
+                './bower_components/font-awesome/scss/',
+                './bower_components/medium-editor/src/sass/',
+                './bower_components/owl-carousel2/src/scss/',
             ]
         }
     );
 
 	// Scripts
-
 	mix.scripts([
         '../../bower_components/jquery/dist/jquery.js',
         '../../bower_components/owl-carousel2/dist/owl.carousel.js',
-        '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'
+        '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+        '../../bower_components/medium-editor/dist/js/medium-editor.min.js',
+        '../../resources/assets/js/compasshb-editor.js',
     ]);
 
 	// Tests
