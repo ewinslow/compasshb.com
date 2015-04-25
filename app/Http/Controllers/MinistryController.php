@@ -35,7 +35,7 @@ class MinistryController extends Controller
     public function sundayschool()
     {
         $sermons = Sermon::where('ministry', '=', 'sundayschool')->published()->get();
-        $current = $sermons->first();
+        $current = $sermons->pull(0);
         $upcoming = Sermon::where('ministry', '=', 'sundayschool')->unpublished()->get();
         $series = Series::where('ministry', '=', 'sundayschool')->get();
 

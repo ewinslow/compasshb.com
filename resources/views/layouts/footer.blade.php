@@ -1,4 +1,6 @@
 <footer id="footer" class="container-fluid">
+
+  {{-- Blue Bar --}}
   <div class="row" style="background: none; background-color: #477e9f; padding: 25px">
     <div class="col-md-8" style="text-align: center; color: #fff; font-size: 1.2em">
       <h4 class="tk-seravek-web">The word of the Lord sounded forth...</h4>
@@ -11,6 +13,8 @@
   </div>
 
   <div class="row" style="  background: #262626; color: #777; padding: 40px; line-height: 2em">
+
+    {{-- Compass Bible Church --}}
     <div class="col-md-3">
       <h4 style="color: #FFF;" class="tk-seravek-web">Compass Bible Church</h4>
       <p>Compass Bible Church exists to make disciples of Christ by <strong>reaching</strong> as many people
@@ -18,13 +22,26 @@
               <strong>training</strong> them to serve Christ.</p>
       <p><a href="/sermons/our-missions-statement">Our Mission Statement</a></p>
     </div>
+
+    {{-- Ministries --}}
     <div class="col-md-3">
+      <h4 style="color: #FFF;" class="tk-seravek-web">Ministries</h4>
+
+      <p><a href="{{ route('sundayschool') }}">Adult Sunday School</a><br/>
+      <a href="{{ route('kids') }}">Kids Ministry</a><br/>
+      <a href="{{ route('youth') }}">Youth Ministry</a><br/>
+      <a href="https://www.facebook.com/collegecompassHB">College Ministry</a>
+      </p><br/>
+
       <h4 style="color: #FFF;" class="tk-seravek-web">Mobile App</h4>
-      <p>Download the CompassHB app on your phone.</p>
-      <p><a href="https://appsto.re/us/n_WA6.i">CompassHB for iPhone</a></p>
-      <p><a href="https://play.google.com/store/apps/details?id=com.compasshb.mobile">CompassHB for Android</a></p>
+      <p>Download the CompassHB app on your phone.<br/>
+      <a href="https://appsto.re/us/n_WA6.i">CompassHB for iPhone</a><br/>
+      <a href="https://play.google.com/store/apps/details?id=com.compasshb.mobile">CompassHB for Android</a></p>
+
     </div>
     <div class="col-md-3"></div>
+
+    {{-- Contact Us --}}
     <div class="col-md-3">
       <h4 style="color: #FFF;" class="tk-seravek-web">Contact Us</h4>
       <p>Compass Bible Church<br/>
