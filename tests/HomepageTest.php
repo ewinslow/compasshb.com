@@ -69,4 +69,10 @@ class HomepageTest extends TestCase
              ->click('Give')
              ->SeePageIs('/give');
     }
+
+    /** @test */
+    public function it_loads_the_sitemap()
+    {
+        $this->visit('/sitemap.xml');
+    }
 }

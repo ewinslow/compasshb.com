@@ -168,8 +168,17 @@ Route::get('college', [
 /*
  * Routes for landing pages
  */
-Route::get('bunnyrun', ['as' => 'bunnyrun',
+Route::get('bunnyrun', [
+    'as' => 'bunnyrun',
     'uses' => 'PagesController@bunnyrun',
+]);
+
+/*
+ * Analytics Sitemap XML
+ */
+Route::get('sitemap.xml', [
+    'as' => 'sitemap',
+    'uses' => 'PagesController@sitemap',
 ]);
 
 /*

@@ -2,7 +2,9 @@
 
 use Log;
 use CompassHB\Www\Blog;
+use CompassHB\Www\Song;
 use CompassHB\Www\Slide;
+use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Video\Client as VideoClient;
@@ -97,36 +99,56 @@ class PagesController extends Controller
 
     public function whoweare()
     {
-        return view('pages.whoweare')->with('title', 'Who We Are');
+        return view('pages.whoweare')
+            ->with('title', 'Who We Are');
     }
 
     public function eightdistinctives()
     {
-        return view('pages.eightdistinctives')->with('title', '8 Distinctives');
+        return view('pages.eightdistinctives')
+            ->with('title', '8 Distinctives');
     }
 
     public function give()
     {
-        return view('pages.give')->with('title', 'Give');
+        return view('pages.give')
+            ->with('title', 'Give');
     }
 
     public function icecreamevangelism()
     {
-        return view('pages.icecreamevangelism')->with('title', 'Ice Cream Evangelism');
+        return view('pages.icecreamevangelism')
+            ->with('title', 'Ice Cream Evangelism');
     }
 
     public function whatwebelieve()
     {
-        return view('pages.whatwebelieve')->with('title', 'What We Believe');
+        return view('pages.whatwebelieve')
+            ->with('title', 'What We Believe');
     }
 
     public function bunnyrun()
     {
-        return view('pages.landing.bunnyrun')->with('title', 'The Bunny Run 5K');
+        return view('pages.landing.bunnyrun')
+            ->with('title', 'The Bunny Run 5K');
     }
 
     public function calendar()
     {
-        return view('pages.calendar')->with('title', 'Calendar');
+        return view('pages.calendar')
+            ->with('title', 'Calendar');
+    }
+
+    public function sitemap()
+    {
+        $blogs = Blog::lists('slug');
+        $sermons = Sermon::lists('slug');
+        $passages = Passage::lists('slug');
+        $series = Series::lists('slug');
+        $songs = Song::lists('slug');
+
+        return response()
+            ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs'))
+            ->header('Content-Type', 'application/xml');
     }
 }
