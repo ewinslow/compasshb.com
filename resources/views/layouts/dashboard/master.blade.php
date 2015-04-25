@@ -32,7 +32,7 @@ body
       </div>
     </div>
 
-    @include('layouts.script');
+    @include('layouts.scripts');
 
   </body>
 </html>
