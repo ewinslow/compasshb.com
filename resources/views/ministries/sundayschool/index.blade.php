@@ -13,8 +13,8 @@
 	{{-- Current Series --}}
     <div class="row" style="background:none; background-color: #FFF; padding-top: 30px;padding-bottom: 30px;">
     	<div class="col-md-10 col-md-offset-1">
-	        <h3>Current Series: {{ $current->series->title }}</h3>
-	        <p>{{ $current->series->body }}</p>
+	        <h3>Current Series: {{ $series->first()->title }}</h3>
+	        <p>{{ $series->first()->body }}</p>
 			<table class="table table-striped">
 				<thead>
 			    	<tr>
@@ -24,13 +24,6 @@
 			      	</tr>
 			    </thead>
 			    <tbody>
-			    @foreach ($upcoming as $sermon)
-			      	<tr>
-			        	<td>{{ $sermon->title }}</td>
-			        	<td>{{ $sermon->teacher }}</td>
-			        	<td>{{ date_format($sermon->published_at, 'l, F j, Y') }}</td>
-			      	</tr>
-			     @endforeach
 			    @foreach ($sermons as $sermon)
 			      	<tr>
 			        	<td><a href="{{ route('sermons.show', $sermon->slug) }}">{{ $sermon->title }}</a></td>

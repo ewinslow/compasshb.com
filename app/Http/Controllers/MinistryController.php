@@ -34,13 +34,11 @@ class MinistryController extends Controller
      */
     public function sundayschool()
     {
-        $sermons = Sermon::where('ministry', '=', 'sundayschool')->published()->get();
-        $current = $sermons->pull(0);
-        $upcoming = Sermon::where('ministry', '=', 'sundayschool')->unpublished()->get();
         $series = Series::where('ministry', '=', 'sundayschool')->get();
+        $sermons = Sermon::where('ministry', '=', 'sundayschool')->where('series_id', '=', $series->first()->id)->published()->get();
 
         return view('ministries.sundayschool.index',
-            compact('sermons', 'current', 'upcoming', 'series'))
+            compact('sermons', 'series'))
             ->with('title', 'Sunday School');
     }
 
