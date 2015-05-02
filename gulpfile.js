@@ -23,6 +23,7 @@ elixir(function(mix) {
         '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
         '../../bower_components/medium-editor/dist/js/medium-editor.min.js',
         '../../resources/assets/js/compasshb-editor.js',
+        '../../resources/assets/js/compasshb-serviceworker.js',
     ]);
 
 	// Tests
