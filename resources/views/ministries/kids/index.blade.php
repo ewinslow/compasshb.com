@@ -13,7 +13,16 @@
     <div class="row" style="background:none; background-color: #a0a0a0; padding-top: 30px;padding-bottom: 30px;">
         <div class="col-xs-10 col-xs-offset-1">
             <h1 class="tk-seravek-web">Kids Ministry</h1>
-            <p><span style="color: #ffffff;">Kids Ministry is a safe and fun environment for your child. Kids Ministry meets at our 11AM service Sunday morning for relevant Bible instruction, worship, and crafts. All of our teachers and adult volunteers have background checks. Personal &#8220;Buddies&#8221; are available to assist children with special needs. View our <a href="https://s3-us-west-1.amazonaws.com/compasshb-kids/SICK-POLICY.pdf">sick policy</a>.</span><br/><br/></p>
+            <p>
+                <span style="color: #ffffff;">
+                Kids Ministry is a safe and fun environment for your child.
+                Kids Ministry meets at both our services Sunday morning for relevant Bible instruction, worship, and crafts.
+                All of our teachers and adult volunteers have background checks.
+                Personal &#8220;Buddies&#8221; are available to assist children with special needs.
+                View our <a href="https://s3-us-west-1.amazonaws.com/compasshb-kids/SICK-POLICY.pdf">sick policy</a>.
+                </span>
+                <br/><br/>
+            </p>
 
             <div class="col-md-4">
                 <img width="554" height="554" src="{{ URL::to('/') }}/images/DSC_0018-X2.png"
