@@ -147,6 +147,7 @@ return [
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'GrahamCampbell\Parse\ParseServiceProvider',
+        'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
 
     ],
 
