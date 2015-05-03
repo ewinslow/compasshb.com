@@ -18,9 +18,9 @@ elixir(function(mix) {
 
 	// Scripts
 	mix.scripts([
-        '../../bower_components/jquery/dist/jquery.js',
-        '../../bower_components/owl-carousel2/dist/owl.carousel.js',
-        '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+        '../../bower_components/jquery/dist/jquery.min.js',
+        '../../bower_components/owl-carousel2/dist/owl.carousel.min.js',
+        '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
         '../../bower_components/medium-editor/dist/js/medium-editor.min.js',
         '../../resources/assets/js/compasshb-editor.js',
         '../../resources/assets/js/compasshb-serviceworker.js',
