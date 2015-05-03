@@ -2,6 +2,7 @@
 
 use Auth;
 use Redirect;
+use SearchIndex;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
 use CompassHB\Analytics\Analytics;
@@ -94,6 +95,8 @@ class PassagesController extends Controller
     {
         $passage->update($request->all());
 
+        SearchIndex::upsertToIndex($passage);
+
         return redirect()
             ->route('admin.read')
             ->with('message', 'Success! Your Scripture of the Day was saved.');
@@ -121,6 +124,8 @@ class PassagesController extends Controller
         $passage = new Passage($request->all());
 
         Auth::user()->passages()->save($passage);
+
+        SearchIndex::upsertToIndex($passage);
 
         return redirect()
             ->route('admin.read')

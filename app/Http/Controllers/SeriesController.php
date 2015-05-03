@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SeriesRequest;
@@ -45,6 +46,8 @@ class SeriesController extends Controller
 
         Auth::user()->series()->save($series);
 
+        SearchIndex::upsertToIndex($series);
+
         return redirect()
             ->route('admin');
     }
@@ -83,6 +86,8 @@ class SeriesController extends Controller
     public function update(Series $series, SeriesRequest $request)
     {
         $series->update($request->all());
+
+        SearchIndex::upsertToIndex($series);
 
         return redirect()
             ->route('admin')

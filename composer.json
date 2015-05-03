@@ -17,7 +17,9 @@
 		"league/flysystem-aws-s3-v2": "~1.0",
 	  "google/apiclient": "~1.1",
 	  "graham-campbell/parse": "~2.0",
-		"graham-campbell/htmlmin": "^3.0"
+		"graham-campbell/htmlmin": "^3.0",
+		"elasticsearch/elasticsearch": "^1.3",
+		"spatie/searchindex": "^2.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

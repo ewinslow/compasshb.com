@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use SearchIndex;
 use CompassHB\Www\Song;
 use CompassHB\Pco\Setlist;
 use CompassHB\Video\Client;
@@ -78,6 +79,8 @@ class SongsController extends Controller
     {
         $song->update($request->all());
 
+        SearchIndex::upsertToIndex($song);
+
         return redirect()
             ->route('admin.songs')
             ->with('message', 'Success! Your song was updated.');
@@ -105,6 +108,8 @@ class SongsController extends Controller
         $song = new Song($request->all());
 
         Auth::user()->songs()->save($song);
+
+        SearchIndex::upsertToIndex($song);
 
         return redirect()
             ->route('admin.songs')
