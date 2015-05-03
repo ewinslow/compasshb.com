@@ -182,6 +182,14 @@ Route::get('sitemap.xml', [
 ]);
 
 /*
+ * Manifest file
+ */
+Route::get('manifest.json', [
+    'as' => 'manifest',
+    'uses' => 'PagesController@manifest',
+]);
+
+/*
  * Administration Pages
  */
 Route::group(['prefix' => 'admin'], function () {

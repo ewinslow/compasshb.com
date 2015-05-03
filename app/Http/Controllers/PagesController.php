@@ -139,6 +139,11 @@ class PagesController extends Controller
             ->with('title', 'Calendar');
     }
 
+    public function manifest()
+    {
+        return view('feeds.manifest');
+    }
+
     public function sitemap()
     {
         $blogs = Blog::lists('slug');
