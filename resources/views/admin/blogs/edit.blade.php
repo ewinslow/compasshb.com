@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.master')
 
 @section('content')
-    <h1>Edit Blog: {{ $blog->title }}</h1>
+    <h1 class="tk-seravek-web">Edit Blog: {{ $blog->title }}</h1>
 
     {!! Form::model($blog, ['method' => 'PATCH', 'action' => ['BlogsController@update', $blog->slug]]) !!}
         @include('admin.blogs.form', ['submitButtonText' => 'Update Blog'])
