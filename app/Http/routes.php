@@ -189,25 +189,10 @@ Route::get('manifest.json', [
     'uses' => 'PagesController@manifest',
 ]);
 
-Route::get('search/{query}', function ($query) {
-    $query =
-    [
-        'body' => [
-                'from' => 0,
-                'size' => 500,
-                'query' => [
-                        'fuzzy_like_this' => [
-                                '_all' => [
-                                        'like_text' => $query,
-                                        'fuzziness' => 0.3,
-                                    ],
-                            ],
-
-                    ],
-            ],
-    ];
-    dd(SearchIndex::getResults($query));
-});
+Route::get('search/{q}', [
+    'as' => 'search',
+    'uses' => 'PagesController@search',
+]);
 
 /*
  * Administration Pages

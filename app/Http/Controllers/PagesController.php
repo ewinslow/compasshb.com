@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Log;
+use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
 use CompassHB\Www\Slide;
@@ -142,6 +143,27 @@ class PagesController extends Controller
     public function manifest()
     {
         return view('feeds.manifest');
+    }
+
+    public function search($q)
+    {
+        $query =
+        [
+            'body' => [
+                    'from' => 0,
+                    'size' => 500,
+                    'query' => [
+                            'fuzzy_like_this' => [
+                                    '_all' => [
+                                            'like_text' => $q,
+                                            'fuzziness' => 0.3,
+                                        ],
+                                ],
+
+                        ],
+                ],
+        ];
+        dd(SearchIndex::getResults($query));
     }
 
     public function sitemap()
