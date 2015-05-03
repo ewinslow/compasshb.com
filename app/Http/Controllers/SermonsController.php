@@ -2,6 +2,7 @@
 
 use Auth;
 use Input;
+use SearchIndex;
 use CompassHB\Www\Sermon;
 use CompassHB\Video\Client;
 use CompassHB\Aws\AwsUploader;
@@ -59,6 +60,8 @@ class SermonsController extends Controller
 
         Auth::user()->sermons()->save($sermon);
 
+        SearchIndex::upsertToIndex($sermon);
+
         return redirect()
             ->route('admin');
     }
@@ -107,6 +110,8 @@ class SermonsController extends Controller
         }
 
         $sermon->update($all);
+
+        SearchIndex::upsertToIndex($sermon);
 
         return redirect()
             ->route('admin')

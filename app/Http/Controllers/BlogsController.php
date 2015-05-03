@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
+use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Video\Client;
 use CompassHB\Www\Http\Requests\BlogRequest;
@@ -72,6 +73,8 @@ class BlogsController extends Controller
     {
         $blog->update($request->all());
 
+        SearchIndex::upsertToIndex($blog);
+
         return redirect()
             ->route('admin')
             ->with('message', 'Success! Your blog was updated.');
@@ -99,6 +102,8 @@ class BlogsController extends Controller
         $blog = new Blog($request->all());
 
         Auth::user()->blogs()->save($blog);
+
+        SearchIndex::upsertToIndex($blog);
 
         return redirect()
             ->route('admin')

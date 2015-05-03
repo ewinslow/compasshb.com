@@ -1,8 +1,9 @@
 <?php namespace CompassHB\Www;
 
+use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Blog extends Model implements Searchable
 {
     protected $fillable = [
         'title',
@@ -77,5 +78,40 @@ class Blog extends Model
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', \Carbon\Carbon::now());
+    }
+
+    /**
+     * Returns an array with properties which must be indexed.
+     *
+     * @return array
+     */
+    public function getSearchableBody()
+    {
+        $searchableProperties = [
+            'title' => $this->title,
+            'body' => $this->body,
+        ];
+
+        return $searchableProperties;
+    }
+
+    /**
+     * Return the type of the searchable subject.
+     *
+     * @return string
+     */
+    public function getSearchableType()
+    {
+        return 'blog';
+    }
+
+    /**
+     * Return the id of the searchable subject.
+     *
+     * @return string
+     */
+    public function getSearchableId()
+    {
+        return $this->id;
     }
 }

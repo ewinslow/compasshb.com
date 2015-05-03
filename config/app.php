@@ -148,6 +148,7 @@ return [
         'Illuminate\Html\HtmlServiceProvider',
         'GrahamCampbell\Parse\ParseServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
+        'Spatie\SearchIndex\SearchIndexServiceProvider',
 
     ],
 
@@ -199,6 +200,7 @@ return [
         'Bugsnag'   => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Form'      => 'Illuminate\Html\FormFacade',
+        'SearchIndex' => 'Spatie\SearchIndex\SearchIndexFacade',
 
     ],
 
