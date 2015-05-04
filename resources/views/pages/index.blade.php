@@ -8,7 +8,7 @@
                 <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
-                <p>{{ $prevsermon->series->title }}</p>
+                <p>{{{ $prevsermon->series->title or '' }}}</p>
                 <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
                 </a>
           </div>
