@@ -3,7 +3,7 @@
 @section('content')
 
 	<h1 class="tk-seravek-web">{{ $sermon->title }}</h1>
-  <p>{{ $sermon->series->title }}</p>
+  <p>{{{ $$sermon->series->title or '' }}}</p>
 
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>{!! $sermon->text !!}</p>
