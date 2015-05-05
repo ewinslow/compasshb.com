@@ -97,21 +97,18 @@
     </div>
 
     <div class="row" style="padding: 30px;">
-        <div class="col-md-2"><img
-                        src="{{ URL::to('/') }}/images/11292_10204720861009754_3380111245789242458_n-e1408598080323.jpg"
-                        alt="" width="500" height="390"/></div>
-        <div class="col-md-2"><img
-                        src="{{ URL::to('/') }}/images/1471281_10202320523634672_209139971_n.jpg"
-                        alt="" width="720" height="486"/></div>
-        <div class="col-md-2"><img
-                        src="{{ URL::to('/') }}/images/1948110_10203348337533213_810810873_n.jpg"
-                        alt="" width="720" height="480"/></div>
-        <div class="col-md-2"><img
-                        src="{{ URL::to('/') }}/images10366142_10204273932835422_7930220833540608895_n.jpg"
-                        alt="" width="720" height="480"/></div>
-        <div class="col-md-2"><img
-                        src="{{ URL::to('/') }}/images/10256234_10152003967205666_8535752557094465938_n.jpg"
-                        alt="" width="640" height="640"/></div>
+        <div class="col-md-3">
+            <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-pRVQ6Vg/0/S/150405_EAS_SS-404-S.jpg"/>
+        </div>
+        <div class="col-md-3">
+            <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-85HHcrH/0/S/150405_EAS_SS-457-S.jpg"/>
+        </div>
+        <div class="col-md-3">
+            <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-2cKVhzp/0/S/150405_EAS_SS-461-S.jpg"/>
+        </div>
+        <div class="col-md-3">
+            <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-gGMw4f7/0/S/150405_EAS_SS-379-S.jpg"/>
+        </div>
     </div>
 </div>
 
