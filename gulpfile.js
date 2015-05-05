@@ -34,4 +34,8 @@ elixir(function(mix) {
 
     mix.version(['public/css/app.css', 'public/js/all.js']);
 
+    mix.copy(
+        'bower_components/jquery/dist/jquery.min.map',
+        'public/build/js/jquery.min.map'
+    )
 });
