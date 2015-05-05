@@ -12,6 +12,6 @@
 	<p><a href="{{ $song->audio }}" class="btn btn-default">Download MP3</a></p>
   @endif
 
-	<p>{{ $song->body }}</p>
+  <p>{!! $song->body !!}</p>
 
 @endsection
