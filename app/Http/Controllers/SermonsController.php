@@ -77,8 +77,10 @@ class SermonsController extends Controller
         $client = new Client($sermon->video);
 
         $sermon->iframe = $client->getEmbedCode();
+        $coverimage = $client->getThumbnail();
 
-        return view('dashboard.sermons.show', compact('sermon'))
+        return view('dashboard.sermons.show',
+            compact('sermon', 'coverimage'))
             ->with('title', $sermon->title);
     }
 
