@@ -35,6 +35,16 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('series', 'Series:') !!}
+	{!! Form::select('series_id', $series, null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('ministry', 'Ministry:') !!}
+	{!! Form::select('ministry', array('sundayschool' => 'Sunday School', null => 'Main Service'), null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('published_at', 'Publish On:') !!}
 	{!! Form::input('date', 'published_at', $sermon->published_at->format('Y-m-d'), ['class' => 'form-control']) !!}
 </div>

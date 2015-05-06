@@ -3,6 +3,7 @@
 use Auth;
 use Input;
 use SearchIndex;
+use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Video\Client;
 use CompassHB\Aws\AwsUploader;
@@ -37,7 +38,11 @@ class SermonsController extends Controller
      */
     public function create()
     {
-        return view('admin.sermons.create');
+        $series = Series::lists('title', 'id');
+        array_unshift($series, 'No Series');
+
+        return view('admin.sermons.create')
+            ->with('series', $series);
     }
 
     /**
@@ -92,7 +97,11 @@ class SermonsController extends Controller
      */
     public function edit(Sermon $sermon)
     {
-        return view('admin.sermons.edit', compact('sermon'));
+        $series = Series::lists('title', 'id');
+        array_unshift($series, 'No Series');
+
+        return view('admin.sermons.edit', compact('sermon'))
+            ->with('series', $series);
     }
 
     /**

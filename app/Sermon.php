@@ -13,13 +13,35 @@ class Sermon extends Model implements Searchable
         'teacher',
         'text',
         'video',
-        'series',
+        'ministry',
+        'series_id',
         'sku',
         'published_at',
     ];
 
     protected $dates = ['published_at'];
 
+    /**
+     * Set the empty field to be null using
+     * a Larvel mutator function.
+     *
+     * @param $value
+     */
+    public function setSeriesIdAttribute($value)
+    {
+        $this->attributes['series_id'] = $value ? $value : null;
+    }
+
+    /**
+     * Set the empty field to be null using
+     * a Larvel mutator function.
+     *
+     * @param $value
+     */
+    public function setMinistryAttribute($value)
+    {
+        $this->attributes['ministry'] = $value ? $value : null;
+    }
     /**
      * Set the empty field to be null using
      * a Laravel mutator function.
