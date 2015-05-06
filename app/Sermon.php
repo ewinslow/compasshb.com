@@ -42,6 +42,7 @@ class Sermon extends Model implements Searchable
     {
         $this->attributes['ministry'] = $value ? $value : null;
     }
+
     /**
      * Set the empty field to be null using
      * a Laravel mutator function.

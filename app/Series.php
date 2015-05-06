@@ -9,7 +9,19 @@ class Series extends Model implements Searchable
         'title',
         'body',
         'image',
+        'ministry',
     ];
+
+    /**
+     * Set the empty field to be null using
+     * a Larvel mutator function.
+     *
+     * @param $value
+     */
+    public function setMinistryAttribute($value)
+    {
+        $this->attributes['ministry'] = $value ? $value : null;
+    }
 
     /**
      * A series is owned by a user.
