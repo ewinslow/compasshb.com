@@ -36,7 +36,7 @@ class SlidesController extends Controller
         Auth::user()->slides()->save($slide);
 
         return redirect()
-            ->route('admin.slides')
+            ->route('admin.mainservice')
             ->with('message', 'Success! Your slide was saved.');
     }
 
@@ -62,7 +62,7 @@ class SlidesController extends Controller
         $slide->update($request->all());
 
         return redirect()
-            ->route('admin.slides')
+            ->route('admin.mainservice')
             ->with('message', 'Success! Your slide was updated.');
     }
 }
