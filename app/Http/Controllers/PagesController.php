@@ -10,6 +10,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Video\Client as VideoClient;
 use CompassHB\Photo\Client as PhotoClient;
+use CompassHB\Calendar\GoogleCalendar as CalendarClient;
 
 class PagesController extends Controller
 {
@@ -136,7 +137,10 @@ class PagesController extends Controller
 
     public function calendar()
     {
-        return view('pages.calendar')
+        $client = new CalendarClient();
+        $events = $client->test();
+
+        return view('pages.calendar', compact('events'))
             ->with('title', 'Calendar');
     }
 

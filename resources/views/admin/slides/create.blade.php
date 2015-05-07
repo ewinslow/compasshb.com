@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard.master')
 
 @section('content')
 	<h1>Create New Slide</h1>
