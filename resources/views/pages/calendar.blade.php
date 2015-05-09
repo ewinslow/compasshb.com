@@ -30,7 +30,7 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
         googleCalendarApiKey: 'AIzaSyAvdtgAFMdhj8_XAZNqThOLqTmjtvUdtps',
         events: {
-            googleCalendarId: 'compasschurch.org_7n7ktfe9gd5uhhbcv7jgrbfsig@group.calendar.google.com'
+            googleCalendarId: '{{ env('GOOGLE_CALENDAR_ID') }}'
         }
     });
 });

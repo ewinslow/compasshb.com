@@ -4,10 +4,11 @@ class GoogleCalendar implements Calendar
 {
     private $client;
     private $url = 'https://www.googleapis.com/auth/calendar.readonly';
-    private $calendarId = 'compasschurch.org_7n7ktfe9gd5uhhbcv7jgrbfsig@group.calendar.google.com';
+    private $calendarId;
 
     public function __construct()
     {
+        $this->calendarId = env('GOOGLE_CALENDAR_ID');
         $this->email = getenv('GOOGLE_ANALYTICS_EMAIL');
         $this->client = new \Google_Client();
         $this->client->setApplicationName("Compass HB");
