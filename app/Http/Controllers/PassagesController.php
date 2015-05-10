@@ -5,7 +5,7 @@ use Redirect;
 use SearchIndex;
 use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
-use CompassHB\Analytics\Analytics;
+use CompassHB\Www\Repositories\Analytics\AnalyticRepository;
 use CompassHB\Www\Http\Requests\PassageRequest;
 
 class PassagesController extends Controller
@@ -13,8 +13,11 @@ class PassagesController extends Controller
     /**
      * Create a new controller instance.
      */
-    public function __construct()
+    protected $analytics;
+
+    public function __construct(AnalyticRepository $analytics)
     {
+        $this->analytics = $analytics;
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
     }
 
@@ -23,7 +26,7 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(Analytics $a)
+    public function index()
     {
         $esv = new Esv();
 
@@ -37,8 +40,8 @@ class PassagesController extends Controller
             $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
         }
 
-        $analytics = $a->getPageViews('/read', 'today', 'today');
-        $analytics['activeUsers'] = $a->getActiveUsers();
+        $analytics = $this->analytics->getPageViews('/read', 'today', 'today');
+        $analytics['activeUsers'] = $this->analytics->getActiveUsers();
 
         return view('dashboard.passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
             ->with('title', 'Scripture of the Day');
@@ -51,12 +54,12 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Passage $passage, Analytics $a)
+    public function show(Passage $passage)
     {
         $passages = Passage::latest('published_at')->published()->take(5)->get();
 
-        $analytics = $a->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
-        $analytics['activeUsers'] = $a->getActiveUsers();
+        $analytics = $this->analytics->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
+        $analytics['activeUsers'] = $this->analytics->getActiveUsers();
 
         $esv = new Esv();
         $passage->verses = $esv->getScripture($passage->title);
