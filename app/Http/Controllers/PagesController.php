@@ -9,7 +9,7 @@ use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Video\Client as VideoClient;
-use CompassHB\Photo\Client as PhotoClient;
+use CompassHB\Www\Repositories\Photo\PhotoRepository;
 use CompassHB\Www\Repositories\Calendar\CalendarRepository;
 
 class PagesController extends Controller
@@ -27,7 +27,7 @@ class PagesController extends Controller
      *
      * @return view
      */
-    public function home()
+    public function home(PhotoRepository $photos)
     {
         $slides = Slide::latest('published_at')->published()->take(2)->get();
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(4)->get();
@@ -62,8 +62,7 @@ class PagesController extends Controller
             $instagrams['data'] = [];
         }
 
-        $results = new PhotoClient();
-        $results = $results->getPhotos(8);
+        $results = $photos->getPhotos(8);
 
         return view('pages.index', compact(
             'sermons',
@@ -83,10 +82,9 @@ class PagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function photos()
+    public function photos(PhotoRepository $photos)
     {
-        $results = new PhotoClient();
-        $results = $results->getRecentPhotos();
+        $results = $photos->getRecentPhotos();
 
         return view('pages.photos')
             ->with('title', 'Photography')

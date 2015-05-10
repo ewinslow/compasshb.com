@@ -42,5 +42,13 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Repositories\Calendar\CalendarRepository',
             'CompassHB\Www\Repositories\Calendar\GoogleCalendarRepository'
         );
+
+        /*
+         * PhotoRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Photo\PhotoRepository',
+            'CompassHB\Www\Repositories\Photo\SmugmugPhotoRepository'
+        );
     }
 }
