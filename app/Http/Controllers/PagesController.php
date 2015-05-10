@@ -10,7 +10,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Video\Client as VideoClient;
 use CompassHB\Photo\Client as PhotoClient;
-use CompassHB\Calendar\GoogleCalendar as CalendarClient;
+use CompassHB\Www\Repositories\Calendar\CalendarRepository;
 
 class PagesController extends Controller
 {
@@ -135,10 +135,9 @@ class PagesController extends Controller
             ->with('title', 'The Bunny Run 5K');
     }
 
-    public function calendar()
+    public function calendar(CalendarRepository $calendar)
     {
-        $client = new CalendarClient();
-        $events = $client->test();
+        $events = $calendar->test();
 
         return view('pages.calendar', compact('events'))
             ->with('title', 'Calendar');

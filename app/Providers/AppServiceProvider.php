@@ -25,10 +25,22 @@ class AppServiceProvider extends ServiceProvider
             'Illuminate\Contracts\Auth\Registrar',
             'CompassHB\Www\Services\Registrar');
 
+        /*
+         * AnalyticRepository
+         */
         $this->app->bind(
             'CompassHB\Www\Repositories\Analytics\AnalyticRepository',
             $this->app->environment() == 'local' ?
                 'CompassHB\Www\Repositories\Analytics\FakeAnalyticRepository' :
-                'CompassHB\Www\Repositories\Analytics\GoogleAnalyticRepository');
+                'CompassHB\Www\Repositories\Analytics\GoogleAnalyticRepository'
+        );
+
+        /*
+         * CalendarRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Calendar\CalendarRepository',
+            'CompassHB\Www\Repositories\Calendar\GoogleCalendarRepository'
+        );
     }
 }

@@ -1,6 +1,6 @@
-<?php namespace CompassHB\Calendar;
+<?php namespace CompassHB\Www\Repositories\Calendar;
 
-class GoogleCalendar implements Calendar
+class GoogleCalendarRepository implements CalendarRepository
 {
     private $client;
     private $url = 'https://www.googleapis.com/auth/calendar.readonly';
