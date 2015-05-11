@@ -30,6 +30,10 @@ class GoogleCalendarRepository implements CalendarRepository
 
     public function test()
     {
+        if ($this->calendarId == '') {
+            return [];
+        }
+
         // Print the next 10 events on the user's calendar.
         $calendarId = $this->calendarId;
         $optParams = array(
