@@ -66,5 +66,13 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Repositories\Scripture\ScriptureRepository',
             'CompassHB\Www\Repositories\Scripture\EsvScriptureRepository'
         );
+
+        /*
+         * PlanRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Plan\PlanRepository',
+            'CompassHB\Www\Repositories\Plan\PcoPlanRepository'
+        );
     }
 }

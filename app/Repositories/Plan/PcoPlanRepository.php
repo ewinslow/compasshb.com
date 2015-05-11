@@ -1,4 +1,4 @@
-<?php namespace CompassHB\Pco;
+<?php namespace CompassHB\Www\Repositories\Plan;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
@@ -8,7 +8,7 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
  *
  * @todo : exception handling
  */
-class Setlist implements ServiceInterface
+class PcoPlanRepository implements PlanRepository
 {
     private $url = 'https://services.planningcenteronline.com/';
     private $consumerKey;

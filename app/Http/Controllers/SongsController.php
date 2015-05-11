@@ -3,8 +3,8 @@
 use Auth;
 use SearchIndex;
 use CompassHB\Www\Song;
-use CompassHB\Pco\Setlist;
 use CompassHB\Www\Http\Requests\SongRequest;
+use CompassHB\Www\Repositories\Plan\PlanRepository;
 use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class SongsController extends Controller
@@ -22,7 +22,7 @@ class SongsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(VideoRepository $video)
+    public function index(VideoRepository $video, PlanRepository $plan)
     {
         $songs = Song::latest('published_at')->published()->get();
 
@@ -31,8 +31,7 @@ class SongsController extends Controller
             $song->thumbnail = $video->getThumbnail();
         }
 
-        $setlist = new Setlist();
-        $setlist = $setlist->getSetList();
+        $setlist = $plan->getSetList();
 
         return view('dashboard.songs.index', compact(
             'songs', 'setlist'
