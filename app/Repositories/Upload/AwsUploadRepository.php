@@ -1,9 +1,9 @@
-<?php namespace CompassHB\Aws;
+<?php namespace CompassHB\Www\Repositories\Upload;
 
 use Aws\S3\S3Client;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class AwsUploader implements UploadInterface
+class AwsUploadRepository implements UploadRepository
 {
     private $client;
     private $key;

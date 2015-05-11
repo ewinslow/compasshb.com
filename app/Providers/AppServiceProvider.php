@@ -74,5 +74,13 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Repositories\Plan\PlanRepository',
             'CompassHB\Www\Repositories\Plan\PcoPlanRepository'
         );
+
+        /*
+         * UploadRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Upload\UploadRepository',
+            'CompassHB\Www\Repositories\Upload\AwsUploadRepository'
+        );
     }
 }

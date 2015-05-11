@@ -5,9 +5,9 @@ use Input;
 use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
-use CompassHB\Aws\AwsUploader;
 use CompassHB\Www\Http\Requests\SermonRequest;
 use CompassHB\Www\Repositories\Video\VideoRepository;
+use CompassHB\Www\Repositories\Upload\AwsUploadRepository;
 
 class SermonsController extends Controller
 {
@@ -53,14 +53,14 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(SermonRequest $request, AwsUploader $client)
+    public function store(SermonRequest $request, AwsUploadRepository $upload)
     {
         $sermon = new Sermon($request->all());
         $worksheet = Input::file('worksheet');
 
         // Save worksheet if one was uploaded
         if ($worksheet !== null) {
-            $sermon->worksheet = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+            $sermon->worksheet = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
         Auth::user()->sermons()->save($sermon);
@@ -110,14 +110,14 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Sermon $sermon, SermonRequest $request, AwsUploader $client)
+    public function update(Sermon $sermon, SermonRequest $request, AwsUploadRepository $upload)
     {
         $worksheet = Input::file('worksheet');
         $all = $request->all();
 
         // Replace worksheet if one was uploaded
         if ($worksheet !== null) {
-            $all['worksheet'] = $client->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+            $all['worksheet'] = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
         $sermon->update($all);

@@ -30,8 +30,7 @@
 			"database"
 		],
 		"psr-4": {
-			"CompassHB\\Www\\": "app/",
-			"CompassHB\\": "src/"
+			"CompassHB\\Www\\": "app/"
 		},
 		"files": ["app/Helpers.php"]
 	},
