@@ -8,7 +8,7 @@ use CompassHB\Www\Slide;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
-use CompassHB\Video\Client as VideoClient;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 use CompassHB\Www\Repositories\Photo\PhotoRepository;
 use CompassHB\Www\Repositories\Calendar\CalendarRepository;
 
@@ -27,7 +27,7 @@ class PagesController extends Controller
      *
      * @return view
      */
-    public function home(PhotoRepository $photos)
+    public function home(PhotoRepository $photos, VideoRepository $videoClient)
     {
         $slides = Slide::latest('published_at')->published()->take(2)->get();
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(4)->get();
@@ -39,17 +39,17 @@ class PagesController extends Controller
         $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
 
         foreach ($sermons as $sermon) {
-            $client = new VideoClient($sermon->video);
-            $sermon->othumbnail = $client->getThumbnail();
+            $videoClient->setUrl($sermon->video);
+            $sermon->othumbnail = $videoClient->getThumbnail();
         }
 
         foreach ($videos as $video) {
-            $client = new VideoClient($video->video);
-            $video->othumbnail = $client->getThumbnail();
+            $videoClient->setUrl($video->video);
+            $video->othumbnail = $videoClient->getThumbnail();
         }
 
-        $client = new VideoClient($prevsermon->video);
-        $prevsermon->othumbnail = $client->getThumbnail(true);
+        $videoClient->setUrl($prevsermon->video);
+        $prevsermon->othumbnail = $videoClient->getThumbnail();
 
         // Instagram
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');

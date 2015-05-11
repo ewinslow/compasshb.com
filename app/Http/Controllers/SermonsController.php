@@ -5,9 +5,9 @@ use Input;
 use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
-use CompassHB\Video\Client;
 use CompassHB\Aws\AwsUploader;
 use CompassHB\Www\Http\Requests\SermonRequest;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class SermonsController extends Controller
 {
@@ -77,12 +77,12 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Sermon $sermon)
+    public function show(Sermon $sermon, VideoRepository $video)
     {
-        $client = new Client($sermon->video);
+        $video->setUrl($sermon->video);
 
-        $sermon->iframe = $client->getEmbedCode();
-        $coverimage = $client->getThumbnail();
+        $sermon->iframe = $video->getEmbedCode();
+        $coverimage = $video->getThumbnail();
 
         return view('dashboard.sermons.show',
             compact('sermon', 'coverimage'))

@@ -1,9 +1,10 @@
-<?php namespace CompassHB\Video;
+<?php namespace CompassHB\Www\Repositories\Video;
 
 use Log;
 
-class VimeoProvider implements VideoInterface
+class VimeoVideoRepository implements VideoRepository
 {
+    private $url;
     private $vimeoClient;
     private $client;
     private $clientId;
@@ -21,9 +22,14 @@ class VimeoProvider implements VideoInterface
         $this->client = new \GuzzleHttp\Client();
     }
 
-    public function recognizes($url)
+    /**
+     * Set the video url.
+     *
+     * @param string $url
+     */
+    public function setUrl($url)
     {
-        return strpos($url, $this->domain) !== false;
+        $this->url = $url;
     }
 
     /**
@@ -33,9 +39,9 @@ class VimeoProvider implements VideoInterface
      *
      * @return string
      */
-    public function getEmbedCode($url)
+    public function getEmbedCode()
     {
-        $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$url;
+        $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$this->url;
 
         try {
             $response = $this->client->get($request);
@@ -57,17 +63,17 @@ class VimeoProvider implements VideoInterface
      *
      * @return string
      */
-    public function getThumbnail($url, $large = false)
+    public function getThumbnail($large = false)
     {
-        if ($url == '') {
+        if ($this->url == '') {
             return;
         }
 
         if ($large) {
-            return $this->getVideoThumb($url);
+            return $this->getVideoThumb($this->url);
         }
 
-        $request = 'https://vimeo.com/api/oembed.json?url='.$url;
+        $request = 'https://vimeo.com/api/oembed.json?url='.$this->url;
 
         try {
             $response = $this->client->get($request);
@@ -90,10 +96,10 @@ class VimeoProvider implements VideoInterface
      *
      * @return string
      */
-    private function getVideoThumb($url)
+    private function getVideoThumb()
     {
         // Parse Vimeo video ID
-        $videoId = substr($url, strrpos($url, '/') + 1);
+        $videoId = substr($this->url, strrpos($this->url, '/') + 1);
 
         try {
             $video = $this->vimeoClient->request("/videos/$videoId");
@@ -122,9 +128,9 @@ class VimeoProvider implements VideoInterface
      *
      * @return string
      */
-    public function getDownloadLink($videoUrl)
+    public function getDownloadLink()
     {
-        $id = substr($videoUrl, strrpos($videoUrl, '/') + 1);
+        $id = substr($this->url, strrpos($this->url, '/') + 1);
 
         $video = $this->vimeoClient->request("/videos/$id");
         $video = $video['body'];

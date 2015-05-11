@@ -1,9 +1,10 @@
-<?php namespace CompassHB\Video;
+<?php namespace CompassHB\Www\Repositories\Video;
 
 use Log;
 
-class YouTubeProvider implements VideoInterface
+class YouTubeVideoRepository implements VideoRepository
 {
+    private $url;
     private $client;
     private $domain = 'youtube.com';
     private $domain2 = 'youtu.be';
@@ -13,9 +14,14 @@ class YouTubeProvider implements VideoInterface
         $this->client = new \GuzzleHttp\Client();
     }
 
-    public function recognizes($url)
+    /**
+     * Set the video url.
+     *
+     * @param string $url
+     */
+    public function setUrl($url)
     {
-        return (strpos($url, $this->domain) !== false || strpos($url, $this->domain2) !== false);
+        $this->url = $url;
     }
 
     /**
@@ -25,9 +31,9 @@ class YouTubeProvider implements VideoInterface
      *
      * @return string
      */
-    public function getEmbedCode($url)
+    public function getEmbedCode()
     {
-        $request = 'https://www.youtube.com/oembed?url='.$url;
+        $request = 'https://www.youtube.com/oembed?url='.$this->url;
 
         try {
             $response = $this->client->get($request);
@@ -49,13 +55,13 @@ class YouTubeProvider implements VideoInterface
      *
      * @return string
      */
-    public function getThumbnail($url, $large = false)
+    public function getThumbnail($large = false)
     {
-        if ($url == '') {
+        if ($this->url == '') {
             return;
         }
 
-        $request = 'https://www.youtube.com/oembed?url='.$url;
+        $request = 'https://www.youtube.com/oembed?url='.$this->url;
 
         try {
             $response = $this->client->get($request);
@@ -70,8 +76,8 @@ class YouTubeProvider implements VideoInterface
         return $response_body->thumbnail_url;
     }
 
-    public function getDownloadLink($url)
+    public function getDownloadLink()
     {
-        return $url;
+        return $this->url;
     }
 }

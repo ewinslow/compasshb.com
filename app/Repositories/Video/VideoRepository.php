@@ -1,15 +1,13 @@
-<?php namespace CompassHB\Video;
+<?php namespace CompassHB\Www\Repositories\Video;
 
-interface VideoInterface
+interface VideoRepository
 {
     /**
-     * Says if this provider works with the url.
+     * Set the URL to the video page.
      *
      * @param string $url
-     *
-     * @return boolean
      */
-    public function recognizes($url);
+    public function setUrl($url);
 
     /**
      * The embed code in HTML.
@@ -18,7 +16,7 @@ interface VideoInterface
      *
      * @return string
      */
-    public function getEmbedCode($url);
+    public function getEmbedCode();
 
     /**
      * The link to cover image.
@@ -29,7 +27,7 @@ interface VideoInterface
      *
      * @return string
      */
-    public function getThumbnail($url, $large = false);
+    public function getThumbnail($large = false);
 
-    public function getDownloadLink($url);
+    public function getDownloadLink();
 }

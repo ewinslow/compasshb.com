@@ -50,5 +50,13 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Repositories\Photo\PhotoRepository',
             'CompassHB\Www\Repositories\Photo\SmugmugPhotoRepository'
         );
+
+        /*
+         * VideoRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Video\VideoRepository',
+            'CompassHB\Www\Repositories\Video\CompassVideoRepository'
+        );
     }
 }

@@ -1,0 +1,73 @@
+<?php namespace CompassHB\Www\Repositories\Video;
+
+class CompassVideoRepository implements VideoRepository
+{
+    private $service;
+
+    /**
+     * Set the video url.
+     *
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        if (strpos($url, 'vimeo.com') !== false) {
+            $this->service = new VimeoVideoRepository();
+        } elseif (strpos($url, 'youtube.com') !== false || strpos($url, 'youtu.be') !== false) {
+            $this->service = new YouTubeVideoRepository();
+        } else {
+            $this->service = new FakeVideoRepository();
+        }
+
+        $this->service->setUrl($url);
+    }
+
+    /**
+     * Get oembed iframe.
+     *
+     * @param string $url location of video
+     *
+     * @return string
+     */
+    public function getEmbedCode()
+    {
+        return $this->service->getEmbedCode();
+    }
+
+    /**
+     * Make an oembed request and return the thumbnail.
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public function getThumbnail($large = false)
+    {
+        return $this->service->getThumbnail($large);
+    }
+
+    /**
+     * Returns the largest thumbnail from a video from Vimeo
+     * to display on the homepage banner.
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    private function getVideoThumb()
+    {
+        return $this->service->getVideoThumb();
+    }
+
+    /**
+     * Link to download Vimeo video.
+     *
+     * @param string $videoUrl
+     *
+     * @return string
+     */
+    public function getDownloadLink()
+    {
+        return $this->service->getDownloadLink();
+    }
+}
