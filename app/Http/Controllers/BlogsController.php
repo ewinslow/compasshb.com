@@ -3,8 +3,8 @@
 use Auth;
 use SearchIndex;
 use CompassHB\Www\Blog;
-use CompassHB\Video\Client;
 use CompassHB\Www\Http\Requests\BlogRequest;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class BlogsController extends Controller
 {
@@ -36,13 +36,13 @@ class BlogsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog, VideoRepository $video)
     {
         $blog->iframe = '';
 
         if (!empty($blog->video)) {
-            $client = new Client($blog->video);
-            $blog->iframe = $client->getEmbedCode();
+            $video->setUrl($blog->video);
+            $blog->iframe = $video->getEmbedCode();
         }
 
         return view('dashboard.blogs.show', compact('blog'))

@@ -2,9 +2,9 @@
 
 use Auth;
 use CompassHB\Www\Sermon;
-use CompassHB\Video\Client;
 use CompassHB\Www\Fellowship;
 use CompassHB\Www\Http\Requests\FellowshipRequest;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class FellowshipsController extends Controller
 {
@@ -21,15 +21,15 @@ class FellowshipsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(VideoRepository $video)
     {
         $fellowships = Fellowship::all()->toArray();
         $days = array_unique(array_column($fellowships, 'day'));
 
         $sermon = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(1)->get()->first();
 
-        $client = new Client($sermon->video);
-        $sermon->iframe = $client->getEmbedCode();
+        $video->setUrl($sermon->video);
+        $sermon->iframe = $video->getEmbedCode();
 
         return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon'))
             ->with('title', 'Home Fellowship Groups');

@@ -4,8 +4,8 @@ use Auth;
 use SearchIndex;
 use CompassHB\Www\Song;
 use CompassHB\Pco\Setlist;
-use CompassHB\Video\Client;
 use CompassHB\Www\Http\Requests\SongRequest;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class SongsController extends Controller
 {
@@ -22,13 +22,13 @@ class SongsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(VideoRepository $video)
     {
         $songs = Song::latest('published_at')->published()->get();
 
         foreach ($songs as $song) {
-            $client = new Client($song->video);
-            $song->thumbnail = $client->getThumbnail();
+            $video->setUrl($song->video);
+            $song->thumbnail = $video->getThumbnail();
         }
 
         $setlist = new Setlist();
@@ -46,10 +46,10 @@ class SongsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Song $song)
+    public function show(Song $song, VideoRepository $video)
     {
-        $client = new Client($song->video);
-        $song->iframe = $client->getEmbedCode();
+        $video->setUrl($song->video);
+        $song->iframe = $video->getEmbedCode();
 
         return view('dashboard.songs.show', compact('song'))
             ->with('title', $song->title);
