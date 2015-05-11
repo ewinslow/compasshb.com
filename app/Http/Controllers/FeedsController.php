@@ -4,7 +4,7 @@ use Cache;
 use Response;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
-use CompassHB\Video\Client;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class FeedsController extends Controller
 {
@@ -46,15 +46,15 @@ class FeedsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function json()
+    public function json(VideoRepository $video)
     {
         $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->published()->limit(300)->get();
 
         // Retrieve coverart
         foreach ($data['sermons'] as $sermon) {
             if (!Cache::has($sermon->video)) {
-                $client = new Client($sermon->video);
-                Cache::add($sermon->video, $client->getThumbnail(), 1440);
+                $video->setUrl($sermon->video);
+                Cache::add($sermon->video, $video->getThumbnail(), 1440);
             }
 
             $sermon->othumbnail = Cache::get($sermon->video);

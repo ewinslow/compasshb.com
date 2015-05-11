@@ -136,10 +136,10 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function download(Sermon $sermon)
+    public function download(Sermon $sermon, VideoRepository $video)
     {
-        $client = new Client($sermon->video);
+        $video->setUrl($sermon->video);
 
-        return redirect()->to($client->getDownloadLink());
+        return redirect()->to($video->getDownloadLink());
     }
 }

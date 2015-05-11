@@ -27,6 +27,13 @@ class DashboardTest extends TestCase
     }
 
     /** @test */
+    public function it_downloads_sermons()
+    {
+        $this->call('GET', '/sermons/dont-forget-his-benefits/download');
+        $this->assertEquals(302, $this->statusCode());
+    }
+
+    /** @test */
     public function it_loads_the_blog()
     {
         $this->visit('/blog');
