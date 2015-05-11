@@ -1,8 +1,8 @@
-<?php namespace CompassHB\Esv;
+<?php namespace CompassHB\Www\Repositories\Scripture;
 
 use Log;
 
-class Esv implements ScriptureInterface
+class EsvScriptureRepository implements ScriptureRepository
 {
     private $apikey;
     private $options = "include-footnotes=false&audio-format=mp3";

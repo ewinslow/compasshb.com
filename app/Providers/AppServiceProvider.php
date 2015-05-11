@@ -58,5 +58,13 @@ class AppServiceProvider extends ServiceProvider
             'CompassHB\Www\Repositories\Video\VideoRepository',
             'CompassHB\Www\Repositories\Video\CompassVideoRepository'
         );
+
+        /*
+         * ScriptureRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Scripture\ScriptureRepository',
+            'CompassHB\Www\Repositories\Scripture\EsvScriptureRepository'
+        );
     }
 }

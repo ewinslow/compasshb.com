@@ -3,10 +3,10 @@
 use Auth;
 use Redirect;
 use SearchIndex;
-use CompassHB\Esv\Esv;
 use CompassHB\Www\Passage;
-use CompassHB\Www\Repositories\Analytics\AnalyticRepository;
 use CompassHB\Www\Http\Requests\PassageRequest;
+use CompassHB\Www\Repositories\Analytics\AnalyticRepository;
+use CompassHB\Www\Repositories\Scripture\ScriptureRepository;
 
 class PassagesController extends Controller
 {
@@ -14,10 +14,12 @@ class PassagesController extends Controller
      * Create a new controller instance.
      */
     protected $analytics;
+    protected $scripture;
 
-    public function __construct(AnalyticRepository $analytics)
+    public function __construct(AnalyticRepository $analytics, ScriptureRepository $scripture)
     {
         $this->analytics = $analytics;
+        $this->scripture = $scripture;
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
     }
 
@@ -28,11 +30,9 @@ class PassagesController extends Controller
      */
     public function index()
     {
-        $esv = new Esv();
-
         $passages = Passage::latest('published_at')->published()->take(5)->get();
         $passage = $passages->first();
-        $passage->verses = $esv->getScripture($passage->title);
+        $passage->verses = $this->scripture->getScripture($passage->title);
 
         $postflash = '';
 
@@ -61,8 +61,7 @@ class PassagesController extends Controller
         $analytics = $this->analytics->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
         $analytics['activeUsers'] = $this->analytics->getActiveUsers();
 
-        $esv = new Esv();
-        $passage->verses = $esv->getScripture($passage->title);
+        $passage->verses = $this->scripture->getScripture($passage->title);
 
         $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
 
