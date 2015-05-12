@@ -7,7 +7,7 @@ use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
 use CompassHB\Www\Repositories\Video\VideoRepository;
-use CompassHB\Www\Repositories\Upload\AwsUploadRepository;
+use CompassHB\Www\Repositories\Upload\UploadRepository;
 
 class SermonsController extends Controller
 {
@@ -53,7 +53,7 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(SermonRequest $request, AwsUploadRepository $upload)
+    public function store(SermonRequest $request, UploadRepository $upload)
     {
         $sermon = new Sermon($request->all());
         $worksheet = Input::file('worksheet');
@@ -110,7 +110,7 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Sermon $sermon, SermonRequest $request, AwsUploadRepository $upload)
+    public function update(Sermon $sermon, SermonRequest $request, UploadRepository $upload)
     {
         $worksheet = Input::file('worksheet');
         $all = $request->all();
