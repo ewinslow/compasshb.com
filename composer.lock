@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6c11b2b34bb29aef8071afc5e9dd1ce",
+    "hash": "b28882b15de46b07365d368c7ead3405",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -227,6 +227,55 @@
                 "preload"
             ],
             "time": "2015-04-15 21:59:30"
+        },
+        {
+            "name": "compasshb/ccb-php-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CompassHB/ccb-php-client.git",
+                "reference": "dd774d4b93ede9ba55c9af42e98ee392c71300c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CompassHB/ccb-php-client/zipball/dd774d4b93ede9ba55c9af42e98ee392c71300c7",
+                "reference": "dd774d4b93ede9ba55c9af42e98ee392c71300c7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CompassHB\\Ccb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Winslow"
+                },
+                {
+                    "name": "Brad Smith",
+                    "email": "brad@compasshb.com"
+                }
+            ],
+            "description": "A simple PHP client interface for the Community Church Builder (CCB) HTTP API.",
+            "keywords": [
+                "ccb",
+                "church community builder",
+                "compass hb",
+                "compasshb",
+                "php"
+            ],
+            "time": "2015-05-14 06:43:05"
         },
         {
             "name": "danielstjules/stringy",
@@ -1145,16 +1194,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.0.30",
+            "version": "v5.0.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c7ffbf1fd4895ac4cdac551265d635d995346d97"
+                "reference": "db0a7400465df159ba8c6eaa954f97f50bc19687"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c7ffbf1fd4895ac4cdac551265d635d995346d97",
-                "reference": "c7ffbf1fd4895ac4cdac551265d635d995346d97",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/db0a7400465df159ba8c6eaa954f97f50bc19687",
+                "reference": "db0a7400465df159ba8c6eaa954f97f50bc19687",
                 "shasum": ""
             },
             "require": {
@@ -1267,7 +1316,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-05-08 19:11:13"
+            "time": "2015-05-11 22:15:00"
         },
         {
             "name": "league/flysystem",
@@ -2957,16 +3006,16 @@
         },
         {
             "name": "instaclick/php-webdriver",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "a57b2bcd9467e217134a2248b261b8b3a90ccea0"
+                "reference": "6aa16bbc02a5897200ab70316e0d2a01664afc51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/a57b2bcd9467e217134a2248b261b8b3a90ccea0",
-                "reference": "a57b2bcd9467e217134a2248b261b8b3a90ccea0",
+                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/6aa16bbc02a5897200ab70316e0d2a01664afc51",
+                "reference": "6aa16bbc02a5897200ab70316e0d2a01664afc51",
                 "shasum": ""
             },
             "require": {
@@ -3011,7 +3060,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2014-05-12 21:03:05"
+            "time": "2015-04-05 19:52:55"
         },
         {
             "name": "laracasts/integrated",
@@ -4294,7 +4343,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "compasshb/ccb-php-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
          */
         $this->app->bind(
             'CompassHB\Www\Repositories\Calendar\CalendarRepository',
-            'CompassHB\Www\Repositories\Calendar\GoogleCalendarRepository'
+            'CompassHB\Www\Repositories\Calendar\CcbCalendarRepository'
         );
 
         /*
