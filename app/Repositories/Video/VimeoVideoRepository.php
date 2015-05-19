@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Repositories\Video;
 
 use Log;
+use Cache;
 
 class VimeoVideoRepository implements VideoRepository
 {
@@ -69,6 +70,10 @@ class VimeoVideoRepository implements VideoRepository
             return;
         }
 
+        if (Cache::has($this->url)) {
+            return Cache::get($this->url);
+        }
+
         if ($large) {
             return $this->getVideoThumb($this->url);
         }
@@ -84,6 +89,8 @@ class VimeoVideoRepository implements VideoRepository
         }
 
         $response_body = json_decode($response->getBody());
+
+        Cache::add($this->url, $response_body->thumbnail_url, '1440');
 
         return $response_body->thumbnail_url;
     }

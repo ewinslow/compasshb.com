@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Http\Controllers;
 
 use Log;
+use Cache;
 use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
@@ -51,17 +52,26 @@ class PagesController extends Controller
         $videoClient->setUrl($prevsermon->video);
         $prevsermon->othumbnail = $videoClient->getThumbnail();
 
-        // Instagram
+        /*
+         * Instagram
+         * @todo Move caching out of controller
+         */
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
         try {
-            $instagrams = file_get_contents($url);
-            $instagrams = json_decode($instagrams, true);
+            $instagrams = Cache::get('instagrams');
+            if (!$instagrams) {
+                $instagrams = file_get_contents($url);
+                $instagrams = json_decode($instagrams, true);
+                Cache::add('instagrams', $instagrams, '60');
+            }
         } catch (\Exception $e) {
             Log::warning('Connection refused to api.instagram.com');
-
             $instagrams['data'] = [];
         }
 
+        /*
+         * Smugmug
+         */
         $results = $photos->getPhotos(8);
 
         return view('pages.index', compact(

@@ -17,7 +17,10 @@ class SmugmugPhotoRepository implements PhotoRepository
      */
     public function getRecentPhotos()
     {
-        // Smugmug
+        if (Cache::has('getrecentphotos')) {
+            return Cache::get('getrecentphotos');
+        }
+
         $feedUrl = $this->url;
         $num = 40;
 
@@ -39,6 +42,8 @@ class SmugmugPhotoRepository implements PhotoRepository
 
             $results[] = array($link, $image);
         }
+
+        Cache::add('getrecentphotos', $results, '340');
 
         return $results;
     }
