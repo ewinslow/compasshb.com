@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.8.3",
+            "version": "2.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "85c5224582acf507afad232da20a7ef0b2ec0073"
+                "reference": "ec34eddcff0b7385afdb474ce3705580f7116294"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/85c5224582acf507afad232da20a7ef0b2ec0073",
-                "reference": "85c5224582acf507afad232da20a7ef0b2ec0073",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ec34eddcff0b7385afdb474ce3705580f7116294",
+                "reference": "ec34eddcff0b7385afdb474ce3705580f7116294",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2015-05-07 21:02:23"
+            "time": "2015-05-18 23:19:07"
         },
         {
             "name": "bugsnag/bugsnag",
@@ -490,16 +490,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "9c35bbbbaf04a5236d763560dab1e2f6e672a724"
+                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/9c35bbbbaf04a5236d763560dab1e2f6e672a724",
-                "reference": "9c35bbbbaf04a5236d763560dab1e2f6e672a724",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/523430f21a92c54172099d12d0f31d40f3de67e9",
+                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2014-11-25 14:35:03"
+            "time": "2015-05-17 00:43:01"
         },
         {
             "name": "graham-campbell/htmlmin",

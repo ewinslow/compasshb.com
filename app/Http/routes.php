@@ -88,6 +88,16 @@ Route::group(['prefix' => 'feed'], function () {
 /*
  * Routes for APIs
  */
+Route::group(['prefix' => 'api/v1'], function () {
+    Route::resource('songs', 'Api\SongsController', ['except' => ['destroy']]);
+    Route::resource('passages', 'Api\PassagesController', ['except' => ['destroy']]);
+    Route::resource('slides', 'Api\SlidesController', ['except' => ['destroy', 'show', 'index']]);
+    Route::resource('fellowship',  'Api\FellowshipController', ['except' => ['destroy', 'show']]);
+    Route::resource('sermons', 'Api\SermonsController', ['except' => ['destroy']]);
+    Route::resource('series', 'Api\SeriesController', ['except' => ['destroy']]);
+    Route::resource('blog', 'Api\BlogController', ['except' => ['destroy']]);
+});
+
 Route::group(['prefix' => 'api/1.0'], function () {
     Route::get('getsermonlist.json', 'FeedsController@getsermonlist');
 });
