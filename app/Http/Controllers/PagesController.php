@@ -58,7 +58,7 @@ class PagesController extends Controller
          */
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
         try {
-            $instagrams = Cache::remember('instagrams', function () use ($url) {
+            $instagrams = Cache::remember('instagrams', '180', function () use ($url) {
                 return json_decode(file_get_contents($url), true);
             });
         } catch (\Exception $e) {
