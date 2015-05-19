@@ -10,7 +10,7 @@
   {!! $passage->body !!}
   {!! $passage->verses !!}
 
-	@include('dashboard.passages.comments');
+	@include('dashboard.passages.comments')
 
 @endsection
 

@@ -12,7 +12,7 @@ body
     <div class="container-fluid">
       <div class="row">
 
-      @include('layouts.dashboard.sidenav');
+      @include('layouts.dashboard.sidenav')
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-top: 70px;">
           <div class="row">
@@ -32,7 +32,7 @@ body
       </div>
     </div>
 
-    @include('layouts.scripts');
+    @include('layouts.scripts')
 
   </body>
 </html>
