@@ -58,12 +58,9 @@ class PagesController extends Controller
          */
         $url = 'https://api.instagram.com/v1/users/1363574956/media/recent/?count=4&client_id='.env('INSTAGRAM_CLIENT_ID');
         try {
-            $instagrams = Cache::get('instagrams');
-            if (!$instagrams) {
-                $instagrams = file_get_contents($url);
-                $instagrams = json_decode($instagrams, true);
-                Cache::add('instagrams', $instagrams, '60');
-            }
+            $instagrams = Cache::remember('instagrams', function () use ($url) {
+                return json_decode(file_get_contents($url), true);
+            });
         } catch (\Exception $e) {
             Log::warning('Connection refused to api.instagram.com');
             $instagrams['data'] = [];

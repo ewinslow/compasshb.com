@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Repositories\Photo;
 
 use Log;
+use Cache;
 
 class SmugmugPhotoRepository implements PhotoRepository
 {
@@ -50,6 +51,10 @@ class SmugmugPhotoRepository implements PhotoRepository
 
     public function getPhotos($num = 4)
     {
+        if (Cache::has('getphotos'.$num)) {
+            return Cache::get('getphotos'.$num);
+        }
+
         // Smugmug
         $feedUrl = 'http://compasshb.smugmug.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=compasshb&format=rss200&Size=Medium';
 
@@ -82,6 +87,8 @@ class SmugmugPhotoRepository implements PhotoRepository
 
             $results[] = array($link, $image);
         }
+
+        Cache::add('getphotos'.$num, $results, '340');
 
         return $results;
     }
