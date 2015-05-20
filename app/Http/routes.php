@@ -133,11 +133,6 @@ Route::get('what-we-believe', [
     'uses' => 'PagesController@whatwebelieve',
 ]);
 
-Route::get('calendar', [
-    'as' => 'calendar',
-    'uses' => 'PagesController@calendar',
-]);
-
 /***********************************************************************
  * Routes for ministry pages
  */

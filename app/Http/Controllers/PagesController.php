@@ -11,7 +11,6 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Repositories\Video\VideoRepository;
 use CompassHB\Www\Repositories\Photo\PhotoRepository;
-use CompassHB\Www\Repositories\Calendar\CalendarRepository;
 
 class PagesController extends Controller
 {
@@ -138,14 +137,6 @@ class PagesController extends Controller
     {
         return view('pages.landing.bunnyrun')
             ->with('title', 'The Bunny Run 5K');
-    }
-
-    public function calendar(CalendarRepository $calendar)
-    {
-        $events = $calendar->test();
-
-        return view('pages.calendar', compact('events'))
-            ->with('title', 'Calendar');
     }
 
     public function manifest()
