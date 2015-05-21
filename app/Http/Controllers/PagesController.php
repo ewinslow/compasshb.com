@@ -32,13 +32,25 @@ class PagesController extends Controller
         $featuredevents = $event->search('#featuredevent');
         $featuredevents = $featuredevents->events;
 
-        $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(4)->get();
+        $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(3)->get();
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
 
         $blogs = Blog::latest('published_at')->published()->take(2)->get();
         $videos = Blog::whereNotNull('video')->latest('published_at')->published()->take(2)->get();
         $passage = Passage::latest('published_at')->published()->take(1)->get()->first();
+
+        $distinctives = [
+            ['text' => '1. The Bible is Central', 'icon' => 'glyphicon-book'],
+            ['text' => '2. We showcase expository preaching', 'icon' => 'glyphicon-cog'],
+            ['text' => '3. We seek to maintain a high view of God', 'icon' => 'glyphicon-picture'],
+            ['text' => '4. We work to proclaim a biblical gospel', 'icon' => 'glyphicon-bullhorn'],
+            ['text' => '5. We have a genuine reliance on prayer', 'icon' => 'glyphicon-cloud-upload'],
+            ['text' => '6. We have highly committed participants', 'icon' => 'glyphicon-user'],
+            ['text' => '7. We will look to authentic & sacrificial leaders', 'icon' => 'glyphicon-ok'],
+            ['text' => '8. We will always be working to plant new churches', 'icon' => 'glyphicon-globe'],
+        ];
+        shuffle($distinctives);
 
         foreach ($sermons as $sermon) {
             $videoClient->setUrl($sermon->video);
@@ -79,7 +91,8 @@ class PagesController extends Controller
             'prevsermon',
             'blogs',
             'videos',
-            'passage'
+            'passage',
+            'distinctives'
         ))->with('images', $results)
             ->with('instagrams', $instagrams['data'])
             ->with('title', 'Compass HB - Huntington Beach');

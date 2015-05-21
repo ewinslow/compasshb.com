@@ -91,6 +91,15 @@
             </div>
         </div>
         @endforeach
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <center><span class="glyphicon {{ $distinctives[0]['icon'] }}" style="font-size: 5em; padding: 25px;"></span></center>
+                <div class="caption">
+                    <h4>{{ $distinctives[0]['text'] }}</h4><br/>
+                    <p><a href="{{ route('distinctives') }}" class="btn btn-primary" role="button">Our Eight Distinctives</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
