@@ -207,11 +207,18 @@ class PagesController extends Controller
         }
     }
 
-    public function cleareventcache($auth)
+    /**
+     * Clear the event cache when event management system sends a webhook callback.
+     */
+    public function cleareventcache($auth, EventRepository $event)
     {
         if ($auth == env('EVENTBRITE_CALLBACK')) {
             Cache::forget('searchevent');
             Cache::forget('events');
+
+            // Warm the cache
+            $event->events();
+            $event->search('#featuredevents');
         }
 
         return "Success";
