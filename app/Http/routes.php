@@ -133,6 +133,10 @@ Route::get('what-we-believe', [
     'uses' => 'PagesController@whatwebelieve',
 ]);
 
+Route::get('events/{id?}/{slug?}', [
+    'as' => 'events',
+    'uses' => 'PagesController@events',
+]);
 /***********************************************************************
  * Routes for ministry pages
  */

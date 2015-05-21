@@ -11,6 +11,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Repositories\Video\VideoRepository;
 use CompassHB\Www\Repositories\Photo\PhotoRepository;
+use CompassHB\Www\Repositories\Event\EventRepository;
 
 class PagesController extends Controller
 {
@@ -176,5 +177,19 @@ class PagesController extends Controller
         return response()
             ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs'))
             ->header('Content-Type', 'application/xml');
+    }
+
+    public function events(EventRepository $event, $id = null)
+    {
+        if ($id) {
+            $event = $event->event($id);
+
+            return view('pages.event', compact('event'));
+        } else {
+            $events = $event->events();
+            $events = $events->events;
+
+            return view('pages.events', compact('events'));
+        }
     }
 }
