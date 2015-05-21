@@ -69,9 +69,9 @@ class HomepageTest extends TestCase
     }
 
     /** @test */
-    public function it_loads_the_calendar_page()
+    public function it_loads_the_events_page()
     {
-        $this->visit('/calendar');
+        $this->visit('/events');
     }
 
     /** @test */
