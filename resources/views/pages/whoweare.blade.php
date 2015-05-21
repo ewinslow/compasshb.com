@@ -20,8 +20,7 @@
                             Jack) were sent out to plant another Compass here in Huntington Beach. Twelve families moved
                             up with them, but there are also Compass family members who already lived here in north
                             Orange County.</p>
-            <img src="{{ URL::to('/') }}/images/blakey-fam-hb-01.jpg" alt="Blakey Family"
-                             width="2048" height="1366"/>
+            <img src="{{ URL::to('/') }}/images/blakey-fam-hb-01.jpg" alt="Blakey Family" />
             <p>&nbsp;</p>
         </div>
     </div>
@@ -109,6 +108,33 @@
             </div>
         </div>
     </div>
+
+    <div class="row" style="background-color: #eaeaea; padding-top: 40px; padding-bottom: 20px;">
+        <div class="col-xs-10 col-xs-offset-1">
+            <h2 class="tk-seravek-web">Our History</h2>
+            <div class="col-md-3">
+                <img src="https://compasschurch.smugmug.com/Events/Compass-HB-Commissioning/i-xJkQMMS/0/S/CompassHB-20140803-135-S.jpg" alt="Commissioning Service" width="432" height="426"/>
+                <h4 class="tk-seravek-web">Commissioning Service</h4>
+                <p style="text-align: left;">On August 2 & 3, 2014 we were sent out by <a href="http://www.compasschurch.org/">Compass Bible Church Aliso Viejo</a>. Pastor Bobby, his wife Christa and their three children were sent out to plant another Compass here in Huntington Beach. Twelve families moved up with them, but there are also Compass family members who already lived here in north Orange County.</p>
+            </div>
+            <div class="col-md-3">
+                <img src="{{ URL::to('/') }}/images/IceCreamEvangelism.png" alt="Ice Cream Evangelism" width="432" height="426"/>
+                <h4 class="tk-seravek-web">Ice Cream Evangelism</h4>
+                <p style="text-align: left;">On August 8th, 2014 we started handing out free ice cream in Huntington Beach and inviting people to our first services. We went out nearly everyday in August sharing the good news.</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://compasshb.smugmug.com/PhotoArchive/Worship-Services/1st-Marina-High-School-Service/i-Vxj2mwm/0/S/PastorBobbyCBCHBwidesideview-S.jpg" alt="Our First Services" width="432" height="426"/>
+                <h4 class="tk-seravek-web">Our First Service</h4>
+                <p style="text-align: left;">On September 7th, 2014 we had our first Sunday at Marina High School!</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://compasshb.smugmug.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/S/150111_Wor_SS-093-S.jpg" alt="Our New Building" width="432" height="426"/>
+                <h4 class="tk-seravek-web">Our New Building</h4>
+                <p style="text-align: left;">On January 11th, 2014 we had our first service in our new building here at 5082 Argosy Avenue! God has been so good to us, brought many people to our church and has faithfully saved sinners! On April 5, 2015 we launched two services at 9am and 11am.</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="container-fluid">
