@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 class EventbriteEventRepository implements EventRepository
 {
-    private $minutes = 15;
+    private $minutes = 2880;
     private $client;
     private $url = 'https://www.eventbriteapi.com/v3/';
 
@@ -23,7 +23,7 @@ class EventbriteEventRepository implements EventRepository
      */
     public function search($query)
     {
-        $res = Cache::remember('search', $this->minutes, function () use ($query) {
+        $res = Cache::remember('searchevent', $this->minutes, function () use ($query) {
             $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.env('EVENTBRITE_OAUTH_TOKEN'));
 
             return json_decode($res->getBody());
