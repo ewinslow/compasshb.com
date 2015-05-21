@@ -104,6 +104,7 @@ Route::group(['prefix' => 'api/v1'], function () {
             Cache::forget('searchevent');
             Cache::forget('events');
         }
+        echo "Success";
     });
 });
 
