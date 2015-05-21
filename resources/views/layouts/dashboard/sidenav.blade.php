@@ -6,6 +6,7 @@
     <li class="{{ setActive('songs') }}"><a href="{{ route('songs.index') }}">Worship</a></li>
     <li class="{{ setActive('fellowship') }}"><a href="{{ route('fellowship.index') }}">Fellowship</a></li>
     <li class="{{ setActive('blog') }}"><a href="{{ route('blog.index') }}">Blog</a></li>
+    <li class="{{ setActive('events') }}"><a href="{{ route('events.index') }}">Events</a></li>
 
     @if (Auth::check())
     	<li class="{{ setActive('admin') }}"

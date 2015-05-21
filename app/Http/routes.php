@@ -134,7 +134,7 @@ Route::get('what-we-believe', [
 ]);
 
 Route::get('events/{id?}/{slug?}', [
-    'as' => 'events',
+    'as' => 'events.index',
     'uses' => 'PagesController@events',
 ]);
 /***********************************************************************

@@ -185,12 +185,12 @@ class PagesController extends Controller
         if ($id) {
             $event = $event->event($id);
 
-            return view('pages.event', compact('event'));
+            return view('dashboard.events.show', compact('event'));
         } else {
             $events = $event->events();
             $events = $events->events;
 
-            return view('pages.events', compact('events'));
+            return view('dashboard.events.index', compact('events'));
         }
     }
 }
