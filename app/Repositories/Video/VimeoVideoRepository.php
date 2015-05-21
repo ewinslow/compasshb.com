@@ -42,7 +42,7 @@ class VimeoVideoRepository implements VideoRepository
      */
     public function getEmbedCode()
     {
-        $request = 'https://vimeo.com/api/oembed.json?autoplay=true&url='.$this->url;
+        $request = 'https://vimeo.com/api/oembed.json?autoplay=false&url='.$this->url;
 
         try {
             $response = $this->client->get($request);
