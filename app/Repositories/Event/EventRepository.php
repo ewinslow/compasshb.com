@@ -2,5 +2,6 @@
 
 interface EventRepository
 {
-    public function test();
+    public function events();
+    public function event($id);
 }

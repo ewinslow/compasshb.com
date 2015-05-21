@@ -39,8 +39,8 @@ class AppServiceProvider extends ServiceProvider
          * EventRepository
          */
         $this->app->bind(
-            'CompassHB\Www\Repositories\Calendar\EventRepository',
-            'CompassHB\Www\Repositories\Calendar\EventbriteEventRepository'
+            'CompassHB\Www\Repositories\Event\EventRepository',
+            'CompassHB\Www\Repositories\Event\EventbriteEventRepository'
         );
 
         /*
