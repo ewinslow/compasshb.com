@@ -16,6 +16,25 @@ class EventbriteEventRepository implements EventRepository
         ]);
     }
 
+    /**
+     * List of events matching search term.
+     *
+     * @param string $query
+     */
+    public function search($query)
+    {
+        $res = Cache::remember('search', $this->minutes, function () use ($query) {
+            $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+
+            return json_decode($res->getBody());
+        });
+
+        return $res;
+    }
+
+    /**
+     * List of multiple events.
+     */
     public function events()
     {
         $res = Cache::remember('events', $this->minutes, function () {
@@ -24,16 +43,14 @@ class EventbriteEventRepository implements EventRepository
             return json_decode($res->getBody());
         });
 
-        // list events
-        //'https://www.eventbriteapi.com/v3/
-
-        // specific event
-        //
-
-        // search events
         return $res;
     }
 
+    /**
+     * Single event details.
+     *
+     * @param string $id
+     */
     public function event($id)
     {
         $res = Cache::remember($id, $this->minutes, function () use ($id) {

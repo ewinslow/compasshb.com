@@ -18,13 +18,13 @@
 <div class="row drawer">
   <div class="col-md-1"></div>
 
-  @foreach($slides->reverse() as $slide)
+  @foreach(array_slice($featuredevents, 0,2) as $event)
   <div class="col-md-2 col-md-offset-1">
-    <a class="clickable featuredblog" href="{{ $slide->url }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $slide->image }});">
-      <h4 class="tk-seravek-web">{{ $slide->title }}</h4>
+    <a class="clickable featuredblog" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $event->logo->url }});">
+      <h4 class="tk-seravek-web">{{ $event->name->text }}</h4>
     </a>
     <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ $slide->url }}">{{ $slide->title }}</a>
+      <a class="clickable" style="color: #fff" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/">{{ $event->name->text }}</a>
     </h4>
   </div>
   @endforeach

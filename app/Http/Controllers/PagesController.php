@@ -5,7 +5,6 @@ use Cache;
 use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
-use CompassHB\Www\Slide;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
@@ -28,9 +27,11 @@ class PagesController extends Controller
      *
      * @return view
      */
-    public function home(PhotoRepository $photos, VideoRepository $videoClient)
+    public function home(PhotoRepository $photos, VideoRepository $videoClient, EventRepository $event)
     {
-        $slides = Slide::latest('published_at')->published()->take(2)->get();
+        $featuredevents = $event->search('#featuredevent');
+        $featuredevents = $featuredevents->events;
+
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(4)->get();
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
@@ -73,7 +74,7 @@ class PagesController extends Controller
 
         return view('pages.index', compact(
             'sermons',
-            'slides',
+            'featuredevents',
             'nextsermon',
             'prevsermon',
             'blogs',
