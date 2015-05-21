@@ -206,4 +206,14 @@ class PagesController extends Controller
             return view('dashboard.events.index', compact('events'));
         }
     }
+
+    public function cleareventcache($auth)
+    {
+        if ($auth == env('EVENTBRITE_CALLBACK')) {
+            Cache::forget('searchevent');
+            Cache::forget('events');
+        }
+
+        return "Success";
+    }
 }
