@@ -27,6 +27,18 @@ class DashboardTest extends TestCase
     }
 
     /** @test */
+    public function it_loads_series()
+    {
+        $this->visit(route('series.index'));
+    }
+
+    /** @test */
+    public function it_loads_series_example()
+    {
+        $this->visit('series/attributes-of-god');
+    }
+
+    /** @test */
     public function it_downloads_sermons()
     {
         $this->call('GET', '/sermons/dont-forget-his-benefits/download');
