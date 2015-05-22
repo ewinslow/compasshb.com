@@ -4,6 +4,7 @@ use Auth;
 use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 use CompassHB\Www\Http\Requests\SeriesRequest;
 
 class SeriesController extends Controller
@@ -58,9 +59,14 @@ class SeriesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Series $series)
+    public function show(Series $series, VideoRepository $video)
     {
         $sermons = Sermon::where('series_id', '=', $series->id)->latest('published_at')->published()->get();
+
+        foreach ($sermons as $sermon) {
+            $video->setUrl($sermon->video);
+            $sermon->image = $video->getThumbnail();
+        }
 
         return view('dashboard.series.show', compact('series', 'sermons'))
             ->with('title', $series->title);

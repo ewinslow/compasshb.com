@@ -24,9 +24,14 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(VideoRepository $video)
     {
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->get();
+
+        foreach ($sermons as $sermon) {
+            $video->setUrl($sermon->video);
+            $sermon->image = $video->getThumbnail();
+        }
 
         return view('dashboard.sermons.index', compact('sermons'));
     }

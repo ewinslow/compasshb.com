@@ -2,34 +2,19 @@
 
 @section('content')
 
-	<h1 class="tk-seravek-web">Sermon Library</h1>
+	<h1 class="tk-seravek-web">Sermons</h1><br/>
 
-<div class="panel panel-default">
-  <div class="panel-heading tk-seravek-web">All Sermons</div>
-  <div class="panel-body">
-    <p>Archive of all sermon videos</p>
+  @foreach ($sermons as $sermon)
+  <div class="col-md-4">
+    <a href="{{ route('sermons.show', $sermon->slug) }}">
+      <img src="{{ $sermon->image }}" alt="{{ $sermon->title }}" width="300"/><br/>
+      <h4 class="tk-seravek-web">{{ $sermon->title }}</h4></a>
+      <p>{{ $sermon->text }}<br/>
+      {{ date_format($sermon->published_at, 'l, F j, Y') }}<br/>
+      {{ $sermon->teacher }}</p>
+    </a>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Text</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($sermons as $sermon)
-      <tr>
-        <td>{{ $sermon->sku }}</td>
-        <td><a href="{{ route('sermons.show', $sermon->slug) }}">{{ $sermon->title }}</a></td>
-        <td>{{ $sermon->text }}</td>
-        <td>{{ date_format($sermon->published_at, 'l, F j, Y') }}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-</div>
+  @endforeach
 
 {{--
 <h1 class="tk-seravek-web">Scripture Index</h1>

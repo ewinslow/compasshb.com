@@ -1,6 +1,7 @@
 <?php namespace CompassHB\Www\Repositories\Video;
 
 use Log;
+use Cache;
 
 class YouTubeVideoRepository implements VideoRepository
 {
@@ -61,6 +62,10 @@ class YouTubeVideoRepository implements VideoRepository
             return;
         }
 
+        if (Cache::has($this->url)) {
+            return Cache::get($this->url);
+        }
+
         $request = 'https://www.youtube.com/oembed?url='.$this->url;
 
         try {
@@ -72,6 +77,8 @@ class YouTubeVideoRepository implements VideoRepository
         }
 
         $response_body = json_decode($response->getBody());
+
+        Cache::add($this->url, $response_body->thumbnail_url, '1440');
 
         return $response_body->thumbnail_url;
     }
