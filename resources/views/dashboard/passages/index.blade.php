@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="canonical" href="{{ route('read.show', $passages->first()->slug) }}/" />
-<h1 class="tk-seravek-web">Scripture of the Day</h1>
+<h1 class="tk-seravek-web">{{ $passage->title }}</h1>
 
 
 <p>

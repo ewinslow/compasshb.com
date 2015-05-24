@@ -6950,6 +6950,9 @@ button.close {
 .esv {
   max-width: 600px; }
 
+.esv h2:first-child {
+  display: none; }
+
 h3 {
   text-align: left; }
 
