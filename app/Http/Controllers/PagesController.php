@@ -180,7 +180,7 @@ class PagesController extends Controller
         dd(SearchIndex::getResults($query));
     }
 
-    public function sitemap()
+    public function sitemap(EventRepository $event)
     {
         $blogs = Blog::lists('slug');
         $sermons = Sermon::published()->lists('slug', 'video');
@@ -188,8 +188,11 @@ class PagesController extends Controller
         $series = Series::lists('slug');
         $songs = Song::lists('slug');
 
+        $events = $event->events();
+        $events = $events->events;
+
         return response()
-            ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs'))
+            ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs', 'events'))
             ->header('Content-Type', 'application/xml');
     }
 

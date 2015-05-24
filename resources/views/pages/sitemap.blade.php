@@ -84,7 +84,7 @@
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     @if ($video != null)
     <video:video>
         <video:player_loc allow_embed="yes">{{ $video }}</video:player_loc>
@@ -96,7 +96,7 @@
 @foreach($blogs as $slug)
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
 </url>
 @endforeach
@@ -105,14 +105,14 @@
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
 </url>
 @endforeach
 
 @foreach($series as $slug)
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
 </url>
 @endforeach
@@ -120,8 +120,16 @@
 @foreach($songs as $slug)
 <url>
     <loc>{{ Request::root() . '/' . $slug }}</loc>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
     <changefreq>weekly</changefreq>
+</url>
+@endforeach
+
+@foreach($events as $event)
+<url>
+    <loc>{{ Request::root() . '/events/' . $event->id . '/' . str_slug($event->name->text) }}</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
 </url>
 @endforeach
 
