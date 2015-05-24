@@ -21,4 +21,16 @@ class FeedTest extends TestCase
     {
         $this->visit('/feed/songs.xml');
     }
+
+    /** @test */
+    public function it_loads_the_blog()
+    {
+        $this->visit('/feed/blog.xml');
+    }
+
+    /** @test */
+    public function it_loads_the_read()
+    {
+        $this->visit('/feed/read.xml');
+    }
 }

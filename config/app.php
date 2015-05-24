@@ -149,7 +149,7 @@ return [
         'GrahamCampbell\Parse\ParseServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'Spatie\SearchIndex\SearchIndexServiceProvider',
-
+        'Roumen\Feed\FeedServiceProvider',
     ],
 
     /*
@@ -201,7 +201,7 @@ return [
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Form'      => 'Illuminate\Html\FormFacade',
         'SearchIndex' => 'Spatie\SearchIndex\SearchIndexFacade',
-
+        'Feed' => 'Roumen\Feed\Facades\Feed',
     ],
 
 ];

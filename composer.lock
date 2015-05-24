@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6c11b2b34bb29aef8071afc5e9dd1ce",
+    "hash": "df0c03b8b4b72716be94c7612c99b616",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.8.5",
+            "version": "2.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ec34eddcff0b7385afdb474ce3705580f7116294"
+                "reference": "f7a45e68187bc29d82b710b753fda47839a73d98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ec34eddcff0b7385afdb474ce3705580f7116294",
-                "reference": "ec34eddcff0b7385afdb474ce3705580f7116294",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f7a45e68187bc29d82b710b753fda47839a73d98",
+                "reference": "f7a45e68187bc29d82b710b753fda47839a73d98",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2015-05-18 23:19:07"
+            "time": "2015-05-21 20:09:31"
         },
         {
             "name": "bugsnag/bugsnag",
@@ -441,16 +441,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9"
+                "reference": "2adb5ba90612858d4add0342eee6b8b9aaca398d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/523430f21a92c54172099d12d0f31d40f3de67e9",
-                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/2adb5ba90612858d4add0342eee6b8b9aaca398d",
+                "reference": "2adb5ba90612858d4add0342eee6b8b9aaca398d",
                 "shasum": ""
             },
             "require": {
@@ -479,7 +479,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2015-05-17 00:43:01"
+            "time": "2015-05-21 19:35:32"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -1906,17 +1906,70 @@
             "time": "2014-12-30 13:32:42"
         },
         {
-            "name": "spatie/searchindex",
-            "version": "2.0.0",
+            "name": "roumen/feed",
+            "version": "v2.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/freekmurze/searchindex.git",
-                "reference": "88a549c383466d94a8657443a001939bc61c8307"
+                "url": "https://github.com/RoumenDamianoff/laravel-feed.git",
+                "reference": "eb13cffb8e90d5ac0dc19578a6274fdea5b2d6d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/freekmurze/searchindex/zipball/88a549c383466d94a8657443a001939bc61c8307",
-                "reference": "88a549c383466d94a8657443a001939bc61c8307",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/eb13cffb8e90d5ac0dc19578a6274fdea5b2d6d9",
+                "reference": "eb13cffb8e90d5ac0dc19578a6274fdea5b2d6d9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4|~5",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "2.2.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Roumen\\Feed": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roumen Damianoff",
+                    "email": "roumen@dawebs.com",
+                    "homepage": "https://roumen.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple feed generator for Laravel.",
+            "homepage": "https://roumen.it/projects/laravel-feed",
+            "keywords": [
+                "feed",
+                "laravel"
+            ],
+            "time": "2015-02-26 12:28:26"
+        },
+        {
+            "name": "spatie/searchindex",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/searchindex.git",
+                "reference": "62805b957d679d2eed0562e6c32c402fad6f4175"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/searchindex/zipball/62805b957d679d2eed0562e6c32c402fad6f4175",
+                "reference": "62805b957d679d2eed0562e6c32c402fad6f4175",
                 "shasum": ""
             },
             "require": {
@@ -1938,13 +1991,14 @@
                 "MIT"
             ],
             "description": "Store and retrieve objects from Elasticsearch",
+            "homepage": "https://github.com/spatie/serachindex",
             "keywords": [
                 "elasticsearch",
                 "index",
                 "laravel",
                 "search"
             ],
-            "time": "2015-02-16 10:09:13"
+            "time": "2015-05-24 05:45:46"
         },
         {
             "name": "swiftmailer/swiftmailer",

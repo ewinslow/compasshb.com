@@ -83,6 +83,16 @@ Route::group(['prefix' => 'feed'], function () {
         'as' => 'feed.songs.xml',
         'uses' => 'FeedsController@songs',
     ]);
+
+    Route::get('blog.xml', [
+        'as' => 'feed.blog.xml',
+        'uses' => 'FeedsController@blog',
+    ]);
+
+    Route::get('read.xml', [
+        'as' => 'feed.read.xml',
+        'uses' => 'FeedsController@read',
+    ]);
 });
 
 /*

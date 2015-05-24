@@ -4,6 +4,7 @@
   	</div>
   	<div class="panel-body">
     	<p><a href="/blog/">View all blogs/videos</a></p>
+    	<p><a href="{{ route('feed.blog.xml') }}">RSS</a></p>
         <p><div class="fb-share-button" data-href="{{ URL::to('/') }}" data-layout="button_count"></div></p>
         <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="CompassHB" data-dnt="true">Tweet</a></p>
         <script src="//platform.twitter.com/widgets.js" id="twitter-wjs" async defer></script>
