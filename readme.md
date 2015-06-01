@@ -7,6 +7,8 @@ This is the source code for [compassHB.com](http://www.compasshb.com/). Contribu
 * [Laravel PHP Framework](https://www.laravel.com/)
 * [Elasticsearch](https://www.elastic.co)
 
+Staging site is [http://staging.compasshb.com/](http://staging.compasshb.com/). Ask for credentials.
+
 ## Install on Cloud9 for local development
 
 #### Create New Workspace
