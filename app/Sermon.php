@@ -8,6 +8,7 @@ class Sermon extends Model implements Searchable
     protected $fillable = [
         'title',
         'body',
+        'excerpt',
         'worksheet',
         'file',
         'teacher',
@@ -30,6 +31,17 @@ class Sermon extends Model implements Searchable
     public function setSeriesIdAttribute($value)
     {
         $this->attributes['series_id'] = $value ? $value : null;
+    }
+
+    /**
+     * Set the empty field to be null using
+     * a Larvel mutator function.
+     *
+     * @param $value
+     */
+    public function setExcerptAttribute($value)
+    {
+        $this->attributes['excerpt'] = $value ? $value : null;
     }
 
     /**

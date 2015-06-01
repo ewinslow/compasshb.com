@@ -70,7 +70,7 @@ class SermonsController extends Controller
 
         Auth::user()->sermons()->save($sermon);
 
-        SearchIndex::upsertToIndex($sermon);
+  //      SearchIndex::upsertToIndex($sermon);
 
         return redirect()
             ->route('admin');
@@ -91,7 +91,8 @@ class SermonsController extends Controller
 
         return view('dashboard.sermons.show',
             compact('sermon', 'coverimage'))
-            ->with('title', $sermon->title);
+            ->with('title', $sermon->title)
+            ->with('ogdescription', $sermon->excerpt);
     }
 
     /**
