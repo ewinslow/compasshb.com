@@ -12,6 +12,7 @@
   <a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a>
   @endif
   </p>
+  <p>{!! $sermon->excerpt !!}</p>
   <p>{!! $sermon->body !!}</p>
 
 @endsection
