@@ -15,10 +15,12 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('read.index') }}">Read</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('pray') }}">Pray</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('events.index') }}">Events</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('sermons.index') }}">Sermons</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('songs.index') }}">Worship</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('fellowship.index') }}">Fellowship</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('songs.index') }}">Worship</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('blog.index') }}">Blog</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('pray') }}">Pray</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('home') }}">Home</a></li>
       </ul>
       <p class="navbar-text navbar-right hidden-xs" style="margin-right: 40px">{{ date('l, F j') }}</p>
