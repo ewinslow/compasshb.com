@@ -3,6 +3,13 @@
 @section('content')
 	<h2 class="tk-seravek-web">Events</h2>
 
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>The schedule of mid-week home fellowship groups is available at the <a href="/fellowship">Fellowship</a> page.</p>
+      </div>
+    </div>
+
+
     <ul class="list-group">
     @foreach ($events as $event)
         <li class="list-group-item">

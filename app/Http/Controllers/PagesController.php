@@ -204,7 +204,11 @@ class PagesController extends Controller
             return view('dashboard.events.show', compact('event'));
         } else {
             $events = $event->events();
-            $events = $events->events;
+
+            $events = array_filter($events->events, function ($var) {
+                // Filter out Home Fellowship Group events
+                return ($var->organizer->id != '8215662871');
+            });
 
             return view('dashboard.events.index', compact('events'));
         }
