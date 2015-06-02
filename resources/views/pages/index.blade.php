@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="drawer row">
-  <div class="col-md-8 col-md-offset-2" style="margin-top: 40px;">
+  <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;">
            <div>
                 <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});">
                 <p>Watch Latest Sermon</p>
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="row drawer">
+<div class="row drawer" style="padding-bottom: 30px">
   <div class="col-md-1"></div>
 
   @foreach(array_slice($featuredevents, 0,2) as $event)
@@ -23,21 +23,25 @@
     <a class="clickable featuredblog" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $event->logo->url }});">
       <h4 class="tk-seravek-web">{{ $event->name->text }}</h4>
     </a>
-    <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/">{{ $event->name->text }}</a>
-    </h4>
   </div>
   @endforeach
 
   <div class="col-md-2 col-md-offset-1">
     <a class="clickable" href="{{ route('read.index') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://compasshb.smugmug.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
-      <h4 class="tk-seravek-web">Scripture of the Day</h4>
+      <h4 class="tk-seravek-web">Scripture of<br/> the Day</h4>
+      <p>{{ $passage->title }}</p>
     </a>
-    <h4 style="color: #fff; text-align: left">
-      <a class="clickable" style="color: #fff" href="{{ route('read.index') }}">{{ $passage->title }}</a>
-    </h4>
   </div>
 <br/><br/>
+</div>
+
+<div class="row" style="background: none; background-color: #497f9e; padding-top: 0px; padding-bottom: 15px; border-top: 3px solid #fff;">
+  <div class="col-sm-10 col-sm-offset-1">
+    <center>
+    <h3 style="color: #FFF; text-align: center; margin-bottom: 5px" class="tk-seravek-web">Compass HB exists to make disciples of Jesus Christ</h3>
+    <p style="color: #FFF; font-size: 1.25em">by <strong>reaching</strong> as many people as possible for Christ, <strong>teaching</strong> them to be like Christ, and <strong>training</strong> them to serve Christ.</p>
+    </center>
+  </div>
 </div>
 
 {{-- Directions --}}
