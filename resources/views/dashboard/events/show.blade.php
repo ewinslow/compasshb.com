@@ -25,7 +25,7 @@
 		    <p style="clear: both">{!! $event->description->html !!}</p>
 
 		    @if (!$event->ticket_classes[0]->hidden)
-		    <p><a href="{{ $event->url }}?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid={{ $event->id }}" alt="{{ $event->name->text }}" /></a></p>
+		    <p><a href="{{ $event->url }}?ref=ebtnebregn" target="_blank" class="btn btn-warning">Click Here to Register</a></p>
 		    @endif
 	    </div>
     </div>

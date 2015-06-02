@@ -189,7 +189,6 @@ class PagesController extends Controller
         $songs = Song::lists('slug');
 
         $events = $event->events();
-        $events = $events->events;
 
         return response()
             ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs', 'events'))
@@ -199,18 +198,27 @@ class PagesController extends Controller
     public function events(EventRepository $event, $id = null)
     {
         if ($id) {
+
+            // Single Event Page
             $event = $event->event($id);
 
             return view('dashboard.events.show', compact('event'));
         } else {
+
+            // All Events
             $events = $event->events();
 
-            $events = array_filter($events->events, function ($var) {
-                // Filter out Home Fellowship Group events
+            // Filter out Home Fellowship Group events
+            $events = array_filter($events, function ($var) {
                 return ($var->organizer->id != '8215662871');
             });
 
-            return view('dashboard.events.index', compact('events'));
+            // Events accepting registrations
+            $registrations = array_filter($events, function ($var) {
+                return (!$var->ticket_classes[0]->hidden);
+            });
+
+            return view('dashboard.events.index', compact('events', 'registrations'));
         }
     }
 
