@@ -22,6 +22,7 @@
   <div class="col-md-2 col-md-offset-1">
     <a class="clickable featuredblog" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $event->logo->url }});">
       <h4 class="tk-seravek-web">{{ $event->name->text }}</h4>
+      <p> {{ date("F j", strtotime($event->start->local)) }}</p>
     </a>
   </div>
   @endforeach
