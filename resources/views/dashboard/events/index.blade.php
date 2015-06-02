@@ -38,7 +38,7 @@
         @foreach ($registrations as $registration)
             <p>
                      <a href='/events/{{ $registration->id }}/{{ str_slug($registration->name->text, "-") }}/'>{{ $registration->name->text }}</a><br/>
-                <small>{{ date("l F j, Y", strtotime($event->start->local)) }}</small>
+                <small>{{ date("l F j, Y", strtotime($registration->start->local)) }}</small>
             </p>
         @endforeach
       </div>
