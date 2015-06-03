@@ -2,7 +2,6 @@
 
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
-use CompassHB\Www\Slide;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
@@ -44,9 +43,8 @@ class HomeController extends Controller
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->paginate(15);
         $series = Series::where('ministry', '=', null)->paginate(15);
         $blogs = Blog::latest('published_at')->paginate(15);
-        $slides = Slide::latest('published_at')->paginate(15);
 
-        return view('admin.mainservice', compact('sermons', 'blogs', 'slides', 'series'))
+        return view('admin.mainservice', compact('sermons', 'blogs', 'series'))
             ->with('title', 'Admin - Main Service');
     }
 

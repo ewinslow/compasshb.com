@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
         /*
          * A song is at /songs/{slug}
          */
-        $router->bind('songs', function($slug) {
+        $router->bind('songs', function ($slug) {
 
             // Logged in users can see future posts
             if (Auth::check()) {
@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         /*
          * A passage is at /read/{slug}
          */
-        $router->bind('read', function($slug) {
+        $router->bind('read', function ($slug) {
 
             // Logged in users can see future posts
             if (Auth::check()) {
@@ -53,14 +53,14 @@ class RouteServiceProvider extends ServiceProvider
         /*
          * A fellowship is at /fellowship/{slug}
          */
-        $router->bind('fellowship', function($slug) {
+        $router->bind('fellowship', function ($slug) {
             return \CompassHB\Www\Fellowship::where('slug', $slug)->firstOrFail();
         });
 
         /*
          * A sermon is at /sermons/{slug}
          */
-        $router->bind('sermons', function($slug) {
+        $router->bind('sermons', function ($slug) {
 
             // Logged in users can see future posts
             if (Auth::check()) {
@@ -73,14 +73,14 @@ class RouteServiceProvider extends ServiceProvider
         /*
          * A sermon series is at /series/{slug}
          */
-        $router->bind('series', function($slug) {
+        $router->bind('series', function ($slug) {
             return \CompassHB\Www\Series::where('slug', $slug)->firstOrFail();
         });
 
         /*
          * A blog is at /blog/{slug}
          */
-        $router->bind('blog', function($slug) {
+        $router->bind('blog', function ($slug) {
 
             // Logged in users can see future posts
             if (Auth::check()) {
@@ -88,13 +88,6 @@ class RouteServiceProvider extends ServiceProvider
             }
 
             return \CompassHB\Www\Blog::where('slug', $slug)->published()->firstOrFail();
-        });
-
-        /*
-         * A slide is at /slides/{id}
-         */
-        $router->bind('slides', function($id) {
-            return \CompassHB\Www\Slide::published()->findOrFail($id);
         });
     }
 
@@ -105,7 +98,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace], function($router) {
+        $router->group(['namespace' => $this->namespace], function ($router) {
             require app_path('Http/routes.php');
         });
     }
