@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 class EventbriteEventRepository implements EventRepository
 {
-    private $minutes = 15;
+    private $minutes = 300;
     private $client;
     private $url = 'https://www.eventbriteapi.com/v3/';
 

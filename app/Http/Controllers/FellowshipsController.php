@@ -5,6 +5,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Fellowship;
 use CompassHB\Www\Http\Requests\FellowshipRequest;
 use CompassHB\Www\Repositories\Video\VideoRepository;
+use CompassHB\Www\Repositories\Event\EventRepository;
 
 class FellowshipsController extends Controller
 {
@@ -21,7 +22,7 @@ class FellowshipsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(VideoRepository $video)
+    public function index(VideoRepository $video, EventRepository $event)
     {
         $fellowships = Fellowship::all()->toArray();
         $days = array_unique(array_column($fellowships, 'day'));
@@ -31,7 +32,22 @@ class FellowshipsController extends Controller
         $video->setUrl($sermon->video);
         $sermon->iframe = $video->getEmbedCode();
 
-        return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon'))
+        $e = $event->events();
+        $hfg = [];
+
+        $events = array_filter($e, function ($var) {
+                // Filter out Home Fellowship Group events
+                return ($var->organizer->id == '8215662871');
+            });
+
+        // Remove duplicates
+        foreach ($events as $item) {
+            if (isset($item->series_id)) {
+                $hfg[$item->series_id] = $item;
+            }
+        }
+
+        return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon', 'hfg'))
             ->with('title', 'Home Fellowship Groups');
     }
 
@@ -90,5 +106,12 @@ class FellowshipsController extends Controller
         return redirect()
             ->route('admin.fellowship')
             ->with('message', 'Success! Your home fellowship group was saved.');
+    }
+
+    public function show(EventRepository $event, $id)
+    {
+        $event = $event->event($id);
+
+        return view('dashboard.fellowships.show', compact('event'));
     }
 }

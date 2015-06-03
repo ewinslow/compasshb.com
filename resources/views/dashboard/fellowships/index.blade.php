@@ -2,18 +2,22 @@
 
 @section('content')
 <h1 class="tk-seravek-web">Home Fellowship Groups</h1>
+<br/><p>We want every adult in our church to be  part of a home fellowship group! We have groups Tuesday, Wednesday, Thursday and Friday nights ready for you to join! Stop by the Compass Connect table for more information or email info@compasshb.com</p><br/>
 
-<br/>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Latest Sermon and Worksheet</h3>
-  </div>
-  <div class="panel-body">
-    <p>The materials on this page are to help you prepare for home fellowship group discussions.</p>
-    <h3>{{ $sermon->title }}<h3>
-    <div class="videocontainer">{!! $sermon->iframe !!}</div>
-    <p><br/><a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a></p>
-  </div>
+<div class="row">
+  @foreach ($hfg as $group)
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="{{ $group->logo->url }}" alt="{{ $group->name->text }}"/>
+        <div class="caption">
+          <h5 class="tk-seravek-web">
+            <a href='/fellowship/{{ $group->id }}/{{ str_slug($group->name->text, "-") }}/'>{{ $group->name->text }}</a>
+          </h5>
+          <p>Next meeting: {{ date("F j", strtotime($group->start->local)) }}</p>
+        </div>
+      </div>
+    </div>
+  @endforeach
 </div>
 
 @endsection
@@ -31,23 +35,16 @@
   </div>
 </div>
 
+<br/>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web">Groups</h3>
+    <h3 class="panel-title">Latest Sermon and Worksheet</h3>
   </div>
   <div class="panel-body">
-    @foreach ($days as $day)
-      <h4 class="tk-seravek-web">{{ $day }}</h4>
-      <ul class="list-unstyled">
-        @foreach ($fellowships as $fellowship)
-          @if ($fellowship['day'] == $day)
-            <li>{{ $fellowship['title'] }} @ {{ $fellowship['location'] }}
-              {{ (isset($fellowship['description'])) ? $fellowship['description'] : '' }}</li>
-          @endif
-        @endforeach
-      </ul>
-      @endforeach
-  </div>
+    <p>The materials on this page are to help you prepare for home fellowship group discussions.</p>
+    <p><a href="{{ route('sermons.index') }}" class="btn btn-primary">Latest Sermon</a></p>
+   </div>
 </div>
+
 
 @endsection

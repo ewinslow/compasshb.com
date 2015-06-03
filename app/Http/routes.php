@@ -20,6 +20,11 @@ Route::resource('slides', 'SlidesController', ['except' => ['destroy', 'show', '
  */
 Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
 
+Route::get('fellowship/{id}/{slug}', [
+    'as' => 'fellowship.show',
+    'uses' => 'FellowshipsController@show',
+]);
+
 /*
  * Route for sermons
  */
