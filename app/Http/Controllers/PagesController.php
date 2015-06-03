@@ -180,15 +180,29 @@ class PagesController extends Controller
         dd(SearchIndex::getResults($query));
     }
 
-    public function sitemap(EventRepository $event)
+    public function sitemap(VideoRepository $video, EventRepository $event)
     {
-        $blogs = Blog::lists('slug');
-        $sermons = Sermon::published()->lists('slug', 'video');
+        $blogs = Blog::published()->get();
+        $sermons = Sermon::published()->get();
         $passages = Passage::lists('slug');
         $series = Series::lists('slug');
         $songs = Song::lists('slug');
-
         $events = $event->events();
+
+        // Generate video thumbnails
+        foreach ($sermons as $sermon) {
+            if (isset($sermon->video)) {
+                $video->setUrl($sermon->video);
+                $sermon->image = $video->getThumbnail();
+            }
+        }
+
+        foreach ($blogs as $blog) {
+            if (isset($blog->video)) {
+                $video->setUrl($blog->video);
+                $blog->image = $video->getThumbnail();
+            }
+        }
 
         // Keep only Home Fellowship Group events
         $fellowships = array_filter($events, function ($var) {

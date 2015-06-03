@@ -90,24 +90,34 @@
 </url>
 
 {{--Dynamic Pages--}}
-@foreach($sermons as $video=>$slug)
+@foreach($sermons as $sermon)
 <url>
-    <loc>{{ Request::root() . '/sermons/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/sermons/' . $sermon->slug }}</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
-    @if ($video != null)
+    @if ($sermon->image != null)
     <video:video>
-        <video:player_loc allow_embed="yes">{{ $video }}</video:player_loc>
+        <video:player_loc allow_embed="yes">{{ $sermon->video }}</video:player_loc>
+        <video:thumbnail_loc>{{ $sermon->image }}</video:thumbnail_loc>
+        <video:title>{{ $sermon->title }}</video:title>
+        <video:description>{{ $sermon->excerpt }}</video:description>
     </video:video>
     @endif
 </url>
 @endforeach
 
-@foreach($blogs as $slug)
+@foreach($blogs as $blog)
 <url>
-    <loc>{{ Request::root() . '/blog/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/blog/' . $blog->slug }}</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    @if ($blog->image != null)
+    <video:video>
+        <video:player_loc allow_embed="yes">{{ $blog->video }}</video:player_loc>
+        <video:thumbnail_loc>{{ $blog->image }}</video:thumbnail_loc>
+        <video:title>{{ $blog->title }}</video:title>
+    </video:video>
+    @endif
 </url>
 @endforeach
 
