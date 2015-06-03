@@ -26,17 +26,17 @@
 <url>
     <loc>{{ Request::root() . '/blog' }}</loc>
     <priority>1.0</priority>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
 </url>
 <url>
     <loc>{{ Request::root() . '/pray' }}</loc>
     <priority>1.0</priority>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
 </url>
 <url>
     <loc>{{ Request::root() . '/songs' }}</loc>
     <priority>1.0</priority>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
 </url>
 <url>
     <loc>{{ Request::root() . '/who-we-are' }}</loc>
@@ -50,6 +50,16 @@
 </url>
 <url>
     <loc>{{ Request::root() . '/youth' }}</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>{{ Request::root() . '/college' }}</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>{{ Request::root() . '/sundayschool' }}</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
 </url>
@@ -82,7 +92,7 @@
 {{--Dynamic Pages--}}
 @foreach($sermons as $video=>$slug)
 <url>
-    <loc>{{ Request::root() . '/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/sermons/' . $slug }}</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
     @if ($video != null)
@@ -95,7 +105,7 @@
 
 @foreach($blogs as $slug)
 <url>
-    <loc>{{ Request::root() . '/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/blog/' . $slug }}</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
 </url>
@@ -103,7 +113,7 @@
 
 @foreach($passages as $slug)
 <url>
-    <loc>{{ Request::root() . '/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/read/' . $slug }}</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
 </url>
@@ -111,7 +121,7 @@
 
 @foreach($series as $slug)
 <url>
-    <loc>{{ Request::root() . '/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/series/' . $slug }}</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
 </url>
@@ -119,7 +129,7 @@
 
 @foreach($songs as $slug)
 <url>
-    <loc>{{ Request::root() . '/' . $slug }}</loc>
+    <loc>{{ Request::root() . '/songs/' . $slug }}</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
 </url>
@@ -130,6 +140,14 @@
     <loc>{{ Request::root() . '/events/' . $event->id . '/' . str_slug($event->name->text) }}</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
+</url>
+@endforeach
+
+@foreach($fellowships as $fellowship)
+<url>
+    <loc>{{ Request::root() . '/fellowship/' . $fellowship->id . '/' . str_slug($fellowship->name->text) }}</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
 </url>
 @endforeach
 

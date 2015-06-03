@@ -190,8 +190,13 @@ class PagesController extends Controller
 
         $events = $event->events();
 
+        // Keep only Home Fellowship Group events
+        $fellowships = array_filter($events, function ($var) {
+            return ($var->organizer->id == '8215662871');
+        });
+
         return response()
-            ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs', 'events'))
+            ->view('pages.sitemap', compact('sermons', 'blogs', 'passages', 'series', 'songs', 'events', 'fellowships'))
             ->header('Content-Type', 'application/xml');
     }
 
