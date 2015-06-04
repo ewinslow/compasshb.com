@@ -41,11 +41,13 @@ class FellowshipsController extends Controller
             });
 
         // Remove duplicates
-        foreach ($events as $item) {
+        foreach (array_reverse($events) as $item) {
             if (isset($item->series_id)) {
                 $hfg[$item->series_id] = $item;
             }
         }
+
+        $hfg = array_reverse($hfg);
 
         return view('dashboard.fellowships.index', compact('fellowships', 'days', 'sermon', 'hfg'))
             ->with('title', 'Home Fellowship Groups');
