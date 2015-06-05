@@ -64,9 +64,8 @@
       <a href="https://www.facebook.com/compasshb" title="Facebook"><span class="fa fa-facebook"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="https://instagram.com/compasshb" title="Instagram"><span class="fa fa-instagram"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="https://twitter.com/compasshb" title="Twitter"><span class="fa fa-twitter"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://vimeo.com/compasshb" title="Vimeo"><span class="fa fa-vimeo-square"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="mailto:info@compasshb.com" style="color: #989898">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/compasshb">Design</a>
+      <a href="https://vimeo.com/compasshb" title="Vimeo"><span class="fa fa-vimeo-square"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/compasshb">Designed in Huntington Beach</a>
     </span>
   </div>
 </footer>
