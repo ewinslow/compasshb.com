@@ -16,6 +16,7 @@ class Kernel extends HttpKernel
         'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         'CompassHB\Www\Http\Middleware\VerifyCsrfToken',
+        'Illuminate\Http\Middleware\FrameGuard',
     ];
 
     /**
