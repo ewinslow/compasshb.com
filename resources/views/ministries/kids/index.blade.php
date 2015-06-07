@@ -25,6 +25,14 @@
             </p>
 
             <div class="col-md-4">
+                <img width="295" height="295" src="https://cdn.evbuc.com/eventlogos/142690261/sg2m8nkmyxk9l7iox7pbocaccdrk6kaliw2sf1a0gg.jpeg"
+                             alt="Camp Compass 2015"/>
+                <h4 class="tk-seravek-web">Camp Compass 2015</h4>
+                <p><span style="color: #ffffff;">For kids ages 2 - 6th grade, this year's Camp Compass "Our God is an Awesome God: The Story of Noah and the Ark" is Monday, July 13th - Friday July 17th each night at 6:30pm. For more information and to register your kids or register to volunteer, click the button below.</span></p>
+                <p><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=956" class="btn btn-warning">Register Your Kids</a> <a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=957" class="btn btn-warning">Register to Volunteer</a></p>
+            </div>
+
+             <div class="col-md-4">
                 <img width="554" height="554" src="{{ URL::to('/') }}/images/DSC_0018-X2.png"
                              alt="Bre and Taylor Thompson"/><br/>
                 <h4 class="tk-seravek-web">Kids Ministry</h4>
@@ -49,25 +57,6 @@
                 <p style="color: #ffffff;">Your child will be instructed each week by a story from the Bible.
                             Our aim is to teach in a way that is relevant to each age group and engages your child so
                             they are able to tell you what they learned after the service!</p>
-            </div>
-
-            <div class="col-md-4">
-                <img width="400" height="400" src="{{ URL::to('/') }}/images/nY-YQn04.jpeg"
-                             alt="Shane Rouland"/>
-                <h4 class="tk-seravek-web">Student Ministry</h4>
-                <p><span style="color: #ffffff;">Shane Rouland is the Student Ministry Director. Shane has a desire to reach out onto the school campuses in Huntington Beach and will lead a midweek Bible study for middle school and high schoolers. He is pursuing a Bible degree from <a
-                                    style="color: #ffffff;" href="http://www.masters.edu">The Master’s College</a> and previously worked with Pastor Bobby for two years as an intern. Shane was saved by Jesus in high school where he led a Bible club preached the gospel through campus lunches.</span></p>
-                <ul>
-                    <li><a href="mailto:shane@compasshb.com" title="E-Mail" target="_self"
-                                   style="color: #ffffff;">E-Mail</a></li>
-                    <li><a href="https://twitter.com/ShaneRouland" title="@ShaneRouland" target="_blank"
-                                   style="color: #ffffff;">@ShaneRouland</a></li>
-                    <li><a href="https://www.facebook.com/shane.rouland" title="Shane on Facebook"
-                                   target="_blank" style="color: #ffffff;">Shane on Facebook</a></li>
-                    <li><a href="http://www.sendoutyourlight.com/category/shanes-posts/"
-                                   title="Send Out Your Light Blog" target="_blank" style="color: #ffffff;">Send Out
-                                    Your Light Blog</a></li>
-                </ul>
             </div>
 
         </div>
