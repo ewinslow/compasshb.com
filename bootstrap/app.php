@@ -42,6 +42,13 @@ $app->singleton(
 );
 
 /*
+ * Load .env.example if .env does not exist
+ */
+if (!file_exists('../.env')) {
+    $app->loadEnvironmentFrom('.env.example');
+}
+
+/*
 |--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
