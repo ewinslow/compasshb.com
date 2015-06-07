@@ -234,7 +234,10 @@ class PagesController extends Controller
 
             // Events accepting registrations
             $registrations = array_filter($events, function ($var) {
-                return (!$var->ticket_classes[0]->hidden);
+
+                // If the ticket is not hidden or it has the hashtag #registrations
+                return (!$var->ticket_classes[0]->hidden ||
+                        strpos($var->description->text, '#registration'));
             });
 
             return view('dashboard.events.index', compact('events', 'registrations'));
