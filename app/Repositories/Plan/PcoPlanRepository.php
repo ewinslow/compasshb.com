@@ -46,7 +46,7 @@ class PcoPlanRepository implements PlanRepository
                 'defaults' => ['auth' => 'oauth'],
             ]);
 
-            if (!isset($this->consumerKey)) {
+            if (strlen($this->consumerKey) < 1) {
                 return $setlist;
             }
 

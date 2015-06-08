@@ -1,5 +1,6 @@
 <?php namespace CompassHB\Www\Repositories\Event;
 
+use Log;
 use Cache;
 use GuzzleHttp\Client;
 
@@ -24,9 +25,20 @@ class EventbriteEventRepository implements EventRepository
     public function search($query)
     {
         $res = Cache::remember('searchevent', $this->minutes, function () use ($query) {
-            $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.env('EVENTBRITE_OAUTH_TOKEN'));
 
-            return json_decode($res->getBody());
+            try {
+                $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+
+                return json_decode($res->getBody());
+            } catch (\Exception $e) {
+                Log::warning('Connection refused to eventbriteapi.com');
+
+                $obj = (object) [];
+                $obj->events = [];
+
+                return $obj;
+            }
+
         });
 
         return $res;
@@ -40,20 +52,30 @@ class EventbriteEventRepository implements EventRepository
     public function events()
     {
         $res = Cache::remember('events', $this->minutes, function () {
-            // Get first four pages of results
-            $page1 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=1&token='.env('EVENTBRITE_OAUTH_TOKEN'));
-            $page2 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=2&token='.env('EVENTBRITE_OAUTH_TOKEN'));
-            $page3 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=3&token='.env('EVENTBRITE_OAUTH_TOKEN'));
-            $page4 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=4&token='.env('EVENTBRITE_OAUTH_TOKEN'));
 
-            $page1 = json_decode($page1->getBody());
-            $page2 = json_decode($page2->getBody());
-            $page3 = json_decode($page3->getBody());
-            $page4 = json_decode($page4->getBody());
+            try {
+                // Get first four pages of results
+                $page1 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=1&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+                $page2 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=2&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+                $page3 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=3&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+                $page4 = $this->client->get('users/me/owned_events/?status=live%2Cstarted&order_by=start_asc&page=4&token='.env('EVENTBRITE_OAUTH_TOKEN'));
 
-            $results = array_merge($page1->events, $page2->events, $page3->events, $page4->events);
+                $page1 = json_decode($page1->getBody());
+                $page2 = json_decode($page2->getBody());
+                $page3 = json_decode($page3->getBody());
+                $page4 = json_decode($page4->getBody());
 
-            return $results;
+                $results = array_merge($page1->events, $page2->events, $page3->events, $page4->events);
+
+                return $results;
+            } catch (\Exception $e) {
+                Log::warning('Connection refused to eventbriteapi.com');
+
+                $obj = [];
+
+                return $obj;
+            }
+
         });
 
         return $res;

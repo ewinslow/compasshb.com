@@ -137,14 +137,19 @@ class VimeoVideoRepository implements VideoRepository
      */
     public function getDownloadLink()
     {
+        $link = '';
+
         $id = substr($this->url, strrpos($this->url, '/') + 1);
 
         $video = $this->vimeoClient->request("/videos/$id");
-        $video = $video['body'];
-        $video = $video['download'];
-        $video = $video[1];
-        $video = $video['link'];
 
-        return $video;
+        if ($video['status'] == '200') {
+            $link = $video['body'];
+            $link = $link['download'];
+            $link = $link[1];
+            $link = $link['link'];
+        }
+
+        return $link;
     }
 }
