@@ -32,6 +32,15 @@ class PagesController extends Controller
         $featuredevents = $event->search('#featuredevent');
         $featuredevents = $featuredevents->events;
 
+        // Remove duplicates/recurring events
+        foreach ($featuredevents as $item) {
+            if (isset($item->series_id)) {
+                $fevents[$item->series_id] = $item;
+            } else {
+                $fevents[$item->id] = $item;
+            }
+        }
+
         $sermons = Sermon::where('ministry', '=', null)->latest('published_at')->published()->take(3)->get();
         $prevsermon = $sermons->first();
         $nextsermon = Sermon::unpublished()->get();
@@ -86,7 +95,7 @@ class PagesController extends Controller
 
         return view('pages.index', compact(
             'sermons',
-            'featuredevents',
+            'fevents',
             'nextsermon',
             'prevsermon',
             'blogs',
