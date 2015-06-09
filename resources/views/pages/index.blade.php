@@ -5,7 +5,7 @@
 <div class="drawer row">
   <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;">
            <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});">
+                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});     background-position: center;">
                 <p>Watch Latest Sermon</p>
                 <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
                 <p>{{{ $prevsermon->series->title or '' }}}</p>
