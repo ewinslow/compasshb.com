@@ -70,7 +70,9 @@ class SermonsController extends Controller
 
         Auth::user()->sermons()->save($sermon);
 
-  //      SearchIndex::upsertToIndex($sermon);
+        if (env('APP_ENV' == 'production')) {
+            SearchIndex::upsertToIndex($sermon);
+        }
 
         return redirect()
             ->route('admin');
@@ -128,7 +130,9 @@ class SermonsController extends Controller
 
         $sermon->update($all);
 
-        SearchIndex::upsertToIndex($sermon);
+        if (env('APP_ENV' == 'production')) {
+            SearchIndex::upsertToIndex($sermon);
+        }
 
         return redirect()
             ->route('admin')
