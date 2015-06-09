@@ -12,9 +12,8 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        'Symfony\Component\HttpKernel\Exception\HttpException',
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
     ];
-
     /**
      * Report or log an exception.
      *
@@ -39,8 +38,7 @@ class Handler extends ExceptionHandler
     {
 
         // 404 if model does not exist
-        if ($e instanceof ModelNotFoundException)
-        {
+        if ($e instanceof ModelNotFoundException) {
             abort(404);
         }
 

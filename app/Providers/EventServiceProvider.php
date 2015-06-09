@@ -6,7 +6,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Fellowship;
-use CompassHB\Www\Handlers\Events\LogUserLastLogin;
+use CompassHB\Www\Events\LogUserLastLogin;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -36,27 +36,27 @@ class EventServiceProvider extends ServiceProvider
          * Generate slug on models with that column when saved
          * or updated.
          */
-        Fellowship::creating(function($object) {
+        Fellowship::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Fellowship(), $object->title);
         });
 
-        Blog::creating(function($object) {
+        Blog::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Blog(), $object->title);
         });
 
-        Passage::creating(function($object) {
+        Passage::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Passage(), $object->title);
         });
 
-        Sermon::creating(function($object) {
+        Sermon::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Sermon(), $object->title);
         });
 
-        Series::creating(function($object) {
+        Series::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Series(), $object->title);
         });
 
-        Song::creating(function($object) {
+        Song::creating(function ($object) {
             $object->slug = makeSlugFromTitle(new Song(), $object->title);
         });
     }

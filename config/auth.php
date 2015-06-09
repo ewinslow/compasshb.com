@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => 'CompassHB\Www\User',
+    'model' => CompassHB\Www\User::class,
 
     /*
     |--------------------------------------------------------------------------

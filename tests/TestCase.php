@@ -1,9 +1,9 @@
 <?php
 
-use Laracasts\Integrated\Extensions\Laravel as IntegrationTest;
-
-class TestCase extends IntegrationTest
+class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
+    protected $baseUrl = 'http://localhost';
+
     /**
      * Creates the application.
      *
@@ -13,7 +13,7 @@ class TestCase extends IntegrationTest
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
     }
