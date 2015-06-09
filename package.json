@@ -4,5 +4,6 @@
     "gulp": "^3.8.8",
     "laravel-elixir": "*",
     "vinyl-fs": "^1.0.0"
-  }
+  },
+  "private": true
 }
