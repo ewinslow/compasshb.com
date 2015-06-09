@@ -18,7 +18,7 @@
 <div class="row drawer" style="padding-bottom: 30px">
   <div class="col-md-1"></div>
 
-  @foreach(array_slice($featuredevents, 0,2) as $event)
+  @foreach(array_slice($fevents, 0,2) as $event)
   <div class="col-md-2 col-md-offset-1">
     <a class="clickable featuredblog" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $event->logo->url }});">
       <h4 class="tk-seravek-web">{{ $event->name->text }}</h4>
