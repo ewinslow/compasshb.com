@@ -28,7 +28,7 @@
                 <img width="295" height="295" src="https://cdn.evbuc.com/eventlogos/142690261/sg2m8nkmyxk9l7iox7pbocaccdrk6kaliw2sf1a0gg.jpeg"
                              alt="Camp Compass 2015"/>
                 <h4 class="tk-seravek-web">Camp Compass 2015</h4>
-                <p><span style="color: #ffffff;">For kids ages 2 - 6th grade, this year's Camp Compass "Our God is an Awesome God: The Story of Noah and the Ark" is Monday, July 13th - Friday July 17th each night at 6:30pm. For more information and to register your kids or register to volunteer, click the button below.</span></p>
+                <p><span style="color: #ffffff;">For kids ages 2 - 6th grade, this year's Camp Compass "Our God is an Awesome God: The Story of Noah and the Ark" is Monday, July 13th - Friday July 17th each night from 6:30pm - 8:30pm. Cost is $35. To register your kids or register to volunteer, click the button below.</span></p>
                 <p><a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=956" class="btn btn-warning">Register Your Kids</a> <a href="https://compassbiblechurch.ccbchurch.com/form_response.php?id=957" class="btn btn-warning">Register to Volunteer</a></p>
             </div>
 
