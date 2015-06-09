@@ -5,6 +5,7 @@ This is the source code for [compassHB.com](http://www.compasshb.com/). Contribu
 
 ## Technology Stack
 * [Laravel PHP Framework](https://www.laravel.com/)
+* [Bootstrap](http://getbootstrap.com)
 * [Elasticsearch](https://www.elastic.co)
 
 Staging site is [http://staging.compasshb.com/](http://staging.compasshb.com/). Ask for credentials.
