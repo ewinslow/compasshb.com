@@ -8,10 +8,12 @@ class EventbriteEventRepository implements EventRepository
 {
     private $minutes = 300;
     private $client;
+    private $token;
     private $url = 'https://www.eventbriteapi.com/v3/';
 
     public function __construct()
     {
+        $this->token = env('EVENTBRITE_OAUTH_TOKEN');
         $this->client = new Client([
             'base_url' => $this->url,
         ]);
@@ -27,7 +29,7 @@ class EventbriteEventRepository implements EventRepository
         $res = Cache::remember('searchevent', $this->minutes, function () use ($query) {
 
             try {
-                $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.env('EVENTBRITE_OAUTH_TOKEN'));
+                $res = $this->client->get('events/search/?q='.urlencode($query).'&token='.$this->token);
 
                 return json_decode($res->getBody());
             } catch (\Exception $e) {
