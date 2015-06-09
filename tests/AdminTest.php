@@ -6,10 +6,10 @@ class AdminTest extends TestCase
     public function it_loads_the_admin()
     {
         $this->visit('/admin')
-            ->andType('user@example.com', 'email')
-            ->andType('secret', 'password')
+            ->type('user@example.com', 'email')
+            ->type('secret', 'password')
             ->press('Login')
-            ->andSee('Admin Pages')
+            ->see('Admin Pages')
             ->onPage('/admin');
     }
 }
