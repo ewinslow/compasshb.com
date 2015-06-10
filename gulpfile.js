@@ -4,7 +4,7 @@ elixir(function(mix) {
 
 	// Stylesheets
     mix.sass(
-        'app.sass',
+        'app.scss',
         'public/css/',
         {
             includePaths: [
@@ -18,12 +18,12 @@ elixir(function(mix) {
 
 	// Scripts
 	mix.scripts([
-        '../../bower_components/jquery/dist/jquery.min.js',
-        '../../bower_components/owl-carousel2/dist/owl.carousel.min.js',
-        '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
-        '../../bower_components/medium-editor/dist/js/medium-editor.min.js',
-        '../../resources/assets/js/compasshb-editor.js',
-        '../../resources/assets/js/compasshb-serviceworker.js',
+        '../../../bower_components/jquery/dist/jquery.min.js',
+        '../../../bower_components/owl-carousel2/dist/owl.carousel.min.js',
+        '../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+        '../../../bower_components/medium-editor/dist/js/medium-editor.min.js',
+        'compasshb-editor.js',
+        'compasshb-serviceworker.js',
     ]);
 
 	// Tests
