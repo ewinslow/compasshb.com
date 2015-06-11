@@ -17,7 +17,7 @@ elixir(function(mix) {
     );
 
 	// Scripts
-	mix.scripts([
+	mix.babel([
         '../../../bower_components/jquery/dist/jquery.min.js',
         '../../../bower_components/owl-carousel2/dist/owl.carousel.min.js',
         '../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
@@ -28,7 +28,7 @@ elixir(function(mix) {
 
 	// Tests
 
-    mix.phpUnit();
+//    mix.phpUnit();
 
     mix.phpSpec();
 
