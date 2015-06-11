@@ -37,7 +37,9 @@ class PagesController extends Controller
         // Remove duplicates/recurring events
         foreach ($featuredevents as $item) {
             if (isset($item->series_id)) {
-                $fevents[$item->series_id] = $item;
+                if (!isset($fevents[$item->series_id])) {
+                    $fevents[$item->series_id] = $item;
+                }
             } else {
                 $fevents[$item->id] = $item;
             }
