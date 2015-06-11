@@ -1,4 +1,5 @@
-<?php namespace CompassHB\Www\Repositories\Upload;
+<?php
+namespace CompassHB\Www\Repositories\Upload;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 

@@ -1,4 +1,5 @@
-<?php namespace CompassHB\Www\Repositories\Upload;
+<?php
+namespace CompassHB\Www\Repositories\Upload;
 
 use Aws\S3\S3Client;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,9 +17,12 @@ class AwsUploadRepository implements UploadRepository
     {
         $this->key = env('AWS_ACCESS_KEY');
         $this->secret = env('AWS_SECRET_KEY');
+        $this->region = env('AWS_REGION');
 
         $this->client = S3Client::factory(array(
             'credentials' => array('key' => $this->key, 'secret' => $this->secret),
+            'region' => $this->region,
+            'version' => '2006-03-01',
         ));
     }
 
