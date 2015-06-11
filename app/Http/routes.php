@@ -11,16 +11,6 @@ Route::resource('songs', 'SongsController', ['except' => ['destroy']]);
 Route::resource('read', 'PassagesController', ['except' => ['destroy']]);
 
 /*
- * Route for fellowships
- */
-Route::resource('fellowship', 'FellowshipsController', ['except' => ['destroy', 'show']]);
-
-Route::get('fellowship/{id}/{slug}', [
-    'as' => 'fellowship.show',
-    'uses' => 'FellowshipsController@show',
-]);
-
-/*
  * Route for sermons
  */
 Route::resource('sermons', 'SermonsController', ['except' => ['destroy']]);
@@ -38,6 +28,19 @@ Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
  * Route for blogs
  */
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
+
+/*
+ * Route for fellowship
+ */
+Route::get('fellowship', [
+    'as' => 'fellowship.index',
+    'uses' => 'FellowshipsController@index',
+]);
+
+Route::get('fellowship/{id}/{slug}', [
+    'as' => 'fellowship.show',
+    'uses' => 'FellowshipsController@show',
+]);
 
 /*
  * Route for homepage
@@ -101,7 +104,6 @@ Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
 Route::group(['prefix' => 'api/v1'], function () {
     Route::resource('songs', 'Api\SongsController', ['except' => ['destroy']]);
     Route::resource('passages', 'Api\PassagesController', ['except' => ['destroy']]);
-    Route::resource('fellowship',  'Api\FellowshipController', ['except' => ['destroy', 'show']]);
     Route::resource('sermons', 'Api\SermonsController', [
             'middleware' => 'cors',
             'except' => ['destroy'],
@@ -242,11 +244,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('read', [
         'as' => 'read',
         'uses' => 'HomeController@read',
-    ]);
-
-    Route::get('fellowship', [
-        'as' => 'fellowship',
-        'uses' => 'HomeController@fellowship',
     ]);
 
     Route::get('sundayschool', [

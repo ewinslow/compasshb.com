@@ -1,11 +1,11 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+namespace CompassHB\Www\Http\Controllers;
 
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Series;
 use CompassHB\Www\Passage;
-use CompassHB\Www\Fellowship;
 
 class HomeController extends Controller
 {
@@ -62,14 +62,6 @@ class HomeController extends Controller
 
         return view('admin.read', compact('passages'))
             ->with('title', 'Admin - Scripture of the Day');
-    }
-
-    public function fellowship()
-    {
-        $fellowships = Fellowship::latest('day')->paginate(15);
-
-        return view('admin.fellowship', compact('fellowships'))
-            ->with('title', 'Admin - Home Fellowship Groups');
     }
 
     /**

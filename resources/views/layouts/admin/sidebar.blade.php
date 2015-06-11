@@ -10,7 +10,6 @@
         <li role="presentation" class="{{ setActive('admin/mainservice') }}"><a href="{{ route('admin.mainservice') }}">Main Service</a></li>
         <li role="presentation" class="{{ setActive('admin/read') }}"><a href="{{ route('admin.read') }}">Scripture of the Day</a></li>
         <li role="presentation" class="{{ setActive('admin/sundayschool') }}"><a href="{{ route('admin.sundayschool') }}">Sunday School</a></li>
-        <li role="presentation" class="{{ setActive('admin/fellowship') }}"><a href="{{ route('admin.fellowship') }}">Home Fellowship Groups</a></li>
         <li role="presentation" class="{{ setActive('admin/songs') }}"><a href="{{ route('admin.songs') }}">Worship</a></li>
     </ul>
   </div>

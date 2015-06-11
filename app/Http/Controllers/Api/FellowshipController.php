@@ -1,7 +1,6 @@
 <?php namespace CompassHB\Www\Http\Controllers\Api;
 
 use Response;
-use CompassHB\Www\Fellowship;
 use CompassHB\Www\Http\Controllers\Controller;
 
 class FellowshipController extends Controller
@@ -13,9 +12,7 @@ class FellowshipController extends Controller
      */
     public function index()
     {
-        $fellowships = Fellowship::all();
-
-        return Response::json($fellowships->toArray());
+        //
     }
 
     /**

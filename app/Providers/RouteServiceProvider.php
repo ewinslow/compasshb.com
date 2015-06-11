@@ -51,13 +51,6 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         /*
-         * A fellowship is at /fellowship/{slug}
-         */
-        $router->bind('fellowship', function ($slug) {
-            return \CompassHB\Www\Fellowship::where('slug', $slug)->firstOrFail();
-        });
-
-        /*
          * A sermon is at /sermons/{slug}
          */
         $router->bind('sermons', function ($slug) {
