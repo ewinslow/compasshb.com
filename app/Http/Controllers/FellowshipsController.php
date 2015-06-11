@@ -36,7 +36,12 @@ class FellowshipsController extends Controller
 
         $hfg = array_reverse($hfg);
 
-        return view('dashboard.fellowships.index', compact('sermon', 'hfg'))
+        $map = '';
+        foreach ($hfg as $h) {
+            $map .= '&markers=color:0x497F9B|'.$h->venue->latitude.','.$h->venue->longitude;
+        }
+
+        return view('dashboard.fellowships.index', compact('sermon', 'hfg', 'map'))
             ->with('title', 'Home Fellowship Groups');
     }
 
