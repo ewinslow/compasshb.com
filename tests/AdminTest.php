@@ -12,4 +12,10 @@ class AdminTest extends TestCase
             ->see('Admin Pages')
             ->onPage('/admin');
     }
+
+    /** @test */
+    public function it_loads_the_sermons_create()
+    {
+        $this->visit('/sermons/create');
+    }
 }

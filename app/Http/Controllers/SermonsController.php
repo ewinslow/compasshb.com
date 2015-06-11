@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+
+namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use Input;
@@ -43,7 +45,7 @@ class SermonsController extends Controller
      */
     public function create()
     {
-        $series = Series::lists('title', 'id');
+        $series = Series::lists('title', 'id')->all();
         array_unshift($series, 'No Series');
 
         return view('admin.sermons.create')
@@ -105,7 +107,7 @@ class SermonsController extends Controller
      */
     public function edit(Sermon $sermon)
     {
-        $series = Series::lists('title', 'id');
+        $series = Series::lists('title', 'id')->all();
         array_unshift($series, 'No Series');
 
         return view('admin.sermons.edit', compact('sermon'))
