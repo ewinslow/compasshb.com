@@ -76,7 +76,7 @@ class BlogsController extends Controller
         SearchIndex::upsertToIndex($blog);
 
         return redirect()
-            ->route('admin')
+            ->route('admin.index')
             ->with('message', 'Success! Your blog was updated.');
     }
 
@@ -106,7 +106,7 @@ class BlogsController extends Controller
         SearchIndex::upsertToIndex($blog);
 
         return redirect()
-            ->route('admin')
+            ->route('admin.index')
             ->with('message', 'Success! Your blog was saved.');
     }
 }

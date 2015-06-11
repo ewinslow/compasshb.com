@@ -66,31 +66,31 @@ Route::get('pray', [
 /*
  * Routes for feeds
  */
-Route::group(['prefix' => 'feed'], function () {
+Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
 
     Route::get('sermons',  [
-        'as' => 'feed.sermons',
+        'as' => 'sermons',
         'uses' => 'FeedsController@sermons',
     ]);
 
     Route::get('sermons.json',  [
         'middleware' => 'cors',
-        'as' => 'feed.sermons.json',
+        'as' => 'sermons.json',
         'uses' => 'FeedsController@json',
     ]);
 
     Route::get('songs.xml', [
-        'as' => 'feed.songs.xml',
+        'as' => 'songs.xml',
         'uses' => 'FeedsController@songs',
     ]);
 
     Route::get('blog.xml', [
-        'as' => 'feed.blog.xml',
+        'as' => 'blog.xml',
         'uses' => 'FeedsController@blog',
     ]);
 
     Route::get('read.xml', [
-        'as' => 'feed.read.xml',
+        'as' => 'read.xml',
         'uses' => 'FeedsController@read',
     ]);
 });
@@ -222,35 +222,35 @@ Route::get('search/{q}', [
 /*
  * Administration Pages
  */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('/', [
-        'as' => 'admin',
+        'as' => 'index',
         'uses' => 'HomeController@index',
     ]);
 
     Route::get('mainservice', [
-        'as' => 'admin.mainservice',
+        'as' => 'mainservice',
         'uses' => 'HomeController@mainservice',
     ]);
 
     Route::get('songs', [
-        'as' => 'admin.songs',
+        'as' => 'songs',
         'uses' => 'HomeController@songs',
     ]);
 
     Route::get('read', [
-        'as' => 'admin.read',
+        'as' => 'read',
         'uses' => 'HomeController@read',
     ]);
 
     Route::get('fellowship', [
-        'as' => 'admin.fellowship',
+        'as' => 'fellowship',
         'uses' => 'HomeController@fellowship',
     ]);
 
     Route::get('sundayschool', [
-        'as' => 'admin.sundayschool',
+        'as' => 'sundayschool',
         'uses' => 'HomeController@sundayschool',
     ]);
 

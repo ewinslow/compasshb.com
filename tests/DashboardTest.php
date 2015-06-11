@@ -2,63 +2,53 @@
 
 class DashboardTest extends TestCase
 {
-    /** @test */
-    public function it_loads_scripture_of_the_day()
+    public function testRead()
     {
         $this->visit('/read');
     }
 
-    /** @test */
-    public function it_loads_scripture_of_the_day_individual()
+    public function testReadShow()
     {
         $this->visit('/read/matthew-1');
     }
 
-    /** @test */
-    public function it_loads_fellowships()
+    public function testFellowship()
     {
         $this->visit('/fellowship');
     }
 
-    /** @test */
-    public function it_loads_sermons()
+    public function testSermons()
     {
         $this->visit('/sermons');
     }
 
-    /** @test */
-    public function it_loads_series()
+    public function testSeries()
     {
         $this->visit(route('series.index'));
     }
 
-    /** @test */
-    public function it_loads_series_example()
+    public function testSeriesShow()
     {
         $this->visit('series/attributes-of-god');
     }
 
-    /** @test */
-    public function it_downloads_sermons()
+    public function testSermonDownload()
     {
         $this->call('GET', '/sermons/dont-forget-his-benefits/download');
  //       $this->assertEquals(302, $this->statusCode());
     }
 
-    /** @test */
-    public function it_loads_the_blog()
+    public function testBlog()
     {
         $this->visit('/blog');
     }
 
-    /** @test */
-    public function it_loads_the_pray_page()
+    public function testPray()
     {
         $this->visit('/pray');
     }
 
-    /** @test */
-    public function it_loads_the_songs()
+    public function testSongs()
     {
         $this->visit('/songs');
     }

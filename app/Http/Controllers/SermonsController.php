@@ -77,7 +77,7 @@ class SermonsController extends Controller
         }
 
         return redirect()
-            ->route('admin');
+            ->route('admin.index');
     }
 
     /**
@@ -137,7 +137,7 @@ class SermonsController extends Controller
         }
 
         return redirect()
-            ->route('admin')
+            ->route('admin.index')
             ->with('message', 'Success! Your sermon was updated.');
     }
 

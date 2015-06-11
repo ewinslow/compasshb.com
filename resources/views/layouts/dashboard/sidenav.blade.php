@@ -10,7 +10,7 @@
 
     @if (Auth::check())
     	<li class="{{ setActive('admin') }}"
-    		style="position: absolute; width: 100%; bottom: 40px;"><a href="{{ route('admin') }}">Admin</a>
+    		style="position: absolute; width: 100%; bottom: 40px;"><a href="{{ route('admin.index') }}">Admin</a>
     	</li>
     @endif
 

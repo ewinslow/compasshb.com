@@ -50,7 +50,7 @@ class SeriesController extends Controller
         SearchIndex::upsertToIndex($series);
 
         return redirect()
-            ->route('admin');
+            ->route('admin.index');
     }
 
     /**
@@ -96,7 +96,7 @@ class SeriesController extends Controller
         SearchIndex::upsertToIndex($series);
 
         return redirect()
-            ->route('admin')
+            ->route('admin.index')
             ->with('message', 'Success! Your series was updated.');
     }
 }

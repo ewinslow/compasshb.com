@@ -2,8 +2,7 @@
 
 class AdminTest extends TestCase
 {
-    /** @test */
-    public function it_loads_the_admin()
+    public function testAdmin()
     {
         $this->visit('/admin')
             ->type('user@example.com', 'email')
@@ -13,8 +12,7 @@ class AdminTest extends TestCase
             ->onPage('/admin');
     }
 
-    /** @test */
-    public function it_loads_the_sermons_create()
+    public function testCreateSermon()
     {
         $this->visit('/sermons/create');
     }

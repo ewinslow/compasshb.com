@@ -2,34 +2,29 @@
 
 class FeedTest extends TestCase
 {
-    /** @test */
-    public function it_loads_the_json()
+    public function testFeedJson()
     {
         $this->call('GET', '/feed/sermon.json');
 
   //      $this->assertEquals(404, $this->statusCode());
     }
 
-    /** @test */
-    public function it_loads_the_sermons()
+    public function testFeedSermons()
     {
         $this->visit('/feed/sermons');
     }
 
-    /** @test */
-    public function it_loads_the_songs()
+    public function testFeedSongs()
     {
         $this->visit('/feed/songs.xml');
     }
 
-    /** @test */
-    public function it_loads_the_blog()
+    public function testFeedBlog()
     {
         $this->visit('/feed/blog.xml');
     }
 
-    /** @test */
-    public function it_loads_the_read()
+    public function testFeedRead()
     {
         $this->visit('/feed/read.xml');
     }
