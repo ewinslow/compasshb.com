@@ -36,6 +36,7 @@
 
                     <div class="col-md-4 col-md-offset-1">
                         <h3>Teaching teens how to live like Jesus</h3>
+<p>Sign up for <a href="https://www.compasshb.com/events/17346484803/revival-summer-camp-for-high-school-and-junior-high-students/">Revival 2015</a></p>
                         <p>Every Thursday Night we have a time of small groups with trained leaders who are ready to disciple every student and teach them how to live out God’s word on a day to day basis.</p>
                         <p>We want to see more teenagers start living for Jesus Christ! If you know anyone who would be interested in checking us out, contact Shane- shane@compassHB.com, or join us on Thursday night here at the church!</p>
 
