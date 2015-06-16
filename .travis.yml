@@ -13,7 +13,9 @@ before_script:
    - mysql -e 'create database travis;'
    - php artisan migrate:install
    - php artisan migrate:refresh --seed
-
+   - php -r "copy('.env.example', '.env');"
+   - php artisan key:generate
+   
 script: vendor/bin/phpunit
 
 notifications:
