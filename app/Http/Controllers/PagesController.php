@@ -34,6 +34,7 @@ class PagesController extends Controller
         $featuredevents = $event->search('#featuredevent');
         $featuredevents = $featuredevents->events;
 
+        $fevents = [];
         // Remove duplicates/recurring events
         foreach ($featuredevents as $item) {
             if (isset($item->series_id)) {
