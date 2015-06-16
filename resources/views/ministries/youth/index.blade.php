@@ -19,7 +19,7 @@
                 <div class="col-md-5 col-md-offset-1 well">
         			<p>The United exists to Make Disciples of Jesus Christ.</p>
         			<h3>Reaching teens with the Gospel</h3>
-        			<p>Every Thursday Night we gather from 6:30-8:30 to hear preaching from the Bible. We teach God’s word in a way that is understandable and applicable for teenagers to live out in their everyday life.</p>
+        			<p>Every Thursday night we gather from 6:30-8:30 to hear preaching from the Bible. We teach God’s word in a way that is understandable and applicable for teenagers to live out in their everyday life.</p>
         			<p>Meets at church: 5082 Argosy Avenue, Huntington Beach, CA</p>
         		</div>
         		<div class="col-md-5">
