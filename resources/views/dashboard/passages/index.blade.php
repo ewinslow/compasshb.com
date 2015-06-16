@@ -14,6 +14,8 @@
   {!! $passage->body !!}
   {!! $passage->verses !!}
 
+  @include('dashboard.passages.scripts')
+
 	@include('dashboard.passages.comments')
 
 @endsection
