@@ -11,7 +11,6 @@ elixir(function(mix) {
                 './bower_components/bootstrap-sass-official/assets/stylesheets/',
                 './bower_components/font-awesome/scss/',
                 './bower_components/medium-editor/src/sass/',
-                './bower_components/owl-carousel2/src/scss/',
             ]
         }
     );
@@ -19,11 +18,10 @@ elixir(function(mix) {
 	// Scripts
 	mix.babel([
         '../../../bower_components/jquery/dist/jquery.min.js',
-        '../../../bower_components/owl-carousel2/dist/owl.carousel.min.js',
         '../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
-        '../../../bower_components/medium-editor/dist/js/medium-editor.min.js',
-        'compasshb-editor.js',
-        'compasshb-serviceworker.js',
+    //    '../../../bower_components/medium-editor/dist/js/medium-editor.js',
+    //    'compasshb-editor.js',
+    //    'compasshb-serviceworker.js',
     ]);
 
 	// Tests
