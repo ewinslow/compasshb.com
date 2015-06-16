@@ -6,7 +6,7 @@
   <p>{{{ $sermon->series->title or '' }}}</p>
 
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
-  <p>{!! $sermon->text !!}</p>
+  <p>Text: {!! $sermon->text !!}</p>
   <p>
   @if ($sermon->worksheet != null)
   <a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a>
