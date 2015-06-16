@@ -89,8 +89,9 @@
                 <h4 class="tk-seravek-web">The Gospel Rings Out!</h4>
                 <p style="text-align: left;">Our goal is for the word of the Lord to sound forth here in
                                     Huntington Beach so many will put their faith in the gospel of Jesus Christ.  This
-                                    was the theme of our first sermon which you can watch here: <a
-                                        href="/sermon/gospel-rings/">#1 – And the Gospel Rings Out</a>.</p>
+                                    was the theme of our first sermon which you can watch here: 
+                                    <a href="/sermons/and-the-gospel-rings-out/">#1 – And the Gospel Rings Out</a>.
+                </p>
                 <p style="text-align: left;">At Compass Bible Church, we believe a good sermon does not
                                     come from our own opinions, but is God preaching his message through us.</p>
                 <ul style="color: #ffffff;">
