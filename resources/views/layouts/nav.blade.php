@@ -23,6 +23,7 @@
                         <li><a href="{{ route('distinctives') }}">8 Distinctives</a></li>
                         <li><a href="{{ route('believe') }}">What We Believe</a></li>
                         <li><a href="{{ route('evangelism') }}">Ice Cream Evangelism</a></li>
+                        <li class="visible-xs-block"><a href="{{ route('events.index') }}">Events</a></li>
                     </ul>
                 </div>
             </div>
