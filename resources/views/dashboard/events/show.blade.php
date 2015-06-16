@@ -8,6 +8,9 @@
 	<div class="row">
 	    <img src='{{ $event->logo->url }}' style="height: 250px;" /><br/><br/>
 	    <div class="col-sm-4">
+	    	@if (!$event->ticket_classes[0]->hidden)
+		    <p><a href="{{ $event->url }}?ref=ebtnebregn" target="_blank" class="btn btn-warning">Click Here to Register</a></p>
+		    @endif
 	    	<ul style="list-style: none; margin: 0; padding: 0;">
 		    	<li><strong>Hosted by:</strong> {{ $event->organizer->name }}</li>
 		    	<li><strong>Venue:</strong> {{ $event->venue->name }}</li>
@@ -24,9 +27,7 @@
 	    <div class="col-sm-8">
 		    <p style="clear: both">{!! $event->description->html !!}</p>
 
-		    @if (!$event->ticket_classes[0]->hidden)
-		    <p><a href="{{ $event->url }}?ref=ebtnebregn" target="_blank" class="btn btn-warning">Click Here to Register</a></p>
-		    @endif
+		    
 	    </div>
     </div>
 
