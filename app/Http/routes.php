@@ -103,7 +103,10 @@ Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
  */
 Route::group(['prefix' => 'api/v1'], function () {
     Route::resource('songs', 'Api\SongsController', ['except' => ['destroy']]);
-    Route::resource('passages', 'Api\PassagesController', ['except' => ['destroy']]);
+    Route::get('passages', [
+        'middleware' => 'cors',
+        'uses' => 'Api\PassagesController@index',
+    ]);
     Route::resource('sermons', 'Api\SermonsController', [
             'middleware' => 'cors',
             'except' => ['destroy'],
