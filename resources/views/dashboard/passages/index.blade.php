@@ -11,11 +11,9 @@
 </p>
 
   {!! $postflash !!}
-<audio src="{{ $passage->audio }}" controls="controls" />
+<audio src="{{ $passage->audio }}" controls="controls" ></audio>
   {!! $passage->body !!}
   {!! $passage->verses !!}
-
-  @include('dashboard.passages.scripts')
 
 	@include('dashboard.passages.comments')
 

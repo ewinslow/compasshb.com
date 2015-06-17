@@ -63,6 +63,7 @@ class PassagesController extends Controller
         $analytics['activeUsers'] = $this->analytics->getActiveUsers();
 
         $passage->verses = $this->scripture->getScripture($passage->title);
+        $passage->audio = $this->scripture->getAudioScripture($passage->title);
 
         $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
 

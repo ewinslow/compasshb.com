@@ -2,15 +2,15 @@
 
 @section('content')
 
-	<h1 class="tk-seravek-web">Scripture of the Day</h1>
+  <p>{!! $postflash !!}</p>
+
+	<h1 class="tk-seravek-web">{{ $passage->title }}</h1>
 
 	<p>{{ $analytics['sessions'] }} people read this chapter.</p>
 
-  {!! $postflash !!}
+<audio src="{{ $passage->audio }}" controls="controls" ></audio>
   {!! $passage->body !!}
   {!! $passage->verses !!}
-
-  	@include('dashboard.passages.scripts')
 
 	@include('dashboard.passages.comments')
 

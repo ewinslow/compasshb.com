@@ -42,8 +42,11 @@ class EsvScriptureRepository implements ScriptureRepository
         return $response;
     }
 
-    public function getAudioScripture($passage) 
+    public function getAudioScripture($passage)
     {
-        return $this->url."?key=".$this->apikey."&passage=".urlencode($passage)."&".$this->audioOptions;
+        $url = $this->url."?key=".$this->apikey."&passage=".urlencode($passage)."&".$this->audioOptions;
+        $headers = get_headers($url, 1);
+
+        return end($headers['Location']);
     }
 }
