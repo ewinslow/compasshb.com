@@ -44,9 +44,14 @@ class EsvScriptureRepository implements ScriptureRepository
 
     public function getAudioScripture($passage)
     {
-        $url = $this->url."?key=".$this->apikey."&passage=".urlencode($passage)."&".$this->audioOptions;
-        $headers = get_headers($url, 1);
+        $response = Cache::rememberForever('getaudioscripture'.$passage, function () use ($passage) {
 
-        return end($headers['Location']);
+            $url = $this->url."?key=".$this->apikey."&passage=".urlencode($passage)."&".$this->audioOptions;
+            $headers = get_headers($url, 1);
+
+            return end($headers['Location']);
+        });
+
+        return $response;
     }
 }
