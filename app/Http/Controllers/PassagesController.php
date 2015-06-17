@@ -33,6 +33,7 @@ class PassagesController extends Controller
         $passages = Passage::latest('published_at')->published()->take(5)->get();
         $passage = $passages->first();
         $passage->verses = $this->scripture->getScripture($passage->title);
+        $passage->audio = $this->scripture->getAudioScripture($passage->title);
 
         $postflash = '';
 

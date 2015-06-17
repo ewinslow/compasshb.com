@@ -3,4 +3,5 @@
 interface ScriptureRepository
 {
     public function getScripture($passage);
+    public function getAudioScripture($passage);
 }
