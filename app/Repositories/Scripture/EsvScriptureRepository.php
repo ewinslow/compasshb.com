@@ -6,7 +6,8 @@ use Cache;
 class EsvScriptureRepository implements ScriptureRepository
 {
     private $apikey;
-    private $options = "include-footnotes=false&audio-format=mp3";
+    private $options = "include-footnotes=false&include-audio-link=false&audio-format=mp3";
+    private $audioOptions = "output-format=mp3";
     private $url = "http://www.esvapi.org/v2/rest/passageQuery";
 
     public function __construct()
@@ -39,5 +40,10 @@ class EsvScriptureRepository implements ScriptureRepository
         });
 
         return $response;
+    }
+
+    public function getAudioScripture($passage) 
+    {
+        return $this->url."?key=".$this->apikey."&passage=".urlencode($passage)."&".$this->audioOptions;
     }
 }

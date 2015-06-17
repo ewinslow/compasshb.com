@@ -11,6 +11,7 @@
 </p>
 
   {!! $postflash !!}
+<audio src="{{ $passage->audio }}" controls="controls" />
   {!! $passage->body !!}
   {!! $passage->verses !!}
 
