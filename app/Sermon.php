@@ -1,7 +1,10 @@
-<?php namespace CompassHB\Www;
+<?php
+
+namespace CompassHB\Www;
 
 use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use CompassHB\Www\Repositories\Transcoder\ZencoderTranscoderRepository;
 
 class Sermon extends Model implements Searchable
 {
@@ -61,7 +64,25 @@ class Sermon extends Model implements Searchable
      */
     public function setVideoAttribute($value)
     {
-        $this->attributes['video'] = (!$value) ? null : $value;
+        if (!$value) {
+            $this->attributes['video'] = null;
+        } else {
+            $this->attributes['video'] = $value;
+
+            // Set the audio attribute
+            $transcoder = new ZencoderTranscoderRepository();
+
+            // Only transcode in production when needed
+            if (env('APP_ENV') == 'production' &&
+                $this->attributes['ministry'] == null &&
+                $this->attributes['audio'] == null &&
+                $this->attributes['video'] != null) {
+                $job = $transcoder->saveAudio(route('sermons.show', str_slug($this->attributes['title']).'/download'), str_slug($this->attributes['title']));
+                $this->attributes['audio'] = $job->outputs[0]->url;
+            } else {
+                $this->attributes['audio'] = null;
+            }
+        }
     }
 
     /**
