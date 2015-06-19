@@ -25,6 +25,7 @@ class ZencoderTranscoderRepository implements TranscoderRepository
                             'base_url' => $this->bucket,
                             'filename' => $slug.'.mp3',
                             'format' => 'mp3',
+                            'public' => true,
                         ),
                     ),
                 )
