@@ -10,6 +10,7 @@ use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
 use CompassHB\Www\Repositories\Video\VideoRepository;
 use CompassHB\Www\Repositories\Upload\UploadRepository;
+use CompassHB\Www\Repositories\Transcoder\TranscoderRepository;
 
 class SermonsController extends Controller
 {
@@ -60,7 +61,7 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(SermonRequest $request, UploadRepository $upload)
+    public function store(SermonRequest $request, UploadRepository $upload, TranscoderRepository $transcoder)
     {
         $sermon = new Sermon($request->all());
         $worksheet = Input::file('worksheet');
@@ -74,6 +75,11 @@ class SermonsController extends Controller
 
         if (env('APP_ENV' == 'production')) {
             SearchIndex::upsertToIndex($sermon);
+
+            // Transcode MP3
+            $job = $transcoder->saveAudio(route('sermons.show', str_slug($sermon->title)).'/download', str_slug($sermon->title));
+            $sermon->audio = $job->outputs[0]->url;
+            $sermon->save();
         }
 
         return redirect()
@@ -120,7 +126,7 @@ class SermonsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Sermon $sermon, SermonRequest $request, UploadRepository $upload)
+    public function update(Sermon $sermon, SermonRequest $request, UploadRepository $upload, TranscoderRepository $transcoder)
     {
         $worksheet = Input::file('worksheet');
         $all = $request->all();
@@ -134,6 +140,11 @@ class SermonsController extends Controller
 
         if (env('APP_ENV' == 'production')) {
             SearchIndex::upsertToIndex($sermon);
+
+            // Transcode MP3
+            $job = $transcoder->saveAudio(route('sermons.show', str_slug($sermon->title)).'/download', str_slug($sermon->title));
+            $sermon->audio = $job->outputs[0]->url;
+            $sermon->save();
         }
 
         return redirect()

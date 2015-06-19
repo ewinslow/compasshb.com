@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Providers;
+<?php
+
+namespace CompassHB\Www\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -76,6 +78,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'CompassHB\Www\Repositories\Upload\UploadRepository',
             'CompassHB\Www\Repositories\Upload\AwsUploadRepository'
+        );
+
+        /*
+         * TranscoderRepository
+         */
+        $this->app->bind(
+            'CompassHB\Www\Repositories\Transcoder\TranscoderRepository',
+            'CompassHB\Www\Repositories\Transcoder\ZencoderTranscoderRepository'
         );
     }
 }
