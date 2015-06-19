@@ -73,7 +73,7 @@ class SermonsController extends Controller
 
         Auth::user()->sermons()->save($sermon);
 
-        if (env('APP_ENV' == 'production')) {
+        if (env('APP_ENV') == 'production') {
             SearchIndex::upsertToIndex($sermon);
 
             // Transcode MP3
@@ -138,13 +138,13 @@ class SermonsController extends Controller
 
         $sermon->update($all);
 
-        if (env('APP_ENV' == 'production')) {
-            SearchIndex::upsertToIndex($sermon);
-
             // Transcode MP3
             $job = $transcoder->saveAudio(route('sermons.show', str_slug($sermon->title)).'/download', str_slug($sermon->title));
-            $sermon->audio = $job->outputs[0]->url;
-            $sermon->save();
+        $sermon->audio = $job->outputs[0]->url;
+        $sermon->save();
+
+        if (env('APP_ENV') == 'production') {
+            SearchIndex::upsertToIndex($sermon);
         }
 
         return redirect()
