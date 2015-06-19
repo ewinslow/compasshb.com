@@ -20,7 +20,7 @@
       <p>Compass Bible Church exists to make disciples of Christ by <strong>reaching</strong> as many people
               as possible for Christ, <strong>teaching</strong> them to be like Christ, and
               <strong>training</strong> them to serve Christ.</p>
-      <p><a href="/sermons/our-missions-statement">Our Mission Statement</a></p>
+      <p><a href="{{route('sermons.show', 'our-mission-statement')}}">Our Mission Statement</a></p>
     </div>
 
     {{-- Ministries --}}
