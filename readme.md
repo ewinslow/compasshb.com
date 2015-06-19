@@ -8,7 +8,7 @@ This is the source code for [compassHB.com](http://www.compasshb.com/). Contribu
 * [Bootstrap](http://getbootstrap.com)
 * [Elasticsearch](https://www.elastic.co)
 
-Staging site is [http://staging.compasshb.com/](http://staging.compasshb.com/). Ask for credentials.
+Staging site is [http://staging.compasshb.com/](http://staging.compasshb.com/).
 
 ## Development Environments
 Visit the [wiki](https://github.com/CompassHB/compasshb.com/wiki) for instructions on getting started developing in a local environment.
