@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+
+namespace CompassHB\Www\Http\Controllers;
 
 use DB;
 use URL;
@@ -28,7 +30,21 @@ class FeedsController extends Controller
     {
         $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->limit(300)->get();
 
-        return Response::view('feeds.rss', $data, 200, [
+        return Response::view('podcasts.video', $data, 200, [
+            'Content-Type' => 'application/atom+xml; charset=UTF-8',
+        ]);
+    }
+
+    /**
+     * Audio sermon podcast feed.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function sermonaudio()
+    {
+        $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->limit(300)->get();
+
+        return Response::view('podcasts.audio', $data, 200, [
             'Content-Type' => 'application/atom+xml; charset=UTF-8',
         ]);
     }
