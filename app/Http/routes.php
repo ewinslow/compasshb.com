@@ -76,6 +76,11 @@ Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
         'uses' => 'FeedsController@sermons',
     ]);
 
+    Route::get('sermonaudio',  [
+        'as' => 'sermonaudio',
+        'uses' => 'FeedsController@sermonaudio',
+    ]);
+
     Route::get('sermons.json',  [
         'middleware' => 'cors',
         'as' => 'sermons.json',
