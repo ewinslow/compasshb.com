@@ -1,17 +1,21 @@
-<?php namespace CompassHB\Www\Repositories\Event;
+<?php
+
+namespace CompassHB\Www\Repositories\Event;
 
 class GoogleEventRepository implements EventRepository
 {
     private $client;
+    private $email;
     private $url = 'https://www.googleapis.com/auth/calendar.readonly';
     private $calendarId;
+    private $service;
 
     public function __construct()
     {
         $this->calendarId = env('GOOGLE_CALENDAR_ID');
         $this->email = getenv('GOOGLE_ANALYTICS_EMAIL');
         $this->client = new \Google_Client();
-        $this->client->setApplicationName("Compass HB");
+        $this->client->setApplicationName('Compass HB');
 
         if (file_exists(storage_path('keys/CompassHB-27e1adae11b5.p12'))) {
             $this->client->setAssertionCredentials(
@@ -28,7 +32,7 @@ class GoogleEventRepository implements EventRepository
         $this->service = new \Google_Service_Calendar($this->client);
     }
 
-    public function test()
+    public function events()
     {
         if ($this->calendarId == '') {
             return [];
@@ -45,5 +49,13 @@ class GoogleEventRepository implements EventRepository
         $results = $this->service->events->listEvents($calendarId, $optParams);
 
         return $results;
+    }
+
+    public function event($id)
+    {
+    }
+
+    public function search($query)
+    {
     }
 }

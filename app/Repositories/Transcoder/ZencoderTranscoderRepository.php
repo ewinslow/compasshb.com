@@ -2,6 +2,8 @@
 
 namespace CompassHB\Www\Repositories\Transcoder;
 
+use Bugsnag;
+
 class ZencoderTranscoderRepository implements TranscoderRepository
 {
     private $key;
@@ -30,8 +32,8 @@ class ZencoderTranscoderRepository implements TranscoderRepository
                     ),
                 )
             );
-        } catch (Services_Zencoder_Exception $e) {
-            $bugsnag->notifyError('Info', 'MP3 ZencoderTranscoderRepository Error:'.$e);
+        } catch (\Services_Zencoder_Exception $e) {
+            Bugsnag::notifyError('Error', 'MP3 ZencoderTranscoderRepository Error:'.$e);
         }
 
         return $encoding_job;

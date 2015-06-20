@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+
+namespace CompassHB\Www\Http\Controllers;
 
 use DB;
 use URL;
@@ -26,6 +28,7 @@ class FeedsController extends Controller
      */
     public function sermons()
     {
+        $data = array();
         $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->limit(300)->get();
 
         return Response::view('feeds.rss', $data, 200, [
@@ -51,6 +54,7 @@ class FeedsController extends Controller
      */
     public function json(VideoRepository $video)
     {
+        $data = array();
         $data['sermons'] = Sermon::where('ministry', '=', null)->orderBy('published_at', 'desc')->published()->limit(300)->get();
 
         // Retrieve coverart

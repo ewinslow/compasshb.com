@@ -1,4 +1,5 @@
 <?php
+
 namespace CompassHB\Www\Repositories\Upload;
 
 use Aws\S3\S3Client;
@@ -9,6 +10,7 @@ class AwsUploadRepository implements UploadRepository
     private $client;
     private $key;
     private $secret;
+    private $region;
 
     /**
      * Initialize object and authenticate.
