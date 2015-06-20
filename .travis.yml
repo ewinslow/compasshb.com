@@ -15,8 +15,13 @@ before_script:
    - php artisan migrate:refresh --seed
    - php -r "copy('.env.example', '.env');"
    - php artisan key:generate
-   
-script: vendor/bin/phpunit
+
+script:
+ - phpunit --coverage-clover=.clover
+
+after_script:
+ - wget https://scrutinizer-ci.com/ocular.phar
+ - php ocular.phar code-coverage:upload --format=php-clover .clover
 
 notifications:
   slack:

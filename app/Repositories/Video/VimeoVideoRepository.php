@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Repositories\Video;
+<?php
+
+namespace CompassHB\Www\Repositories\Video;
 
 use Log;
 use Cache;
@@ -114,7 +116,7 @@ class VimeoVideoRepository implements VideoRepository
             if ($video['status'] == '404' || $video['status'] == '400') {
                 return;
             }
-        } catch (VimeoUploadException $e) {
+        } catch (\Exception $e) {
             return;
         }
 
