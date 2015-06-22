@@ -5,6 +5,7 @@
   </div>
   <div class="panel-body">
     <p><a href="{{ route('series.index') }}">View Sermon Series</a></p><br/>
+    <p><a href="https://www.compasshb.com/feed/sermonaudio/">Audio Podcast</a></p>
     <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
       <img src="{{ URL::to('/') }}/images/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
       width="110" height="40" alt="Subscribe on iTunes"/>
