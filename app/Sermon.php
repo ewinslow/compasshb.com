@@ -74,7 +74,7 @@ class Sermon extends Model implements Searchable
 
             // Only transcode in production when needed
             if (env('APP_ENV') == 'production' &&
-                $this->attributes['ministry'] == null &&
+                !array_key_exists('ministry', $this->attributes) &&
                 $this->attributes['audio'] == null &&
                 $this->attributes['video'] != null) {
                 $job = $transcoder->saveAudio(route('sermons.show', str_slug($this->attributes['title']).'/download'), str_slug($this->attributes['title']));
