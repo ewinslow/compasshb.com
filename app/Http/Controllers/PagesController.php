@@ -220,7 +220,7 @@ class PagesController extends Controller
 
         // Keep only Home Fellowship Group events
         $fellowships = array_filter($events, function ($var) {
-            return ($var->organizer->id == '8215662871');
+            return ($var->organizer_id == '8215662871');
         });
 
         return response()
@@ -243,15 +243,15 @@ class PagesController extends Controller
 
             // Filter out Home Fellowship Group events
             $events = array_filter($events, function ($var) {
-                return ($var->organizer->id != '8215662871');
+                return ($var->organizer_id != '8215662871');
             });
 
             // Events accepting registrations
             $registrations = array_filter($events, function ($var) {
 
                 // If the ticket is not hidden or it has the hashtag #registrations
-                return (!$var->ticket_classes[0]->hidden ||
-                        strpos($var->description->text, '#registration'));
+                // return (!$var->ticket_classes[0]->hidden ||
+                //        strpos($var->description->text, '#registration'));
             });
 
             return view('dashboard.events.index', compact('events', 'registrations'));
@@ -272,6 +272,6 @@ class PagesController extends Controller
             $event->search('#featuredevents');
         }
 
-        return "Success";
+        return 'Success';
     }
 }

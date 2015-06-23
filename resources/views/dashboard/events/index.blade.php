@@ -17,7 +17,7 @@
             <a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/' class="btn btn-default" style="float: right">Details</a>
             <img src='{{ $event->logo->url }}' style="float: left; width: 250px; padding-right: 20px" />
             <h5><a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/'>{{ $event->name->text }}</a></h5>
-            <p style="clear: right">Organizer: {{ $event->organizer->name }}<br/>Venue: {{ $event->venue->name }}</p>
+            <p style="clear: right">Organizer: {{ $event->organizer_id }}<br/>Venue: {{ $event->venue_id }}</p>
             <p>{!! substr($event->description->html, 0, 244) !!}... <a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/'>More</a></p>
         <br style="clear: both"/>
         </li>

@@ -2,8 +2,7 @@
 
 @section('content')
 <h1 class="tk-seravek-web">Home Fellowship Groups</h1>
-<br/><p>We want every adult in our church to be  part of a home fellowship group! We have groups Tuesday, Wednesday, Thursday and Friday nights ready for you to join! Stop by the Compass Connect table for more information or email info@compasshb.com</p>
-<p><img src="http://maps.google.com/maps/api/staticmap?zoom=10&size=650x200&sensor=false{{ $map }}" style="width: 650px; height: 200px;" /></p><br/>
+<br/><p>We want every adult in our church to be  part of a home fellowship group! We have groups Tuesday, Wednesday, Thursday and Friday nights ready for you to join! Stop by the Compass Connect table for more information or email info@compasshb.com</p><br/>
 
 <div class="row">
   @foreach ($hfg as $group)

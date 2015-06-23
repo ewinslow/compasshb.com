@@ -1,4 +1,5 @@
 <?php
+
 namespace CompassHB\Www\Http\Controllers;
 
 use CompassHB\Www\Sermon;
@@ -24,7 +25,7 @@ class FellowshipsController extends Controller
 
         $events = array_filter($e, function ($var) {
                 // Filter out Home Fellowship Group events
-                return ($var->organizer->id == '8215662871');
+                return ($var->organizer_id == '8215662871');
             });
 
         // Remove duplicates
@@ -38,7 +39,7 @@ class FellowshipsController extends Controller
 
         $map = '';
         foreach ($hfg as $h) {
-            $map .= '&markers=color:0x497F9B|'.$h->venue->latitude.','.$h->venue->longitude;
+            //    $map .= '&markers=color:0x497F9B|'.$h->venue->latitude.','.$h->venue->longitude;
         }
 
         return view('dashboard.fellowships.index', compact('sermon', 'hfg', 'map'))
