@@ -35,3 +35,29 @@ function makeSlugFromTitle($model, $title)
 
     return $count ? "{$slug}-{$count}" : $slug;
 }
+
+/**
+ * Construct a route/url from a model and slug.
+ *
+ * @param  string $model
+ * @param  string $slug
+ *
+ * @return string
+ */
+function makeRouteFromSlug($model, $slug)
+{
+    $route = '';
+
+    switch ($model) {
+        case 'sermon':
+            $route = 'sermons.show';
+        case 'blog':
+            $route = 'blog.show';
+        case 'passage':
+            $route = 'read.show';
+        default:
+            $route = $model;
+    }
+
+    return $model.'/'.$slug;
+}
