@@ -3,7 +3,6 @@
 namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
-use SearchIndex;
 use CompassHB\Www\Song;
 use CompassHB\Www\Http\Requests\SongRequest;
 use CompassHB\Www\Repositories\Plan\PlanRepository;
@@ -78,9 +77,7 @@ class SongsController extends Controller
      */
     public function update(Song $song, SongRequest $request)
     {
-        $saved = $song->update($request->all());
-
-        SearchIndex::upsertToIndex($saved);
+        $song->update($request->all());
 
         return redirect()
             ->route('admin.songs')
@@ -108,9 +105,7 @@ class SongsController extends Controller
     {
         $song = new Song($request->all());
 
-        $saved = uth::user()->songs()->save($song);
-
-        SearchIndex::upsertToIndex($saved);
+        Auth::user()->songs()->save($song);
 
         return redirect()
             ->route('admin.songs')

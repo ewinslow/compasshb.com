@@ -3,7 +3,6 @@
 namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
-use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Repositories\Video\VideoRepository;
@@ -47,9 +46,7 @@ class SeriesController extends Controller
     {
         $series = new Series($request->all());
 
-        $saved = Auth::user()->series()->save($series);
-
-        SearchIndex::upsertToIndex($saved);
+        Auth::user()->series()->save($series);
 
         return redirect()
             ->route('admin.index');
@@ -93,9 +90,7 @@ class SeriesController extends Controller
      */
     public function update(Series $series, SeriesRequest $request)
     {
-        $saved = $series->update($request->all());
-
-        SearchIndex::upsertToIndex($saved);
+        $series->update($request->all());
 
         return redirect()
             ->route('admin.index')

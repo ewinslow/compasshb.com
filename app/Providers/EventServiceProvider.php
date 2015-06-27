@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Providers;
+<?php
+
+namespace CompassHB\Www\Providers;
 
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
@@ -35,24 +37,44 @@ class EventServiceProvider extends ServiceProvider
          * Generate slug on models with that column when saved
          * or updated.
          */
-        Blog::creating(function ($object) {
+        Blog::saving(function ($object) {
             $object->slug = makeSlugFromTitle(new Blog(), $object->title);
+
+            if (env('APP_ENV') == 'production') {
+                SearchIndex::upsertToIndex($object);
+            }
         });
 
-        Passage::creating(function ($object) {
+        Passage::saving(function ($object) {
             $object->slug = makeSlugFromTitle(new Passage(), $object->title);
+
+            if (env('APP_ENV') == 'production') {
+                SearchIndex::upsertToIndex($object);
+            }
         });
 
-        Sermon::creating(function ($object) {
+        Sermon::saving(function ($object) {
             $object->slug = makeSlugFromTitle(new Sermon(), $object->title);
+
+            if (env('APP_ENV') == 'production') {
+                SearchIndex::upsertToIndex($object);
+            }
         });
 
-        Series::creating(function ($object) {
+        Series::saving(function ($object) {
             $object->slug = makeSlugFromTitle(new Series(), $object->title);
+
+            if (env('APP_ENV') == 'production') {
+                SearchIndex::upsertToIndex($object);
+            }
         });
 
-        Song::creating(function ($object) {
+        Song::saving(function ($object) {
             $object->slug = makeSlugFromTitle(new Song(), $object->title);
+
+            if (env('APP_ENV') == 'production') {
+                SearchIndex::upsertToIndex($object);
+            }
         });
     }
 }

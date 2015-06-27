@@ -3,7 +3,6 @@
 namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
-use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Http\Requests\BlogRequest;
 use CompassHB\Www\Repositories\Video\VideoRepository;
@@ -73,9 +72,7 @@ class BlogsController extends Controller
      */
     public function update(Blog $blog, BlogRequest $request)
     {
-        $saved = $blog->update($request->all());
-
-        SearchIndex::upsertToIndex($saved);
+        $blog->update($request->all());
 
         return redirect()
             ->route('admin.index')
@@ -103,9 +100,7 @@ class BlogsController extends Controller
     {
         $blog = new Blog($request->all());
 
-        $saved = Auth::user()->blogs()->save($blog);
-
-        SearchIndex::upsertToIndex($saved);
+        Auth::user()->blogs()->save($blog);
 
         return redirect()
             ->route('admin.index')

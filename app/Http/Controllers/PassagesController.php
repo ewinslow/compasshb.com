@@ -4,7 +4,6 @@ namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use Redirect;
-use SearchIndex;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Http\Requests\PassageRequest;
 use CompassHB\Www\Repositories\Analytics\AnalyticRepository;
@@ -99,9 +98,7 @@ class PassagesController extends Controller
      */
     public function update(Passage $passage, PassageRequest $request)
     {
-        $saved = $passage->update($request->all());
-
-        SearchIndex::upsertToIndex($saved);
+        $passage->update($request->all());
 
         return redirect()
             ->route('admin.read')
@@ -129,9 +126,7 @@ class PassagesController extends Controller
     {
         $passage = new Passage($request->all());
 
-        $saved = Auth::user()->passages()->save($passage);
-
-        SearchIndex::upsertToIndex($saved);
+        Auth::user()->passages()->save($passage);
 
         return redirect()
             ->route('admin.read')

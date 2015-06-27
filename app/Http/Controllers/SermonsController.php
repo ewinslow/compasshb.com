@@ -4,7 +4,6 @@ namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use Input;
-use SearchIndex;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
@@ -70,11 +69,7 @@ class SermonsController extends Controller
             $sermon->worksheet = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
-        $saved = Auth::user()->sermons()->save($sermon);
-
-        if (env('APP_ENV') == 'production') {
-            SearchIndex::upsertToIndex($saved);
-        }
+        Auth::user()->sermons()->save($sermon);
 
         return redirect()
             ->route('admin.index');
@@ -130,11 +125,7 @@ class SermonsController extends Controller
             $all['worksheet'] = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
-        $saved = $sermon->update($all);
-
-        if (env('APP_ENV') == 'production') {
-            SearchIndex::upsertToIndex($saved);
-        }
+        $sermon->update($all);
 
         return redirect()
             ->route('admin.index')
