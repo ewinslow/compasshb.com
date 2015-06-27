@@ -2,6 +2,7 @@
 
 namespace CompassHB\Www\Providers;
 
+use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
 use CompassHB\Www\Sermon;
