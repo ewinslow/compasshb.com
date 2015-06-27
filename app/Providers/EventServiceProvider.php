@@ -39,15 +39,19 @@ class EventServiceProvider extends ServiceProvider
          * or updated.
          */
         Blog::saving(function ($object) {
-            $object->slug = makeSlugFromTitle(new Blog(), $object->title);
 
+            // Assign slug if one does not exist
+            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Blog(), $object->title) : $object->slug;
+
+            // Index object in search engine
             if (env('APP_ENV') == 'production') {
                 SearchIndex::upsertToIndex($object);
             }
         });
 
         Passage::saving(function ($object) {
-            $object->slug = makeSlugFromTitle(new Passage(), $object->title);
+
+            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Passage(), $object->title) : $object->slug;
 
             if (env('APP_ENV') == 'production') {
                 SearchIndex::upsertToIndex($object);
@@ -55,7 +59,7 @@ class EventServiceProvider extends ServiceProvider
         });
 
         Sermon::saving(function ($object) {
-            $object->slug = makeSlugFromTitle(new Sermon(), $object->title);
+            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Sermon(), $object->title) : $object->slug;
 
             if (env('APP_ENV') == 'production') {
                 SearchIndex::upsertToIndex($object);
@@ -63,7 +67,7 @@ class EventServiceProvider extends ServiceProvider
         });
 
         Series::saving(function ($object) {
-            $object->slug = makeSlugFromTitle(new Series(), $object->title);
+            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Series(), $object->title) : $object->slug;
 
             if (env('APP_ENV') == 'production') {
                 SearchIndex::upsertToIndex($object);
@@ -71,7 +75,7 @@ class EventServiceProvider extends ServiceProvider
         });
 
         Song::saving(function ($object) {
-            $object->slug = makeSlugFromTitle(new Song(), $object->title);
+            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Song(), $object->title) : $object->slug;
 
             if (env('APP_ENV') == 'production') {
                 SearchIndex::upsertToIndex($object);
