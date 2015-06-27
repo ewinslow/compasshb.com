@@ -145,6 +145,7 @@ class Sermon extends Model implements Searchable
             'text' => $this->text,
             'teacher' => $this->teacher,
             'ministry' => $this->ministry,
+            'slug' => $this->slug,
         ];
 
         return $searchableProperties;
@@ -157,7 +158,7 @@ class Sermon extends Model implements Searchable
      */
     public function getSearchableType()
     {
-        return 'sermon';
+        return 'sermons';
     }
 
     /**

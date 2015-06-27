@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www;
+<?php
+
+namespace CompassHB\Www;
 
 use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -90,6 +92,7 @@ class Blog extends Model implements Searchable
         $searchableProperties = [
             'title' => $this->title,
             'body' => $this->body,
+            'slug' => $this->slug,
         ];
 
         return $searchableProperties;

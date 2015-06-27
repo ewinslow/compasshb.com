@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www;
+<?php
+
+namespace CompassHB\Www;
 
 use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -73,6 +75,7 @@ class Song extends Model implements Searchable
             'title' => $this->title,
             'body' => $this->body,
             'excerpt' => $this->excerpt,
+            'slug' => $this->slug,
         ];
 
         return $searchableProperties;
@@ -85,7 +88,7 @@ class Song extends Model implements Searchable
      */
     public function getSearchableType()
     {
-        return 'song';
+        return 'worship';
     }
 
     /**

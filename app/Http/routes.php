@@ -224,7 +224,7 @@ Route::get('manifest.json', [
     'uses' => 'PagesController@manifest',
 ]);
 
-Route::get('search/{q}', [
+Route::match(array('GET', 'POST'), '/search', [
     'as' => 'search',
     'uses' => 'PagesController@search',
 ]);

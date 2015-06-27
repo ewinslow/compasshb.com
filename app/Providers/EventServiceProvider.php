@@ -5,8 +5,8 @@ namespace CompassHB\Www\Providers;
 use SearchIndex;
 use CompassHB\Www\Blog;
 use CompassHB\Www\Song;
-use CompassHB\Www\Sermon;
 use CompassHB\Www\Series;
+use CompassHB\Www\Sermon;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Events\LogUserLastLogin;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
@@ -34,52 +34,46 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        /*
-         * Generate slug on models with that column when saved
-         * or updated.
-         */
-        Blog::saving(function ($object) {
-
-            // Assign slug if one does not exist
-            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Blog(), $object->title) : $object->slug;
-
-            // Index object in search engine
-            if (env('APP_ENV') == 'production') {
-                SearchIndex::upsertToIndex($object);
-            }
-        });
-
-        Passage::saving(function ($object) {
-
-            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Passage(), $object->title) : $object->slug;
-
-            if (env('APP_ENV') == 'production') {
-                SearchIndex::upsertToIndex($object);
-            }
-        });
-
         Sermon::saving(function ($object) {
-            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Sermon(), $object->title) : $object->slug;
-
-            if (env('APP_ENV') == 'production') {
-                SearchIndex::upsertToIndex($object);
-            }
+            $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Sermon(), $object->title);
         });
 
         Series::saving(function ($object) {
-            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Series(), $object->title) : $object->slug;
+            $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Series(), $object->title);
+        });
 
-            if (env('APP_ENV') == 'production') {
-                SearchIndex::upsertToIndex($object);
-            }
+        Passage::saving(function ($object) {
+            $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Passage(), $object->title);
         });
 
         Song::saving(function ($object) {
-            $object->slug = isset($object->slug) === false ? makeSlugFromTitle(new Song(), $object->title) : $object->slug;
+            $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Song(), $object->title);
+        });
 
-            if (env('APP_ENV') == 'production') {
-                SearchIndex::upsertToIndex($object);
-            }
+        Blog::saving(function ($object) {
+            $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Blog(), $object->title);
+        });
+
+        ///
+
+        Sermon::saved(function ($object) {
+            SearchIndex::upsertToIndex($object);
+        });
+
+        Song::saved(function ($object) {
+            SearchIndex::upsertToIndex($object);
+        });
+
+        Series::saved(function ($object) {
+            SearchIndex::upsertToIndex($object);
+        });
+
+        Passage::saved(function ($object) {
+            SearchIndex::upsertToIndex($object);
+        });
+
+        Blog::saved(function ($object) {
+            SearchIndex::upsertToIndex($object);
         });
     }
 }

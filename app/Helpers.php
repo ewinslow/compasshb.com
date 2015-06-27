@@ -44,20 +44,29 @@ function makeSlugFromTitle($model, $title)
  *
  * @return string
  */
-function makeRouteFromSlug($model, $slug)
+function makeRouteFromSlug($type, $slug)
 {
     $route = '';
 
-    switch ($model) {
-        case 'sermon':
+    switch ($type) {
+        case 'sermons':
             $route = 'sermons.show';
+            break;
         case 'blog':
             $route = 'blog.show';
+            break;
         case 'passage':
             $route = 'read.show';
+            break;
+        case 'worship':
+            $route = 'songs.show';
+            break;
+        case 'series':
+            $route = 'series.show';
+            break;
         default:
-            $route = $model;
+            $route = $type;
     }
 
-    return $model.'/'.$slug;
+    return route($route, $slug);
 }

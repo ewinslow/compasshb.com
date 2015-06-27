@@ -4,6 +4,8 @@
 
 	<h1 class="tk-seravek-web">Blog</h1>
 
+    @include('dashboard.search.form')
+
 <div class="panel panel-default">
   <div class="panel-heading tk-seravek-web">All Blog Posts</div>
   <div class="panel-body">

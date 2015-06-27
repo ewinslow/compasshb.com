@@ -2,7 +2,9 @@
 
 @section('content')
 
-	<h1 class="tk-seravek-web">Sermons</h1><br/>
+	<h1 class="tk-seravek-web">Sermons</h1>
+
+  @include('dashboard.search.form')
 
   <?php $i = 0; ?>
   @foreach ($sermons as $sermon)
@@ -14,7 +16,7 @@
       {{ $sermon->teacher }}</p>
     </a>
   </div>
-  <?php $i++; ?>
+  <?php ++$i; ?>
   @endforeach
 
 @endsection

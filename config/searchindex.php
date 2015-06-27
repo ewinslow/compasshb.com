@@ -13,13 +13,13 @@ return
                  * Specify the host(s) where elasticsearch is running
                  */
                 'hosts' => [
-                        env('ELASTICSEARCH_HOST').':9200',
+                        env('ELASTICSEARCH_HOST', 'localhost').':9200',
                     ],
 
                 /*
                  * specify the path where elasticsearch will write it's logs
                  */
-                'logPath' =>  storage_path().'/logs/elasticsearch.log',
+                'logPath' => storage_path().'/logs/elasticsearch.log',
 
                 /*
                  * Specify how verbose the logging must be

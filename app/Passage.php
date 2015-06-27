@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www;
+<?php
+
+namespace CompassHB\Www;
 
 use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -60,6 +62,7 @@ class Passage extends Model implements Searchable
         $searchableProperties = [
             'title' => $this->title,
             'body' => $this->body,
+            'slug' => $this->slug,
         ];
 
         return $searchableProperties;
@@ -72,7 +75,7 @@ class Passage extends Model implements Searchable
      */
     public function getSearchableType()
     {
-        return 'passage';
+        return 'read';
     }
 
     /**

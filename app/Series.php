@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www;
+<?php
+
+namespace CompassHB\Www;
 
 use Spatie\SearchIndex\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -54,6 +56,7 @@ class Series extends Model implements Searchable
             'title' => $this->title,
             'body' => $this->body,
             'ministry' => $this->ministry,
+            'slug' => $this->slug,
         ];
 
         return $searchableProperties;

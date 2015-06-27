@@ -37,9 +37,7 @@ class AppServiceProvider extends ServiceProvider
          */
         $this->app->bind(
             'CompassHB\Www\Repositories\Search\SearchRepository',
-            $this->app->environment() == 'local' ?
-                'CompassHB\Www\Repositories\Search\FakeSearchRepository' :
-                'CompassHB\Www\Repositories\Search\ElasticSearchRepository'
+            'CompassHB\Www\Repositories\Search\ElasticSearchRepository'
         );
 
         /*
