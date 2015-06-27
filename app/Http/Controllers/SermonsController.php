@@ -70,10 +70,10 @@ class SermonsController extends Controller
             $sermon->worksheet = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
-        Auth::user()->sermons()->save($sermon);
+        $saved = Auth::user()->sermons()->save($sermon);
 
         if (env('APP_ENV') == 'production') {
-            SearchIndex::upsertToIndex($sermon);
+            SearchIndex::upsertToIndex($saved);
         }
 
         return redirect()
@@ -130,10 +130,10 @@ class SermonsController extends Controller
             $all['worksheet'] = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
         }
 
-        $sermon->update($all);
+        $saved = $sermon->update($all);
 
         if (env('APP_ENV') == 'production') {
-            SearchIndex::upsertToIndex($sermon);
+            SearchIndex::upsertToIndex($saved);
         }
 
         return redirect()

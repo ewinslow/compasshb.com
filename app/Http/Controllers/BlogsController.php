@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+
+namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use SearchIndex;
@@ -71,9 +73,9 @@ class BlogsController extends Controller
      */
     public function update(Blog $blog, BlogRequest $request)
     {
-        $blog->update($request->all());
+        $saved = $blog->update($request->all());
 
-        SearchIndex::upsertToIndex($blog);
+        SearchIndex::upsertToIndex($saved);
 
         return redirect()
             ->route('admin.index')
@@ -101,9 +103,9 @@ class BlogsController extends Controller
     {
         $blog = new Blog($request->all());
 
-        Auth::user()->blogs()->save($blog);
+        $saved = Auth::user()->blogs()->save($blog);
 
-        SearchIndex::upsertToIndex($blog);
+        SearchIndex::upsertToIndex($saved);
 
         return redirect()
             ->route('admin.index')

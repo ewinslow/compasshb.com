@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Controllers;
+<?php
+
+namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use Redirect;
@@ -37,7 +39,7 @@ class PassagesController extends Controller
 
         $postflash = '';
 
-        if (date('D') == "Sun" || date('D') == "Sat") {
+        if (date('D') == 'Sun' || date('D') == 'Sat') {
             $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
         }
 
@@ -97,9 +99,9 @@ class PassagesController extends Controller
      */
     public function update(Passage $passage, PassageRequest $request)
     {
-        $passage->update($request->all());
+        $saved = $passage->update($request->all());
 
-        SearchIndex::upsertToIndex($passage);
+        SearchIndex::upsertToIndex($saved);
 
         return redirect()
             ->route('admin.read')
@@ -127,9 +129,9 @@ class PassagesController extends Controller
     {
         $passage = new Passage($request->all());
 
-        Auth::user()->passages()->save($passage);
+        $saved = Auth::user()->passages()->save($passage);
 
-        SearchIndex::upsertToIndex($passage);
+        SearchIndex::upsertToIndex($saved);
 
         return redirect()
             ->route('admin.read')
