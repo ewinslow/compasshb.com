@@ -1344,6 +1344,7 @@
                 "laravel"
             ],
             "time": "2015-06-24 19:38:07"
+<<<<<<< HEAD
         },
         {
             "name": "laravel/homestead",
@@ -1385,6 +1386,8 @@
             ],
             "description": "A virtual machine for web artisans.",
             "time": "2015-06-24 19:39:40"
+=======
+>>>>>>> 0646b3955df23b429535387556cddd25be09e47b
         },
         {
             "name": "league/flysystem",
