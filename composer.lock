@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a429495bb1457814444386d1d2b5043",
+    "hash": "ca6ad64c853a4b0994aa2f2c1f0be9a2",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1344,7 +1344,6 @@
                 "laravel"
             ],
             "time": "2015-06-24 19:38:07"
-<<<<<<< HEAD
         },
         {
             "name": "laravel/homestead",
@@ -1386,8 +1385,6 @@
             ],
             "description": "A virtual machine for web artisans.",
             "time": "2015-06-24 19:39:40"
-=======
->>>>>>> 0646b3955df23b429535387556cddd25be09e47b
         },
         {
             "name": "league/flysystem",
