@@ -18,15 +18,13 @@
       <tr>
         <th>#</th>
         <th>Song Name</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($songs as $index => $song)
         <tr>
           <td>{{ $index+1 }}</td>
-          <td><a href="{{ route('songs.show', $song->slug) }}">{{ $song->title }}</a></td>
-          <td><a href="{{ route('songs.edit', $song->slug) }}">Edit</a></td>
+          <td><a href="{{ route('songs.edit', $song->slug) }}">{{ $song->title }}</a></td>
         </tr>
       @endforeach
     </tbody>
