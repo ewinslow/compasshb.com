@@ -540,7 +540,7 @@
             s = [],
             t = j,
             u = f || e && d.find.TAG("*", k),
-            v = w += null == t ? 1 : Math.random() || 0.1,
+            v = w += null == t ? 1 : Math.random() || .1,
             x = u.length;for (k && (j = g !== n && g); q !== x && null != (l = u[q]); q++) {
           if (e && l) {
             m = 0;while (o = a[m++]) if (o(l, g, h)) {
@@ -1212,7 +1212,7 @@
         e = l.createElement("div"),
         f = l.createElement("div");if (f.style) {
       (function () {
-        var g = function () {
+        var g = function g() {
           f.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;margin-top:1%;top:1%;border:1px;padding:1px;width:4px;position:absolute", f.innerHTML = "", d.appendChild(e);var g = a.getComputedStyle(f, null);b = "1%" !== g.top, c = "4px" === g.width, d.removeChild(e);
         };
 
@@ -1318,7 +1318,7 @@
     } }, n.easing = { linear: function linear(a) {
       return a;
     }, swing: function swing(a) {
-      return 0.5 - Math.cos(a * Math.PI) / 2;
+      return .5 - Math.cos(a * Math.PI) / 2;
     } }, n.fx = Ka.prototype.init, n.fx.step = {};var La,
       Ma,
       Na = /^(?:toggle|show|hide)$/,
@@ -1996,7 +1996,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     return c;
   })(function (b, c) {
     this.$element = a(b), this.$indicators = this.$element.find(".carousel-indicators"), this.options = c, this.paused = null, this.sliding = null, this.interval = null, this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", a.proxy(this.keydown, this)), "hover" == this.options.pause && !("ontouchstart" in document.documentElement) && this.$element.on("mouseenter.bs.carousel", a.proxy(this.pause, this)).on("mouseleave.bs.carousel", a.proxy(this.cycle, this));
-  });c.VERSION = "3.3.5", c.TRANSITION_DURATION = 600, c.DEFAULTS = { interval: 5000, pause: "hover", wrap: !0, keyboard: !0 }, c.prototype.keydown = function (a) {
+  });c.VERSION = "3.3.5", c.TRANSITION_DURATION = 600, c.DEFAULTS = { interval: 5e3, pause: "hover", wrap: !0, keyboard: !0 }, c.prototype.keydown = function (a) {
     if (!/input|textarea/i.test(a.target.tagName)) {
       switch (a.which) {case 37:
           this.prev();break;case 39:
@@ -2328,7 +2328,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
         b = this.$element,
         c = this.options;return a = b.attr("data-original-title") || ("function" == typeof c.title ? c.title.call(b[0]) : c.title);
   }, c.prototype.getUID = function (a) {
-    do a += ~ ~(1000000 * Math.random()); while (document.getElementById(a));return a;
+    do a += ~ ~(1e6 * Math.random()); while (document.getElementById(a));return a;
   }, c.prototype.tip = function () {
     if (!this.$tip && (this.$tip = a(this.options.template), 1 != this.$tip.length)) throw new Error(this.type + " `template` option must consist of exactly 1 top-level element!");return this.$tip;
   }, c.prototype.arrow = function () {
