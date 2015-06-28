@@ -31,7 +31,8 @@
 
 <div class="form-group">
 	{!! Form::label('video', 'Video:') !!}
-	{!! Form::text('video', null, ['class' => 'form-control']) !!}
+	{!! Form::text('video', null, ['class' => 'form-control']) !!}<br/>
+	<p class="alert alert-info">Paste in the URL to the vimeo video page above. The video will be converted into an MP3 automatically when it is saved for the first time. If you change the video URL after saving the MP3 will need to manually be updated.</p>
 </div>
 
 <div class="form-group">

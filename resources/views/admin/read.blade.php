@@ -19,16 +19,14 @@
         <th>Passage</th>
         <th>Publish Date</th>
         <th>Status</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($passages as $index => $passage)
         <tr>
-          <td><a href="{{ route('read.show', $passage->slug) }}">{{ $passage->title }}</a></td>
+          <td><a href="{{ route('read.edit', $passage->slug) }}">{{ $passage->title }}</a></td>
           <td>{{ date_format($passage->published_at, 'Y-m-d l') }}</td>
           <td>{{ $passage->published_at->lt(\Carbon\Carbon::now()) ? 'Published' : 'Scheduled' }}</td>
-          <td><a href="{{ route('read.edit', $passage->slug) }}">Edit</a></td>
         </tr>
       @endforeach
     </tbody>
