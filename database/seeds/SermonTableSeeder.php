@@ -23,6 +23,7 @@ class SermonTableSeeder extends Seeder
             'sku' => '1',
             'published_at' => '2014-09-07 00:00:00',
             'slug' => 'and-the-gospel-rings-out',
+            'audio' => 'http://compasshb.s3.amazonaws.com/media/and-the-gospel-rings-out.mp3',
         ]);
 
         Sermon::create([

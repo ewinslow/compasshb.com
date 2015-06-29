@@ -34,6 +34,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
+        // Create slugs on model save
         Sermon::saving(function ($object) {
             $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Sermon(), $object->title);
         });
@@ -54,8 +55,7 @@ class EventServiceProvider extends ServiceProvider
             $object->slug = isset($object->slug) == true ? $object->slug : makeSlugFromTitle(new Blog(), $object->title);
         });
 
-        ///
-
+        // Index in search on model save
         Sermon::saved(function ($object) {
             SearchIndex::upsertToIndex($object);
         });

@@ -64,24 +64,18 @@ class Sermon extends Model implements Searchable
      */
     public function setVideoAttribute($value)
     {
-        if (!$value) {
-            $this->attributes['video'] = null;
-        } else {
-            $this->attributes['video'] = $value;
+        $this->attributes['video'] = $value;
 
-            // Set the audio attribute
-            $transcoder = new ZencoderTranscoderRepository();
+        // Set the audio attribute
+        $transcoder = new ZencoderTranscoderRepository();
 
-            // Only transcode in production when needed
-            if (env('APP_ENV') == 'production' &&
-                !array_key_exists('ministry', $this->attributes) &&
-                !array_key_exists('audio', $this->attributes) &&
-                array_key_exists('video', $this->attributes)) {
-                $job = $transcoder->saveAudio(route('sermons.show', str_slug($this->attributes['title']).'/download'), str_slug($this->attributes['title']));
-                $this->attributes['audio'] = $job->outputs[0]->url;
-            } else {
-                $this->attributes['audio'] = null;
-            }
+        // Only transcode in production when there is a video file and the audio URL is blank.
+        if (env('APP_ENV') == 'production' &&
+            array_key_exists('ministry', $this->attributes) &&
+            empty($this->attributes['audio']) &&
+            $value != null) {
+            $job = $transcoder->saveAudio(route('sermons.show', str_slug($this->attributes['title']).'/download'), str_slug($this->attributes['title']));
+            $this->attributes['audio'] = $job->outputs[0]->url;
         }
     }
 
