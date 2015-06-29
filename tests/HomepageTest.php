@@ -75,4 +75,9 @@ class HomepageTest extends TestCase
     {
         $this->visit('/sitemap.xml');
     }
+
+    public function test_it_loads_the_search_page()
+    {
+        $this->visit('/search');
+    }
 }
