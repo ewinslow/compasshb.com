@@ -44,10 +44,13 @@ class BlogsController extends Controller
         if (!empty($blog->video)) {
             $video->setUrl($blog->video);
             $blog->iframe = $video->getEmbedCode();
+            $coverimage = $video->getThumbnail();
         }
 
-        return view('dashboard.blogs.show', compact('blog'))
-            ->with('title', $blog->title);
+        return view('dashboard.blogs.show',
+            compact('blog', 'coverimage'))
+            ->with('title', $blog->title)
+            ->with('ogdescription', 'Compass Bible Church Huntington Beach');
     }
 
     /**
