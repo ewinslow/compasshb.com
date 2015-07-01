@@ -6,6 +6,7 @@ use Auth;
 use Redirect;
 use CompassHB\Www\Passage;
 use CompassHB\Www\Http\Requests\PassageRequest;
+use CompassHB\Www\Repositories\Search\SearchRepository;
 use CompassHB\Www\Repositories\Analytics\AnalyticRepository;
 use CompassHB\Www\Repositories\Scripture\ScriptureRepository;
 
@@ -16,37 +17,26 @@ class PassagesController extends Controller
      */
     protected $analytics;
     protected $scripture;
+    protected $search;
 
-    public function __construct(AnalyticRepository $analytics, ScriptureRepository $scripture)
+    public function __construct(AnalyticRepository $analytics, ScriptureRepository $scripture, SearchRepository $search)
     {
         $this->analytics = $analytics;
         $this->scripture = $scripture;
+        $this->search = $search;
         $this->middleware('auth', ['only' => ['edit', 'update', 'create', 'store', 'destroy']]);
     }
 
     /**
-     * Show all passages.
+     * Show index/today's passage.
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        $passages = Passage::latest('published_at')->published()->take(5)->get();
-        $passage = $passages->first();
-        $passage->verses = $this->scripture->getScripture($passage->title);
-        $passage->audio = $this->scripture->getAudioScripture($passage->title);
+        $passage = Passage::latest('published_at')->published()->first();
 
-        $postflash = '';
-
-        if (date('D') == 'Sun' || date('D') == 'Sat') {
-            $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
-        }
-
-        $analytics = $this->analytics->getPageViews('/read', 'today', 'today');
-        $analytics['activeUsers'] = $this->analytics->getActiveUsers();
-
-        return view('dashboard.passages.index', compact('passages', 'passage', 'postflash', 'analytics'))
-            ->with('title', 'Scripture of the Day');
+        return $this->show($passage, true);
     }
 
     /**
@@ -56,8 +46,9 @@ class PassagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Passage $passage)
+    public function show(Passage $passage, $today = false)
     {
+        // For sidebar display
         $passages = Passage::latest('published_at')->published()->take(5)->get();
 
         $analytics = $this->analytics->getPageViews('/read', $passage->published_at->format('Y-m-d'), $passage->published_at->format('Y-m-d'));
@@ -66,14 +57,19 @@ class PassagesController extends Controller
         $passage->verses = $this->scripture->getScripture($passage->title);
         $passage->audio = $this->scripture->getAudioScripture($passage->title);
 
-        $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
-
-        if ($passage->published_at->isToday()) {
+        if ($today || $passage->published_at->isToday()) {
             $postflash = '';
+            $title = 'Scripture of the Day';
+            if (date('D') == 'Sun' || date('D') == 'Sat') {
+                $postflash = '<div class="alert alert-info" role="alert">Scripture of the Day is posted Monday through Friday.</div>';
+            }
+        } else {
+            $title = $passage->title;
+            $postflash = '<div class="alert alert-info" role="alert"><strong>New Post!</strong> You are reading an old post. For today\'s, <a href="/read">click here.</a></div>';
         }
 
         return view('dashboard.passages.show', compact('passage', 'passages', 'postflash', 'analytics'))
-            ->with('title', $passage->title);
+            ->with('title', $title);
     }
 
     /**
