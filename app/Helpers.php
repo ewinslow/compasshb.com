@@ -55,7 +55,7 @@ function makeRouteFromSlug($type, $slug)
         case 'blog':
             $route = 'blog.show';
             break;
-        case 'passage':
+        case 'read':
             $route = 'read.show';
             break;
         case 'worship':
