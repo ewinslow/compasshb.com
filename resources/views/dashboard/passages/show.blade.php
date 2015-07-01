@@ -17,11 +17,6 @@
   {!! $passage->body !!}
   {!! $passage->verses !!}
 
-  <hr/>
-  <h3>Related Sermons</h3>
-  <?php dd($related); ?>
-  <hr/>
-
 	@include('dashboard.passages.comments')
 
 @endsection
