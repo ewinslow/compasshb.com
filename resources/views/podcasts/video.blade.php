@@ -21,12 +21,7 @@
 				<title>{{ $sermon->title }}</title>
 				<link>{{ route('sermons.show', $sermon->slug) }}</link>
 				<itunes:subtitle>{{ $sermon->byline }} {{ $sermon->text }}</itunes:subtitle>
-				<?php
-                    $url = route('sermons.show', $sermon->slug).'/download';
-                    $headers = get_headers($url, 1);
-                    $download = end($headers['Location']);
-                ?>
-				<enclosure url="{!! $download !!}" length="160000000" type="audio/x-mp4" />
+				<enclosure url="{{ URL::to('/') }}/sermons/{{ $sermon->slug }}/download" length="160000000" type="audio/x-mp4" />
 				<description>{{ $sermon->byline }} {{ $sermon->text }}</description>
 				<pubDate>{{ $sermon->published_at->toRfc2822String() }}</pubDate>
 				<guid>{{ route('sermons.show', $sermon->slug) }}</guid>
