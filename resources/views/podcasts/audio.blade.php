@@ -2,7 +2,7 @@
 
 <rss xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 	<channel>
-		<title>Compass HB Sermons</title>
+		<title>Compass HB Audio</title>
 		<itunes:subtitle>Audio Podcast</itunes:subtitle>
 		<itunes:summary>Reaching, teaching, and training people for Christ</itunes:summary>
 		<description>Reaching, teaching, and training people for Christ</description>
