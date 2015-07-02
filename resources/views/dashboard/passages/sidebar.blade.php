@@ -6,6 +6,12 @@
   <div class="panel-body">
     <p>Read through a portion of scripture each day with your church family. Be encouraged by reading others' comments and leave your own.</p>
     <p>New content is posted Monday through Friday of each week.</p>
+    <p>
+      <a href="http://feeds.compasshb.com/read">Podcast</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?app_id=386571371526429&sdk=joey&u=https%3A%2F%2Fwww.compasshb.com%2Fread&display=popup&ref=plugin&src=share_button">Facebook</a>
+      <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.compasshb.com%2Fread&original_referer=https%3A%2F%2Fwww.compasshb.com%2Fread">Tweet</a>
+      <a href="{{ route('feed.read.xml') }}">RSS</a>
+    </p>
   </div>
 </div>
 
@@ -30,9 +36,3 @@
     </ul>
   </div>
 </div>
-
-<p><a href="http://feeds.compasshb.com/read" class="feedpress-button" name="feed-9178">Subscribe to Podcast</a></p>
-<script src="//static.feedpress.it/js/button.js" async></script>
-<p><div class="fb-share-button" data-href="{{ URL::to('/') }}/read" data-layout="button_count"></div></p>
-<p><a href="https://twitter.com/share" class="twitter-share-button" data-via="CompassHB" data-dnt="true">Tweet</a></p>
-<p><a href="{{ route('feed.read.xml') }}">RSS</a></p>
