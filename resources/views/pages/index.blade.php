@@ -58,7 +58,7 @@
     <div class="col-md-4 text-center" style="">
       <h2 class="tk-seravek-web">Directions</h2>
       <br/>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212337.23819364296!2d-118.04023200000005!3d33.740779999999994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25f2e1f15bbd%3A0x2b2a43000587dfc0!2s5082+Argosy+Ave%2C+Huntington+Beach%2C+CA+92649!5e0!3m2!1sen!2sus!4v1425366656204" width="300" height="275" frameborder="0" style="border:0"></iframe>
+      <a href="https://www.google.com/maps?ll=33.74078,-118.040232&z=10&t=m&hl=en-US&gl=US&mapclient=embed&q=5082+Argosy+Ave+Huntington+Beach,+CA+92649"><img data-src="/images/directions_huntington_beach_church.png" width="300" height="262" alt="Map to Compass HB" class="lazyload"/></a>
     </div>
     <div class="col-md-4 text-center">
       <h2 class="tk-seravek-web">Midweek</h2>
