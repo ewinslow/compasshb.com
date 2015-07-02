@@ -88,7 +88,7 @@
         @foreach($sermons as $sermon)
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{ $sermon->othumbnail }}" alt="{{ $sermon->title }}"/>
+                <img data-src="{{ $sermon->othumbnail }}" class="lazyload" alt="{{ $sermon->title }}"/>
                 <div class="caption">
                     <h4>{{ $sermon->title }}</h4>
                     <p><small>{{ date_format($sermon->published_at, 'F j, Y') }}</small><br/>
@@ -119,7 +119,7 @@
         @foreach($videos as $video)
         <div class="col-sm-6 col-md-6">
             <div class="thumbnail">
-                <img src="{{ $video->othumbnail }}" alt="{{ $video->title }}"/>
+                <img data-src="{{ $video->othumbnail }}" class="lazyload" alt="{{ $video->title }}"/>
                 <div class="caption">
                     <h4>{{ $video->title }}</h4>
                     <p><small>{{ date_format($video->published_at, 'F j, Y') }}</small></p>
@@ -139,7 +139,7 @@
 
         @foreach($images as $image)
         <div class="col-md-3" style="padding-bottom: 10px">
-            <a href="{{ $image[0] }}"><img src="{{ $image[1] }}" style="height: 175px;" alt="photos.compasshb.com"></a>
+            <a href="{{ $image[0] }}"><img data-src="{{ $image[1] }}" class="lazyload" style="height: 175px;" alt="photos.compasshb.com"></a>
         </div>
         @endforeach
     </div>
@@ -168,7 +168,7 @@
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
               <a href="{{ $instagram['link'] }}">
-                <img src="{{ $instagram['images']['standard_resolution']['url'] }}" alt="Compass HB Instagram"/>
+                <img data-src="{{ $instagram['images']['standard_resolution']['url'] }}" class="lazyload" alt="Compass HB Instagram"/>
               </a>
               <p style="padding: 10px">{{ $instagram['caption']['text'] }} </p>
             </div>
