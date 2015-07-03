@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.master')
 
 @section('content')
-<link rel="canonical" href="{{ route('read.show', $passages->first()->slug) }}/" />
+<link rel="canonical" href="{{ route('read.show', $passage->slug) }}/" />
 
   <p>{!! $postflash !!}</p>
 
@@ -21,8 +21,8 @@
 
   <h5 class="tk-seravek-web">This Week</h5>
     <ul>
-    @foreach ($passages as $passage)
-      <li><a href="{{ route('read.show', $passage->slug) }}">{{ $passage->title }}</a></li>
+    @foreach ($passages as $p)
+      <li><a href="{{ route('read.show', $p->slug) }}">{{ $p->title }}</a></li>
     @endforeach
     </ul>
 
