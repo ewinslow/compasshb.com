@@ -23,6 +23,5 @@
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('pray') }}">Pray</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ route('home') }}">Home</a></li>
       </ul>
-      <p class="navbar-text navbar-right hidden-xs" style="margin-right: 40px">{{ date('l, F j') }}</p>
     </div>
 </nav>

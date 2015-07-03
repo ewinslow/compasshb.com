@@ -5,17 +5,27 @@
 
   <p>{!! $postflash !!}</p>
 
-	<h1 class="tk-seravek-web">{{ $passage->title }}</h1>
-
-	<p>
-  		{{ Lang::choice('passages.active_users_count', $analytics['activeUsers']) }}
-  		{{ Lang::choice('passages.daily_sessions_count', $analytics['sessions']) }}
-	</p>
-
-  <audio src="{{ $passage->audio }}" controls="controls" ></audio><br/><br/>
+	<h1 class="tk-seravek-web">{{ $passage->title }}</h1><br/>
 
   {!! $passage->body !!}
   {!! $passage->verses !!}
+
+<hr/>
+
+<p>
+  {{ Lang::choice('passages.daily_sessions_count', $analytics['sessions']) }}
+  {{ Lang::choice('passages.active_users_count', $analytics['activeUsers']) }}
+</p>
+
+<audio src="{{ $passage->audio }}" controls="controls" ></audio><br/>
+
+  <h5 class="tk-seravek-web">This Week</h5>
+    <ul>
+    @foreach ($passages as $passage)
+      <li><a href="{{ route('read.show', $passage->slug) }}">{{ $passage->title }}</a></li>
+    @endforeach
+    </ul>
+
 
 	@include('dashboard.passages.comments')
 
@@ -23,7 +33,4 @@
 
 
 @section('sidebar')
-
-  @include('dashboard.passages.sidebar')
-
 @endsection

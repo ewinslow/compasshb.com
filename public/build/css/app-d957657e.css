@@ -8057,7 +8057,8 @@ button.close {
   display: none; }
 
 h3 {
-  text-align: left; }
+  text-align: left;
+  font-family: "minion-pro"; }
 
 span.verse-num {
   font-size: 70%;
@@ -8076,8 +8077,9 @@ span.chapter-num {
 
 div.esv-text p {
   text-indent: 2em;
-  font-size: 1.1875em;
-  line-height: 1.5789; }
+  font-size: 1.4em;
+  line-height: 1.5789;
+  font-family: "minion-pro"; }
 
 div.esv-text p.same-paragraph {
   text-indent: 0; }
