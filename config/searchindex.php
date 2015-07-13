@@ -32,6 +32,6 @@ return
                 /*
                  * The name of the index elasticsearch will write to
                  */
-                'defaultIndexName' => 'main',
+                'defaultIndexName' => env('ELASTICSEARCH_INDEX', 'local'),
             ],
     ];
