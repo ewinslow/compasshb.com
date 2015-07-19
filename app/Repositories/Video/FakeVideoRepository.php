@@ -8,7 +8,7 @@ class FakeVideoRepository implements VideoRepository
     {
     }
 
-    public function getEmbedCode()
+    public function getEmbedCode($api = false)
     {
         return '';
     }
@@ -23,7 +23,7 @@ class FakeVideoRepository implements VideoRepository
         return '';
     }
 
-    public function getTextTracks()
+    public function getTextTracks($parse = false)
     {
         return '';
     }

@@ -17,6 +17,9 @@ $fa-font-path: '../../fonts/';
 // Styles for the homepage drawer
 @import 'homepage';
 
+// Styles for the transcripts
+@import 'transcript';
+
 // General styles
 body, label, .checkbox label {
 	font-weight: 300;

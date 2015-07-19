@@ -17,10 +17,14 @@
     </form>
   @endif
 
-  <p>{{ $texttrack }}</p>
+  <div id="transcript">
+    {!! $texttrack !!}
+  </div>
 
   @unless($texttrack)
   <p>{!! $blog->body !!}</p>
   @endunless
+
+  @include('layouts.scripts-transcript')
 
 @endsection

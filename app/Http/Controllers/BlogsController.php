@@ -44,16 +44,10 @@ class BlogsController extends Controller
 
         if (!empty($blog->video)) {
             $video->setUrl($blog->video);
-            $blog->iframe = $video->getEmbedCode();
+            $blog->iframe = $video->getEmbedCode(true);
             $coverimage = $video->getThumbnail();
 
-            // TODO - clean up
-            // Get transcript from video caption file
-            // and basic formatting
-            $texttrack = $video->getTextTracks();
-            $texttrack = preg_replace('/WEBVTT/', '', $texttrack);
-            $texttrack = preg_replace('/[\d|\.|\:]+\s--> [\d|\.|\:]+/', '', $texttrack); // remove timestamps
-            $texttrack = preg_replace('/\r?\n|\r/', ' ', $texttrack); //newlines
+            $texttrack = $video->getTextTracks(true);
         }
 
         return view('dashboard.blogs.show',

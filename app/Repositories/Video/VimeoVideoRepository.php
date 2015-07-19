@@ -43,7 +43,7 @@ class VimeoVideoRepository implements VideoRepository
      *
      * @return string
      */
-    public function getEmbedCode()
+    public function getEmbedCode($api = false)
     {
         $request = $this->oembed_url.$this->url;
 
@@ -56,11 +56,18 @@ class VimeoVideoRepository implements VideoRepository
         }
 
         $response_body = json_decode($response->getBody());
+        $response = $response_body->html;
 
-        return $response_body->html;
+        // Add the API tag when Javascript needs to interact with the player
+        // per https://developer.vimeo.com/player/js-api
+        if ($api) {
+            $response = preg_replace('/" width=/', '?api=1&player_id=vimeoplayer" id="vimeoplayer" width=', $response);
+        }
+
+        return $response;
     }
 
-    public function getTextTracks()
+    public function getTextTracks($parse = false)
     {
         // Parse Vimeo video ID
         $videoId = substr($this->url, strrpos($this->url, '/') + 1);
@@ -85,6 +92,16 @@ class VimeoVideoRepository implements VideoRepository
                 }
 
                 curl_close($ch);
+
+                // Converts subtitles (VTT) to HTML
+                if ($parse) {
+                    $response = preg_replace('/WEBVTT\n\n([\d|\.|\:]+)\s--> [\d|\.|\:]+/', '<p class="paragraph"><data class="paragraph_time">$1</data><span class="paragraph_text" data-time="$1">', $response); // Opening paragraph no mark
+                    $response = preg_replace('/WEBVTT\n\nNOTE Paragraph\n\n([\d|\.|\:]+)\s--> [\d|\.|\:]+/', '<p class="paragraph"><data class="paragraph_time">$1</data><span class="paragraph_text" data-time="$1">', $response); // Opening paragraph with mark
+                    $response = preg_replace('/NOTE Paragraph\n\n([\d|\.|\:]+)\s--> [\d|\.|\:]+/', '</span></p><p class="paragraph"><data class="paragraph_time">$1</data><span class="paragraph_text" data-time="$1">', $response); // Other paragraphs
+                    $response = preg_replace('/\n\n([\d|\.|\:]+)\s--> [\d|\.|\:]+/', '</span><span class="paragraph_text" data-time="$1">', $response); // Data timestamp
+                    $response .= '</span></p>'; // Closing paragraph
+                    $response = preg_replace('/.\d\d\d/', '', $response); // remove milliseconds
+                }
 
                 return $response;
             }

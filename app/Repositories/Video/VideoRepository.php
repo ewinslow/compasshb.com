@@ -18,7 +18,7 @@ interface VideoRepository
      *
      * @return string
      */
-    public function getEmbedCode();
+    public function getEmbedCode($api = false);
 
     /**
      * Get the WebVTT (.vtt) caption file
@@ -26,14 +26,14 @@ interface VideoRepository
      *
      * @return string
      */
-    public function getTextTracks();
+    public function getTextTracks($parse = false);
 
     /**
      * The link to cover image.
      *
-     * @param string  $url
-     * @param boolean $large returns default thumbnail from the ombed call
-     *                       Set this to true if there is another way to grab a high resolution thumbnail
+     * @param string $url
+     * @param bool   $large returns default thumbnail from the ombed call
+     *                      Set this to true if there is another way to grab a high resolution thumbnail
      *
      * @return string
      */

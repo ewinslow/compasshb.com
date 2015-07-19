@@ -49,9 +49,10 @@ class SongsController extends Controller
     public function show(Song $song, VideoRepository $video)
     {
         $video->setUrl($song->video);
-        $song->iframe = $video->getEmbedCode();
+        $song->iframe = $video->getEmbedCode(true);
+        $texttrack = $video->getTextTracks(true);
 
-        return view('dashboard.songs.show', compact('song'))
+        return view('dashboard.songs.show', compact('song', 'texttrack'))
             ->with('title', $song->title);
     }
 

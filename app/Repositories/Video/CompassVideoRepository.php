@@ -31,9 +31,9 @@ class CompassVideoRepository implements VideoRepository
      *
      * @return string
      */
-    public function getEmbedCode()
+    public function getEmbedCode($api = false)
     {
-        return $this->service->getEmbedCode();
+        return $this->service->getEmbedCode($api);
     }
 
     /**
@@ -72,10 +72,9 @@ class CompassVideoRepository implements VideoRepository
     {
         return $this->service->getDownloadLink();
     }
-    
-    public function getTextTracks()
+
+    public function getTextTracks($parse = false)
     {
-        return $this->service->getTextTracks();
+        return $this->service->getTextTracks($parse);
     }
-    
 }

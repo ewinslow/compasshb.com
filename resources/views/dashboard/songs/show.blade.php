@@ -12,6 +12,18 @@
 	<p><a href="{{ $song->audio }}" class="btn btn-default">Download MP3</a></p>
   @endif
 
+  <div id="transcript">
+    {!! $texttrack !!}
+  </div>
+
+  <br/><br/><p>{{ $song->excerpt }}</p>
+
+
+
+  @unless($texttrack)
   <p>{!! $song->body !!}</p>
+  @endunless
+
+    @include('layouts.scripts-transcript')
 
 @endsection

@@ -34,7 +34,7 @@ class YouTubeVideoRepository implements VideoRepository
      *
      * @return string
      */
-    public function getEmbedCode()
+    public function getEmbedCode($api = false)
     {
         $request = 'https://www.youtube.com/oembed?url='.$this->url;
 
@@ -89,8 +89,8 @@ class YouTubeVideoRepository implements VideoRepository
     {
         return $this->url;
     }
-    
-    public function getTextTracks()
+
+    public function getTextTracks($parse = false)
     {
         return 0;
     }

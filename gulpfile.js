@@ -20,6 +20,7 @@ elixir(function(mix) {
         '../../../bower_components/jquery/dist/jquery.min.js',
         '../../../bower_components/lazysizes/lazysizes.min.js',
         '../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+//        '../../../bower_components/player-api/javascript/froogaloop.min.js',
     //    '../../../bower_components/medium-editor/dist/js/medium-editor.js',
     //    'compasshb-editor.js',
     //    'compasshb-serviceworker.js',

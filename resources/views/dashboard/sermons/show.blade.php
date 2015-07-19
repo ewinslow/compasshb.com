@@ -27,7 +27,9 @@
 
   <p>{!! $sermon->excerpt !!}</p>
 
-  <p>{{ $texttrack }}</p>
+  <div id="transcript">
+    {!! $texttrack !!}
+  </div>
 
   @unless($texttrack)
   <p>{!! $sermon->body !!}</p>
@@ -56,5 +58,7 @@
 
     </div>
   </div>
+
+    @include('layouts.scripts-transcript')
 
 @endsection
