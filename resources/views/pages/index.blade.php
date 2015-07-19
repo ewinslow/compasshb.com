@@ -28,7 +28,7 @@
   @endforeach
 
   <div class="col-md-2 col-md-offset-1" style="margin-top: 10px">
-    <a class="clickable" href="{{ route('read.index') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px; border: 4px #ddd solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://compasshb.smugmug.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
+    <a class="clickable" href="{{ route('read.index') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px;   border: 1px #555 solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://compasshb.smugmug.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
       <h4 class="tk-seravek-web">Scripture of<br/> the Day</h4>
       <p>{{ $passage->title }}</p>
     </a>

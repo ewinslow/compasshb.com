@@ -13,7 +13,7 @@
   @if ($blog->video)
     <form action="http://transcribe.compasshb.com/en/videos/create/" method="POST">
       <input type="hidden" name="video_url" value="{{ $blog->video }}"/>
-      <p style="float: right"><input type="submit" value="Translate" class="btn btn-default"/></p>
+      <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
     </form>
   @endif
 

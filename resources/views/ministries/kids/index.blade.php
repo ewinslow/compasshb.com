@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-</div>
+
 
 <style>
     .col-md-4 img {
@@ -9,7 +9,6 @@
     }
 </style>
 
-<div class="container-fluid">
     <div class="row" style="background:none; background-color: #a0a0a0; padding-top: 30px;padding-bottom: 30px;">
         <div class="col-xs-10 col-xs-offset-1">
             <h1 class="tk-seravek-web">Kids Ministry</h1>
@@ -85,7 +84,7 @@
         </div>
     </div>
 
-    <div class="row" style="padding: 30px;">
+    <div class="row" style="padding: 30px; background-color: #FFF">
         <div class="col-md-3">
             <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-pRVQ6Vg/0/S/150405_EAS_SS-404-S.jpg"/>
         </div>
@@ -97,9 +96,9 @@
         </div>
         <div class="col-md-3">
             <img src="https://compasshb.smugmug.com/PhotoArchive/Holiday-Events/Easter-Service-040515/i-gGMw4f7/0/S/150405_EAS_SS-379-S.jpg"/>
+    <br/><br/><br/>
         </div>
+
     </div>
 </div>
-
-<div class="container-fluid">
 @stop

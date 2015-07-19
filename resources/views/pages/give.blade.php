@@ -1,11 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<style>
-    .glyphicon {
-        font-size: 3em;
-    }
-</style>
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1"><br/>
@@ -72,8 +67,6 @@
             </a>
         </div>
     </div>
+        <br/><br/><br/>
 </div>
-@stop
-
-@section('sidebar')
 @stop

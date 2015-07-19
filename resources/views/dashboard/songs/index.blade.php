@@ -29,7 +29,8 @@
   </div>
 </div>
 
-    <div class="list-group">
+<div class="row">
+    <ol class="list-group">
         <a href="#" class="list-group-item disabled">
             <h4 class="list-group-item-heading">Last Week's Songs</h4>
             <p>{{ \Carbon\Carbon::parse($setlist[0]['date'])->format('l, F d') }}</p>
@@ -46,6 +47,7 @@
         </a>
     @endforeach
     </ol>
+</div>
 
 <script src="//jwpsrv.com/library/jA0rDsOIEeS9zw4AfQhyIQ.js"></script>
 <script>

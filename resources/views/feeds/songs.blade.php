@@ -4,7 +4,7 @@
 	@foreach ($songs as $song)
 		<item>
 			<title>{{ $song->title }}</title>
-			<description>{{ $song->excerpt }}</description>
+			<description></description>
 			<jwplayer:source file="{{ $song->audio }}"></jwplayer:source>
 		</item>
 	@endforeach
