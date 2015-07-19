@@ -63,10 +63,16 @@ class SermonsController extends Controller
     {
         $sermon = new Sermon($request->all());
         $worksheet = Input::file('worksheet');
+        $bulletin = Input::file('bulletin');
 
         // Save worksheet if one was uploaded
         if ($worksheet !== null) {
             $sermon->worksheet = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+        }
+
+        // Save bulletin if one was uploaded
+        if ($bulletin !== null) {
+            $sermon->bulletin = $upload->uploadAndSaveS3(\Input::file('bulletin'), 'bulletins');
         }
 
         Auth::user()->sermons()->save($sermon);
@@ -126,11 +132,17 @@ class SermonsController extends Controller
     public function update(Sermon $sermon, SermonRequest $request, UploadRepository $upload)
     {
         $worksheet = Input::file('worksheet');
+        $bulletin = Input::file('bulletin');
         $all = $request->all();
 
         // Replace worksheet if one was uploaded
         if ($worksheet !== null) {
             $all['worksheet'] = $upload->uploadAndSaveS3(\Input::file('worksheet'), 'worksheets');
+        }
+
+        // Replace worksheet if one was uploaded
+        if ($bulletin !== null) {
+            $all['bulletin'] = $upload->uploadAndSaveS3(\Input::file('bulletin'), 'bulletins');
         }
 
         $sermon->update($all);

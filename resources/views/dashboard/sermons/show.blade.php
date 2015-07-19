@@ -11,6 +11,11 @@
   @if ($sermon->worksheet != null)
   <a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a>
   @endif
+
+  @if ($sermon->bulletin != null)
+  <a href="{{ $sermon->bulletin }}" class="btn btn-default">Bulletin</a>
+  @endif
+
   </p>
   <p>{!! $sermon->excerpt !!}</p>
 

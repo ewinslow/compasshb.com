@@ -13,6 +13,7 @@ class Sermon extends Model implements Searchable
         'body',
         'excerpt',
         'worksheet',
+        'bulletin',
         'file',
         'teacher',
         'text',
@@ -45,6 +46,17 @@ class Sermon extends Model implements Searchable
     public function setExcerptAttribute($value)
     {
         $this->attributes['excerpt'] = $value ? $value : null;
+    }
+
+    /**
+     * Set the empty field to be null using
+     * a Larvel mutator function.
+     *
+     * @param $value
+     */
+    public function setBulletinAttribute($value)
+    {
+        $this->attributes['bulletin'] = $value ? $value : null;
     }
 
     /**
