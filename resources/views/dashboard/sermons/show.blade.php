@@ -2,8 +2,8 @@
 
 @section('content')
 
-	<h1 class="tk-seravek-web">{{ $sermon->title }}</h1><br/>
-  <p>{{{ $sermon->series->title or '' }}}</p>
+	<h1 class="tk-seravek-web">{{ $sermon->title }}</h1>
+  <p><a href="{{ route('series.show', $sermon->series->slug) }}" >{{{ $sermon->series->title or '' }}}</a></p><br/>
 
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>Text: {!! $sermon->text !!}</p>

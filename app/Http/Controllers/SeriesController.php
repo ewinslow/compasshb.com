@@ -21,7 +21,7 @@ class SeriesController extends Controller
      */
     public function index()
     {
-        $series = Series::all();
+        $series = Series::all()->reverse();
 
         return view('dashboard.series.index', compact('series'))
             ->with('title', 'Sermon Series');
