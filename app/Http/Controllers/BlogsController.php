@@ -40,12 +40,13 @@ class BlogsController extends Controller
     public function show(Blog $blog, VideoRepository $video)
     {
         $blog->iframe = '';
+        $texttrack = '';
 
         if (!empty($blog->video)) {
             $video->setUrl($blog->video);
             $blog->iframe = $video->getEmbedCode();
             $coverimage = $video->getThumbnail();
-            
+
             // TODO - clean up
             // Get transcript from video caption file
             // and basic formatting

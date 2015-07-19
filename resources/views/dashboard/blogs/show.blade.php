@@ -14,8 +14,11 @@
 
   @unless($texttrack)
   <p>{!! $blog->body !!}</p>
+  @endunless
 
+  @if ($blog->video)
   <p>Volunteer to transcribe or translate this <a href="http://transcribe.compasshb.com:8000">video here</a>.</p>
+  @endif
 
 @endsection
 

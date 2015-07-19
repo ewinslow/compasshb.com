@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Repositories\Video;
+<?php
+
+namespace CompassHB\Www\Repositories\Video;
 
 class FakeVideoRepository implements VideoRepository
 {
@@ -17,6 +19,11 @@ class FakeVideoRepository implements VideoRepository
     }
 
     public function getDownloadLink()
+    {
+        return '';
+    }
+
+    public function getTextTracks()
     {
         return '';
     }
