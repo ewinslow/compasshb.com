@@ -36,10 +36,3 @@
 
 
 @endsection
-
-
-@section('sidebar')
-
-  @include('dashboard.events.sidebar')
-
-@endsection

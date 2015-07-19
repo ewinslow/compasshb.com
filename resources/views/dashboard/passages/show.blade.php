@@ -30,7 +30,3 @@
 	@include('dashboard.passages.comments')
 
 @endsection
-
-
-@section('sidebar')
-@endsection

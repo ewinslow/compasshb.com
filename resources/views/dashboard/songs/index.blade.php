@@ -29,10 +29,6 @@
   </div>
 </div>
 
-@endsection
-
-@section('sidebar')
-
     <div class="list-group">
         <a href="#" class="list-group-item disabled">
             <h4 class="list-group-item-heading">Last Week's Songs</h4>

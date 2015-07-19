@@ -20,11 +20,6 @@
   @endforeach
 </div>
 
-@endsection
-
-
-@section('sidebar')
-
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">About</h3>
@@ -46,5 +41,5 @@
    </div>
 </div>
 
-
 @endsection
+

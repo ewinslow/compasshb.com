@@ -24,11 +24,6 @@
     @endforeach
     </ul>
 
-@endsection
-
-
-@section('sidebar')
-
     <br/><br/><br/>
     <div class="panel panel-default">
       <div class="panel-heading">

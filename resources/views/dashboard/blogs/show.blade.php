@@ -10,21 +10,17 @@
 	<p>{{ $blog->byline }}</p>
 	<div class="videocontainer">{!! $blog->iframe !!}</div>
 
+  @if ($blog->video)
+    <form action="http://transcribe.compasshb.com/en/videos/create/" method="POST">
+      <input type="hidden" name="video_url" value="{{ $blog->video }}"/>
+      <p style="float: right"><input type="submit" value="Translate" class="btn btn-default"/></p>
+    </form>
+  @endif
+
   <p>{{ $texttrack }}</p>
 
   @unless($texttrack)
   <p>{!! $blog->body !!}</p>
   @endunless
-
-  @if ($blog->video)
-  <p>Volunteer to transcribe or translate this <a href="http://transcribe.compasshb.com:8000">video here</a>.</p>
-  @endif
-
-@endsection
-
-
-@section('sidebar')
-
-  @include('dashboard.blogs.sidebar')
 
 @endsection

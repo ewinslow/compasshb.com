@@ -9,7 +9,7 @@ body
 
 @include('layouts.dashboard.nav')
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-bottom: 75px;">
       <div class="row">
 
       @include('layouts.dashboard.sidenav')

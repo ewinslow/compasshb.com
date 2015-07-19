@@ -25,9 +25,7 @@
     </div>
   </div>
 </div>
-@endsection
 
-@section('sidebar')
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title tk-seravek-web">Distinctive #5</h3>
@@ -38,4 +36,6 @@
     <p><a href="{{ route('distinctives') }}">8 Distinctives</a></p>
   </div>
 </div>
+
 @endsection
+

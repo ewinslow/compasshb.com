@@ -34,10 +34,3 @@
 
 
 @endsection
-
-
-@section('sidebar')
-
-  @include('dashboard.fellowships.sidebar')
-
-@endsection

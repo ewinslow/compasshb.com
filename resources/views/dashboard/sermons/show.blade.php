@@ -7,6 +7,12 @@
 
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>Text: {!! $sermon->text !!}</p>
+
+  <form action="http://transcribe.compasshb.com/en/videos/create/" method="POST">
+    <input type="hidden" name="video_url" value="{{ $sermon->video }}"/>
+    <p style="float: right"><input type="submit" value="Translate" class="btn btn-default"/></p>
+  </form>
+
   <p>
   @if ($sermon->worksheet != null)
   <a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a>
@@ -15,8 +21,8 @@
   @if ($sermon->bulletin != null)
   <a href="{{ $sermon->bulletin }}" class="btn btn-default">Bulletin</a>
   @endif
-
   </p>
+
   <p>{!! $sermon->excerpt !!}</p>
 
   <p>{{ $texttrack }}</p>
@@ -24,8 +30,6 @@
   @unless($texttrack)
   <p>{!! $sermon->body !!}</p>
   @endunless
-
-  <p>Volunteer to transcribe or translate this <a href="http://transcribe.compasshb.com:8000">video here</a>.</p>
 
   <br/><br/>
   <div class="panel panel-default">
