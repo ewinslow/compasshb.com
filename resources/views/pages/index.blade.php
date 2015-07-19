@@ -5,9 +5,9 @@
 <div class="drawer row">
   <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;">
            <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }});     background-position: center;">
-                <p>Watch Latest Sermon</p>
-                <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
+                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }}); background-position: center;">
+                <p style="position: absolute; text-transform: none; top: -19px; left: 55px; padding: 10px; font-size: 1.1em; background-color: #DD3F2E">Latest Sermon</p>
+                <br/><br/><h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
                 <p>{{{ $prevsermon->series->title or '' }}}</p>
                 <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
                 </a>
@@ -36,11 +36,13 @@
 <br/><br/>
 </div>
 
-<div class="row" style="background: none; background-color: #497f9e; padding-top: 0px; padding-bottom: 15px; border-top: 3px solid #fff;">
+<div class="row" style="background: none; background-color: #497f9e; padding-top: 0px; padding-bottom: 15px; border-top: 2px #555 solid;
+">
   <div class="col-sm-10 col-sm-offset-1">
     <center>
     <h3 style="color: #FFF; text-align: center; margin-bottom: 5px" class="tk-seravek-web">Compass HB exists to make disciples of Jesus Christ</h3>
-    <p style="color: #FFF; font-size: 1.25em">by <strong>reaching</strong> as many people as possible for Christ, <strong>teaching</strong> them to be like Christ, and <strong>training</strong> them to serve Christ.</p>
+    <p style="color: #FFF; font-size: 1.25em">by <strong>reaching</strong> as many people as possible for Christ, <strong>teaching</strong> them to be like Christ, and <strong>training</strong> them to serve Christ.</p><br/>
+    <p><a href="{{ route('who-we-are') }}" class="btn btn-default">Find out more about Compass HB</a></p>
     </center>
   </div>
 </div>
