@@ -14,6 +14,7 @@ class VimeoVideoRepository implements VideoRepository
     private $clientSecret;
     private $token;
     private $domain = 'vimeo.com';
+    private $oembed_url = 'https://vimeo.com/api/oembed.json?autoplay=false&url=';
 
     public function __construct()
     {
@@ -44,7 +45,7 @@ class VimeoVideoRepository implements VideoRepository
      */
     public function getEmbedCode()
     {
-        $request = 'https://vimeo.com/api/oembed.json?autoplay=false&url='.$this->url;
+        $request = $this->oembed_url.$this->url;
 
         try {
             $response = $this->client->get($request);
@@ -57,6 +58,43 @@ class VimeoVideoRepository implements VideoRepository
         $response_body = json_decode($response->getBody());
 
         return $response_body->html;
+    }
+
+    public function getTextTracks()
+    {
+        // Parse Vimeo video ID
+        $videoId = substr($this->url, strrpos($this->url, '/') + 1);
+
+        try {
+            $video = $this->vimeoClient->request("/videos/$videoId/texttracks");
+
+            if ($video['status'] == 200) {
+                $request = $video['body']['data'][0]['link'];
+
+                // Using CURL because Guzzle does not like the + sign in the querystring
+                $ch = curl_init($request);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $response = curl_exec($ch);
+
+                /* Check for 404 (file not found). */
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                if ($httpCode == 404) {
+                    Log::warning('Connection refused to  www.esvapi.org');
+
+                    $response = 'Connection error: www.vimeo.com. Please try again.';
+                }
+
+                curl_close($ch);
+
+                return $response;
+            }
+
+            return;
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to vimeo.com');
+
+            return;
+        }
     }
 
     /**

@@ -85,11 +85,19 @@ class SermonsController extends Controller
     {
         $video->setUrl($sermon->video);
 
+        // TODO - clean up
+        // Get transcript from video caption file
+        // and basic formatting
+        $texttrack = $video->getTextTracks();
+        $texttrack = preg_replace('/WEBVTT/', '', $texttrack);
+        $texttrack = preg_replace('/[\d|\.|\:]+\s--> [\d|\.|\:]+/', '', $texttrack); // remove timestamps
+        $texttrack = preg_replace('/\r?\n|\r/', ' ', $texttrack); //newlines
+
         $sermon->iframe = $video->getEmbedCode();
         $coverimage = $video->getThumbnail();
 
         return view('dashboard.sermons.show',
-            compact('sermon', 'coverimage'))
+            compact('sermon', 'coverimage', 'texttrack'))
             ->with('title', $sermon->title)
             ->with('ogdescription', $sermon->excerpt);
     }

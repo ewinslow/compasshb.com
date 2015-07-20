@@ -13,8 +13,14 @@
   @endif
   </p>
   <p>{!! $sermon->excerpt !!}</p>
-  <p>{!! $sermon->body !!}</p>
 
+  <p>{{ $texttrack }}</p>
+
+  @unless($texttrack)
+  <p>{!! $sermon->body !!}</p>
+  @endunless
+
+  <p>Volunteer to transcribe or translate this <a href="http://transcribe.compasshb.com:8000">video here</a>.</p>
 @endsection
 
 

@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Repositories\Video;
+<?php
+
+namespace CompassHB\Www\Repositories\Video;
 
 interface VideoRepository
 {
@@ -17,6 +19,14 @@ interface VideoRepository
      * @return string
      */
     public function getEmbedCode();
+
+    /**
+     * Get the WebVTT (.vtt) caption file
+     * attached to a video.
+     *
+     * @return string
+     */
+    public function getTextTracks();
 
     /**
      * The link to cover image.

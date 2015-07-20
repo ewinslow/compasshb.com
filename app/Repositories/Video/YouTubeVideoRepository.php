@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Repositories\Video;
+<?php
+
+namespace CompassHB\Www\Repositories\Video;
 
 use Log;
 use Cache;
@@ -86,5 +88,10 @@ class YouTubeVideoRepository implements VideoRepository
     public function getDownloadLink()
     {
         return $this->url;
+    }
+    
+    public function getTextTracks()
+    {
+        return 0;
     }
 }

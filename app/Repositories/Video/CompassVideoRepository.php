@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Repositories\Video;
+<?php
+
+namespace CompassHB\Www\Repositories\Video;
 
 class CompassVideoRepository implements VideoRepository
 {
@@ -70,4 +72,10 @@ class CompassVideoRepository implements VideoRepository
     {
         return $this->service->getDownloadLink();
     }
+    
+    public function getTextTracks()
+    {
+        return $this->service->getTextTracks();
+    }
+    
 }

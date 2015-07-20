@@ -45,10 +45,18 @@ class BlogsController extends Controller
             $video->setUrl($blog->video);
             $blog->iframe = $video->getEmbedCode();
             $coverimage = $video->getThumbnail();
+            
+            // TODO - clean up
+            // Get transcript from video caption file
+            // and basic formatting
+            $texttrack = $video->getTextTracks();
+            $texttrack = preg_replace('/WEBVTT/', '', $texttrack);
+            $texttrack = preg_replace('/[\d|\.|\:]+\s--> [\d|\.|\:]+/', '', $texttrack); // remove timestamps
+            $texttrack = preg_replace('/\r?\n|\r/', ' ', $texttrack); //newlines
         }
 
         return view('dashboard.blogs.show',
-            compact('blog', 'coverimage'))
+            compact('blog', 'coverimage', 'texttrack'))
             ->with('title', $blog->title)
             ->with('ogdescription', 'Compass Bible Church Huntington Beach');
     }
