@@ -1,5 +1,5 @@
 # Config Github Settings
-github_username = "bradmsmith"
+github_username = "fideloper"
 github_repo = "Vaprobash"
 github_branch = "master"
 github_url = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
