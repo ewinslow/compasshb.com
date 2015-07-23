@@ -178,14 +178,13 @@ class PagesController extends Controller
     {
         $results = ['hits' => ['hits' => []]];
 
-        $q = Request::get('search');
+        $query = Request::get('q');
 
-        if (isset($q)) {
-            $term = $q;
-            $results = $search->search($q);
+        if (isset($query)) {
+            $results = $search->search($query);
         }
 
-        return view('dashboard.search.index', compact('results', 'term'));
+        return view('dashboard.search.index', compact('results', 'query'));
     }
 
     public function sitemap(VideoRepository $video, EventRepository $event)
