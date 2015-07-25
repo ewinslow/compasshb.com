@@ -265,6 +265,7 @@ class PagesController extends Controller
             $event->search('#featuredevents');
         }
 
-        return 'Success';
+        return redirect()
+            ->route('home');
     }
 }
