@@ -10,7 +10,7 @@
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>Text: {!! $sermon->text !!}</p>
 
-  <form action="http://transcribe.compasshb.com/en/videos/create/" method="POST">
+  <form action="https://transcribe.compasshb.com/en/videos/create/" method="POST">
     <input type="hidden" name="video_url" value="{{ $sermon->video }}"/>
     <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
   </form>
