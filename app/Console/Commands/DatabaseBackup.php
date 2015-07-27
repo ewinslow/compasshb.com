@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Console\Commands;
+<?php
+
+namespace CompassHB\Www\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\Cloud;
@@ -39,7 +41,7 @@ class DatabaseBackup extends Command
         );
         exec($command);
 
-        $cloud->put('database/database_'.time().'sql.gz.gpg', $filename);
+        $cloud->put('database/database_'.time().'.sql.gz.gpg', $filename);
         exec('rm '.$filename);
     }
 }
