@@ -540,7 +540,7 @@
             s = [],
             t = j,
             u = f || e && d.find.TAG("*", k),
-            v = w += null == t ? 1 : Math.random() || 0.1,
+            v = w += null == t ? 1 : Math.random() || .1,
             x = u.length;for (k && (j = g !== n && g); q !== x && null != (l = u[q]); q++) {
           if (e && l) {
             m = 0;while (o = a[m++]) if (o(l, g, h)) {
@@ -1212,7 +1212,7 @@
         e = l.createElement("div"),
         f = l.createElement("div");if (f.style) {
       (function () {
-        var g = function () {
+        var g = function g() {
           f.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;margin-top:1%;top:1%;border:1px;padding:1px;width:4px;position:absolute", f.innerHTML = "", d.appendChild(e);var g = a.getComputedStyle(f, null);b = "1%" !== g.top, c = "4px" === g.width, d.removeChild(e);
         };
 
@@ -1318,7 +1318,7 @@
     } }, n.easing = { linear: function linear(a) {
       return a;
     }, swing: function swing(a) {
-      return 0.5 - Math.cos(a * Math.PI) / 2;
+      return .5 - Math.cos(a * Math.PI) / 2;
     } }, n.fx = Ka.prototype.init, n.fx.step = {};var La,
       Ma,
       Na = /^(?:toggle|show|hide)$/,
@@ -1908,10 +1908,182 @@
   }, typeof b === U && (a.jQuery = a.$ = n), n);
 });
 //# sourceMappingURL=jquery.min.map
+/*! lazysizes - v1.1.3 -  Licensed MIT */
+!(function (a, b) {
+  var c = b(a, a.document);a.lazySizes = c, "object" == typeof module && module.exports ? module.exports = c : "function" == typeof define && define.amd && define(c);
+})(window, function (a, b) {
+  "use strict";if (b.getElementsByClassName) {
+    var c,
+        d = b.documentElement,
+        e = a.addEventListener,
+        f = a.setTimeout,
+        g = a.requestAnimationFrame || f,
+        h = /^picture$/i,
+        i = ["load", "error", "lazyincluded", "_lazyloaded"],
+        j = function j(a, b) {
+      var c = new RegExp("(\\s|^)" + b + "(\\s|$)");return a.className.match(c) && c;
+    },
+        k = function k(a, b) {
+      j(a, b) || (a.className += " " + b);
+    },
+        l = function l(a, b) {
+      var c;(c = j(a, b)) && (a.className = a.className.replace(c, " "));
+    },
+        m = function m(a, b, c) {
+      var d = c ? "addEventListener" : "removeEventListener";c && m(a, b), i.forEach(function (c) {
+        a[d](c, b);
+      });
+    },
+        n = function n(a, c, d, e, f) {
+      var g = b.createEvent("CustomEvent");return (g.initCustomEvent(c, !e, !f, d || {}), g.details = g.detail, a.dispatchEvent(g), g);
+    },
+        o = function o(b, d) {
+      var e;a.HTMLPictureElement || ((e = a.picturefill || a.respimage || c.pf) ? e({ reevaluate: !0, elements: [b] }) : d && d.src && (b.src = d.src));
+    },
+        p = function p(a, b) {
+      return getComputedStyle(a, null)[b];
+    },
+        q = function q(a, b, d) {
+      for (d = d || a.offsetWidth; d < c.minSize && b && !a._lazysizesWidth;) d = b.offsetWidth, b = b.parentNode;return d;
+    },
+        r = function r(b) {
+      var d,
+          e = 0,
+          h = a.Date,
+          i = function i() {
+        d = !1, e = h.now(), b();
+      },
+          j = function j() {
+        f(i);
+      },
+          k = function k() {
+        g(j);
+      };return function () {
+        if (!d) {
+          var a = c.throttle - (h.now() - e);d = !0, 9 > a && (a = 9), f(k, a);
+        }
+      };
+    },
+        s = (function () {
+      var i,
+          q,
+          s,
+          u,
+          v,
+          w,
+          x,
+          y,
+          z,
+          A,
+          B,
+          C,
+          D,
+          E = /^img$/i,
+          F = /^iframe$/i,
+          G = "onscroll" in a && !/glebot/.test(navigator.userAgent),
+          H = 0,
+          I = 0,
+          J = 0,
+          K = 1,
+          L = function L(a) {
+        J--, a && a.target && m(a.target, L), (!a || 0 > J || !a.target) && (J = 0);
+      },
+          M = function M(a, b) {
+        var c,
+            d = a,
+            e = "hidden" != p(a, "visibility");for (y -= b, B += b, z -= b, A += b; e && (d = d.offsetParent);) e = (p(d, "opacity") || 1) > 0, e && "visible" != p(d, "overflow") && (c = d.getBoundingClientRect(), e = A > c.left && z < c.right && B > c.top - 1 && y < c.bottom + 1);return e;
+      },
+          N = function N() {
+        var a, b, d, e, f, g, h, j, k;if ((v = c.loadMode) && 8 > J && (a = i.length)) {
+          for (b = 0, K++, D > I && 1 > J && K > 3 && v > 2 ? (I = D, K = 0) : I = I != C && v > 1 && K > 2 && 6 > J ? C : H; a > b; b++) i[b] && !i[b]._lazyRace && (G ? ((j = i[b].getAttribute("data-expand")) && (g = 1 * j) || (g = I), k !== g && (w = innerWidth + g, x = innerHeight + g, h = -1 * g, k = g), d = i[b].getBoundingClientRect(), (B = d.bottom) >= h && (y = d.top) <= x && (A = d.right) >= h && (z = d.left) <= w && (B || A || z || y) && (s && 3 > J && !j && (3 > v || 4 > K) || M(i[b], g)) ? (S(i[b], d.width), f = !0) : !f && s && !e && 3 > J && 4 > K && v > 2 && (q[0] || c.preloadAfterLoad) && (q[0] || !j && (B || A || z || y || "auto" != i[b].getAttribute(c.sizesAttr))) && (e = q[0] || i[b])) : S(i[b]));e && !f && S(e);
+        }
+      },
+          O = r(N),
+          P = function P(a) {
+        k(a.target, c.loadedClass), l(a.target, c.loadingClass), m(a.target, P);
+      },
+          Q = function Q(a, b) {
+        try {
+          a.contentWindow.location.replace(b);
+        } catch (c) {
+          a.setAttribute("src", b);
+        }
+      },
+          R = (function () {
+        var a,
+            b = [],
+            c = function c() {
+          for (; b.length;) b.shift()();a = !1;
+        };return function (d) {
+          b.push(d), a || (a = !0, g(c));
+        };
+      })(),
+          S = function S(a, b) {
+        var d,
+            e,
+            g,
+            i,
+            p,
+            q,
+            r,
+            v,
+            w,
+            x,
+            y,
+            z = E.test(a.nodeName),
+            A = a.getAttribute(c.sizesAttr) || a.getAttribute("sizes"),
+            B = "auto" == A;(!B && s || !z || !a.src && !a.srcset || a.complete || j(a, c.errorClass)) && (a._lazyRace = !0, J++, R(function () {
+          if ((a._lazyRace && delete a._lazyRace, l(a, c.lazyClass), !(w = n(a, "lazybeforeunveil")).defaultPrevented)) {
+            if ((A && (B ? (t.updateElem(a, !0, b), k(a, c.autosizesClass)) : a.setAttribute("sizes", A)), q = a.getAttribute(c.srcsetAttr), p = a.getAttribute(c.srcAttr), z && (r = a.parentNode, v = r && h.test(r.nodeName || "")), x = w.detail.firesLoad || "src" in a && (q || p || v), w = { target: a }, x && (m(a, L, !0), clearTimeout(u), u = f(L, 2500), k(a, c.loadingClass), m(a, P, !0)), v)) for (d = r.getElementsByTagName("source"), e = 0, g = d.length; g > e; e++) (y = c.customMedia[d[e].getAttribute("data-media") || d[e].getAttribute("media")]) && d[e].setAttribute("media", y), i = d[e].getAttribute(c.srcsetAttr), i && d[e].setAttribute("srcset", i);q ? a.setAttribute("srcset", q) : p && (F.test(a.nodeName) ? Q(a, p) : a.setAttribute("src", p)), (q || v) && o(a, { src: p });
+          }(!x || a.complete) && (x ? L(w) : J--, P(w));
+        }));
+      },
+          T = function T() {
+        var a,
+            b = function b() {
+          c.loadMode = 3, O();
+        };s = !0, K += 8, c.loadMode = 3, e("scroll", function () {
+          3 == c.loadMode && (c.loadMode = 2), clearTimeout(a), a = f(b, 99);
+        }, !0);
+      };return { _: function _() {
+          i = b.getElementsByClassName(c.lazyClass), q = b.getElementsByClassName(c.lazyClass + " " + c.preloadClass), C = c.expand, D = Math.round(C * c.expFactor), e("scroll", O, !0), e("resize", O, !0), a.MutationObserver ? new MutationObserver(O).observe(d, { childList: !0, subtree: !0, attributes: !0 }) : (d.addEventListener("DOMNodeInserted", O, !0), d.addEventListener("DOMAttrModified", O, !0), setInterval(O, 999)), e("hashchange", O, !0), ["focus", "mouseover", "click", "load", "transitionend", "animationend", "webkitAnimationEnd"].forEach(function (a) {
+            b.addEventListener(a, O, !0);
+          }), (s = /d$|^c/.test(b.readyState)) ? T() : (e("load", T), b.addEventListener("DOMContentLoaded", O)), O();
+        }, checkElems: O, unveil: S };
+    })(),
+        t = (function () {
+      var a,
+          d = function d(a, b, c) {
+        var d,
+            e,
+            f,
+            g,
+            i = a.parentNode;if (i && (c = q(a, i, c), g = n(a, "lazybeforesizes", { width: c, dataAttr: !!b }), !g.defaultPrevented && (c = g.detail.width, c && c !== a._lazysizesWidth))) {
+          if ((a._lazysizesWidth = c, c += "px", a.setAttribute("sizes", c), h.test(i.nodeName || ""))) for (d = i.getElementsByTagName("source"), e = 0, f = d.length; f > e; e++) d[e].setAttribute("sizes", c);g.detail.dataAttr || o(a, g.detail);
+        }
+      },
+          f = function f() {
+        var b,
+            c = a.length;if (c) for (b = 0; c > b; b++) d(a[b]);
+      },
+          g = r(f);return { _: function _() {
+          a = b.getElementsByClassName(c.autosizesClass), e("resize", g);
+        }, checkElems: g, updateElem: d };
+    })(),
+        u = function u() {
+      u.i || (u.i = !0, t._(), s._());
+    };return ((function () {
+      var b,
+          d = { lazyClass: "lazyload", loadedClass: "lazyloaded", loadingClass: "lazyloading", preloadClass: "lazypreload", errorClass: "lazyerror", autosizesClass: "lazyautosizes", srcAttr: "data-src", srcsetAttr: "data-srcset", sizesAttr: "data-sizes", minSize: 40, customMedia: {}, init: !0, expFactor: 2, expand: 359, loadMode: 2, throttle: 125 };c = a.lazySizesConfig || a.lazysizesConfig || {};for (b in d) b in c || (c[b] = d[b]);a.lazySizesConfig = c, f(function () {
+        c.init && u();
+      });
+    })(), { cfg: c, autoSizer: t, loader: s, init: u, uP: o, aC: k, rC: l, hC: j, fire: n, gW: q });
+  }
+});
 /*!
- * Bootstrap v3.3.4 (http://getbootstrap.com)
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under the MIT license
  */
 if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requires jQuery");+(function (a) {
   "use strict";var b = a.fn.jquery.split(" ")[0].split(".");if (b[0] < 2 && b[1] < 9 || 1 == b[0] && 9 == b[1] && b[2] < 1) throw new Error("Bootstrap's JavaScript requires jQuery version 1.9.1 or higher");
@@ -1940,7 +2112,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
   }var c = "[data-dismiss=\"alert\"]",
       d = function d(b) {
     a(b).on("click", c, this.close);
-  };d.VERSION = "3.3.4", d.TRANSITION_DURATION = 150, d.prototype.close = function (b) {
+  };d.VERSION = "3.3.5", d.TRANSITION_DURATION = 150, d.prototype.close = function (b) {
     function c() {
       g.detach().trigger("closed.bs.alert").remove();
     }var e = a(this),
@@ -1957,7 +2129,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   }var c = function c(b, d) {
     this.$element = a(b), this.options = a.extend({}, c.DEFAULTS, d), this.isLoading = !1;
-  };c.VERSION = "3.3.4", c.DEFAULTS = { loadingText: "loading..." }, c.prototype.setState = function (b) {
+  };c.VERSION = "3.3.5", c.DEFAULTS = { loadingText: "loading..." }, c.prototype.setState = function (b) {
     var c = "disabled",
         d = this.$element,
         e = d.is("input") ? "val" : "html",
@@ -1967,12 +2139,12 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
   }, c.prototype.toggle = function () {
     var a = !0,
         b = this.$element.closest("[data-toggle=\"buttons\"]");if (b.length) {
-      var c = this.$element.find("input");"radio" == c.prop("type") && (c.prop("checked") && this.$element.hasClass("active") ? a = !1 : b.find(".active").removeClass("active")), a && c.prop("checked", !this.$element.hasClass("active")).trigger("change");
-    } else this.$element.attr("aria-pressed", !this.$element.hasClass("active"));a && this.$element.toggleClass("active");
+      var c = this.$element.find("input");"radio" == c.prop("type") ? (c.prop("checked") && (a = !1), b.find(".active").removeClass("active"), this.$element.addClass("active")) : "checkbox" == c.prop("type") && (c.prop("checked") !== this.$element.hasClass("active") && (a = !1), this.$element.toggleClass("active")), c.prop("checked", this.$element.hasClass("active")), a && c.trigger("change");
+    } else this.$element.attr("aria-pressed", !this.$element.hasClass("active")), this.$element.toggleClass("active");
   };var d = a.fn.button;a.fn.button = b, a.fn.button.Constructor = c, a.fn.button.noConflict = function () {
     return (a.fn.button = d, this);
   }, a(document).on("click.bs.button.data-api", "[data-toggle^=\"button\"]", function (c) {
-    var d = a(c.target);d.hasClass("btn") || (d = d.closest(".btn")), b.call(d, "toggle"), c.preventDefault();
+    var d = a(c.target);d.hasClass("btn") || (d = d.closest(".btn")), b.call(d, "toggle"), a(c.target).is("input[type=\"radio\"]") || a(c.target).is("input[type=\"checkbox\"]") || c.preventDefault();
   }).on("focus.bs.button.data-api blur.bs.button.data-api", "[data-toggle^=\"button\"]", function (b) {
     a(b.target).closest(".btn").toggleClass("focus", /^focus(in)?$/.test(b.type));
   });
@@ -1996,7 +2168,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     return c;
   })(function (b, c) {
     this.$element = a(b), this.$indicators = this.$element.find(".carousel-indicators"), this.options = c, this.paused = null, this.sliding = null, this.interval = null, this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", a.proxy(this.keydown, this)), "hover" == this.options.pause && !("ontouchstart" in document.documentElement) && this.$element.on("mouseenter.bs.carousel", a.proxy(this.pause, this)).on("mouseleave.bs.carousel", a.proxy(this.cycle, this));
-  });c.VERSION = "3.3.4", c.TRANSITION_DURATION = 600, c.DEFAULTS = { interval: 5000, pause: "hover", wrap: !0, keyboard: !0 }, c.prototype.keydown = function (a) {
+  });c.VERSION = "3.3.5", c.TRANSITION_DURATION = 600, c.DEFAULTS = { interval: 5e3, pause: "hover", wrap: !0, keyboard: !0 }, c.prototype.keydown = function (a) {
     if (!/input|textarea/i.test(a.target.tagName)) {
       switch (a.which) {case 37:
           this.prev();break;case 39:
@@ -2063,7 +2235,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   }var d = function d(b, c) {
     this.$element = a(b), this.options = a.extend({}, d.DEFAULTS, c), this.$trigger = a("[data-toggle=\"collapse\"][href=\"#" + b.id + "\"],[data-toggle=\"collapse\"][data-target=\"#" + b.id + "\"]"), this.transitioning = null, this.options.parent ? this.$parent = this.getParent() : this.addAriaAndCollapsedClass(this.$element, this.$trigger), this.options.toggle && this.toggle();
-  };d.VERSION = "3.3.4", d.TRANSITION_DURATION = 350, d.DEFAULTS = { toggle: !0 }, d.prototype.dimension = function () {
+  };d.VERSION = "3.3.5", d.TRANSITION_DURATION = 350, d.DEFAULTS = { toggle: !0 }, d.prototype.dimension = function () {
     var a = this.$element.hasClass("width");return a ? "width" : "height";
   }, d.prototype.show = function () {
     if (!this.transitioning && !this.$element.hasClass("in")) {
@@ -2101,13 +2273,13 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
   });
 })(jQuery), +(function (a) {
   "use strict";function b(b) {
-    b && 3 === b.which || (a(e).remove(), a(f).each(function () {
-      var d = a(this),
-          e = c(d),
-          f = { relatedTarget: this };e.hasClass("open") && (e.trigger(b = a.Event("hide.bs.dropdown", f)), b.isDefaultPrevented() || (d.attr("aria-expanded", "false"), e.removeClass("open").trigger("hidden.bs.dropdown", f)));
-    }));
-  }function c(b) {
     var c = b.attr("data-target");c || (c = b.attr("href"), c = c && /#[A-Za-z]/.test(c) && c.replace(/.*(?=#[^\s]*$)/, ""));var d = c && a(c);return d && d.length ? d : b.parent();
+  }function c(c) {
+    c && 3 === c.which || (a(e).remove(), a(f).each(function () {
+      var d = a(this),
+          e = b(d),
+          f = { relatedTarget: this };e.hasClass("open") && (c && "click" == c.type && /input|textarea/i.test(c.target.tagName) && a.contains(e[0], c.target) || (e.trigger(c = a.Event("hide.bs.dropdown", f)), c.isDefaultPrevented() || (d.attr("aria-expanded", "false"), e.removeClass("open").trigger("hidden.bs.dropdown", f))));
+    }));
   }function d(b) {
     return this.each(function () {
       var c = a(this),
@@ -2117,28 +2289,28 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
       f = "[data-toggle=\"dropdown\"]",
       g = function g(b) {
     a(b).on("click.bs.dropdown", this.toggle);
-  };g.VERSION = "3.3.4", g.prototype.toggle = function (d) {
+  };g.VERSION = "3.3.5", g.prototype.toggle = function (d) {
     var e = a(this);if (!e.is(".disabled, :disabled")) {
-      var f = c(e),
-          g = f.hasClass("open");if ((b(), !g)) {
-        "ontouchstart" in document.documentElement && !f.closest(".navbar-nav").length && a("<div class=\"dropdown-backdrop\"/>").insertAfter(a(this)).on("click", b);var h = { relatedTarget: this };if ((f.trigger(d = a.Event("show.bs.dropdown", h)), d.isDefaultPrevented())) return;e.trigger("focus").attr("aria-expanded", "true"), f.toggleClass("open").trigger("shown.bs.dropdown", h);
+      var f = b(e),
+          g = f.hasClass("open");if ((c(), !g)) {
+        "ontouchstart" in document.documentElement && !f.closest(".navbar-nav").length && a(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(a(this)).on("click", c);var h = { relatedTarget: this };if ((f.trigger(d = a.Event("show.bs.dropdown", h)), d.isDefaultPrevented())) return;e.trigger("focus").attr("aria-expanded", "true"), f.toggleClass("open").trigger("shown.bs.dropdown", h);
       }return !1;
     }
-  }, g.prototype.keydown = function (b) {
-    if (/(38|40|27|32)/.test(b.which) && !/input|textarea/i.test(b.target.tagName)) {
-      var d = a(this);if ((b.preventDefault(), b.stopPropagation(), !d.is(".disabled, :disabled"))) {
-        var e = c(d),
-            g = e.hasClass("open");if (!g && 27 != b.which || g && 27 == b.which) return (27 == b.which && e.find(f).trigger("focus"), d.trigger("click"));var h = " li:not(.disabled):visible a",
-            i = e.find("[role=\"menu\"]" + h + ", [role=\"listbox\"]" + h);if (i.length) {
-          var j = i.index(b.target);38 == b.which && j > 0 && j--, 40 == b.which && j < i.length - 1 && j++, ~j || (j = 0), i.eq(j).trigger("focus");
+  }, g.prototype.keydown = function (c) {
+    if (/(38|40|27|32)/.test(c.which) && !/input|textarea/i.test(c.target.tagName)) {
+      var d = a(this);if ((c.preventDefault(), c.stopPropagation(), !d.is(".disabled, :disabled"))) {
+        var e = b(d),
+            g = e.hasClass("open");if (!g && 27 != c.which || g && 27 == c.which) return (27 == c.which && e.find(f).trigger("focus"), d.trigger("click"));var h = " li:not(.disabled):visible a",
+            i = e.find(".dropdown-menu" + h);if (i.length) {
+          var j = i.index(c.target);38 == c.which && j > 0 && j--, 40 == c.which && j < i.length - 1 && j++, ~j || (j = 0), i.eq(j).trigger("focus");
         }
       }
     }
   };var h = a.fn.dropdown;a.fn.dropdown = d, a.fn.dropdown.Constructor = g, a.fn.dropdown.noConflict = function () {
     return (a.fn.dropdown = h, this);
-  }, a(document).on("click.bs.dropdown.data-api", b).on("click.bs.dropdown.data-api", ".dropdown form", function (a) {
+  }, a(document).on("click.bs.dropdown.data-api", c).on("click.bs.dropdown.data-api", ".dropdown form", function (a) {
     a.stopPropagation();
-  }).on("click.bs.dropdown.data-api", f, g.prototype.toggle).on("keydown.bs.dropdown.data-api", f, g.prototype.keydown).on("keydown.bs.dropdown.data-api", "[role=\"menu\"]", g.prototype.keydown).on("keydown.bs.dropdown.data-api", "[role=\"listbox\"]", g.prototype.keydown);
+  }).on("click.bs.dropdown.data-api", f, g.prototype.toggle).on("keydown.bs.dropdown.data-api", f, g.prototype.keydown).on("keydown.bs.dropdown.data-api", ".dropdown-menu", g.prototype.keydown);
 })(jQuery), +(function (a) {
   "use strict";function b(b, d) {
     return this.each(function () {
@@ -2160,7 +2332,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     this.options = c, this.$body = a(document.body), this.$element = a(b), this.$dialog = this.$element.find(".modal-dialog"), this.$backdrop = null, this.isShown = null, this.originalBodyPad = null, this.scrollbarWidth = 0, this.ignoreBackdropClick = !1, this.options.remote && this.$element.find(".modal-content").load(this.options.remote, a.proxy(function () {
       this.$element.trigger("loaded.bs.modal");
     }, this));
-  });c.VERSION = "3.3.4", c.TRANSITION_DURATION = 300, c.BACKDROP_TRANSITION_DURATION = 150, c.DEFAULTS = { backdrop: !0, keyboard: !0, show: !0 }, c.prototype.toggle = function (a) {
+  });c.VERSION = "3.3.5", c.TRANSITION_DURATION = 300, c.BACKDROP_TRANSITION_DURATION = 150, c.DEFAULTS = { backdrop: !0, keyboard: !0, show: !0 }, c.prototype.toggle = function (a) {
     return this.isShown ? this.hide() : this.show(a);
   }, c.prototype.show = function (b) {
     var d = this,
@@ -2169,12 +2341,12 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
         a(b.target).is(d.$element) && (d.ignoreBackdropClick = !0);
       });
     }), this.backdrop(function () {
-      var e = a.support.transition && d.$element.hasClass("fade");d.$element.parent().length || d.$element.appendTo(d.$body), d.$element.show().scrollTop(0), d.adjustDialog(), e && d.$element[0].offsetWidth, d.$element.addClass("in").attr("aria-hidden", !1), d.enforceFocus();var f = a.Event("shown.bs.modal", { relatedTarget: b });e ? d.$dialog.one("bsTransitionEnd", function () {
+      var e = a.support.transition && d.$element.hasClass("fade");d.$element.parent().length || d.$element.appendTo(d.$body), d.$element.show().scrollTop(0), d.adjustDialog(), e && d.$element[0].offsetWidth, d.$element.addClass("in"), d.enforceFocus();var f = a.Event("shown.bs.modal", { relatedTarget: b });e ? d.$dialog.one("bsTransitionEnd", function () {
         d.$element.trigger("focus").trigger(f);
       }).emulateTransitionEnd(c.TRANSITION_DURATION) : d.$element.trigger("focus").trigger(f);
     }));
   }, c.prototype.hide = function (b) {
-    b && b.preventDefault(), b = a.Event("hide.bs.modal"), this.$element.trigger(b), this.isShown && !b.isDefaultPrevented() && (this.isShown = !1, this.escape(), this.resize(), a(document).off("focusin.bs.modal"), this.$element.removeClass("in").attr("aria-hidden", !0).off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"), this.$dialog.off("mousedown.dismiss.bs.modal"), a.support.transition && this.$element.hasClass("fade") ? this.$element.one("bsTransitionEnd", a.proxy(this.hideModal, this)).emulateTransitionEnd(c.TRANSITION_DURATION) : this.hideModal());
+    b && b.preventDefault(), b = a.Event("hide.bs.modal"), this.$element.trigger(b), this.isShown && !b.isDefaultPrevented() && (this.isShown = !1, this.escape(), this.resize(), a(document).off("focusin.bs.modal"), this.$element.removeClass("in").off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"), this.$dialog.off("mousedown.dismiss.bs.modal"), a.support.transition && this.$element.hasClass("fade") ? this.$element.one("bsTransitionEnd", a.proxy(this.hideModal, this)).emulateTransitionEnd(c.TRANSITION_DURATION) : this.hideModal());
   }, c.prototype.enforceFocus = function () {
     a(document).off("focusin.bs.modal").on("focusin.bs.modal", a.proxy(function (a) {
       this.$element[0] === a.target || this.$element.has(a.target).length || this.$element.trigger("focus");
@@ -2194,7 +2366,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
   }, c.prototype.backdrop = function (b) {
     var d = this,
         e = this.$element.hasClass("fade") ? "fade" : "";if (this.isShown && this.options.backdrop) {
-      var f = a.support.transition && e;if ((this.$backdrop = a("<div class=\"modal-backdrop " + e + "\" />").appendTo(this.$body), this.$element.on("click.dismiss.bs.modal", a.proxy(function (a) {
+      var f = a.support.transition && e;if ((this.$backdrop = a(document.createElement("div")).addClass("modal-backdrop " + e).appendTo(this.$body), this.$element.on("click.dismiss.bs.modal", a.proxy(function (a) {
         return this.ignoreBackdropClick ? void (this.ignoreBackdropClick = !1) : void (a.target === a.currentTarget && ("static" == this.options.backdrop ? this.$element[0].focus() : this.hide()));
       }, this)), f && this.$backdrop[0].offsetWidth, this.$backdrop.addClass("in"), !b)) return;f ? this.$backdrop.one("bsTransitionEnd", b).emulateTransitionEnd(c.BACKDROP_TRANSITION_DURATION) : b();
     } else if (!this.isShown && this.$backdrop) {
@@ -2238,9 +2410,9 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
           f = "object" == typeof b && b;(e || !/destroy|hide/.test(b)) && (e || d.data("bs.tooltip", e = new c(this, f)), "string" == typeof b && e[b]());
     });
   }var c = function c(a, b) {
-    this.type = null, this.options = null, this.enabled = null, this.timeout = null, this.hoverState = null, this.$element = null, this.init("tooltip", a, b);
-  };c.VERSION = "3.3.4", c.TRANSITION_DURATION = 150, c.DEFAULTS = { animation: !0, placement: "top", selector: !1, template: "<div class=\"tooltip\" role=\"tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>", trigger: "hover focus", title: "", delay: 0, html: !1, container: !1, viewport: { selector: "body", padding: 0 } }, c.prototype.init = function (b, c, d) {
-    if ((this.enabled = !0, this.type = b, this.$element = a(c), this.options = this.getOptions(d), this.$viewport = this.options.viewport && a(this.options.viewport.selector || this.options.viewport), this.$element[0] instanceof document.constructor && !this.options.selector)) throw new Error("`selector` option must be specified when initializing " + this.type + " on the window.document object!");for (var e = this.options.trigger.split(" "), f = e.length; f--;) {
+    this.type = null, this.options = null, this.enabled = null, this.timeout = null, this.hoverState = null, this.$element = null, this.inState = null, this.init("tooltip", a, b);
+  };c.VERSION = "3.3.5", c.TRANSITION_DURATION = 150, c.DEFAULTS = { animation: !0, placement: "top", selector: !1, template: "<div class=\"tooltip\" role=\"tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>", trigger: "hover focus", title: "", delay: 0, html: !1, container: !1, viewport: { selector: "body", padding: 0 } }, c.prototype.init = function (b, c, d) {
+    if ((this.enabled = !0, this.type = b, this.$element = a(c), this.options = this.getOptions(d), this.$viewport = this.options.viewport && a(a.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : this.options.viewport.selector || this.options.viewport), this.inState = { click: !1, hover: !1, focus: !1 }, this.$element[0] instanceof document.constructor && !this.options.selector)) throw new Error("`selector` option must be specified when initializing " + this.type + " on the window.document object!");for (var e = this.options.trigger.split(" "), f = e.length; f--;) {
       var g = e[f];if ("click" == g) this.$element.on("click." + this.type, this.options.selector, a.proxy(this.toggle, this));else if ("manual" != g) {
         var h = "hover" == g ? "mouseenter" : "focusin",
             i = "hover" == g ? "mouseleave" : "focusout";this.$element.on(h + "." + this.type, this.options.selector, a.proxy(this.enter, this)), this.$element.on(i + "." + this.type, this.options.selector, a.proxy(this.leave, this));
@@ -2256,35 +2428,36 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
       c[a] != d && (b[a] = d);
     }), b);
   }, c.prototype.enter = function (b) {
-    var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);return c && c.$tip && c.$tip.is(":visible") ? void (c.hoverState = "in") : (c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c)), clearTimeout(c.timeout), c.hoverState = "in", c.options.delay && c.options.delay.show ? void (c.timeout = setTimeout(function () {
+    var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);return (c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusin" == b.type ? "focus" : "hover"] = !0), c.tip().hasClass("in") || "in" == c.hoverState ? void (c.hoverState = "in") : (clearTimeout(c.timeout), c.hoverState = "in", c.options.delay && c.options.delay.show ? void (c.timeout = setTimeout(function () {
       "in" == c.hoverState && c.show();
-    }, c.options.delay.show)) : c.show());
+    }, c.options.delay.show)) : c.show()));
+  }, c.prototype.isInStateTrue = function () {
+    for (var a in this.inState) if (this.inState[a]) return !0;return !1;
   }, c.prototype.leave = function (b) {
-    var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);return (c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c)), clearTimeout(c.timeout), c.hoverState = "out", c.options.delay && c.options.delay.hide ? void (c.timeout = setTimeout(function () {
+    var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);return (c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusout" == b.type ? "focus" : "hover"] = !1), c.isInStateTrue() ? void 0 : (clearTimeout(c.timeout), c.hoverState = "out", c.options.delay && c.options.delay.hide ? void (c.timeout = setTimeout(function () {
       "out" == c.hoverState && c.hide();
-    }, c.options.delay.hide)) : c.hide());
+    }, c.options.delay.hide)) : c.hide()));
   }, c.prototype.show = function () {
     var b = a.Event("show.bs." + this.type);if (this.hasContent() && this.enabled) {
       this.$element.trigger(b);var d = a.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);if (b.isDefaultPrevented() || !d) return;var e = this,
           f = this.tip(),
           g = this.getUID(this.type);this.setContent(), f.attr("id", g), this.$element.attr("aria-describedby", g), this.options.animation && f.addClass("fade");var h = "function" == typeof this.options.placement ? this.options.placement.call(this, f[0], this.$element[0]) : this.options.placement,
           i = /\s?auto?\s?/i,
-          j = i.test(h);j && (h = h.replace(i, "") || "top"), f.detach().css({ top: 0, left: 0, display: "block" }).addClass(h).data("bs." + this.type, this), this.options.container ? f.appendTo(this.options.container) : f.insertAfter(this.$element);var k = this.getPosition(),
+          j = i.test(h);j && (h = h.replace(i, "") || "top"), f.detach().css({ top: 0, left: 0, display: "block" }).addClass(h).data("bs." + this.type, this), this.options.container ? f.appendTo(this.options.container) : f.insertAfter(this.$element), this.$element.trigger("inserted.bs." + this.type);var k = this.getPosition(),
           l = f[0].offsetWidth,
           m = f[0].offsetHeight;if (j) {
         var n = h,
-            o = this.options.container ? a(this.options.container) : this.$element.parent(),
-            p = this.getPosition(o);h = "bottom" == h && k.bottom + m > p.bottom ? "top" : "top" == h && k.top - m < p.top ? "bottom" : "right" == h && k.right + l > p.width ? "left" : "left" == h && k.left - l < p.left ? "right" : h, f.removeClass(n).addClass(h);
-      }var q = this.getCalculatedOffset(h, k, l, m);this.applyPlacement(q, h);var r = function r() {
+            o = this.getPosition(this.$viewport);h = "bottom" == h && k.bottom + m > o.bottom ? "top" : "top" == h && k.top - m < o.top ? "bottom" : "right" == h && k.right + l > o.width ? "left" : "left" == h && k.left - l < o.left ? "right" : h, f.removeClass(n).addClass(h);
+      }var p = this.getCalculatedOffset(h, k, l, m);this.applyPlacement(p, h);var q = function q() {
         var a = e.hoverState;e.$element.trigger("shown.bs." + e.type), e.hoverState = null, "out" == a && e.leave(e);
-      };a.support.transition && this.$tip.hasClass("fade") ? f.one("bsTransitionEnd", r).emulateTransitionEnd(c.TRANSITION_DURATION) : r();
+      };a.support.transition && this.$tip.hasClass("fade") ? f.one("bsTransitionEnd", q).emulateTransitionEnd(c.TRANSITION_DURATION) : q();
     }
   }, c.prototype.applyPlacement = function (b, c) {
     var d = this.tip(),
         e = d[0].offsetWidth,
         f = d[0].offsetHeight,
         g = parseInt(d.css("margin-top"), 10),
-        h = parseInt(d.css("margin-left"), 10);isNaN(g) && (g = 0), isNaN(h) && (h = 0), b.top = b.top + g, b.left = b.left + h, a.offset.setOffset(d[0], a.extend({ using: function using(a) {
+        h = parseInt(d.css("margin-left"), 10);isNaN(g) && (g = 0), isNaN(h) && (h = 0), b.top += g, b.left += h, a.offset.setOffset(d[0], a.extend({ using: function using(a) {
         d.css({ top: Math.round(a.top), left: Math.round(a.left) });
       } }, b), 0), d.addClass("in");var i = d[0].offsetWidth,
         j = d[0].offsetHeight;"top" == c && j != f && (b.top = b.top + f - j);var k = this.getViewportAdjustedDelta(c, b, i, j);k.left ? b.left += k.left : b.top += k.top;var l = /top|bottom/.test(c),
@@ -2320,16 +2493,16 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
           i = b.top + f - g.scroll + d;h < g.top ? e.top = g.top - h : i > g.top + g.height && (e.top = g.top + g.height - i);
     } else {
       var j = b.left - f,
-          k = b.left + f + c;j < g.left ? e.left = g.left - j : k > g.width && (e.left = g.left + g.width - k);
+          k = b.left + f + c;j < g.left ? e.left = g.left - j : k > g.right && (e.left = g.left + g.width - k);
     }return e;
   }, c.prototype.getTitle = function () {
     var a,
         b = this.$element,
         c = this.options;return a = b.attr("data-original-title") || ("function" == typeof c.title ? c.title.call(b[0]) : c.title);
   }, c.prototype.getUID = function (a) {
-    do a += ~ ~(1000000 * Math.random()); while (document.getElementById(a));return a;
+    do a += ~ ~(1e6 * Math.random()); while (document.getElementById(a));return a;
   }, c.prototype.tip = function () {
-    return this.$tip = this.$tip || a(this.options.template);
+    if (!this.$tip && (this.$tip = a(this.options.template), 1 != this.$tip.length)) throw new Error(this.type + " `template` option must consist of exactly 1 top-level element!");return this.$tip;
   }, c.prototype.arrow = function () {
     return this.$arrow = this.$arrow || this.tip().find(".tooltip-arrow");
   }, c.prototype.enable = function () {
@@ -2339,10 +2512,10 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
   }, c.prototype.toggleEnabled = function () {
     this.enabled = !this.enabled;
   }, c.prototype.toggle = function (b) {
-    var c = this;b && (c = a(b.currentTarget).data("bs." + this.type), c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c))), c.tip().hasClass("in") ? c.leave(c) : c.enter(c);
+    var c = this;b && (c = a(b.currentTarget).data("bs." + this.type), c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), a(b.currentTarget).data("bs." + this.type, c))), b ? (c.inState.click = !c.inState.click, c.isInStateTrue() ? c.enter(c) : c.leave(c)) : c.tip().hasClass("in") ? c.leave(c) : c.enter(c);
   }, c.prototype.destroy = function () {
     var a = this;clearTimeout(this.timeout), this.hide(function () {
-      a.$element.off("." + a.type).removeData("bs." + a.type);
+      a.$element.off("." + a.type).removeData("bs." + a.type), a.$tip && a.$tip.detach(), a.$tip = null, a.$arrow = null, a.$viewport = null;
     });
   };var d = a.fn.tooltip;a.fn.tooltip = b, a.fn.tooltip.Constructor = c, a.fn.tooltip.noConflict = function () {
     return (a.fn.tooltip = d, this);
@@ -2356,7 +2529,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   }var c = function c(a, b) {
     this.init("popover", a, b);
-  };if (!a.fn.tooltip) throw new Error("Popover requires tooltip.js");c.VERSION = "3.3.4", c.DEFAULTS = a.extend({}, a.fn.tooltip.Constructor.DEFAULTS, { placement: "right", trigger: "click", content: "", template: "<div class=\"popover\" role=\"tooltip\"><div class=\"arrow\"></div><h3 class=\"popover-title\"></h3><div class=\"popover-content\"></div></div>" }), c.prototype = a.extend({}, a.fn.tooltip.Constructor.prototype), c.prototype.constructor = c, c.prototype.getDefaults = function () {
+  };if (!a.fn.tooltip) throw new Error("Popover requires tooltip.js");c.VERSION = "3.3.5", c.DEFAULTS = a.extend({}, a.fn.tooltip.Constructor.DEFAULTS, { placement: "right", trigger: "click", content: "", template: "<div class=\"popover\" role=\"tooltip\"><div class=\"arrow\"></div><h3 class=\"popover-title\"></h3><div class=\"popover-content\"></div></div>" }), c.prototype = a.extend({}, a.fn.tooltip.Constructor.prototype), c.prototype.constructor = c, c.prototype.getDefaults = function () {
     return c.DEFAULTS;
   }, c.prototype.setContent = function () {
     var a = this.tip(),
@@ -2381,7 +2554,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
           e = d.data("bs.scrollspy"),
           f = "object" == typeof c && c;e || d.data("bs.scrollspy", e = new b(this, f)), "string" == typeof c && e[c]();
     });
-  }b.VERSION = "3.3.4", b.DEFAULTS = { offset: 10 }, b.prototype.getScrollHeight = function () {
+  }b.VERSION = "3.3.5", b.DEFAULTS = { offset: 10 }, b.prototype.getScrollHeight = function () {
     return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight);
   }, b.prototype.refresh = function () {
     var b = this,
@@ -2423,14 +2596,13 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   }var c = function c(b) {
     this.element = a(b);
-  };c.VERSION = "3.3.4", c.TRANSITION_DURATION = 150, c.prototype.show = function () {
+  };c.VERSION = "3.3.5", c.TRANSITION_DURATION = 150, c.prototype.show = function () {
     var b = this.element,
         c = b.closest("ul:not(.dropdown-menu)"),
         d = b.data("target");if ((d || (d = b.attr("href"), d = d && d.replace(/.*(?=#[^\s]*$)/, "")), !b.parent("li").hasClass("active"))) {
       var e = c.find(".active:last a"),
           f = a.Event("hide.bs.tab", { relatedTarget: b[0] }),
-          g = a.Event("show.bs.tab", { relatedTarget: e[0] });
-      if ((e.trigger(f), b.trigger(g), !g.isDefaultPrevented() && !f.isDefaultPrevented())) {
+          g = a.Event("show.bs.tab", { relatedTarget: e[0] });if ((e.trigger(f), b.trigger(g), !g.isDefaultPrevented() && !f.isDefaultPrevented())) {
         var h = a(d);this.activate(b.closest("li"), c), this.activate(h, h.parent(), function () {
           e.trigger({ type: "hidden.bs.tab", relatedTarget: b[0] }), b.trigger({ type: "shown.bs.tab", relatedTarget: e[0] });
         });
@@ -2455,7 +2627,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     });
   }var c = function c(b, d) {
     this.options = a.extend({}, c.DEFAULTS, d), this.$target = a(this.options.target).on("scroll.bs.affix.data-api", a.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", a.proxy(this.checkPositionWithEventLoop, this)), this.$element = a(b), this.affixed = null, this.unpin = null, this.pinnedOffset = null, this.checkPosition();
-  };c.VERSION = "3.3.4", c.RESET = "affix affix-top affix-bottom", c.DEFAULTS = { offset: 0, target: window }, c.prototype.getState = function (a, b, c, d) {
+  };c.VERSION = "3.3.5", c.RESET = "affix affix-top affix-bottom", c.DEFAULTS = { offset: 0, target: window }, c.prototype.getState = function (a, b, c, d) {
     var e = this.$target.scrollTop(),
         f = this.$element.offset(),
         g = this.$target.height();if (null != c && "top" == this.affixed) return c > e ? "top" : !1;if ("bottom" == this.affixed) return null != c ? e + this.unpin <= f.top ? !1 : "bottom" : a - d >= e + g ? !1 : "bottom";var h = null == this.affixed,
@@ -2472,7 +2644,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
           d = this.options.offset,
           e = d.top,
           f = d.bottom,
-          g = a(document.body).height();"object" != typeof d && (f = e = d), "function" == typeof e && (e = d.top(this.$element)), "function" == typeof f && (f = d.bottom(this.$element));var h = this.getState(g, b, e, f);if (this.affixed != h) {
+          g = Math.max(a(document).height(), a(document.body).height());"object" != typeof d && (f = e = d), "function" == typeof e && (e = d.top(this.$element)), "function" == typeof f && (f = d.bottom(this.$element));var h = this.getState(g, b, e, f);if (this.affixed != h) {
         null != this.unpin && this.$element.css("top", "");var i = "affix" + (h ? "-" + h : ""),
             j = a.Event(i + ".bs.affix");if ((this.$element.trigger(j), j.isDefaultPrevented())) return;this.affixed = h, this.unpin = "bottom" == h ? this.getPinnedOffset() : null, this.$element.removeClass(c.RESET).addClass(i).trigger(i.replace("affix", "affixed") + ".bs.affix");
       }"bottom" == h && this.$element.offset({ top: g - b - f });
