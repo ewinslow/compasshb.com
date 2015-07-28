@@ -1,6 +1,7 @@
 .*
 !.travis.yml
 !.gitignore
+!.env.cloud9
 !.env.example
 !.scrutinizer.yml
 vendor

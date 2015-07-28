@@ -8,6 +8,6 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/?homepage=1",
+  "start_url": "{{route('read.index', ['webapp' => true])}}",
   "display": "standalone"
 }
