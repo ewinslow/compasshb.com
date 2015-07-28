@@ -77,8 +77,19 @@ class PagesController extends Controller
             $video->othumbnail = $videoClient->getThumbnail();
         }
 
-        $videoClient->setUrl($prevsermon->video);
-        $prevsermon->othumbnail = $videoClient->getThumbnail();
+        if ($prevsermon) {
+            $videoClient->setUrl($prevsermon->video);
+            $prevsermon->othumbnail = $videoClient->getThumbnail();
+        } else {
+            $prevsermon = (object)[
+                'title' => '{{Sermon title here}}',
+                'slug' => 'sermon-slug-here',
+                'othumbnail' => 'https://dummyimage.com/600x400/000/fff.jpg',
+                'series' => (object)[
+                    'title' => '{{Series title here}}'
+                ],
+            ];
+        }
 
         /*
          * Instagram
