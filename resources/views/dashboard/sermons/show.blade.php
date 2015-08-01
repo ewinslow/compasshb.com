@@ -10,11 +10,6 @@
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
   <p>Text: {!! $sermon->text !!}</p>
 
-  <form action="https://transcribe.compasshb.com/en/videos/create/" method="POST">
-    <input type="hidden" name="video_url" value="{{ $sermon->video }}"/>
-    <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
-  </form>
-
   <p>
   @if ($sermon->worksheet != null)
   <a href="{{ $sermon->worksheet }}" class="btn btn-default">Worksheet</a>
@@ -34,6 +29,12 @@
   @unless($texttrack)
   <p>{!! $sermon->body !!}</p>
   @endunless
+
+  <br/>
+    <form action="https://transcribe.compasshb.com/en/videos/create/" method="POST">
+    <input type="hidden" name="video_url" value="{{ $sermon->video }}"/>
+    <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
+  </form>
 
   <br/><br/>
   <div class="panel panel-default">

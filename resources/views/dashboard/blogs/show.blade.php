@@ -10,13 +10,6 @@
 	<p>{{ $blog->byline }}</p>
 	<div class="videocontainer">{!! $blog->iframe !!}</div>
 
-  @if ($blog->video)
-    <form action="https://transcribe.compasshb.com/en/videos/create/" method="POST">
-      <input type="hidden" name="video_url" value="{{ $blog->video }}"/>
-      <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
-    </form>
-  @endif
-
   <div id="transcript">
     {!! $texttrack !!}
   </div>
@@ -25,6 +18,14 @@
   <p>{!! $blog->body !!}</p>
   @endunless
 
+<br/>
+  @if ($blog->video)
+    <form action="https://transcribe.compasshb.com/en/videos/create/" method="POST">
+      <input type="hidden" name="video_url" value="{{ $blog->video }}"/>
+      <p style="float: right"><input type="submit" value="Transcribe" class="btn btn-default"/></p>
+    </form>
+  @endif
+<br/><br/>
   @include('layouts.scripts-transcript')
 
 @endsection
