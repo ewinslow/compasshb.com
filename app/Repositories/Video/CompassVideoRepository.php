@@ -73,8 +73,13 @@ class CompassVideoRepository implements VideoRepository
         return $this->service->getDownloadLink();
     }
 
-    public function getTextTracks($parse = false)
+    public function getTextTracks($parse = false, $locale = 'en')
     {
-        return $this->service->getTextTracks($parse);
+        return $this->service->getTextTracks($parse, $locale);
+    }
+
+    public function getLanguages()
+    {
+        return $this->service->getLanguages();
     }
 }

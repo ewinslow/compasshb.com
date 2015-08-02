@@ -43,6 +43,11 @@ class DashboardTest extends TestCase
         $this->visit('/blog');
     }
 
+    public function testBlogLanguage()
+    {
+        $this->visit('/blog/what-is-repentance/ja');
+    }
+
     public function testPray()
     {
         $this->visit('/pray');

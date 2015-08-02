@@ -67,7 +67,41 @@ class VimeoVideoRepository implements VideoRepository
         return $response;
     }
 
-    public function getTextTracks($parse = false)
+    /**
+     * Returns number and locale code
+     * for translations available.
+     */
+    public function getLanguages()
+    {
+        $language = [];
+        // Parse Vimeo video ID
+        $videoId = substr($this->url, strrpos($this->url, '/') + 1);
+
+        try {
+            $video = $this->vimeoClient->request("/videos/$videoId/texttracks");
+
+            if ($video['status'] == 200) {
+                $total = $video['body']['total'];
+
+                foreach ($video['body']['data'] as $item) {
+                    array_push($language, $item['language']);
+                }
+
+                return $language;
+            }
+
+            return;
+        } catch (\Exception $e) {
+            Log::warning('Connection refused to vimeo.com:'.$e);
+
+            return;
+        }
+    }
+    /**
+     * Returns the WebVTT subtitles
+     * and transcriptions/translations.
+     */
+    public function getTextTracks($parse = false, $language = 'en')
     {
         // Parse Vimeo video ID
         $videoId = substr($this->url, strrpos($this->url, '/') + 1);
@@ -76,7 +110,8 @@ class VimeoVideoRepository implements VideoRepository
             $video = $this->vimeoClient->request("/videos/$videoId/texttracks");
 
             if ($video['status'] == 200) {
-                $request = $video['body']['data'][0]['link'];
+                $key = array_search($language, array_column($video['body']['data'], 'language'));
+                $request = $video['body']['data'][$key]['link'];
 
                 // Using CURL because Guzzle does not like the + sign in the querystring
                 $ch = curl_init($request);
@@ -101,7 +136,7 @@ class VimeoVideoRepository implements VideoRepository
                     $response = preg_replace('/\n\n([\d|\.|\:]+)\s--> [\d|\.|\:]+/', '</span><span class="paragraph_text" data-time="$1">', $response); // Data timestamp
                     $response .= '</span></p>'; // Closing paragraph
                     $response = preg_replace('/.\d\d\d/', '', $response); // remove milliseconds
-                }
+                };
 
                 return $response;
             }

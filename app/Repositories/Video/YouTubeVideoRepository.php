@@ -92,6 +92,11 @@ class YouTubeVideoRepository implements VideoRepository
 
     public function getTextTracks($parse = false)
     {
-        return 0;
+        return;
+    }
+
+    public function getLanguages()
+    {
+        return [];
     }
 }

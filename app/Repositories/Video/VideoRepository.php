@@ -29,6 +29,14 @@ interface VideoRepository
     public function getTextTracks($parse = false);
 
     /**
+     * Get the number and names
+     * of languages translated.
+     *
+     * @return string
+     */
+    public function getLanguages();
+
+    /**
      * The link to cover image.
      *
      * @param string $url

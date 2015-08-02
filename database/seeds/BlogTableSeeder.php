@@ -13,8 +13,9 @@ class BlogTableSeeder extends Seeder
 
         Blog::create([
             'user_id' => 1,
-            'title' => 'Sample blog',
+            'title' => 'What is Repentance?',
             'body' => 'This is a test blog.',
+            'video' => 'https://vimeo.com/134588165',
             'published_at' => '2015-03-17 00:00:00',
         ]);
 

@@ -28,6 +28,10 @@ Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
  * Route for blogs
  */
 Route::resource('blog', 'BlogsController', ['except' => ['destroy']]);
+Route::get('blog/{blog}/{locale}', [
+    'as' => 'blogs.language',
+    'uses' => 'BlogsController@language',
+]);
 
 /*
  * Route for fellowship

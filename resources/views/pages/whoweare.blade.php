@@ -130,7 +130,7 @@
             <div class="col-md-3">
                 <img src="https://compasshb.smugmug.com/PhotoArchive/Worship-Services/1st-Service-New-Building-01111/i-KLP4pcT/2/S/150111_Wor_SS-093-S.jpg" alt="Our New Building" width="432" height="426"/>
                 <h4 class="tk-seravek-web">Our New Building</h4>
-                <p style="text-align: left;">On January 11th, 2014 we had our first service in our new building here at 5082 Argosy Avenue! God has been so good to us, brought many people to our church and has faithfully saved sinners! On April 5, 2015 we launched two services at 9am and 11am.</p>
+                <p style="text-align: left;">On January 11th, 2015 we had our first service in our new building here at 5082 Argosy Avenue! God has been so good to us, brought many people to our church and has faithfully saved sinners! On April 5, 2015 we launched two services at 9am and 11am.</p>
             </div>
         </div>
     </div>

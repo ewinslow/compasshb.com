@@ -37,23 +37,38 @@ class BlogsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Blog $blog, VideoRepository $video)
+    public function show(Blog $blog, VideoRepository $video, $locale = 'en')
     {
+        $languages = [];
         $blog->iframe = '';
         $texttrack = '';
 
         if (!empty($blog->video)) {
             $video->setUrl($blog->video);
+
             $blog->iframe = $video->getEmbedCode(true);
             $coverimage = $video->getThumbnail();
 
-            $texttrack = $video->getTextTracks(true);
+            $languages = $video->getLanguages();
+
+            // SHow the english if requested
+            // locale not supported
+            if (!in_array($locale, $languages) && $locale != 'en') {
+                return redirect('/blog/'.$blog->slug);
+            }
+
+            $texttrack = $video->getTextTracks(true, $locale);
         }
 
         return view('dashboard.blogs.show',
-            compact('blog', 'coverimage', 'texttrack'))
+            compact('blog', 'coverimage', 'texttrack', 'languages'))
             ->with('title', $blog->title)
             ->with('ogdescription', 'Compass Bible Church Huntington Beach');
+    }
+
+    public function language(Blog $blog, VideoRepository $video, $locale)
+    {
+        return $this->show($blog, $video, $locale);
     }
 
     /**
