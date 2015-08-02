@@ -23,8 +23,13 @@ class FakeVideoRepository implements VideoRepository
         return '';
     }
 
-    public function getTextTracks($parse = false)
+    public function getTextTracks($parse = false, $language = 'en')
     {
-        return '';
+        return;
+    }
+
+    public function getLanguages()
+    {
+        return;
     }
 }

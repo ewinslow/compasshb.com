@@ -90,7 +90,7 @@ class YouTubeVideoRepository implements VideoRepository
         return $this->url;
     }
 
-    public function getTextTracks($parse = false)
+    public function getTextTracks($parse = false, $language = 'en')
     {
         return;
     }

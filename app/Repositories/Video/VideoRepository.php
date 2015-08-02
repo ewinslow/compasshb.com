@@ -26,7 +26,7 @@ interface VideoRepository
      *
      * @return string
      */
-    public function getTextTracks($parse = false);
+    public function getTextTracks($parse = false, $language = 'en');
 
     /**
      * Get the number and names
