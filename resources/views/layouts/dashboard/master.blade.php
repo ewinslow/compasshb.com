@@ -16,6 +16,10 @@ body
 
         <div class="col-sm-8 dashboard-main">
           <div class="row">
+            <a href="{{ route('search') }}" aria-label="Search" id="toggle-search-show" style="float: right; color: #000; position: relative; top: 30px;"  title="Search">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+
               @yield('content')
           </div>
         </div>

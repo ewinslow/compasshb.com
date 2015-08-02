@@ -1,4 +1,3 @@
-
 <div class="top-border"></div>
 <nav class="navbar navbar-default hidden-sm hidden-md hidden-lg">
   <div class="navbar-header">

@@ -2,9 +2,13 @@
 
 @section('content')
 
-	<h1 class="tk-seravek-web">Search</h1>
+	<h1 class="tk-seravek-web">Search Results</h1>
+  <br/><br/>
 
-  @include('dashboard.search.form', ['autofocus' => true])
+  <?php $empty = empty($results['hits']['hits']); ?>
+  @if ($empty)
+    <p>No results found for: {{ $query }}</p>
+  @endif
 
   @foreach ($results['hits']['hits'] as $result)
     <p>

@@ -4,8 +4,6 @@
 
 	<h1 class="tk-seravek-web">Blog</h1>
 
-    @include('dashboard.search.form')
-
 <br/>
 <div class="panel panel-default">
   <table class="table table-striped">

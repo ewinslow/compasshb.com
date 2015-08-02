@@ -16,11 +16,11 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "bootstrap-sass-official": "~3.3.5",
-    "font-awesome": "~4.3.0",
     "jquery-file-upload": "~9.10.1",
     "masonry": "~3.3.0",
     "medium-editor": "~5.0.0",
     "lazysizes": "~1.1.3",
-    "player-api": "https://github.com/vimeo/player-api.git"
+    "player-api": "https://github.com/vimeo/player-api.git",
+    "bootstrap": "~3.3.5"
   }
 }

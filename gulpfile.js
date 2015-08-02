@@ -3,14 +3,13 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
 
 	// Stylesheets
-    mix.sass(
-        'app.scss',
+    mix.less(
+        'app.less',
         'public/css/',
         {
-            includePaths: [
-                './bower_components/bootstrap-sass-official/assets/stylesheets/',
-                './bower_components/font-awesome/scss/',
-                './bower_components/medium-editor/src/sass/',
+            paths: [
+                './bower_components/bootstrap/less/',
+                './bower_components/medium-editor/dist/css/',
             ]
         }
     );
@@ -19,7 +18,8 @@ elixir(function(mix) {
 	mix.babel([
         '../../../bower_components/jquery/dist/jquery.min.js',
         '../../../bower_components/lazysizes/lazysizes.min.js',
-        '../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+        '../../../bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'compasshb-search.js',
 //        '../../../bower_components/player-api/javascript/froogaloop.min.js',
     //    '../../../bower_components/medium-editor/dist/js/medium-editor.js',
     //    'compasshb-editor.js',
@@ -37,5 +37,10 @@ elixir(function(mix) {
     mix.copy(
         'bower_components/jquery/dist/jquery.min.map',
         'public/build/js/jquery.min.map'
+    )
+
+    mix.copy(
+        'bower_components/bootstrap/fonts/',
+        'public/build/fonts/'
     )
 });

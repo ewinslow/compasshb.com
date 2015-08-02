@@ -71,7 +71,26 @@
     <a href="{{ route('search') }}" style="color: #FFF; padding-right: 10px;">Search</a>
     <span style="float: right; color: #AAA; font-weight: normal">© 2014-{{ date('Y') }} Compass Bible Church</span>
   </div>
+
 </footer>
+</div>
+
+   <!-- Search - Open panel -->
+  <div id="toggle-search" class="search-panel">
+    <a href="/" class="search-panel__close js--toggle-search-mode" title="Exit the search mode">
+      <i class="glyphicon glyphicon-remove"></i>
+    </a>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <form action="/search/">
+            <input type="text" class="search-panel__form  js--search-panel-text" name="q" placeholder="Begin typing to search">
+            <p class="search-panel__text">Press enter to see results or esc to cancel.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @include('layouts.scripts')
 

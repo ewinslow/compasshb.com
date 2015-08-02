@@ -4,8 +4,6 @@
 
 	<h1 class="tk-seravek-web">Sermons</h1>
 
-  @include('dashboard.search.form')
-
   <?php $i = 0; ?>
   @foreach ($sermons as $sermon)
   <div class="col-md-4" {!! ($i % 3) ? 'style="margin-top: 20px;"' : 'style="clear: left; margin-top: 20px;"' !!}>
