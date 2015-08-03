@@ -6,11 +6,8 @@
 
     @include('dashboard.search.form')
 
+<br/>
 <div class="panel panel-default">
-  <div class="panel-heading tk-seravek-web">All Blog Posts</div>
-  <div class="panel-body">
-    <p>Archive of all blog posts</p>
-  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -28,6 +25,7 @@
     </tbody>
   </table>
 </div>
+<br/>
 
 <div class="panel panel-default">
   <div class="panel-heading">
