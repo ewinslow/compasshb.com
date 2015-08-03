@@ -1,11 +1,9 @@
-<br/><br/>
-
-	{!! Form::open(array('route' => 'search', 'method' => 'get', 'class' => 'form')) !!}
-
+<form action="{{route('search')}}" method="GET" class="form">
 	<div class="form-group">
-		{!! Form::text('q', null, ['class' => 'form-control', 'placeholder' => isset($query) ? $query : 'Search']) !!}
+		<input placeholder="Search CompassHB.com"
+		       aria-label="Search CompassHB.com"
+		       value="{{$query or ''}}"
+		       type="search" name="q" class="form-control"
+		       {{isset($autofocus) ? 'autofocus' : ''}}>
 	</div>
-
-	{!! Form::close() !!}
-
-<br/><br/>
+</form>

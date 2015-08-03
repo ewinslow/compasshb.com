@@ -24,7 +24,11 @@
                         <li><a href="{{ route('believe') }}">What We Believe</a></li>
                         <li><a href="{{ route('evangelism') }}">Ice Cream Evangelism</a></li>
                         <li class="visible-xs-block"><a href="{{ route('events.index') }}">Events</a></li>
-                        <li><a href="{{ route('search') }}"><span class="glyphicon glyphicon-search"></span></a></li>
+                        <li>
+                            <a href="{{ route('search') }}" aria-label="Search">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
