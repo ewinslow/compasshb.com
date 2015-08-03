@@ -9,13 +9,14 @@
       </div>
     </div>
 
-
     <ul class="list-group">
     @foreach ($events as $event)
         <li class="list-group-item">
             <h4>{{ date("F j, Y (l)", strtotime($event->start->local)) }}</h4>
             <a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/' class="btn btn-default" style="float: right">Details</a>
-            <img src='{{ $event->logo->url }}' style="float: left; width: 250px; padding-right: 20px" />
+            @if (isset($event->logo->url))
+              <img src='{{ $event->logo->url }}' style="float: left; width: 250px; padding-right: 20px" />
+            @endif
             <h5><a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/'>{{ $event->name->text }}</a></h5>
             <p style="clear: right">Organizer: {{ $event->organizer_id }}<br/>Venue: {{ $event->venue_id }}</p>
             <p>{!! substr($event->description->html, 0, 244) !!}... <a href='/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/'>More</a></p>
