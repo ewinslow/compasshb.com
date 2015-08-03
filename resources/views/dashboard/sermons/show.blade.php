@@ -22,6 +22,8 @@
 
   <p>{!! $sermon->excerpt !!}</p>
 
+  <hr/>
+
   <div id="transcript">
     {!! $texttrack !!}
   </div>
@@ -51,7 +53,7 @@
       <br/><br/>
       <p><a href="http://feeds.compasshb.com/sermons">Subscribe via Feed</a></p>
 
-      <p><div class="fb-share-button" data-href="{{ URL::to('/') }}" data-layout="button_count"></div></p>
+      <p><div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button_count"></div></p>
 
   <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="CompassHB" data-dnt="true">Tweet</a></p>
 
