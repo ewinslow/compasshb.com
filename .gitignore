@@ -4,10 +4,12 @@
 !.env.cloud9
 !.env.example
 !.scrutinizer.yml
-vendor
-node_modules
+
 bower_components
-public/js
+node_modules
+npm-debug.log
 public/css
+public/js
 storage/keys
 tests/logs
+vendor

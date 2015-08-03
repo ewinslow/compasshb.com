@@ -29,7 +29,7 @@ class ElasticSearchRepository implements SearchRepository
         } catch (\Exception $e) {
             Log::warning('Connection refused to search provider');
 
-            $results = [];
+            $results = ['hits' => ['hits' => []]];
         }
 
         return $results;

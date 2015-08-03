@@ -4,7 +4,7 @@
 
 	<h1 class="tk-seravek-web">Search</h1>
 
-  @include('dashboard.search.form')
+  @include('dashboard.search.form', ['autofocus' => true])
 
   @foreach ($results['hits']['hits'] as $result)
     <p>
