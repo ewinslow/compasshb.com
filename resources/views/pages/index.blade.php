@@ -10,7 +10,7 @@
 style="position: absolute; text-transform: none; top: -13px; right: 55px; padding: 4px 10px; font-size: 1.1em; background-color: #DD3F2E">Latest Sermon</p>
         <br/><br/>
         <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
-        <p>{{{ $prevsermon->series->title or '' }}}</p>
+        <p style="padding: 20px;">{{{ $prevsermon->series->title or '' }}}</p>
         <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
         <div style="position: absolute; bottom: 0; left: 0; text-align: left; padding: 20px; color: #BBB">{{ $prevsermon->teacher }}<br/>{{ $prevsermon->text }}<br/>{{ $prevsermon->published_at->format('F j, Y') }}<br/>{{ $prevsermon->view_count }}</div>
       </a>

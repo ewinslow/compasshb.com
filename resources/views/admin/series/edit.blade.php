@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+@section('side')
+  @include('layouts.side.admin')
+@endsection
+
+
 @section('content')
     <h1 class="tk-seravek-web">Edit Series: {{ $series->title }}</h1>
 
@@ -8,11 +13,5 @@
     {!! Form::close() !!}
 
     @include('errors.list')
-
-@endsection
-
-@section('sidebar')
-
-  @include('layouts.admin.sidebar')
 
 @endsection

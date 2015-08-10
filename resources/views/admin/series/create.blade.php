@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('side')
+  @include('layouts.side.admin')
+@endsection
+
 @section('content')
 	<h1>Create New Sermon Series</h1>
 
