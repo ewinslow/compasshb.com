@@ -20,6 +20,7 @@
 
     <div class="col-sm-7">
         <h3 class="tk-seravek-web">The United exists to Make Disciples of Jesus Christ.</h3>
+        <p>We do this in two ways...</p>
         <h4>Reaching teens with the Gospel</h4>
         <p>Every Sunday morning we gather during the 11 A.M. service to hear preaching from the Bible. We teach God’s word in a way that is understandable and applicable for teenagers to live out in their everyday life. Join us for our "Salvation Assurance" series as we study through the book of 1 John!</p>
         <p>Meets at church: 5082 Argosy Avenue, Huntington Beach, CA</p>
