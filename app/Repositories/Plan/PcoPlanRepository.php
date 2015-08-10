@@ -1,7 +1,10 @@
-<?php namespace CompassHB\Www\Repositories\Plan;
+<?php
+
+namespace CompassHB\Www\Repositories\Plan;
 
 use Cache;
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
 /**
@@ -35,29 +38,29 @@ class PcoPlanRepository implements PlanRepository
         $setlist = Cache::remember('getsetlist', '360', function () {
 
             $setlist = [];
-            $setlist[0]['date'] = '';
-            $setlist[0]['title'] = '';
-            $setlist[0]['author'] = '';
 
             $planId = '';
             $planDate = '';
+
+            $stack = HandlerStack::create();
+
+            $middleware = new Oauth1([
+                'consumer_key' => $this->consumerKey,
+                'consumer_secret' => $this->consumerSecret,
+                'token' => $this->token,
+                'token_secret' => $this->tokenSecret,
+            ]);
+            $stack->push($middleware);
+
             $client = new Client([
-                'base_url' => $this->url,
-                'defaults' => ['auth' => 'oauth'],
+                'base_uri' => $this->url,
+                'handler' => $stack,
+                'auth' => 'oauth',
             ]);
 
             if (strlen($this->consumerKey) < 1) {
                 return $setlist;
             }
-
-            $oauth = new Oauth1([
-                'consumer_key'    => $this->consumerKey,
-                'consumer_secret' => $this->consumerSecret,
-                'token'           => $this->token,
-                'token_secret'    => $this->tokenSecret,
-            ]);
-
-            $client->getEmitter()->attach($oauth);
 
             // Get Service ID for Weekend Service
             $res = $client->get('organization.json');

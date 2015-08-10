@@ -1,10 +1,10 @@
 <footer id="footer" class="container-fluid" style="background-color: #FFF;">
 
-  <div class="row" style="background-image: url('/images/lineofmanycolors.png'); background-repeat: repeat-x; background-size: 850px; background-position: center top; padding: 80px 40px 40px 40px; line-height: 2em; padding-top: 40px; background-color: #FFF;">
+  <div class="row" style="background-image: url('https://compasshb.smugmug.com/photos/i-pgR29VG/0/X3/i-pgR29VG-X3.png'); background-repeat: repeat-x; background-size: 850px; background-position: center top; padding: 80px 40px 40px 40px; line-height: 2em; padding-top: 40px; background-color: #FFF;">
 
     {{-- Compass Bible Church --}}
     <div class="col-md-2">
-      <img src="/images/CBC-HB-logo-small.png" alt="Compass Bible Church Huntington Beach" style="height: 40px;"/>
+      <img src="/CBC-HB-logo.png" alt="Compass Bible Church Huntington Beach" style="height: 40px;"/>
     </div>
 
     {{-- Ministries --}}

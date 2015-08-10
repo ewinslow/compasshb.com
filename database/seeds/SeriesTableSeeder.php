@@ -32,7 +32,7 @@ class SeriesTableSeeder extends Seeder
             'body' => 'Description',
             'image' => 'http://www.example.com/#',
             'slug' => 'road-to-emmaus',
-            'ministry' => 'sundayschool',
+            'ministry' => 'youth',
         ]);
     }
 }

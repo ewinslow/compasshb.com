@@ -1,4 +1,8 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+    @include('layouts.side.resources')
+@endsection
 
 @section('content')
 
@@ -28,7 +32,7 @@
       <p><a href="{{ route('series.index') }}">View Sermon Series</a></p><br/>
       <p><a href="https://www.compasshb.com/feed/sermonaudio/">Audio Podcast</a></p>
       <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
-        <img src="{{ URL::to('/') }}/images/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
+        <img src="https://compasshb.smugmug.com/photos/i-2fpjmf5/0/Th/i-2fpjmf5-Th.png"
         width="110" height="40" alt="Subscribe on iTunes"/>
       </a>
       <br/><br/>

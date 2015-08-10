@@ -1,8 +1,13 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+  @include('layouts.side.admin')
+@endsection
 
 @section('content')
 
-  @include('layouts.admin.header')
+<h1 class="tk-seravek-web">Admin</h1>
+<p>Admin page for posting and scheduling site content.</p><br/>
 
 {{-- Sermons --}}
 <div class="panel panel-default">
@@ -98,7 +103,5 @@
 </div>
 
 {!! $blogs->render() !!}
-
-  @include('layouts.admin.sidebar')
 
 @endsection

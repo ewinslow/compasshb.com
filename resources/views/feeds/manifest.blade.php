@@ -3,7 +3,7 @@
   "name": "Compass Bible Church Huntington Beach",
   "icons": [
     {
-      "src": "images/compasshb-icon-621x621.jpg",
+      "src": "https://compasshb.smugmug.com/photos/i-thfGZ3w/0/L/i-thfGZ3w-L.jpg",
       "sizes": "144x144",
       "type": "image/png"
     }

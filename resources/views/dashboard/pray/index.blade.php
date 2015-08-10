@@ -1,4 +1,9 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+    @include('layouts.side.resources')
+@endsection
+
 
 @section('content')
 <h1 class="tk-seravek-web">Prayer</h1>
@@ -10,13 +15,13 @@
       <div class="caption">
         <h3>If God's People Pray</h3>
         <p>Why to Pray</p>
-        <p><a href="https://vimeo.com/118441384" class="btn btn-primary" role="button">Watch</a></p>
+        <p><a href="{{ route('sermons.show', 'if-gods-people-pray') }}" class="btn btn-primary" role="button">Watch</a></p>
       </div>
     </div>
   </div>
   <div class="col-sm-6">
     <div class="thumbnail">
-      <img src="https://i.vimeocdn.com/video/506218559_960x540.jpg" alt="When God's People Pray">
+      <img src="{{ route('sermons.show', 'when-gods-people-pray') }}" alt="When God's People Pray">
       <div class="caption">
         <h3>When God's People Pray</h3>
         <p>How to Pray</p>

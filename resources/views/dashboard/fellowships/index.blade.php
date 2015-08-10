@@ -1,4 +1,8 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+    @include('layouts.side.ministries')
+@endsection
 
 @section('content')
 <h1 class="tk-seravek-web">Home Fellowship Groups</h1>

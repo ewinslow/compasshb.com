@@ -1,16 +1,9 @@
 <!-- our scripts come first because they affect primary UI features -->
-<script src="{{ elixir('js/all.js') }}" async defer></script>
+<script src="{{ elixir('js/all.js') }}"></script>
 
 <!-- third-party widgets come next because they are secondary UI features -->
 <div id="fb-root"></div>
 <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=386571371526429" id="facebook-jssdk" async defer></script>
-
-{{-- Does not work with mobile @TODO
-@if(Request::url() !== route('home'))
-<!-- Jira Issue Collector -->
-<script type="text/javascript" src="https://jira.compasshb.com:8443/s/89d9d5918b55a1bc8d0c0ba6a23de98c-T/en_US-s0756c/64020/3/1.4.25/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=15b2aa65"></script>
-@endif
---}}
 
 <!-- Analytics comes last because it is not user-facing -->
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
@@ -24,4 +17,19 @@
 
     ga('create', 'UA-53384235-1', 'auto');
     ga('send', 'pageview');
+</script>
+
+<script>
+// Adds .disabled class to navigation when not collapsed since hover is used.
+$(window).resize(function(){
+   console.log('resize called');
+   var width = $(window).width();
+   if(width > 992){
+       $('.dropdown .dropdown-toggle').addClass('disabled');
+   }
+   else{
+       $('.dropdown .dropdown-toggle').removeClass('disabled');
+   }
+})
+.resize();//trigger the resize event on page load.
 </script>

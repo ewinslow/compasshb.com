@@ -3,43 +3,40 @@
 @section('content')
 
 <div class="drawer row">
-  <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;">
-           <div>
-                <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }}); background-position: center;">
-                <p style="position: absolute; text-transform: none; top: -19px; left: 55px; padding: 10px; font-size: 1.1em; background-color: #DD3F2E">Latest Sermon</p>
-                <br/><br/><h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
-                <p>{{{ $prevsermon->series->title or '' }}}</p>
-                <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
-                </a>
-          </div>
+  <div class="col-sm-9" style="padding: 0; background-color: #E5E4E2; margin-bottom: 11px">
+    <div style="padding: 6px; background-color: #555;">
+      <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }}); background-position: center;">
+      <p
+style="position: absolute; text-transform: none; top: -13px; right: 55px; padding: 4px 10px; font-size: 1.1em; background-color: #DD3F2E">Latest Sermon</p>
+        <br/><br/>
+        <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
+        <p>{{{ $prevsermon->series->title or '' }}}</p>
+        <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
+        <div style="position: absolute; bottom: 0; left: 0; text-align: left; padding: 20px; color: #BBB">{{ $prevsermon->teacher }}<br/>{{ $prevsermon->text }}<br/>{{ $prevsermon->published_at->format('F j, Y') }}<br/>{{ $prevsermon->view_count }}</div>
+      </a>
     </div>
-</div>
+  </div>
 
-<div class="row drawer" style="padding-bottom: 30px">
-  <div class="col-md-1"></div>
+  @if($passage)
+  <div class="col-sm-3" style="margin: 0px 0px 11px 0px">
+    <a class="clickable" href="{{ route('read.index') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px;   border: 1px #555 solid; width: 100%; height: 132px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://compasshb.smugmug.com/photos/i-3BJkBgb/0/S/i-3BJkBgb-S.jpg); background-size: cover; background-position: center">
+      <h4 class="tk-seravek-web">{{ $passage->title }}</h4>
+      <p>Scripture of the Day</p>
+    </a>
+  </div>
+  @endif
 
   @foreach(array_slice($fevents, 0,2) as $event)
-  <div class="col-md-2 col-md-offset-1" style="margin-top: 10px">
+  <div class="col-sm-3"  style="margin: 10px 0px">
     <a class="clickable featuredblog" href="/events/{{ $event->id }}/{{ str_slug($event->name->text, "-") }}/" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $event->logo->url }});">
       <h4 class="tk-seravek-web">{{ $event->name->text }}</h4>
       <p> {{ date("F j", strtotime($event->start->local)) }}</p>
     </a>
   </div>
   @endforeach
-
-  @if($passage)
-  <div class="col-md-2 col-md-offset-1" style="margin-top: 10px">
-    <a class="clickable" href="{{ route('read.index') }}" style="display: block; text-transform: uppercase; color: #fff; padding: 10px;   border: 1px #555 solid; width: 100%; height: 105px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://compasshb.smugmug.com/PhotoArchive/Worship-Services/Face-to-Face-Fellowship-122114/i-gjr7gvv/0/S/141221_WOR_SS-030-S.jpg); background-size: cover;">
-      <h4 class="tk-seravek-web">Scripture of<br/> the Day</h4>
-      <p>{{ $passage->title }}</p>
-    </a>
-  </div>
-  @endif
-<br/><br/>
 </div>
 
-<div class="row" style="background: none; background-color: #497f9e; padding-top: 0px; padding-bottom: 15px; border-top: 2px #555 solid;
-">
+<div class="row" style="background-color: #497f9e; padding: 0 0 15px 0; border-top: 3px solid #F9F9F9">
   <div class="col-sm-10 col-sm-offset-1">
     <center>
     <h3 style="color: #FFF; text-align: center; margin-bottom: 5px" class="tk-seravek-web">Compass HB exists to make disciples of Jesus Christ</h3>
@@ -62,7 +59,7 @@
     <div class="col-md-4 text-center" style="">
       <h2 class="tk-seravek-web">Directions</h2>
       <br/>
-      <a href="https://www.google.com/maps?ll=33.74078,-118.040232&z=10&t=m&hl=en-US&gl=US&mapclient=embed&q=5082+Argosy+Ave+Huntington+Beach,+CA+92649"><img data-src="/images/directions_huntington_beach_church.png" width="300" height="262" alt="Map to Compass HB" class="lazyload"/></a>
+      <a href="https://www.google.com/maps?ll=33.74078,-118.040232&z=10&t=m&hl=en-US&gl=US&mapclient=embed&q=5082+Argosy+Ave+Huntington+Beach,+CA+92649"><img data-src="https://compasshb.smugmug.com/photos/i-WWb58Jn/0/M/i-WWb58Jn-M.png" width="300" height="262" alt="Map to Compass HB" class="lazyload"/></a>
     </div>
     <div class="col-md-4 text-center">
       <h2 class="tk-seravek-web">Midweek</h2>

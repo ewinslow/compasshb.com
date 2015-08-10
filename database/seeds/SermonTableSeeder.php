@@ -72,7 +72,7 @@ class SermonTableSeeder extends Seeder
             'published_at' => '2015-01-14 00:00:00',
             'slug' => 'trinity-unity',
             'series_id' => 3,
-            'ministry' => 'sundayschool',
+            'ministry' => 'youth',
         ]);
 
         Sermon::create([

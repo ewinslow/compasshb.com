@@ -1,4 +1,8 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+    @include('layouts.side.resources')
+@endsection
 
 @section('content')
 <h1 class="tk-seravek-web">Worship Songs</h1>

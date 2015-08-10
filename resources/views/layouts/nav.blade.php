@@ -1,37 +1,53 @@
 <header class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="col-sm-10 col-sm-offset-1">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="{{ route('home') }}">
-                        <img src="{{ URL::to('/') }}/images/CBC-HB-logo-small.png"
-                             alt="Compass Bible Church" style="height: 40px; margin-top: -10px"/>
+                        <img src="/CBC-HB-logo.png" id="logo" alt="Compass Bible Church Huntington Beach"/>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('who-we-are') }}">Who We Are</a></li>
-                        <li><a href="{{ route('kids') }}">Kids Ministry</a></li>
-                        <li><a href="{{ route('youth') }}">Youth Ministry</a></li>
-                        <li><a href="{{ route('distinctives') }}">8 Distinctives</a></li>
-                        <li><a href="{{ route('believe') }}">What We Believe</a></li>
+                        <li class="dropdown">
+                            <a href="{{ route('who-we-are') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Who We Are <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li><a href="{{ route('who-we-are') }}"><span class="glyphicon glyphicon-user"></span> Who We Are</a></li>
+                                <li><a href="{{ route('distinctives') }}"><span class="glyphicon glyphicon-flag"></span> 8 Distinctives</a></li>
+                                <li><a href="{{ route('believe') }}"><span class="glyphicon glyphicon-book"></span> What We Believe</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="{{ route('kids') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ministries <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li><a href="{{ route('kids') }}"><span class="glyphicon glyphicon-pencil"></span>  Kids Ministry</a></li>
+                                <li><a href="{{ route('youth') }}"><span class="glyphicon glyphicon-sunglasses"></span>  Youth Ministry</a></li>
+                                <li><a href="{{ route('college') }}"><span class="glyphicon glyphicon-education"></span>  College Ministry</a></li>
+                                <li><a href="{{ route('sundayschool') }}"><span class="glyphicon glyphicon-blackboard"></span>  Adult Sunday School</a></li>
+                                <li><a href="{{ route('fellowship.index') }}"><span class="glyphicon glyphicon-header"></span> Home Fellowship Groups</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="{{ route('sermons.index') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sermons <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li><a href="{{ route('sermons.index') }}">Sermons</a></li>
+                                <li><a href="{{ route('read.index') }}">Scripture of the Day</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('blog.index') }}">Blog</a></li>
+                                <li><a href="{{ route('songs.index') }}">Songs</a></li>
+                                <li><a href="{{ route('events.index') }}">Events</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('give') }}">Give</a></li>
+                            </ul>
+                        </li>
                         <li><a href="{{ route('evangelism') }}">Ice Cream Evangelism</a></li>
-                        <li class="visible-xs-block"><a href="{{ route('events.index') }}">Events</a></li>
-                        <li>
-                            <a href="{{ route('search') }}" aria-label="Search" id="toggle-search-show">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </a>
+                        <li><a href="{{ route('search') }}" aria-label="Search" id="toggle-search-show"><span class="glyphicon glyphicon-search"></span></a>
                         </li>
                     </ul>
                 </div>
-            </div>
         </nav>
     </div>
 </header>

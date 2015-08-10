@@ -1,12 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<style>
-    .glyphicon {
-        font-size: 3em;
-        text-align: center;
-    }
-</style>
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -14,7 +8,7 @@
     </div>
     <div class="col-md-4 col-xs-offset-1">
         <img width="800" height="434"
-             src="{{ URL::to('/') }}/images/IceCreamEvangelism.png"
+             src="https://compasshb.smugmug.com/photos/i-GrwwS7w/0/L/i-GrwwS7w-L.png"
              alt="Ice Cream Evangelism"/>
     </div>
     <div class="col-md-5   col-xs-offset-1 well">

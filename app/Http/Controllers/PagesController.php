@@ -81,12 +81,12 @@ class PagesController extends Controller
             $videoClient->setUrl($prevsermon->video);
             $prevsermon->othumbnail = $videoClient->getThumbnail();
         } else {
-            $prevsermon = (object)[
+            $prevsermon = (object) [
                 'title' => '{{Sermon title here}}',
                 'slug' => 'sermon-slug-here',
                 'othumbnail' => 'https://dummyimage.com/600x400/000/fff.jpg',
-                'series' => (object)[
-                    'title' => '{{Series title here}}'
+                'series' => (object) [
+                    'title' => '{{Series title here}}',
                 ],
             ];
         }
@@ -172,12 +172,6 @@ class PagesController extends Controller
     {
         return view('pages.whatwebelieve')
             ->with('title', 'What We Believe');
-    }
-
-    public function bunnyrun()
-    {
-        return view('pages.landing.bunnyrun')
-            ->with('title', 'The Bunny Run 5K');
     }
 
     public function manifest()

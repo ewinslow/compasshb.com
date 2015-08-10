@@ -5,7 +5,7 @@
 </ul>
 <br/>
 <a href="https://itunes.apple.com/us/podcast/compass-hb-sermons/id938965423" target="_blank">
-	<img src="{{ URL::to('/') }}/images/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png"
+	<img src="https://compasshb.smugmug.com/photos/i-2fpjmf5/0/Th/i-2fpjmf5-Th.png"
         width="110" height="40" alt="Subscribe on iTunes"/>
 </a><br/><br/>
 <a href="http://feeds.compasshb.com/sermons">Subscribe via Feed</a>

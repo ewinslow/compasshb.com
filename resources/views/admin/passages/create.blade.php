@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
 
 @section('content')
 	<h1>Create New Passage</h1>

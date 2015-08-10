@@ -1,4 +1,8 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.master')
+
+@section('side')
+    @include('layouts.side.resources')
+@endsection
 
 @section('content')
 
@@ -13,7 +17,7 @@
       <p>{!! $item->body !!}</p>
     </a>
   </div>
-  <?php $i++; ?>
+  <?php ++$i; ?>
   @endforeach
 
 @endsection

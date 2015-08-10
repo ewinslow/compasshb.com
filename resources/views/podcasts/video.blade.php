@@ -10,7 +10,7 @@
 		<copyright>&#x2117; &amp; &#xA9; 2015 Compass HB</copyright>
 		<link>{{ URL::to('/') }}/feed/sermons</link>
 		<pubDate>{{ Carbon\Carbon::now()->toRfc2822String() }}</pubDate>
-		<itunes:image href="{{ URL::to('/') }}/images/SermonVideo-v2r0.jpg" />
+		<itunes:image href="https://compasshb.smugmug.com/photos/i-kMfffrR/0/X3/i-kMfffrR-X3.jpg" />
 		<itunes:category text="Religion &amp; Spirituality">
 			<itunes:category text="Christianity"/>
 		</itunes:category>

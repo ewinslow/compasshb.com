@@ -4,6 +4,7 @@ namespace CompassHB\Www\Http\Controllers;
 
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
+use CompassHB\Www\Repositories\Video\VideoRepository;
 
 class MinistryController extends Controller
 {
@@ -23,9 +24,28 @@ class MinistryController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function youth()
+    public function youth(VideoRepository $videoClient)
     {
-        return view('ministries.youth.index')
+        $series = Series::where('ministry', '=', 'youth')->get()->reverse();
+        $sermons = Sermon::where('ministry', '=', 'youth')->latest('published_at')->published()->get();
+        $prevsermon = $sermons->first();
+
+        if ($prevsermon) {
+            $videoClient->setUrl($prevsermon->video);
+            $prevsermon->othumbnail = $videoClient->getThumbnail();
+        } else {
+            $prevsermon = (object) [
+                'title' => '{{ Sermon title here }}',
+                'slug' => 'sermon-slug-here',
+                'othumbnail' => 'https://dummyimage.com/600x400/000/fff.jpg',
+                'series' => (object) [
+                    'title' => '{{ Series title here }}',
+                ],
+            ];
+        }
+
+        return view('ministries.youth.index',
+            compact('sermons', 'series', 'prevsermon'))
             ->with('title', 'The United');
     }
 

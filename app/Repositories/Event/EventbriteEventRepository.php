@@ -17,7 +17,7 @@ class EventbriteEventRepository implements EventRepository
     {
         $this->token = env('EVENTBRITE_OAUTH_TOKEN');
         $this->client = new Client([
-            'base_url' => $this->url,
+            'base_uri' => $this->url,
         ]);
     }
 

@@ -53,7 +53,7 @@
 
 <div class="form-group">
 	{!! Form::label('ministry', 'Ministry:') !!}
-	{!! Form::select('ministry', array('sundayschool' => 'Sunday School', null => 'Main Service'), null, ['class' => 'form-control']) !!}
+	{!! Form::select('ministry', array('sundayschool' => 'Sunday School', null => 'Main Service', 'youth' => 'The United'), null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

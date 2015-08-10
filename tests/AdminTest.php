@@ -8,7 +8,7 @@ class AdminTest extends TestCase
             ->type('user@example.com', 'email')
             ->type('secret', 'password')
             ->press('Login')
-            ->see('Admin Pages')
+            ->see('Admin page')
             ->onPage('/admin');
     }
 

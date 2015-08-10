@@ -1,0 +1,87 @@
+/* Top of every page */
+.navbar
+{
+  border-bottom: 5px solid #497f9e;
+  height: 79px;
+  background-color: #FFF;
+}
+
+.navbar-header {
+	height: 79px;
+}
+
+.navbar-toggle {
+	margin-top: 20px;
+}
+
+.navbar-collapse {
+	background-color: #FFF;
+}
+
+#logo {
+	height: 50px;
+	padding: 5px;
+	margin-left: 20px;
+}
+
+#navbar {
+	margin-right: 30px;
+}
+
+// Reset to override defaults
+.navbar {
+	min-height: auto;
+	margin-bottom: auto;
+}
+
+@media (min-width: @grid-float-breakpoint) {
+	.dropdown:hover .dropdown-menu
+	{
+		display: block;
+	}
+
+	.navbar-collapse {
+		background-color: transparent;
+	}
+
+	.dropdown-toggle {
+		&:extend(.disabled);
+	}
+
+}
+
+.navbar-default .navbar-nav > li > a {
+	padding: 27px 20px;
+	color: #393939;
+	font-size: 1.20em;
+}
+
+.dropdown-menu li a:hover {
+	color: #FFF;
+	background-color: #497f9E;
+}
+
+.dropdown-menu li a {
+	padding: 7px 11px;
+}
+
+/* Remove shadow and round corners from dropdown */
+.dropdown-menu {
+	padding: 0;
+	box-shadow: none;
+	border-radius: 0;
+	border: 1px solid #EDEDED;
+}
+
+.side-nav {
+	width: 300px;
+	float: left;
+	padding: 40px 75px;
+	text-align: right;
+	font-size: 1.3em;
+	line-height: .85em;
+}
+
+.dropdown-menu .divider {
+	margin: 0;
+}
