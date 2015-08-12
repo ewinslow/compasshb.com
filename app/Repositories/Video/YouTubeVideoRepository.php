@@ -99,4 +99,9 @@ class YouTubeVideoRepository implements VideoRepository
     {
         return [];
     }
+
+    public function getVideoPlays()
+    {
+        return;
+    }
 }

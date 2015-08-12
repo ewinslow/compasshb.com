@@ -82,4 +82,9 @@ class CompassVideoRepository implements VideoRepository
     {
         return $this->service->getLanguages();
     }
+
+    public function getVideoPlays()
+    {
+        return $this->service->getVideoPlays();
+    }
 }

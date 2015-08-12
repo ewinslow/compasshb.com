@@ -12,7 +12,7 @@
   @endif
 
   <div class="videocontainer">{!! $sermon->iframe !!}</div>
-  <p>Text: {!! $sermon->text !!}</p>
+  <p>Text: {!! $sermon->text !!}<br>Plays: {{ $sermon->plays }}</p>
 
   <p>
   @if ($sermon->worksheet != null)

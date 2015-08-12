@@ -48,4 +48,5 @@ interface VideoRepository
     public function getThumbnail($large = false);
 
     public function getDownloadLink();
+    public function getVideoPlays();
 }

@@ -93,9 +93,10 @@ class SermonsController extends Controller
         $texttrack = $video->getTextTracks(true);
         $sermon->iframe = $video->getEmbedCode(true);
         $coverimage = $video->getThumbnail();
+        $sermon->plays = $video->getVideoPlays();
 
         return view('dashboard.sermons.show',
-            compact('sermon', 'coverimage', 'texttrack'))
+            compact('sermon', 'coverimage', 'texttrack', 'plays'))
             ->with('title', $sermon->title)
             ->with('ogdescription', $sermon->excerpt);
     }

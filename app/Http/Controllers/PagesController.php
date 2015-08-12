@@ -80,6 +80,7 @@ class PagesController extends Controller
         if ($prevsermon) {
             $videoClient->setUrl($prevsermon->video);
             $prevsermon->othumbnail = $videoClient->getThumbnail();
+            $prevsermon->plays = $videoClient->getVideoPlays();
         } else {
             $prevsermon = (object) [
                 'title' => '{{Sermon title here}}',

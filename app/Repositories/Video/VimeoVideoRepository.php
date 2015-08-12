@@ -244,4 +244,40 @@ class VimeoVideoRepository implements VideoRepository
 
         return $link;
     }
+
+    /**
+     * Returns the play count stats.
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public function getVideoPlays()
+    {
+        // Parse Vimeo video ID
+        $videoId = substr($this->url, strrpos($this->url, '/') + 1);
+
+        if (Cache::has($this->url.'plays')) {
+            return Cache::get($this->url.'plays');
+        }
+
+        try {
+            $video = $this->vimeoClient->request("/videos/$videoId");
+
+            if ($video['status'] == '404' || $video['status'] == '400') {
+                return;
+            }
+        } catch (\Exception $e) {
+            return;
+        }
+
+        // Get the video stats
+        if (isset($video['body']['stats']['plays'])) {
+            Cache::add($this->url.'plays', $video['body']['stats']['plays'], '60');
+
+            return $video['body']['stats']['plays'];
+        }
+
+        return;
+    }
 }

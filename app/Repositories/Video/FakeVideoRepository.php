@@ -32,4 +32,9 @@ class FakeVideoRepository implements VideoRepository
     {
         return;
     }
+
+    public function getVideoPlays()
+    {
+        return;
+    }
 }
