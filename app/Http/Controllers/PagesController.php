@@ -274,4 +274,9 @@ class PagesController extends Controller
         return redirect()
             ->route('home');
     }
+
+    public function live()
+    {
+        return view('pages.live');
+    }
 }
