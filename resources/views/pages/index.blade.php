@@ -12,7 +12,7 @@ style="position: absolute; text-transform: none; top: -13px; right: 55px; paddin
         <h1 class="tk-seravek-web">{{ $prevsermon->title }}</h1>
         <p style="padding: 20px;">{{{ $prevsermon->series->title or '' }}}</p>
         <p><i class="glyphicon glyphicon-play-circle large-icon"></i></p>
-        <div style="position: absolute; bottom: 0; left: 0; text-align: left; padding: 20px; color: #BBB">{{ $prevsermon->teacher }}<br/>{{ $prevsermon->text }}<br/>{{ $prevsermon->published_at->format('F j, Y') }}<br/>{{ $prevsermon->plays }} views</div>
+        <div style="position: absolute; bottom: 0; left: 0; text-align: left; padding: 20px; color: #BBB">{{ $prevsermon->teacher }}<br/>{{ $prevsermon->text }}<br/>{{ $prevsermon->published_at->format('F j, Y') }}</div>
       </a>
     </div>
   </div>
