@@ -260,6 +260,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         'uses' => 'HomeController@sundayschool',
     ]);
 
+    Route::get('youth', [
+        'as' => 'youth',
+        'uses' => 'HomeController@youth',
+    ]);
 });
 
 /*

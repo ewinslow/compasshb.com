@@ -4,6 +4,7 @@
     <li class="{{ setActive('admin/mainservice') }}"><a href="{{ route('admin.mainservice') }}">Main Service</a></li>
     <li class="{{ setActive('admin/read') }}"><a href="{{ route('admin.read') }}">Scripture of the Day</a></li>
     <li class="{{ setActive('admin/sundayschool') }}"><a href="{{ route('admin.sundayschool') }}">Sunday School</a></li>
+    <li class="{{ setActive('admin/youth') }}"><a href="{{ route('admin.youth') }}">United (Youth)</a></li>
     <li class="{{ setActive('admin/songs') }}"><a href="{{ route('admin.songs') }}">Worship</a></li>
     <li><a href="/auth/logout">Logout</a></li>
   </ul>

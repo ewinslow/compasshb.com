@@ -1,4 +1,5 @@
 <?php
+
 namespace CompassHB\Www\Http\Controllers;
 
 use CompassHB\Www\Blog;
@@ -76,5 +77,19 @@ class HomeController extends Controller
 
         return view('admin.sundayschool', compact('sermons', 'series'))
             ->with('title', 'Admin - Sunday School');
+    }
+
+    /**
+     * Controller for route to admin page for youth ministry.
+     *
+     * @return [type] [description]
+     */
+    public function youth()
+    {
+        $sermons = Sermon::where('ministry', '=', 'youth')->latest('published_at')->paginate(15);
+        $series = Series::where('ministry', '=', 'youth')->paginate(15);
+
+        return view('admin.youth', compact('sermons', 'series'))
+            ->with('title', 'Admin - Youth');
     }
 }
