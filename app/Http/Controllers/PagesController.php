@@ -85,6 +85,9 @@ class PagesController extends Controller
             $prevsermon = (object) [
                 'title' => '{{Sermon title here}}',
                 'slug' => 'sermon-slug-here',
+                'teacher' => '{{Sermon teacher here}}',
+                'text' => '{{Sermon text here}}',
+                'published_at' => new \DateTime(),
                 'othumbnail' => 'https://dummyimage.com/600x400/000/fff.jpg',
                 'series' => (object) [
                     'title' => '{{Series title here}}',
