@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="drawer row">
-  <div class="col-sm-9" style="padding: 0; background-color: #E5E4E2; margin-bottom: 11px">
 
     <div style="width: 75%">
     <h2 class="tk-seravek-web">Live Stream</h2>
@@ -12,6 +11,8 @@
 <br/>
     </div>
 
+
+  <div class="col-sm-9" style="padding: 0; background-color: #E5E4E2; margin-bottom: 11px">
     <div style="padding: 6px; background-color: #555;">
       <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }}); background-position: center;">
       <p
