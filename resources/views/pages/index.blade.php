@@ -4,6 +4,14 @@
 
 <div class="drawer row">
   <div class="col-sm-9" style="padding: 0; background-color: #E5E4E2; margin-bottom: 11px">
+
+    <div style="width: 75%">
+    <h2 class="tk-seravek-web">Live Stream</h2>
+
+    <div id="boxcast-widget-20150830-153340-xubsakrrnfzzfnxx"><script type="text/javascript"> var s = document.createElement('script'); var a = String.fromCharCode; var h = (('https:' == document.location.protocol) ? 'https:' : 'http:'); s.setAttribute('data-action', 'boxcast-widget-load'); s.setAttribute('data-handle', '20150830-153340-xubsakrrnfzzfnxx'); s.setAttribute('data-options', 'version=3'); s.src = h + '//assets.boxcast.com/widget.js'; document.getElementsByTagName('head')[0].appendChild(s); </script></div>
+<br/>
+    </div>
+
     <div style="padding: 6px; background-color: #555;">
       <a class="clickable latestsermon" href="{{ route('sermons.show', $prevsermon->slug) }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ $prevsermon->othumbnail }}); background-position: center;">
       <p
