@@ -4,11 +4,9 @@
 
 <div class="drawer row">
 
-    <div style="width: 75%">
-    <h2 class="tk-seravek-web">Live Stream</h2>
-
+    <div style="width: 75%"><center>
     <div id="boxcast-widget-20150830-153340-xubsakrrnfzzfnxx"><script type="text/javascript"> var s = document.createElement('script'); var a = String.fromCharCode; var h = (('https:' == document.location.protocol) ? 'https:' : 'http:'); s.setAttribute('data-action', 'boxcast-widget-load'); s.setAttribute('data-handle', '20150830-153340-xubsakrrnfzzfnxx'); s.setAttribute('data-options', 'version=3'); s.src = h + '//assets.boxcast.com/widget.js'; document.getElementsByTagName('head')[0].appendChild(s); </script></div>
-<br/>
+<br/></center>
     </div>
 
 
