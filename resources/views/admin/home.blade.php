@@ -11,6 +11,8 @@
 @endif
 
 <h1 class="tk-seravek-web">Admin</h1>
-<p>Admin page for posting and scheduling site content.</p><br/>
+<p>Admin page for posting and scheduling site content.</p>
+<br/><br/>
+<p><strong>Shortcuts:</strong><br/><a href="/api/v1/cleareventcache/{{ env('EVENTBRITE_CALLBACK') }}">Force Eventbrite Sync (Clears all event page caches)</a></p>
 
 @endsection
