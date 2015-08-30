@@ -86,15 +86,13 @@ class VimeoVideoRepository implements VideoRepository
                 foreach ($video['body']['data'] as $item) {
                     array_push($language, $item['language']);
                 }
-
-                return $language;
             }
 
-            return;
+            return $language;
         } catch (\Exception $e) {
             Log::warning('Connection refused to vimeo.com:'.$e);
 
-            return;
+            return [];
         }
     }
     /**
