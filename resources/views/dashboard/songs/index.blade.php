@@ -35,10 +35,12 @@
 
 <div class="row">
     <ol class="list-group">
+    @if(isset($setlist[0]))
         <a href="#" class="list-group-item disabled">
             <h4 class="list-group-item-heading">Last Week's Songs</h4>
             <p>{{ \Carbon\Carbon::parse($setlist[0]['date'])->format('l, F d') }}</p>
         </a>
+    @endif
     @foreach($setlist as $song)
         @if (isset($song['link']))
         <a href="{{ $song['link'] }}" class="list-group-item">
