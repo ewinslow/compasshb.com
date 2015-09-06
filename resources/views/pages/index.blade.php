@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="drawer row">
-
+{{--
     <div style="width: 75%; margin: 0 auto 10px auto">
     <h2 class="tk-seravek-web" style="float: left; color: #FFF">Live Stream</h2>
     <br style="clear: both"/>
 <div id="boxcast-widget-september-6-service"><script type="text/javascript"> var s = document.createElement('script'); var a = String.fromCharCode; var h = (('https:' == document.location.protocol) ? 'https:' : 'http:'); s.setAttribute('data-action', 'boxcast-widget-load'); s.setAttribute('data-handle', 'september-6-service'); s.setAttribute('data-options', 'version=3'); s.src = h + '//assets.boxcast.com/widget.js'; document.getElementsByTagName('head')[0].appendChild(s); </script></div>
 <br/>
-    </div>
+    </div> --}}
 
   <div class="col-sm-9" style="padding: 0; background-color: #E5E4E2; margin-bottom: 11px">
     <div style="padding: 6px; background-color: #555;">
