@@ -11,6 +11,7 @@ The folder structure is a Laravel 5 project and the main folders are:
 
 ## Development Environment
 You can have a copy running on your computer at http://compasshb.local with these commands:
+
 1. Clone the repo (or a fork)
 2. Run: composer install
 3. Run: vagrant up
@@ -19,6 +20,7 @@ You can have a copy running on your computer at http://compasshb.local with thes
 The master branch is automatically deployed to [http://staging.compasshb.com/](http://staging.compasshb.com/).
 
 ## Get Involved
+
 * [Fork](https://help.github.com/articles/fork-a-repo/) the repository on github
 * Commit and push until you are happy with your contribution
 * Make a [pull request](https://help.github.com/articles/using-pull-requests/)
