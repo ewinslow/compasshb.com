@@ -10,7 +10,7 @@ class FakeVideoRepository implements VideoRepository
 
     public function getEmbedCode($api = false)
     {
-        return '';
+        return '<img src="https://dummyimage.com/600x400/000/fff.jpg"/>';
     }
 
     public function getThumbnail($large = false)
@@ -25,7 +25,7 @@ class FakeVideoRepository implements VideoRepository
 
     public function getTextTracks($parse = false, $language = 'en')
     {
-        return [];
+        return '';
     }
 
     public function getLanguages()
@@ -35,6 +35,6 @@ class FakeVideoRepository implements VideoRepository
 
     public function getVideoPlays()
     {
-        return [];
+        return '';
     }
 }
