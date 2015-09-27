@@ -10,7 +10,9 @@
     <h4>{{ date("l F j, Y", strtotime($event->start->local)) }}</h4><br/><br/>
 
 	<div class="row">
+		@if ($event->logo)
 	    <img src='{{ $event->logo->url }}' style="height: 250px;" /><br/><br/>
+	    @endif
 	    <div class="col-sm-4">
 {{--	    	@if (!$event->ticket_classes[0]->hidden)
 		    <p><a href="{{ $event->url }}?ref=ebtnebregn" target="_blank" class="btn btn-warning">Click Here to Register</a></p>
