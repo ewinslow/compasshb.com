@@ -47,11 +47,6 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('sku', 'SKU:') !!}
-	{!! Form::text('sku', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
 	{!! Form::label('series', 'Series:') !!}
 	{!! Form::select('series_id', $series, null, ['class' => 'form-control']) !!}
 </div>

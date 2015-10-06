@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Http\Requests;
+<?php
+
+namespace CompassHB\Www\Http\Requests;
 
 class SermonRequest extends Request
 {
@@ -23,8 +25,7 @@ class SermonRequest extends Request
         return [
             'title' => 'required|min:3',
             'teacher' => 'required',
-            'text' => 'required',
-            'sku' => 'required',
+//            'text' => 'required',
         ];
     }
 }

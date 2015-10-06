@@ -20,7 +20,6 @@ class Sermon extends Model implements Searchable
         'video',
         'ministry',
         'series_id',
-        'sku',
         'published_at',
     ];
 
