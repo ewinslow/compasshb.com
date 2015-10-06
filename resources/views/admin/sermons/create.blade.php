@@ -10,7 +10,7 @@
 	@include('errors.list')
 
 	{!! Form::model($sermon = new \CompassHB\Www\Sermon, ['url' => 'sermons', 'files' => true]) !!}
-		@include('admin.sermons.form', ['submitButtonText' => 'Create Sermon'])
+		@include('admin.sermons.form', ['submitButtonText' => 'Create'])
 	{!! Form::close() !!}
 
 @endsection

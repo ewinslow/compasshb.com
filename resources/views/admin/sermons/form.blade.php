@@ -1,4 +1,9 @@
 <div class="form-group">
+	{!! Form::label('ministry', 'Category:') !!}
+	{!! Form::select('ministry', array('women' => 'Women', 'men' => 'Men', 'sundayschool' => 'Sunday School', null => 'Main Service', 'youth' => 'The United'), null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('title', 'Title:') !!}
 	{!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
@@ -49,11 +54,6 @@
 <div class="form-group">
 	{!! Form::label('series', 'Series:') !!}
 	{!! Form::select('series_id', $series, null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-	{!! Form::label('ministry', 'Ministry:') !!}
-	{!! Form::select('ministry', array('sundayschool' => 'Sunday School', null => 'Main Service', 'youth' => 'The United'), null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

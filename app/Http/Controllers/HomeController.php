@@ -70,26 +70,12 @@ class HomeController extends Controller
      *
      * @return [type] [description]
      */
-    public function sundayschool()
+    public function video()
     {
-        $sermons = Sermon::where('ministry', '=', 'sundayschool')->latest('published_at')->paginate(15);
-        $series = Series::where('ministry', '=', 'sundayschool')->paginate(15);
+        $sermons = Sermon::whereNotNull('ministry')->latest('published_at')->paginate(15);
+        $series = Series::whereNotNull('ministry')->paginate(15);
 
-        return view('admin.sundayschool', compact('sermons', 'series'))
-            ->with('title', 'Admin - Sunday School');
-    }
-
-    /**
-     * Controller for route to admin page for youth ministry.
-     *
-     * @return [type] [description]
-     */
-    public function youth()
-    {
-        $sermons = Sermon::where('ministry', '=', 'youth')->latest('published_at')->paginate(15);
-        $series = Series::where('ministry', '=', 'youth')->paginate(15);
-
-        return view('admin.youth', compact('sermons', 'series'))
-            ->with('title', 'Admin - Youth');
+        return view('admin.video', compact('sermons', 'series'))
+            ->with('title', 'Admin - Videos');
     }
 }

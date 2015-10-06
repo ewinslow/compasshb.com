@@ -12,17 +12,17 @@
 {{-- Sunday School Messages --}}
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web" id="sermons">United Lessons</h3>
+    <h3 class="panel-title tk-seravek-web" id="sermons">Videos</h3>
   </div>
   <div class="panel-body">
     <p>All messages and links to edit the content or post new ones.</p>
-    <p><a href="{{ route('sermons.create') }}" class="btn btn-default">New Lesson</a></p>
+    <p><a href="{{ route('videos.create') }}" class="btn btn-default">New Video</a></p>
   </div>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Sermon</th>
+        <th>Category</th>
+        <th>Video</th>
         <th>Text</th>
         <th>Publish Date</th>
         <th>Worksheet</th>
@@ -32,8 +32,8 @@
     <tbody>
       @foreach ($sermons as $sermon)
         <tr>
-          <td>{{ $sermon->sku }}</td>
-          <td><a href="{{ route('sermons.edit', $sermon->slug) }}">{{ $sermon->title }}</a></td>
+          <td>{{ $sermon->ministry }}</td>
+          <td><a href="{{ route('videos.edit', $sermon->slug) }}">{{ $sermon->title }}</a></td>
           <td>{{ $sermon->text }}</td>
           <td>{{ date_format($sermon->published_at, 'Y-m-d l') }}</td>
           <td>{!! $sermon->worksheet ? '<span class="glyphicon glyphicon-ok"></span>' : '' !!}</td>
@@ -49,7 +49,7 @@
 {{-- Series --}}
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title tk-seravek-web" id="series">United Series</h3>
+    <h3 class="panel-title tk-seravek-web" id="series">Series</h3>
   </div>
   <div class="panel-body">
     <p>All series and links to edit the content or post new ones.</p>

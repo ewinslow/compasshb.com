@@ -1,4 +1,6 @@
-<?php namespace CompassHB\Www\Providers;
+<?php
+
+namespace CompassHB\Www\Providers;
 
 use Auth;
 use Illuminate\Routing\Router;
@@ -54,6 +56,19 @@ class RouteServiceProvider extends ServiceProvider
          * A sermon is at /sermons/{slug}
          */
         $router->bind('sermons', function ($slug) {
+
+            // Logged in users can see future posts
+            if (Auth::check()) {
+                return \CompassHB\Www\Sermon::where('slug', $slug)->firstOrFail();
+            }
+
+            return \CompassHB\Www\Sermon::where('slug', $slug)->published()->firstOrFail();
+        });
+
+        /*
+         * A video is at /videos/{slug}
+         */
+        $router->bind('videos', function ($slug) {
 
             // Logged in users can see future posts
             if (Auth::check()) {

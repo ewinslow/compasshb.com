@@ -20,6 +20,15 @@ Route::get('sermons/{sermons}/download', [
 ]);
 
 /*
+ * Route for videos
+ */
+Route::resource('videos', 'SermonsController', ['except' => ['destroy']]);
+Route::get('videos/{videos}/download', [
+    'as' => 'videos.download',
+    'uses' => 'SermonsController@download',
+]);
+
+/*
  * Route for sermon series
  */
 Route::resource('series', 'SeriesController', ['except' => ['destroy']]);
@@ -255,14 +264,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         'uses' => 'HomeController@read',
     ]);
 
-    Route::get('sundayschool', [
-        'as' => 'sundayschool',
-        'uses' => 'HomeController@sundayschool',
-    ]);
-
-    Route::get('youth', [
-        'as' => 'youth',
-        'uses' => 'HomeController@youth',
+    Route::get('video', [
+        'as' => 'video',
+        'uses' => 'HomeController@video',
     ]);
 });
 

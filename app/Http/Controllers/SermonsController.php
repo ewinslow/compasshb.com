@@ -4,6 +4,7 @@ namespace CompassHB\Www\Http\Controllers;
 
 use Auth;
 use Input;
+use Request;
 use CompassHB\Www\Series;
 use CompassHB\Www\Sermon;
 use CompassHB\Www\Http\Requests\SermonRequest;
@@ -89,6 +90,12 @@ class SermonsController extends Controller
      */
     public function show(Sermon $sermon, VideoRepository $video)
     {
+        // Reserve /sermon URL for main service
+        if (substr(Request::path(), 0, 8) === 'sermons/' &&
+            $sermon->ministry !== null) {
+            return redirect('/videos/'.$sermon->slug);
+        }
+
         $video->setUrl($sermon->video);
         $texttrack = $video->getTextTracks(true);
         $sermon->iframe = $video->getEmbedCode(true);
